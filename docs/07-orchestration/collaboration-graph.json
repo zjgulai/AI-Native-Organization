@@ -1,0 +1,2384 @@
+{
+  "artifact_kind": "approved_autonomous_business_collaboration_design_not_runtime_configuration",
+  "version": "1.1",
+  "roles": [
+    {
+      "id": "AGT-001",
+      "title": "经营目标与资源统筹",
+      "group": "经营与组织"
+    },
+    {
+      "id": "AGT-002",
+      "title": "场景自主编排与异常协调",
+      "group": "经营与组织"
+    },
+    {
+      "id": "AGT-003",
+      "title": "经营分析与决策支持",
+      "group": "经营与组织"
+    },
+    {
+      "id": "AGT-004",
+      "title": "组织能力与人事行政",
+      "group": "经营与组织"
+    },
+    {
+      "id": "AGT-005",
+      "title": "内控审计与独立复核",
+      "group": "经营与组织"
+    },
+    {
+      "id": "AGT-006",
+      "title": "消费者需求与VOC研究",
+      "group": "产品与创新"
+    },
+    {
+      "id": "AGT-007",
+      "title": "市场竞争与机会研究",
+      "group": "产品与创新"
+    },
+    {
+      "id": "AGT-008",
+      "title": "产品组合与新品孵化",
+      "group": "产品与创新"
+    },
+    {
+      "id": "AGT-009",
+      "title": "产品定义与商业立项",
+      "group": "产品与创新"
+    },
+    {
+      "id": "AGT-010",
+      "title": "工业设计与用户体验",
+      "group": "产品与创新"
+    },
+    {
+      "id": "AGT-011",
+      "title": "硬件结构与材料工程",
+      "group": "产品与创新"
+    },
+    {
+      "id": "AGT-012",
+      "title": "软件算法与应用生态",
+      "group": "产品与创新"
+    },
+    {
+      "id": "AGT-013",
+      "title": "产品验证与研发项目",
+      "group": "产品与创新"
+    },
+    {
+      "id": "AGT-014",
+      "title": "OEM供应商开发与协同",
+      "group": "供应与履约"
+    },
+    {
+      "id": "AGT-015",
+      "title": "采购与合同履约",
+      "group": "供应与履约"
+    },
+    {
+      "id": "AGT-016",
+      "title": "需求预测与补货计划",
+      "group": "供应与履约"
+    },
+    {
+      "id": "AGT-017",
+      "title": "库存与商品生命周期",
+      "group": "供应与履约"
+    },
+    {
+      "id": "AGT-018",
+      "title": "生产协同与质量控制",
+      "group": "供应与履约"
+    },
+    {
+      "id": "AGT-019",
+      "title": "跨境物流与关务",
+      "group": "供应与履约"
+    },
+    {
+      "id": "AGT-020",
+      "title": "仓储履约与退货处置",
+      "group": "供应与履约"
+    },
+    {
+      "id": "AGT-021",
+      "title": "Amazon业务经营",
+      "group": "渠道经营"
+    },
+    {
+      "id": "AGT-022",
+      "title": "Amazon商品与搜索运营",
+      "group": "渠道经营"
+    },
+    {
+      "id": "AGT-023",
+      "title": "独立站经营与转化",
+      "group": "渠道经营"
+    },
+    {
+      "id": "AGT-024",
+      "title": "其他平台与新市场经营",
+      "group": "渠道经营"
+    },
+    {
+      "id": "AGT-025",
+      "title": "零售渠道与B2B拓展",
+      "group": "渠道经营"
+    },
+    {
+      "id": "AGT-026",
+      "title": "定价促销与商品组合",
+      "group": "渠道经营"
+    },
+    {
+      "id": "AGT-027",
+      "title": "店铺账号健康与规则",
+      "group": "渠道经营"
+    },
+    {
+      "id": "AGT-028",
+      "title": "本地化与市场适配",
+      "group": "渠道经营"
+    },
+    {
+      "id": "AGT-029",
+      "title": "品牌战略与传播",
+      "group": "品牌与增长"
+    },
+    {
+      "id": "AGT-030",
+      "title": "内容与创意策划",
+      "group": "品牌与增长"
+    },
+    {
+      "id": "AGT-031",
+      "title": "视觉视频与素材生产",
+      "group": "品牌与增长"
+    },
+    {
+      "id": "AGT-032",
+      "title": "效果广告投放",
+      "group": "品牌与增长"
+    },
+    {
+      "id": "AGT-033",
+      "title": "达人与联盟合作",
+      "group": "品牌与增长"
+    },
+    {
+      "id": "AGT-034",
+      "title": "CRM留存与复购",
+      "group": "品牌与增长"
+    },
+    {
+      "id": "AGT-035",
+      "title": "增长实验与增量评估",
+      "group": "品牌与增长"
+    },
+    {
+      "id": "AGT-036",
+      "title": "售前服务与购买指导",
+      "group": "服务与体验"
+    },
+    {
+      "id": "AGT-037",
+      "title": "售后客诉与服务补救",
+      "group": "服务与体验"
+    },
+    {
+      "id": "AGT-038",
+      "title": "体验洞察与质量反馈",
+      "group": "服务与体验"
+    },
+    {
+      "id": "AGT-039",
+      "title": "用户教育与会员社区",
+      "group": "服务与体验"
+    },
+    {
+      "id": "AGT-040",
+      "title": "GMV结算与会计对账",
+      "group": "财务与合规"
+    },
+    {
+      "id": "AGT-041",
+      "title": "经营财务与资金",
+      "group": "财务与合规"
+    },
+    {
+      "id": "AGT-042",
+      "title": "税务与跨境实体协作",
+      "group": "财务与合规"
+    },
+    {
+      "id": "AGT-043",
+      "title": "法务与知识产权",
+      "group": "财务与合规"
+    },
+    {
+      "id": "AGT-044",
+      "title": "产品合规与隐私",
+      "group": "财务与合规"
+    },
+    {
+      "id": "AGT-045",
+      "title": "业务口径与主数据",
+      "group": "数据与AI运行"
+    },
+    {
+      "id": "AGT-046",
+      "title": "数据工程与质量",
+      "group": "数据与AI运行"
+    },
+    {
+      "id": "AGT-047",
+      "title": "系统集成与业务工具",
+      "group": "数据与AI运行"
+    },
+    {
+      "id": "AGT-048",
+      "title": "知识技能与Playbook治理",
+      "group": "数据与AI运行"
+    },
+    {
+      "id": "AGT-049",
+      "title": "Agent平台与可靠运行",
+      "group": "数据与AI运行"
+    },
+    {
+      "id": "AGT-050",
+      "title": "信息安全与权限",
+      "group": "数据与AI运行"
+    }
+  ],
+  "flows": [
+    {
+      "id": "FLOW-01",
+      "title": "存量GMV增长：投放、价格、库存联动",
+      "owner": "AGT-021",
+      "members": [
+        "AGT-002",
+        "AGT-003",
+        "AGT-016",
+        "AGT-017",
+        "AGT-021",
+        "AGT-022",
+        "AGT-023",
+        "AGT-024",
+        "AGT-025",
+        "AGT-026",
+        "AGT-027",
+        "AGT-028",
+        "AGT-030",
+        "AGT-031",
+        "AGT-032",
+        "AGT-035",
+        "AGT-040",
+        "AGT-041",
+        "AGT-045"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-007",
+        "SCN-009",
+        "SCN-010",
+        "SCN-011",
+        "SCN-013",
+        "SCN-016",
+        "SCN-018"
+      ],
+      "result": "在已确认范围内形成、执行和复核一份联合经营行动包",
+      "note": "按渠道实例将AGT-021、AGT-023、AGT-024或AGT-025之一设为AI结果负责人；AGT-002依据场景策略动态编队。",
+      "playbook": "PB-001",
+      "orchestrator": "AGT-002",
+      "autonomy": {
+        "normal_human_step": false,
+        "default_outcome_owner": "AGT-021",
+        "unhandled_exception": "freeze_affected_scope_and_record"
+      }
+    },
+    {
+      "id": "FLOW-02",
+      "title": "新品：需求证据到商业验证",
+      "owner": "AGT-008",
+      "members": [
+        "AGT-001",
+        "AGT-002",
+        "AGT-006",
+        "AGT-007",
+        "AGT-008",
+        "AGT-009",
+        "AGT-010",
+        "AGT-011",
+        "AGT-012",
+        "AGT-013",
+        "AGT-014",
+        "AGT-018",
+        "AGT-021",
+        "AGT-024",
+        "AGT-028",
+        "AGT-029",
+        "AGT-030",
+        "AGT-031",
+        "AGT-033",
+        "AGT-035",
+        "AGT-038",
+        "AGT-039",
+        "AGT-041",
+        "AGT-043",
+        "AGT-044",
+        "AGT-048"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-003",
+        "SCN-004",
+        "SCN-005",
+        "SCN-006",
+        "SCN-009",
+        "SCN-012",
+        "SCN-013"
+      ],
+      "result": "得到有证据的继续、转向或停止决定",
+      "note": "实物、临床或适用合规验证通过经策略选定的受控执行主体或外部系统取得证据；Agent不把文档当作实物回执。",
+      "playbook": "PB-002",
+      "orchestrator": "AGT-002",
+      "autonomy": {
+        "normal_human_step": false,
+        "default_outcome_owner": "AGT-008",
+        "unhandled_exception": "freeze_affected_scope_and_record"
+      }
+    },
+    {
+      "id": "FLOW-03",
+      "title": "供需：补货、采购与交付",
+      "owner": "AGT-016",
+      "members": [
+        "AGT-002",
+        "AGT-014",
+        "AGT-015",
+        "AGT-016",
+        "AGT-017",
+        "AGT-018",
+        "AGT-019",
+        "AGT-020",
+        "AGT-021",
+        "AGT-026",
+        "AGT-040",
+        "AGT-041",
+        "AGT-042"
+      ],
+      "scenarios": [
+        "SCN-006",
+        "SCN-007",
+        "SCN-008",
+        "SCN-010",
+        "SCN-014",
+        "SCN-016",
+        "SCN-017"
+      ],
+      "result": "批准的供应计划与实际到货、可售库存对齐",
+      "note": "库存预留和采购承诺只复用业务系统权威记录与回执，不由会话状态判断。",
+      "playbook": "PB-003",
+      "orchestrator": "AGT-002",
+      "autonomy": {
+        "normal_human_step": false,
+        "default_outcome_owner": "AGT-016",
+        "unhandled_exception": "freeze_affected_scope_and_record"
+      }
+    },
+    {
+      "id": "FLOW-04",
+      "title": "新市场、新渠道与合规上架",
+      "owner": "AGT-024",
+      "members": [
+        "AGT-002",
+        "AGT-007",
+        "AGT-009",
+        "AGT-019",
+        "AGT-021",
+        "AGT-022",
+        "AGT-023",
+        "AGT-024",
+        "AGT-025",
+        "AGT-027",
+        "AGT-028",
+        "AGT-029",
+        "AGT-030",
+        "AGT-031",
+        "AGT-033",
+        "AGT-036",
+        "AGT-042",
+        "AGT-043",
+        "AGT-044",
+        "AGT-050"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-005",
+        "SCN-008",
+        "SCN-009",
+        "SCN-012",
+        "SCN-014",
+        "SCN-018"
+      ],
+      "result": "在合法有效授权和履约条件下验证市场进入",
+      "note": "其余20%渠道构成未明，按真实平台、账号和动作策略实例化。",
+      "playbook": "PB-004",
+      "orchestrator": "AGT-002",
+      "autonomy": {
+        "normal_human_step": false,
+        "default_outcome_owner": "AGT-024",
+        "unhandled_exception": "freeze_affected_scope_and_record"
+      }
+    },
+    {
+      "id": "FLOW-05",
+      "title": "客户旅程：服务、留存与复购",
+      "owner": "AGT-034",
+      "members": [
+        "AGT-002",
+        "AGT-006",
+        "AGT-020",
+        "AGT-023",
+        "AGT-028",
+        "AGT-029",
+        "AGT-034",
+        "AGT-035",
+        "AGT-036",
+        "AGT-037",
+        "AGT-038",
+        "AGT-039",
+        "AGT-040",
+        "AGT-044"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-012",
+        "SCN-013",
+        "SCN-014",
+        "SCN-015",
+        "SCN-016"
+      ],
+      "result": "客户问题被解决，并验证相关复购改善",
+      "note": "重大质量事件转FLOW-07；退款与触达分别由受控动作策略和回执校验。",
+      "playbook": "PB-005",
+      "orchestrator": "AGT-002",
+      "autonomy": {
+        "normal_human_step": false,
+        "default_outcome_owner": "AGT-034",
+        "unhandled_exception": "freeze_affected_scope_and_record"
+      }
+    },
+    {
+      "id": "FLOW-06",
+      "title": "需求到数据产品与业务工具",
+      "owner": "AGT-047",
+      "members": [
+        "AGT-002",
+        "AGT-003",
+        "AGT-021",
+        "AGT-023",
+        "AGT-040",
+        "AGT-044",
+        "AGT-045",
+        "AGT-046",
+        "AGT-047",
+        "AGT-048",
+        "AGT-049",
+        "AGT-050"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-016",
+        "SCN-020"
+      ],
+      "result": "业务认可口径、数据质量和工具闭环",
+      "note": "AGT-047负责工具交付，AGT-045维护数据契约，经营验收由工单定义的AI结果负责人和独立复核机制完成。",
+      "playbook": "PB-006",
+      "orchestrator": "AGT-002",
+      "autonomy": {
+        "normal_human_step": false,
+        "default_outcome_owner": "AGT-047",
+        "unhandled_exception": "freeze_affected_scope_and_record"
+      }
+    },
+    {
+      "id": "FLOW-07",
+      "title": "质量和账号重大事件处理",
+      "owner": "AGT-018",
+      "members": [
+        "AGT-002",
+        "AGT-005",
+        "AGT-011",
+        "AGT-012",
+        "AGT-013",
+        "AGT-014",
+        "AGT-017",
+        "AGT-018",
+        "AGT-020",
+        "AGT-021",
+        "AGT-027",
+        "AGT-029",
+        "AGT-036",
+        "AGT-037",
+        "AGT-038",
+        "AGT-041",
+        "AGT-043",
+        "AGT-044",
+        "AGT-050"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-005",
+        "SCN-006",
+        "SCN-014",
+        "SCN-015",
+        "SCN-018"
+      ],
+      "result": "事件范围、处置、根因和恢复证据闭合",
+      "note": "账号事件可指定AGT-027负责该实例；召回等处置只走已配置质量动作策略，未配置时冻结受影响范围。",
+      "playbook": "PB-007",
+      "orchestrator": "AGT-002",
+      "autonomy": {
+        "normal_human_step": false,
+        "default_outcome_owner": "AGT-018",
+        "unhandled_exception": "freeze_affected_scope_and_record"
+      }
+    },
+    {
+      "id": "FLOW-08",
+      "title": "经营复盘、资源和组织能力更新",
+      "owner": "AGT-001",
+      "members": [
+        "AGT-001",
+        "AGT-002",
+        "AGT-003",
+        "AGT-004",
+        "AGT-005",
+        "AGT-008",
+        "AGT-021",
+        "AGT-029",
+        "AGT-035",
+        "AGT-040",
+        "AGT-041",
+        "AGT-042",
+        "AGT-043",
+        "AGT-045",
+        "AGT-048",
+        "AGT-049",
+        "AGT-050"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-003",
+        "SCN-016",
+        "SCN-017",
+        "SCN-019",
+        "SCN-020"
+      ],
+      "result": "形成有依据的资源与能力版本变更决定",
+      "note": "资源、技能和长期策略变更使用版本化动作策略；无适用策略时记录建议并冻结相关写入。",
+      "playbook": "PB-008",
+      "orchestrator": "AGT-002",
+      "autonomy": {
+        "normal_human_step": false,
+        "default_outcome_owner": "AGT-001",
+        "unhandled_exception": "freeze_affected_scope_and_record"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "AGT-002",
+      "to": "FLOW-01",
+      "type": "autonomous_dispatch"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-01",
+      "type": "case_owner"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-003",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-016",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-017",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-022",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-023",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-024",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-025",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-026",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-027",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-030",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-031",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-032",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-045",
+      "to": "FLOW-01",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-02",
+      "type": "autonomous_dispatch"
+    },
+    {
+      "from": "AGT-008",
+      "to": "FLOW-02",
+      "type": "case_owner"
+    },
+    {
+      "from": "AGT-001",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-006",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-007",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-008",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-009",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-010",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-011",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-012",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-013",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-014",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-018",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-024",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-030",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-031",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-033",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-038",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-039",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-043",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-048",
+      "to": "FLOW-02",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-03",
+      "type": "autonomous_dispatch"
+    },
+    {
+      "from": "AGT-016",
+      "to": "FLOW-03",
+      "type": "case_owner"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-014",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-015",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-016",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-017",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-018",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-019",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-020",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-026",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-042",
+      "to": "FLOW-03",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-04",
+      "type": "autonomous_dispatch"
+    },
+    {
+      "from": "AGT-024",
+      "to": "FLOW-04",
+      "type": "case_owner"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-007",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-009",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-019",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-022",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-023",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-024",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-025",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-027",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-030",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-031",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-033",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-036",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-042",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-043",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-050",
+      "to": "FLOW-04",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-05",
+      "type": "autonomous_dispatch"
+    },
+    {
+      "from": "AGT-034",
+      "to": "FLOW-05",
+      "type": "case_owner"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-006",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-020",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-023",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-034",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-036",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-037",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-038",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-039",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-05",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-06",
+      "type": "autonomous_dispatch"
+    },
+    {
+      "from": "AGT-047",
+      "to": "FLOW-06",
+      "type": "case_owner"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-003",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-023",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-045",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-046",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-047",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-048",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-049",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-050",
+      "to": "FLOW-06",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-07",
+      "type": "autonomous_dispatch"
+    },
+    {
+      "from": "AGT-018",
+      "to": "FLOW-07",
+      "type": "case_owner"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-005",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-011",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-012",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-013",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-014",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-017",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-018",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-020",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-027",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-036",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-037",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-038",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-043",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-050",
+      "to": "FLOW-07",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-08",
+      "type": "autonomous_dispatch"
+    },
+    {
+      "from": "AGT-001",
+      "to": "FLOW-08",
+      "type": "case_owner"
+    },
+    {
+      "from": "AGT-001",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-003",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-004",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-005",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-008",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-042",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-043",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-045",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-048",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-049",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-050",
+      "to": "FLOW-08",
+      "type": "capability_participation"
+    },
+    {
+      "from": "AGT-001",
+      "to": "AGT-003",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-001",
+      "to": "AGT-008",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-001",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-001",
+      "to": "AGT-041",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-002",
+      "to": "AGT-001",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-002",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-002",
+      "to": "AGT-047",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-002",
+      "to": "AGT-049",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-003",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-003",
+      "to": "AGT-035",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-003",
+      "to": "AGT-040",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-003",
+      "to": "AGT-045",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-004",
+      "to": "AGT-001",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-004",
+      "to": "AGT-005",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-004",
+      "to": "AGT-048",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-004",
+      "to": "AGT-050",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-005",
+      "to": "AGT-003",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-005",
+      "to": "AGT-040",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-005",
+      "to": "AGT-043",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-005",
+      "to": "AGT-050",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-006",
+      "to": "AGT-007",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-006",
+      "to": "AGT-009",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-006",
+      "to": "AGT-038",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-006",
+      "to": "AGT-039",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-007",
+      "to": "AGT-006",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-007",
+      "to": "AGT-008",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-007",
+      "to": "AGT-024",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-007",
+      "to": "AGT-043",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-008",
+      "to": "AGT-001",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-008",
+      "to": "AGT-006",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-008",
+      "to": "AGT-009",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-008",
+      "to": "AGT-035",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-009",
+      "to": "AGT-006",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-009",
+      "to": "AGT-008",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-009",
+      "to": "AGT-010",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-009",
+      "to": "AGT-013",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-010",
+      "to": "AGT-009",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-010",
+      "to": "AGT-011",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-010",
+      "to": "AGT-013",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-010",
+      "to": "AGT-038",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-011",
+      "to": "AGT-009",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-011",
+      "to": "AGT-013",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-011",
+      "to": "AGT-014",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-011",
+      "to": "AGT-018",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-012",
+      "to": "AGT-009",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-012",
+      "to": "AGT-013",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-012",
+      "to": "AGT-044",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-012",
+      "to": "AGT-049",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-013",
+      "to": "AGT-009",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-013",
+      "to": "AGT-011",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-013",
+      "to": "AGT-012",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-013",
+      "to": "AGT-018",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-014",
+      "to": "AGT-011",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-014",
+      "to": "AGT-015",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-014",
+      "to": "AGT-018",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-014",
+      "to": "AGT-043",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-015",
+      "to": "AGT-014",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-015",
+      "to": "AGT-016",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-015",
+      "to": "AGT-018",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-015",
+      "to": "AGT-041",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-016",
+      "to": "AGT-017",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-016",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-016",
+      "to": "AGT-032",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-016",
+      "to": "AGT-041",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-017",
+      "to": "AGT-016",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-017",
+      "to": "AGT-020",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-017",
+      "to": "AGT-026",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-017",
+      "to": "AGT-040",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-018",
+      "to": "AGT-011",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-018",
+      "to": "AGT-013",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-018",
+      "to": "AGT-014",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-018",
+      "to": "AGT-037",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-019",
+      "to": "AGT-015",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-019",
+      "to": "AGT-016",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-019",
+      "to": "AGT-020",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-019",
+      "to": "AGT-042",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-020",
+      "to": "AGT-017",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-020",
+      "to": "AGT-019",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-020",
+      "to": "AGT-037",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-020",
+      "to": "AGT-040",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-021",
+      "to": "AGT-016",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-021",
+      "to": "AGT-022",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-021",
+      "to": "AGT-026",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-021",
+      "to": "AGT-032",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-022",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-022",
+      "to": "AGT-028",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-022",
+      "to": "AGT-030",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-022",
+      "to": "AGT-044",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-023",
+      "to": "AGT-026",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-023",
+      "to": "AGT-031",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-023",
+      "to": "AGT-034",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-023",
+      "to": "AGT-035",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-024",
+      "to": "AGT-007",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-024",
+      "to": "AGT-025",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-024",
+      "to": "AGT-028",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-024",
+      "to": "AGT-044",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-025",
+      "to": "AGT-014",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-025",
+      "to": "AGT-019",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-025",
+      "to": "AGT-024",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-025",
+      "to": "AGT-043",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-026",
+      "to": "AGT-017",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-026",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-026",
+      "to": "AGT-023",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-026",
+      "to": "AGT-041",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-027",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-027",
+      "to": "AGT-022",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-027",
+      "to": "AGT-043",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-027",
+      "to": "AGT-050",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-028",
+      "to": "AGT-022",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-028",
+      "to": "AGT-024",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-028",
+      "to": "AGT-029",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-028",
+      "to": "AGT-044",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-029",
+      "to": "AGT-006",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-029",
+      "to": "AGT-028",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-029",
+      "to": "AGT-030",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-029",
+      "to": "AGT-039",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-030",
+      "to": "AGT-006",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-030",
+      "to": "AGT-022",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-030",
+      "to": "AGT-029",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-030",
+      "to": "AGT-031",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-031",
+      "to": "AGT-010",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-031",
+      "to": "AGT-023",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-031",
+      "to": "AGT-030",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-031",
+      "to": "AGT-044",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-032",
+      "to": "AGT-016",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-032",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-032",
+      "to": "AGT-026",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-032",
+      "to": "AGT-035",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-033",
+      "to": "AGT-024",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-033",
+      "to": "AGT-029",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-033",
+      "to": "AGT-030",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-033",
+      "to": "AGT-043",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-034",
+      "to": "AGT-023",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-034",
+      "to": "AGT-035",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-034",
+      "to": "AGT-037",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-034",
+      "to": "AGT-039",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-035",
+      "to": "AGT-003",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-035",
+      "to": "AGT-008",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-035",
+      "to": "AGT-023",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-035",
+      "to": "AGT-032",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-036",
+      "to": "AGT-022",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-036",
+      "to": "AGT-028",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-036",
+      "to": "AGT-037",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-036",
+      "to": "AGT-044",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-037",
+      "to": "AGT-018",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-037",
+      "to": "AGT-020",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-037",
+      "to": "AGT-038",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-037",
+      "to": "AGT-041",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-038",
+      "to": "AGT-006",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-038",
+      "to": "AGT-013",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-038",
+      "to": "AGT-018",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-038",
+      "to": "AGT-037",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-039",
+      "to": "AGT-006",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-039",
+      "to": "AGT-029",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-039",
+      "to": "AGT-034",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-039",
+      "to": "AGT-036",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-040",
+      "to": "AGT-003",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-040",
+      "to": "AGT-020",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-040",
+      "to": "AGT-041",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-040",
+      "to": "AGT-045",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-041",
+      "to": "AGT-001",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-041",
+      "to": "AGT-015",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-041",
+      "to": "AGT-026",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-041",
+      "to": "AGT-040",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-042",
+      "to": "AGT-019",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-042",
+      "to": "AGT-025",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-042",
+      "to": "AGT-040",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-042",
+      "to": "AGT-043",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-043",
+      "to": "AGT-007",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-043",
+      "to": "AGT-014",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-043",
+      "to": "AGT-025",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-043",
+      "to": "AGT-029",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-044",
+      "to": "AGT-009",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-044",
+      "to": "AGT-013",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-044",
+      "to": "AGT-028",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-044",
+      "to": "AGT-050",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-045",
+      "to": "AGT-003",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-045",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-045",
+      "to": "AGT-040",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-045",
+      "to": "AGT-046",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-046",
+      "to": "AGT-045",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-046",
+      "to": "AGT-047",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-046",
+      "to": "AGT-049",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-046",
+      "to": "AGT-050",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-047",
+      "to": "AGT-002",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-047",
+      "to": "AGT-021",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-047",
+      "to": "AGT-046",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-047",
+      "to": "AGT-050",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-048",
+      "to": "AGT-004",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-048",
+      "to": "AGT-013",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-048",
+      "to": "AGT-035",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-048",
+      "to": "AGT-049",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-049",
+      "to": "AGT-002",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-049",
+      "to": "AGT-047",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-049",
+      "to": "AGT-048",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-049",
+      "to": "AGT-050",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-050",
+      "to": "AGT-005",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-050",
+      "to": "AGT-044",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-050",
+      "to": "AGT-046",
+      "type": "declared_collaboration"
+    },
+    {
+      "from": "AGT-050",
+      "to": "AGT-049",
+      "type": "declared_collaboration"
+    }
+  ],
+  "operating_model": {
+    "mode": "agent_autonomous_policy_bound",
+    "orchestrator": "AGT-002",
+    "team_formation": "dynamic_capability_matching",
+    "routine_human_owner": "deferred",
+    "hitl": "deferred",
+    "production_authorized": false,
+    "unhandled_exception": "freeze_affected_scope_and_record"
+  }
+}
