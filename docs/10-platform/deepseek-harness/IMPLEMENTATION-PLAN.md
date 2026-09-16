@@ -1,6 +1,6 @@
 # DeepSeek Harness 框架落实方案
 
-状态：D-020至D-029架构方向已确认，尚未配置或上线。目标是让单Case Agent按50个Role Profiles和八阶段协议，通过MCP、native tools、API和hooks连接业务系统，并以工具UI/UX承载日常工作；Flow-07 Emergency Guard位于Harness模型运行之外。模型侧仅产出Action Intent，模型外Policy Gate与Execution Broker控制资产执行和Service Identity。不生成未经目标版本和schema验证的配置。
+状态：D-020至D-029架构方向已确认，D-053与ADR-0012进一步确认50个独立Role Preset与受控Lead/Worker组队，尚未配置或上线。目标是让每个岗位Preset可独立完成边界清晰的岗位任务，也能在复杂Case中通过ArtifactEnvelope协作；Flow-07 Emergency Guard位于Harness模型运行之外。模型侧仅产出Action Intent，模型外Policy Gate与Execution Broker控制资产执行和Service Identity。不生成未经目标版本和schema验证的配置。
 
 ## 最小组成
 
@@ -9,7 +9,7 @@
 | 系统-of-record | 订单、商品、库存、预算、质量和身份的权威记录 | RootData、ERP、PLM、QMS、WMS、TMS、Amazon、Shopify、CRM等已盘点资产 | 补最小接口契约，不复制全套业务系统 |
 | 场景控制 | 信号、Case、八阶段状态、Bundle固定、上下文装配、策略、幂等、回执和自治异常账 | 已有任务、审批、编排或记录服务 | 一个持久化Case/Event Ledger，不能用会话代替 |
 | FLOW-07紧急保护 | 权威信号核验、确定性Guard、Policy、STG-02本地事务、Emergency Outbox、幂等派发与权威对账 | 现有事件、策略、事务Outbox与执行服务 | 位于模型外；规则未完整匹配时不执行，不能由Harness Prompt或Skill放宽 |
-| Harness执行 | 单Case Agent会话、按需Skills、窄范围只读Delegate和受限工具调用 | 目标DSH部署及已验证插件 | 按Case与五契约装配角色资产 |
+| Harness执行 | 独立Role Preset会话、Lead/Worker受控组队、按需Skills、窄范围只读Delegate和受限工具调用 | 目标DSH部署及已验证插件 | 按岗位或Case与五契约装配角色资产 |
 | 工具平面 | 读取、确定性校验、写入、外部发起、回执与恢复 | native tools、MCP、API adapter和hooks | 每一项进入能力登记册并绑定策略 |
 | 工具工作台 | 工单、调用、策略、回执、异常和结果的工作卡 | Harness Host和现有经营入口 | 展示不承担权限、状态或审计权威性 |
 
@@ -25,6 +25,16 @@
 | 动作策略 | 业务控制服务及工具guard | 目标系统是否可服务端校验范围、幂等和回执 |
 | 工具UI/UX | tool call/result卡及场景视图 | Host展示、脱敏、访问控制和异常可视化 |
 | 能力包 | 既有193/46个Agent的技能、知识、工具和评估 | 质量、重复度、权限和成本的实际盘点 |
+
+## 独立岗位Preset与组队装配
+
+每个岗位都生成一份独立Preset Blueprint，但Blueprint不是DSH导入文件。独立Preset必须至少固定：Role Profile、Role Playbook、技能描述、完成产物、评估集、Access Contract、可见工具类别、记忆边界和版本状态。复杂Case由模型外Case Control读取价值流与阶段规则，选择一个Lead和零个或多个Worker；Worker只消费已验收的Stage Artifact并返回ArtifactEnvelope，Case结果仍只有一个责任归属。
+
+| 运行模式 | 入口 | 结果责任 | 允许协同 | 禁止事项 |
+| --- | --- | --- | --- | --- |
+| `standalone_role_preset` | 独立任务合同 | 当前岗位对主产物负责 | 交给指定验收者或发起新关联Case | 越权、无策略写入、把建议当回执 |
+| `lead_case_preset` | Case Charter + 固定Bundle | Lead对整张Case负责 | 按阶段装配Worker并接收ArtifactEnvelope | 让Worker改变Case范围或权限 |
+| `bounded_role_worker` | 已验收Stage Artifact | Worker对增量产物负责 | 返回带来源/版本/Hash的产物 | 隐式共享会话、自由互聊、再委派 |
 
 本机资料说明子Agent使用父方组装，因此不同人格不是权限隔离。首版Delegate仅限最小输入的只读、自包含任务，并通过类型化结果回到主Case；敏感边界仍需要工具scope和服务端动作策略。已核实的workflow不提供检查点和重启续跑，跨天采购、质量、补货或外部事件不能只由workflow承载。
 
@@ -42,10 +52,10 @@ MCP仅被本机资料证明为tools桥接；不能假设resources或prompts可�
 
 ## 配置制作步骤
 
-1. **核实目标环境。** 从企业品牌AI平台导出实际运行的基础profile，确认产品身份、Harness/插件版本、工具Host、配置schema、身份托管和审计位置。企业材料的2.0.4说明与本机0.1.2-rc.1安装包不能互相代替。
+1. **核实目标环境。** 从企业品牌AI平台导出实际运行的基础profile，确认产品身份、Harness/插件版本、工具Host、配置schema、身份托管和审计位置。企业材料的2.0.4说明、本机0.1.2-rc.1应用包和本机CLI 0.1.5-rc.1不能互相代替。
 2. **建立能力登记册。** 为每个系统动作记录对象范围、服务身份、读写类型、schema、限流、策略、幂等、回执、恢复和评估状态。
 3. **当前只设计治理底座，未来先建立绿地事实再接只读经营数据。** D-051把当前工作限定为`SHOP-G1`治理方案。未来另行授权后，才按D-050为Shopify空白新店建立Shop、Product、Variant、SKU、价格、库存、合规、市场和交易配置的权威记录；产品上线后于`SHOP-G6`采用D-036专用Dev Dashboard App和[只读连接器登记契约](SHOPIFY-READONLY-CONNECTOR-REGISTRATION.md)。D-037的`client_credentials`、模型外Connector/Token Broker和五项只读Scope保持不变。连续30个完整销售日后才装配订单、退款、报表和`gross_sales`数据集。App创建、版本发布、安装、Token交换和Scope读回均未执行，因此不创建貌似可运行的Harness配置。
-4. **装配单Case Agent。** 将50岗位卡、五契约Bundle、Playbook和能力包映射到目标版本允许的preset/skills；Case Control只向一张Case暴露一个主岗位人格、必要Skill描述和契约允许的工具。
+4. **装配独立岗位Preset与Case组队。** 将50份Role Profile、Role Playbook、五契约Bundle、Preset Blueprint和能力包映射到目标版本允许的preset/skills；独立任务使用standalone_role_preset，复杂Case由Case Control选择一个Lead并按需启动bounded_role_worker，通过ArtifactEnvelope收发产物。所有运行实例、阶段、范围和版本进入Case/Event Ledger。
 5. **建立动作策略。** 每种可写动作声明角色、场景、品牌/市场/账号/商品范围、参数、预算/约束、有效期、幂等、回执和补偿；策略之外一律冻结。
 6. **编译FLOW-07 Guard规则。** 每条规则固定权威信号、唯一场景、Case Charter、最小范围、保护模板、Policy、TTL、幂等和最大影响边界；验证互斥、过期、事务失败、重复派发、状态不明和恢复禁入。若唯一Case绑定无法成立，只写Pre-Case Exception并冻结信号范围，不创建Guard Decision、残缺Case或动作记录；零匹配Guard Decision不含规则或Case引用。事务提交结果未知时先以Pre-Case Exception查询账本，证明Case存在后才进入Case异常。规则由业务控制层发布，不进入模型Prompt。
 7. **注册工具与事件。** 按真实schema接入native tools、MCP、API adapter和hooks；用工具scope、guard和受控后端共同实现拒绝，而不是靠提示词。
@@ -59,7 +69,7 @@ MCP仅被本机资料证明为tools桥接；不能假设resources或prompts可�
 
 动作策略包含：策略ID/版本、适用角色/场景、目标对象范围、参数约束、预算/经营约束、有效期、幂等要求、允许工具、回执查询、补偿和冻结规则。
 
-动作记录包含：工单ID、来源类型与引用、目标对象、动作及参数摘要、预期对象版本、策略引用、幂等键、请求状态、外部回执、实际效果和恢复记录。正常来源是Case Agent的STG-07 Attempt；紧急来源只能是Emergency Guard的固定模板，并额外绑定Guard Decision、TTL、最大影响和Emergency Outbox。参数或范围变化后必须重新校验；一个会话中的“同意”不能扩展到其他账号、金额和商品。
+动作记录包含：工单ID、来源类型与引用、目标对象、动作及参数摘要、预期对象版本、策略引用、幂等键、请求状态、外部回执、实际效果和恢复记录。正常来源是Lead Preset的STG-07 Attempt；紧急来源只能是Emergency Guard的固定模板，并额外绑定Guard Decision、TTL、最大影响和Emergency Outbox。参数或范围变化后必须重新校验；一个会话中的“同意”不能扩展到其他账号、金额和商品。
 
 统一状态流仍为：信号接收→范围与建单→上下文装配→证据与诊断→方案产物→Assurance门禁→受控动作→回执核验与关闭；等待、返工、冻结、补偿和恢复是明确分支。FLOW-07的紧急保护只是在已接收STG-01信号与STG-02建单事务之间增加模型外固定保护分支，不是第九阶段；紧急Attempt最终在STG-08一并核对。执行超时不能直接变成“未执行”；先核对外部系统状态。
 

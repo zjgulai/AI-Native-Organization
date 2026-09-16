@@ -1,8 +1,8 @@
 # 50 个 AI 岗位与人格总表
 
-状态：50个岗位的业务责任基线保留；运行语义已由D-020和ADR-0003升级。50表示逻辑Role Profiles，不是50个运行Agent；每张场景工单由一个Case Agent绑定一个主岗位人格，其他岗位贡献按需Skills。下表按8个责任域呈现正交业务视角；D-021确认的四平面主视角见[50岗位AI组织责任图](../04-organization/AI-ORGANIZATION-MAP.md)。岗位能力、数据和动作权限仍须逐项验证。
+状态：D-053与ADR-0012已确认50个独立数字分身的设计语义。每个岗位拥有独立Role Playbook和Preset Blueprint，可单独接收任务，也可在复杂Case中作为Lead或Worker参与；一张Case仍只有一个结果负责人，Worker通过ArtifactEnvelope交接。下表按8个责任域呈现正交业务视角；D-021确认的四平面主视角见[50岗位AI组织责任图](../04-organization/AI-ORGANIZATION-MAP.md)。岗位能力、数据和动作权限仍须逐项验证。
 
-每个别名用于识别稳定工作风格；人格不扩大权限。业务能力名称为待落实需求，当前未证明已接入企业系统。
+每个别名用于识别稳定工作风格；人格不扩大权限。50份独立Soul Contract位于[roles/souls](roles/souls/)，岗位Playbook位于[role-playbooks](../06-playbooks/role-playbooks/index.json)，Preset Blueprint位于[manifest](../10-platform/deepseek-harness/preset-blueprints/manifest.json)。业务能力名称为设计合同，当前未证明已接入企业系统。
 
 | ID | 责任域 | 分身 | 岗位 | 核心交付 |
 | --- | --- | --- | --- | --- |
@@ -61,4 +61,4 @@
 
 研发、产品、供应链、营销、客服、财务、法务、人事行政、数字化与安全均有AI责任承接。实物研发、现场生产、仓储作业、专业判断及法定责任通过受控系统、供应商或合格外部执行主体完成，AI进行可数字化的判断、协调、记录及策略允许的动作。
 
-人事行政等宽岗位通过多份Playbook处理不同事务；遇到专业技能不足、外部身份缺失或工具不可用时，冻结相关范围或提出能力补充，不自动生成第51个岗位。已确认的50岗位基线将依据真实负荷和冲突情况合并或细分，任何变化保留版本和决定。既有任务型Agent归并方法见[能力资产整合](EXISTING-AGENT-CONSOLIDATION.md)。
+人事行政等宽岗位通过自身Role Playbook中的多项独立任务处理不同事务；遇到专业技能不足、外部身份缺失或工具不可用时，冻结相关范围或提出能力补充，不自动生成第51个岗位。已确认的50岗位基线将依据真实负荷和冲突情况合并或细分，任何变化保留版本和决定。既有任务型Agent归并方法见[能力资产整合](EXISTING-AGENT-CONSOLIDATION.md)。

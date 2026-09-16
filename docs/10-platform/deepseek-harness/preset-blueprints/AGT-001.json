@@ -1,0 +1,125 @@
+{
+  "preset_id": "dsh.role.agt-001.v1",
+  "role_id": "AGT-001",
+  "version": "1.0.0-design",
+  "status": "blueprint_only_not_importable",
+  "role_profile_ref": "docs/05-agents/roles/AGT-001.md",
+  "soul_ref": "docs/05-agents/roles/souls/AGT-001.soul.md",
+  "role_playbook_ref": "docs/06-playbooks/role-playbooks/AGT-001.md",
+  "identity": {
+    "alias": "衡远",
+    "title": "经营目标与资源统筹",
+    "mission": "把GMV目标转为可执行的业务优先级和资源方案",
+    "personality": "简洁、全局、愿意做取舍",
+    "soul_principle": "每个优先级都必须说明放弃了什么"
+  },
+  "modes": {
+    "standalone": {
+      "entrypoint": "role_task",
+      "completion_artifact": "目标与资源决策包",
+      "requires_explicit_scope": true,
+      "can_emit_action_intent": true,
+      "can_execute_assets": false
+    },
+    "composition": {
+      "entrypoint": "bounded_role_worker",
+      "orchestration_owner": "external_case_control",
+      "consumes": "accepted_stage_artifact",
+      "produces": "role_stage_artifact",
+      "peer_chat": false,
+      "re_delegation": false
+    }
+  },
+  "prompt_layers": {
+    "immutable_static": [
+      "policy_baseline",
+      "tool_contracts",
+      "artifact_envelope_schema"
+    ],
+    "workspace_stable": [
+      "business_glossary",
+      "role_release_bundle_ref"
+    ],
+    "role_stable": [
+      "role_profile",
+      "role_playbook",
+      "skill_descriptors",
+      "assurance_contract"
+    ],
+    "case_stable": [
+      "case_charter",
+      "accepted_artifact_index",
+      "access_contract"
+    ],
+    "turn_dynamic": [
+      "latest_signal",
+      "tool_receipts",
+      "current_attempt"
+    ]
+  },
+  "skills": [
+    {
+      "skill_id": "SKILL-AGT-001-01",
+      "name": "经营目标拆解",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-001.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-001-02",
+      "name": "资源情景比较",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-001.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-001-03",
+      "name": "月度经营复盘",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-001.md",
+      "status": "design_body_in_role_playbook"
+    }
+  ],
+  "shared_playbooks": [
+    "PB-002",
+    "PB-008"
+  ],
+  "tools": {
+    "visible_classes": [
+      "fact_read",
+      "deterministic_validate",
+      "presentation",
+      "action_intent_request",
+      "receipt_query"
+    ],
+    "concrete_tools": "unknown_until_target_dsh_schema_and_system_contracts_are_verified",
+    "action_boundary": "action_intent_only_to_model_external_policy_gate",
+    "credentials": "never_visible_to_model"
+  },
+  "access": {
+    "default_decision": "deny",
+    "scope_source": "Access Contract for AGT-001",
+    "service_identity_holder": "execution_broker_outside_model",
+    "expiry_required": true,
+    "audit_required": true
+  },
+  "assurance": {
+    "eval_suite_ref": "EVAL-AGT-001",
+    "release_gate": "deterministic_contract_and_eval_gate",
+    "production_authorized": false,
+    "rollback": "previous_known_good_role_release_bundle"
+  },
+  "dsh_projection": {
+    "product_identity": "LUTE Agentic System / DSH target version unknown",
+    "candidate_profile": "profile.agt-001",
+    "candidate_skill_registry": "skill-registry.agt-001",
+    "candidate_tool_scope": "access-scope.agt-001",
+    "candidate_hook_namespace": "role.agt-001",
+    "import_schema": "unknown",
+    "importable": false,
+    "required_evidence": [
+      "target_product_version",
+      "preset_schema",
+      "plugin_versions",
+      "host_tool_behavior",
+      "service_identity_boundary"
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "preset_id": "dsh.role.agt-040.v1",
+  "role_id": "AGT-040",
+  "version": "1.0.0-design",
+  "status": "blueprint_only_not_importable",
+  "role_profile_ref": "docs/05-agents/roles/AGT-040.md",
+  "soul_ref": "docs/05-agents/roles/souls/AGT-040.soul.md",
+  "role_playbook_ref": "docs/06-playbooks/role-playbooks/AGT-040.md",
+  "identity": {
+    "alias": "清账",
+    "title": "GMV结算与会计对账",
+    "mission": "贯通订单支付退款结算与财务记录",
+    "personality": "精确、可追溯、明确差异",
+    "soul_principle": "GMV和财务收入各有口径"
+  },
+  "modes": {
+    "standalone": {
+      "entrypoint": "role_task",
+      "completion_artifact": "对账表与差异处理包",
+      "requires_explicit_scope": true,
+      "can_emit_action_intent": true,
+      "can_execute_assets": false
+    },
+    "composition": {
+      "entrypoint": "bounded_role_worker",
+      "orchestration_owner": "external_case_control",
+      "consumes": "accepted_stage_artifact",
+      "produces": "role_stage_artifact",
+      "peer_chat": false,
+      "re_delegation": false
+    }
+  },
+  "prompt_layers": {
+    "immutable_static": [
+      "policy_baseline",
+      "tool_contracts",
+      "artifact_envelope_schema"
+    ],
+    "workspace_stable": [
+      "business_glossary",
+      "role_release_bundle_ref"
+    ],
+    "role_stable": [
+      "role_profile",
+      "role_playbook",
+      "skill_descriptors",
+      "assurance_contract"
+    ],
+    "case_stable": [
+      "case_charter",
+      "accepted_artifact_index",
+      "access_contract"
+    ],
+    "turn_dynamic": [
+      "latest_signal",
+      "tool_receipts",
+      "current_attempt"
+    ]
+  },
+  "skills": [
+    {
+      "skill_id": "SKILL-AGT-040-01",
+      "name": "渠道对账",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-040.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-040-02",
+      "name": "收入与费用核对",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-040.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-040-03",
+      "name": "差异追踪",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-040.md",
+      "status": "design_body_in_role_playbook"
+    }
+  ],
+  "shared_playbooks": [
+    "PB-001",
+    "PB-003",
+    "PB-005",
+    "PB-006",
+    "PB-008"
+  ],
+  "tools": {
+    "visible_classes": [
+      "fact_read",
+      "deterministic_validate",
+      "presentation",
+      "action_intent_request",
+      "receipt_query"
+    ],
+    "concrete_tools": "unknown_until_target_dsh_schema_and_system_contracts_are_verified",
+    "action_boundary": "action_intent_only_to_model_external_policy_gate",
+    "credentials": "never_visible_to_model"
+  },
+  "access": {
+    "default_decision": "deny",
+    "scope_source": "Access Contract for AGT-040",
+    "service_identity_holder": "execution_broker_outside_model",
+    "expiry_required": true,
+    "audit_required": true
+  },
+  "assurance": {
+    "eval_suite_ref": "EVAL-AGT-040",
+    "release_gate": "deterministic_contract_and_eval_gate",
+    "production_authorized": false,
+    "rollback": "previous_known_good_role_release_bundle"
+  },
+  "dsh_projection": {
+    "product_identity": "LUTE Agentic System / DSH target version unknown",
+    "candidate_profile": "profile.agt-040",
+    "candidate_skill_registry": "skill-registry.agt-040",
+    "candidate_tool_scope": "access-scope.agt-040",
+    "candidate_hook_namespace": "role.agt-040",
+    "import_schema": "unknown",
+    "importable": false,
+    "required_evidence": [
+      "target_product_version",
+      "preset_schema",
+      "plugin_versions",
+      "host_tool_behavior",
+      "service_identity_boundary"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # 场景编排与协同图谱
 
-状态：D-024已确认[八阶段协同图谱](COLLABORATION-GRAPH.md)，D-025确认一张Case只绑定一条主价值流和一个主场景，并以关联独立Case处理跨价值流信号；D-026确认FLOW-07模型外Emergency Guard、绑定前Pre-Case Exception、原子建单Outbox及恢复禁区。[结构化关系数据](collaboration-graph.json)覆盖50个岗位、8条价值流和20个候选场景；[Case Record契约](case-record-contract.json)独立定义未来运行记录，[自主运行模型](AUTONOMOUS-OPERATING-MODEL.md)定义单Case Agent、按需Skills和模型外门禁。图中的能力来源关系不等于运行Agent、Skill已实现、通信或实际授权。
+状态：D-024已确认[八阶段协同图谱](COLLABORATION-GRAPH.md)，D-025确认一张Case只绑定一条主价值流和一个主场景，并以关联独立Case处理跨价值流信号；D-026确认FLOW-07模型外Emergency Guard、绑定前Pre-Case Exception、原子建单Outbox及恢复禁区；D-053确认50个独立Role Preset与Lead/Worker受控组队。[结构化关系数据](collaboration-graph.json)覆盖50个岗位、8条价值流和20个候选场景；[Case Record契约](case-record-contract.json)独立定义未来运行记录，[自主运行模型](AUTONOMOUS-OPERATING-MODEL.md)定义独立Preset、受控组队、按需Skills和模型外门禁。图中的能力来源关系不等于运行Agent、Skill已实现、通信或实际授权。
 
 ## 图谱需要表达的内容
 

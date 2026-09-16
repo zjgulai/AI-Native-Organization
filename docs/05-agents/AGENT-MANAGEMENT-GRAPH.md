@@ -1,6 +1,6 @@
 # 50个AI岗位的五契约管理图
 
-状态：D-022与ADR-0004已确认。结构化数据见[agent-management-graph.json](agent-management-graph.json)。本图定义岗位配置的管理责任，不授予任何AI岗位发布、凭据、工具或业务资产权限。
+状态：D-022与ADR-0004、D-053与ADR-0012已确认。结构化数据见[agent-management-graph.json](agent-management-graph.json)。本图定义岗位配置的管理责任，不授予任何AI岗位发布、凭据、工具或业务资产权限。
 
 ## 核心关系
 
@@ -23,11 +23,15 @@ flowchart LR
   C --> G{确定性评测与策略门禁}
   G -->|通过且在已授权范围| P[发布版本]
   G -->|拒绝| D[保留草稿与证据]
-  P --> I[Case Agent运行实例]
+  P --> I[独立Role Preset运行实例]
   G -->|运行退化| L[回退已知版本]
 ```
 
 没有“上级Agent管理下级Agent”。AI岗位和治理岗位都只能产生带证据的Change Proposal或候选契约；确定性门禁依据已发布规则决定发布、拒绝或回退。公司目标、资产权限和控制标准不能由Agent自行修改。
+
+## 独立Preset与组队边界
+
+每个岗位都维护自己的Soul Contract、Role Playbook和Preset Blueprint，能够以`standalone_role_preset`独立处理边界清晰的岗位任务。复杂Case由模型外Case Control显式装配一个Lead和零个或多个Worker；Lead持有Case结果责任，Worker只消费已验收Stage Artifact并返回ArtifactEnvelope。Preset之间没有隐式自由对话、权限转授或自发扩展角色，五契约、Bundle和Action Intent→Policy Gate→Execution Broker边界继续适用。
 
 ## 五份管理契约
 
@@ -46,7 +50,7 @@ flowchart LR
 3. 修改任一契约都产生新候选版本，不覆盖已运行版本；历史Case继续引用启动时的版本集合。
 4. 岗位本人、AGT-048、AGT-049、AGT-050和AGT-005均没有直接发布权。它们只能提出变更、证据、否决或恢复条件。
 5. 低风险变更只有在现有公司目标、Access上限和Assurance门槛内才能自动发布。改变目标、扩大资产权限、降低门槛或修改独立性约束时，保持草稿并等待新的公司级契约。
-6. 当前50个岗位的`production_authorized`均为false；五契约图是管理设计，不是DeepSeek Harness配置或生产状态。
+6. 当前50个岗位的`production_authorized`均为false；五契约图是管理设计，具体Preset Blueprint仍不是可导入的DeepSeek Harness配置或生产状态。
 
 ## 管理责任不形成循环授权
 

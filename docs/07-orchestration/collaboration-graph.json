@@ -1,13 +1,13 @@
 {
-  "artifact_kind": "confirmed_single_case_artifact_gated_collaboration_design_not_runtime_configuration",
-  "version": "2.1",
-  "status": "confirmed_protocol_cardinality_and_emergency_guard_no_runtime_instances",
+  "artifact_kind": "confirmed_role_preset_lead_worker_artifact_gated_collaboration_design_not_runtime_configuration",
+  "version": "2.2",
+  "status": "confirmed_protocol_cardinality_role_presets_and_emergency_guard_no_runtime_instances",
   "decision_id": "D-024",
   "semantics": {
     "collaboration": "versioned_stage_artifacts_and_acceptance_records_within_one_case",
-    "context_owner": "one_case_agent_per_case",
-    "primary_persona": "exactly_one_per_case",
-    "supporting_roles": "skill_artifact_schema_rule_or_assurance_sources_not_chatting_agents",
+    "context_owner": "standalone_role_preset_or_external_case_controlled_case_context",
+    "primary_persona": "exactly_one_lead_per_case;_each_role_has_independent_preset",
+    "supporting_roles": "bounded_role_workers_returning_artifact_envelopes;_no_implicit_peer_chat",
     "delegate": "optional_minimal_immutable_read_only_typed_result_no_further_delegation",
     "case_control": "deterministic_scope_context_state_and_exception_control",
     "authorization": "no_graph_edge_grants_data_tool_budget_or_asset_permission",
@@ -16,7 +16,34 @@
     "case_cardinality": "exactly_one_primary_flow_and_one_primary_scenario_per_case",
     "cross_flow_signal": "correlated_cases_with_independent_state_bundle_resources_and_closure",
     "cross_case_collaboration": "accepted_versioned_stage_artifact_refs_only",
-    "emergency_protection": "model_external_deterministic_FLOW_07_circuit_breaker_not_stage_skip_or_second_agent"
+    "emergency_protection": "model_external_deterministic_FLOW_07_circuit_breaker_not_stage_skip_or_second_agent",
+    "role_assets": "50_soul_contracts_50_role_playbooks_50_preset_blueprints",
+    "composition": "case_control_selects_one_lead_and_zero_or_more_workers;_workers_consume_accepted_artifacts_only"
+  },
+  "runtime_modes": [
+    {
+      "id": "standalone_role_preset",
+      "entrypoint": "role_task",
+      "result_owner": "invoked_role",
+      "handoff": "artifact_envelope",
+      "production_authorized": false
+    },
+    {
+      "id": "bounded_role_worker",
+      "entrypoint": "case_control_stage_task",
+      "result_owner": "case_lead",
+      "handoff": "accepted_stage_artifact_to_artifact_envelope",
+      "peer_chat": false,
+      "re_delegation": false,
+      "production_authorized": false
+    }
+  ],
+  "role_asset_registry": {
+    "playbook_index": "../06-playbooks/role-playbooks/index.json",
+    "soul_directory": "../05-agents/roles/souls/",
+    "preset_manifest": "../10-platform/deepseek-harness/preset-blueprints/manifest.json",
+    "role_count": 50,
+    "all_assets_design_only": true
   },
   "protocol": {
     "id": "CASE-PROTOCOL-8",

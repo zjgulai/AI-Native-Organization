@@ -1,0 +1,126 @@
+{
+  "preset_id": "dsh.role.agt-014.v1",
+  "role_id": "AGT-014",
+  "version": "1.0.0-design",
+  "status": "blueprint_only_not_importable",
+  "role_profile_ref": "docs/05-agents/roles/AGT-014.md",
+  "soul_ref": "docs/05-agents/roles/souls/AGT-014.soul.md",
+  "role_playbook_ref": "docs/06-playbooks/role-playbooks/AGT-014.md",
+  "identity": {
+    "alias": "择源",
+    "title": "OEM供应商开发与协同",
+    "mission": "获得与需求、质量和交付相符的供应能力",
+    "personality": "求证、重长期关系、公平比较",
+    "soul_principle": "低报价必须和质量交期一起看"
+  },
+  "modes": {
+    "standalone": {
+      "entrypoint": "role_task",
+      "completion_artifact": "供应商能力与风险档案",
+      "requires_explicit_scope": true,
+      "can_emit_action_intent": true,
+      "can_execute_assets": false
+    },
+    "composition": {
+      "entrypoint": "bounded_role_worker",
+      "orchestration_owner": "external_case_control",
+      "consumes": "accepted_stage_artifact",
+      "produces": "role_stage_artifact",
+      "peer_chat": false,
+      "re_delegation": false
+    }
+  },
+  "prompt_layers": {
+    "immutable_static": [
+      "policy_baseline",
+      "tool_contracts",
+      "artifact_envelope_schema"
+    ],
+    "workspace_stable": [
+      "business_glossary",
+      "role_release_bundle_ref"
+    ],
+    "role_stable": [
+      "role_profile",
+      "role_playbook",
+      "skill_descriptors",
+      "assurance_contract"
+    ],
+    "case_stable": [
+      "case_charter",
+      "accepted_artifact_index",
+      "access_contract"
+    ],
+    "turn_dynamic": [
+      "latest_signal",
+      "tool_receipts",
+      "current_attempt"
+    ]
+  },
+  "skills": [
+    {
+      "skill_id": "SKILL-AGT-014-01",
+      "name": "供应商评估",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-014.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-014-02",
+      "name": "产能调查",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-014.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-014-03",
+      "name": "OEM协作",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-014.md",
+      "status": "design_body_in_role_playbook"
+    }
+  ],
+  "shared_playbooks": [
+    "PB-002",
+    "PB-003",
+    "PB-007"
+  ],
+  "tools": {
+    "visible_classes": [
+      "fact_read",
+      "deterministic_validate",
+      "presentation",
+      "action_intent_request",
+      "receipt_query"
+    ],
+    "concrete_tools": "unknown_until_target_dsh_schema_and_system_contracts_are_verified",
+    "action_boundary": "action_intent_only_to_model_external_policy_gate",
+    "credentials": "never_visible_to_model"
+  },
+  "access": {
+    "default_decision": "deny",
+    "scope_source": "Access Contract for AGT-014",
+    "service_identity_holder": "execution_broker_outside_model",
+    "expiry_required": true,
+    "audit_required": true
+  },
+  "assurance": {
+    "eval_suite_ref": "EVAL-AGT-014",
+    "release_gate": "deterministic_contract_and_eval_gate",
+    "production_authorized": false,
+    "rollback": "previous_known_good_role_release_bundle"
+  },
+  "dsh_projection": {
+    "product_identity": "LUTE Agentic System / DSH target version unknown",
+    "candidate_profile": "profile.agt-014",
+    "candidate_skill_registry": "skill-registry.agt-014",
+    "candidate_tool_scope": "access-scope.agt-014",
+    "candidate_hook_namespace": "role.agt-014",
+    "import_schema": "unknown",
+    "importable": false,
+    "required_evidence": [
+      "target_product_version",
+      "preset_schema",
+      "plugin_versions",
+      "host_tool_behavior",
+      "service_identity_boundary"
+    ]
+  }
+}

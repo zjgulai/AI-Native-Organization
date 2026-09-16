@@ -1,6 +1,6 @@
 # 平台能力核实矩阵
 
-核实日期：2026-09-11。证据来源见 [SOURCES](../../14-research/SOURCES.md)。
+核实日期：2026-09-11至2026-09-17。证据来源见 [SOURCES](../../14-research/SOURCES.md)。
 
 本轮仅达到“本地安装包存在/文档已核实”及“发行方说明已查阅”。未检查实际启用配置，未测试运行能力，未访问企业业务系统，未生成可执行配置。
 
@@ -11,15 +11,16 @@
 | 上游 DeepSeek Harness | DeepSeek 的开源插件化 Agent Harness；上游自述为 developer preview | EVD-001 | 当前上游说明不等于本机固定版本行为 |
 | 社区 DSH Desktop | anywhere-labs 的独立社区桌面项目 | EVD-002 | 不是 DeepSeek 官方 Desktop；不能混用发行责任 |
 | 本机安装包 | LUTE Agentic System；Desktop 2.0.5；构建 2.0.5-lute.2.0.0；内含 Harness 0.1.2-rc.1 | EVD-004 | 本机定制构建是否为企业拟采用平台尚未知 |
+| 本机 CLI 启动器 | `dsh` 0.1.5-rc.1；支持 `--profile`、`--patch`、`plugin`、`web` 等入口；帮助未列出独立 `preset` 子命令 | EVD-029 | CLI 与应用包内Harness版本不一致；未启动profile或导入配置，不能据此推导目标环境schema |
 
 ## 能力与缺口
 
 | 能力 | 已核实的说明与证据 | 限制/未知 | 后续验证 |
 | --- | --- | --- | --- |
-| 角色与人格 | preset 为会话组装工具、提示词和 skill；同进程可有多个 preset（EVD-005） | 未核实独立 personality/soul 字段；已有产出的会话不能换 preset；子 Agent 使用父方组装 | 明确角色定义与实例映射，并验证隔离 |
+| 角色与人格 | preset 可作为会话组装工具组合提示词和 skill；同进程可有多个 preset（EVD-005） | 未核实独立 personality/soul 字段；已有产出的会话不能换 preset；子 Agent 使用父方组装 | 逐个验证50个独立Role Preset的上下文隔离、独立入口和版本固定 |
 | 技能与 Playbook | 本地 SKILL.md/平铺 Markdown 发现；工作区 AGENTS.md 指令加载（EVD-006、007） | 发现、加载和指令预算影响有效范围；岗位文件不提供业务权限强制控制 | 检查配置并回放真实输入到产物 |
 | 场景编排 | JavaScript 脚本支持 Agent 扇出、并行与流水线（EVD-008） | workflow 只前台收集，不设检查点，不支持重启续跑或已保存/嵌套 workflow | 对长周期场景验证可持久化的运行方式或补足方案 |
-| Agent 协作 | 可继续子 Agent 的父子消息、后续任务和中断（EVD-009） | 消息限直接父子；无持久 parent mailbox；不跨进程协调；不保证恰好一次投递 | 模拟父方离线、重复消息及中断 |
+| Agent 协作 | 可继续子 Agent 的父子消息、后续任务和中断（EVD-009） | 消息限直接父子；无持久 parent mailbox；不跨进程协调；不保证恰好一次投递 | 以模型外Case Control和ArtifactEnvelope实现Lead/Worker组队，模拟父方离线、重复消息及中断 |
 | 原生工具与范围 | 工具可注册typed schema；scope可用限制掩码缩小，单调guard可拒绝调用（EVD-020） | 本机说明不证明企业服务端策略、权限或业务回执存在 | 目标环境验证角色可见工具、跨账号拒绝、动作策略和审计关联 |
 | MCP工具 | 外部MCP可通过stdio或Streamable HTTP桥接为稳定命名工具，并有超时/重连语义（EVD-020） | 仅桥接tools；资源和prompts不能假定可用；认证与企业网络未知 | 连接一个受控测试server，验证工具发现、撤权、超时、重连和回执 |
 | 工具UI/UX | 工具可提供展示意图，Host可从调用、结果与metadata派生toolview（EVD-020） | 内置Web Client的消费方式不等于企业Host；展示不构成权限或业务事实 | 验证目标Host渲染、脱敏、权限和异常状态展示 |

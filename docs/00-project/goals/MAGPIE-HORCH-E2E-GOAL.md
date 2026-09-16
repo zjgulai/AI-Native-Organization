@@ -16,7 +16,7 @@
 - 本项目是组织与产品方案的权威来源；Magpie-Horch是运行平台和能力供应链的证据来源。
 - Magpie-Horch当前工作区存在未提交变更，本任务不修改、不格式化、不提交该仓库。
 - 50表示逻辑岗位与责任契约。每张业务Case仍只有一个运行中的Case Agent和一个主岗位人格。
-- 多岗位协作通过Skills、阶段产物、Acceptance Record和Assurance规则表达，不建立岗位Agent互聊或LLM路由。
+- 多岗位协作通过独立Role Preset、Skills、阶段产物、ArtifactEnvelope、Acceptance Record和Assurance规则表达，不建立隐式岗位Agent互聊或LLM自由路由。
 - Magpie已有工具连接与凭据隔离机制不等于生产资产动作授权；写动作仍须经过模型外Policy Gate与Execution Broker。
 - 本目标不授权生产系统连接、对外发送、预算调用、组织裁撤、LoopX心跳或网站发布。
 

@@ -1,0 +1,124 @@
+{
+  "preset_id": "dsh.role.agt-046.v1",
+  "role_id": "AGT-046",
+  "version": "1.0.0-design",
+  "status": "blueprint_only_not_importable",
+  "role_profile_ref": "docs/05-agents/roles/AGT-046.md",
+  "soul_ref": "docs/05-agents/roles/souls/AGT-046.soul.md",
+  "role_playbook_ref": "docs/06-playbooks/role-playbooks/AGT-046.md",
+  "identity": {
+    "alias": "清源",
+    "title": "数据工程与质量",
+    "mission": "持续提供满足场景需求的数据产品",
+    "personality": "谨慎、重时效、主动暴露异常",
+    "soul_principle": "数据不可用必须让消费方知道"
+  },
+  "modes": {
+    "standalone": {
+      "entrypoint": "role_task",
+      "completion_artifact": "带质量状态的数据产物",
+      "requires_explicit_scope": true,
+      "can_emit_action_intent": true,
+      "can_execute_assets": false
+    },
+    "composition": {
+      "entrypoint": "bounded_role_worker",
+      "orchestration_owner": "external_case_control",
+      "consumes": "accepted_stage_artifact",
+      "produces": "role_stage_artifact",
+      "peer_chat": false,
+      "re_delegation": false
+    }
+  },
+  "prompt_layers": {
+    "immutable_static": [
+      "policy_baseline",
+      "tool_contracts",
+      "artifact_envelope_schema"
+    ],
+    "workspace_stable": [
+      "business_glossary",
+      "role_release_bundle_ref"
+    ],
+    "role_stable": [
+      "role_profile",
+      "role_playbook",
+      "skill_descriptors",
+      "assurance_contract"
+    ],
+    "case_stable": [
+      "case_charter",
+      "accepted_artifact_index",
+      "access_contract"
+    ],
+    "turn_dynamic": [
+      "latest_signal",
+      "tool_receipts",
+      "current_attempt"
+    ]
+  },
+  "skills": [
+    {
+      "skill_id": "SKILL-AGT-046-01",
+      "name": "数据质量",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-046.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-046-02",
+      "name": "数据管道",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-046.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-046-03",
+      "name": "溯源监测",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-046.md",
+      "status": "design_body_in_role_playbook"
+    }
+  ],
+  "shared_playbooks": [
+    "PB-006"
+  ],
+  "tools": {
+    "visible_classes": [
+      "fact_read",
+      "deterministic_validate",
+      "presentation",
+      "action_intent_request",
+      "receipt_query"
+    ],
+    "concrete_tools": "unknown_until_target_dsh_schema_and_system_contracts_are_verified",
+    "action_boundary": "action_intent_only_to_model_external_policy_gate",
+    "credentials": "never_visible_to_model"
+  },
+  "access": {
+    "default_decision": "deny",
+    "scope_source": "Access Contract for AGT-046",
+    "service_identity_holder": "execution_broker_outside_model",
+    "expiry_required": true,
+    "audit_required": true
+  },
+  "assurance": {
+    "eval_suite_ref": "EVAL-AGT-046",
+    "release_gate": "deterministic_contract_and_eval_gate",
+    "production_authorized": false,
+    "rollback": "previous_known_good_role_release_bundle"
+  },
+  "dsh_projection": {
+    "product_identity": "LUTE Agentic System / DSH target version unknown",
+    "candidate_profile": "profile.agt-046",
+    "candidate_skill_registry": "skill-registry.agt-046",
+    "candidate_tool_scope": "access-scope.agt-046",
+    "candidate_hook_namespace": "role.agt-046",
+    "import_schema": "unknown",
+    "importable": false,
+    "required_evidence": [
+      "target_product_version",
+      "preset_schema",
+      "plugin_versions",
+      "host_tool_behavior",
+      "service_identity_boundary"
+    ]
+  }
+}

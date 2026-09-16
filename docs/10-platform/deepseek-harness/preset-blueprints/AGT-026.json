@@ -1,0 +1,125 @@
+{
+  "preset_id": "dsh.role.agt-026.v1",
+  "role_id": "AGT-026",
+  "version": "1.0.0-design",
+  "status": "blueprint_only_not_importable",
+  "role_profile_ref": "docs/05-agents/roles/AGT-026.md",
+  "soul_ref": "docs/05-agents/roles/souls/AGT-026.soul.md",
+  "role_playbook_ref": "docs/06-playbooks/role-playbooks/AGT-026.md",
+  "identity": {
+    "alias": "衡价",
+    "title": "定价促销与商品组合",
+    "mission": "在供给和经营边界内设计价格与组合",
+    "personality": "量化、关注联动、反对局部最优",
+    "soul_principle": "每次价格动作都应说明适用范围"
+  },
+  "modes": {
+    "standalone": {
+      "entrypoint": "role_task",
+      "completion_artifact": "价格与促销决策包",
+      "requires_explicit_scope": true,
+      "can_emit_action_intent": true,
+      "can_execute_assets": false
+    },
+    "composition": {
+      "entrypoint": "bounded_role_worker",
+      "orchestration_owner": "external_case_control",
+      "consumes": "accepted_stage_artifact",
+      "produces": "role_stage_artifact",
+      "peer_chat": false,
+      "re_delegation": false
+    }
+  },
+  "prompt_layers": {
+    "immutable_static": [
+      "policy_baseline",
+      "tool_contracts",
+      "artifact_envelope_schema"
+    ],
+    "workspace_stable": [
+      "business_glossary",
+      "role_release_bundle_ref"
+    ],
+    "role_stable": [
+      "role_profile",
+      "role_playbook",
+      "skill_descriptors",
+      "assurance_contract"
+    ],
+    "case_stable": [
+      "case_charter",
+      "accepted_artifact_index",
+      "access_contract"
+    ],
+    "turn_dynamic": [
+      "latest_signal",
+      "tool_receipts",
+      "current_attempt"
+    ]
+  },
+  "skills": [
+    {
+      "skill_id": "SKILL-AGT-026-01",
+      "name": "价格敏感性",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-026.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-026-02",
+      "name": "促销规划",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-026.md",
+      "status": "design_body_in_role_playbook"
+    },
+    {
+      "skill_id": "SKILL-AGT-026-03",
+      "name": "组合设计",
+      "body_ref": "docs/06-playbooks/role-playbooks/AGT-026.md",
+      "status": "design_body_in_role_playbook"
+    }
+  ],
+  "shared_playbooks": [
+    "PB-001",
+    "PB-003"
+  ],
+  "tools": {
+    "visible_classes": [
+      "fact_read",
+      "deterministic_validate",
+      "presentation",
+      "action_intent_request",
+      "receipt_query"
+    ],
+    "concrete_tools": "unknown_until_target_dsh_schema_and_system_contracts_are_verified",
+    "action_boundary": "action_intent_only_to_model_external_policy_gate",
+    "credentials": "never_visible_to_model"
+  },
+  "access": {
+    "default_decision": "deny",
+    "scope_source": "Access Contract for AGT-026",
+    "service_identity_holder": "execution_broker_outside_model",
+    "expiry_required": true,
+    "audit_required": true
+  },
+  "assurance": {
+    "eval_suite_ref": "EVAL-AGT-026",
+    "release_gate": "deterministic_contract_and_eval_gate",
+    "production_authorized": false,
+    "rollback": "previous_known_good_role_release_bundle"
+  },
+  "dsh_projection": {
+    "product_identity": "LUTE Agentic System / DSH target version unknown",
+    "candidate_profile": "profile.agt-026",
+    "candidate_skill_registry": "skill-registry.agt-026",
+    "candidate_tool_scope": "access-scope.agt-026",
+    "candidate_hook_namespace": "role.agt-026",
+    "import_schema": "unknown",
+    "importable": false,
+    "required_evidence": [
+      "target_product_version",
+      "preset_schema",
+      "plugin_versions",
+      "host_tool_behavior",
+      "service_identity_boundary"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
 
 ## 方案目标
 
-用50种逻辑AI岗位覆盖跨境电商管理与运营全链路，以GMV为第一优先级，同时把取消退款、质量、库存、账号、现金和合规约束单独呈现。运行时每张Case只运行一个Case Agent、绑定一个主岗位人格，并按需加载Skills、工具和保障规则；真实资产动作由模型外Policy Gate和Execution Broker控制。
+用50种独立Role Preset覆盖跨境电商管理与运营全链路，以GMV为第一优先级，同时把取消退款、质量、库存、账号、现金和合规约束单独呈现。运行时每个岗位可独立寻址；复杂Case由Case Control选择一个Lead和若干Worker，Lead持有结果责任，Worker通过ArtifactEnvelope交接；真实资产动作由模型外Policy Gate和Execution Broker控制。
 
 ## 八个方案域
 
@@ -26,7 +26,7 @@
 ```text
 战略目标与边界
   → 50岗位责任
-  → 单Case协同协议
+  → 独立岗位Preset与Lead/Worker协同协议
   → 12条端到端价值流
   → Agent五契约与生命周期
   → Harness平台和工具
@@ -41,7 +41,7 @@
 | 循环 | 入口 | 运行方法 | 出口 | 阻塞如何显式化 |
 | --- | --- | --- | --- | --- |
 | 决策循环 | 经营目标、机会或风险 | 用目标与约束账排序，只保留一个明确结果负责人和当前优先级 | 已确认的价值流/场景范围 | 未决经营取舍进入决策表，不混入执行Prompt |
-| 交付循环 | 唯一范围的Case | 单Case Agent按八阶段产生Artifact并逐门接收 | 回执已核对的业务结果或`NO_ACTION` | Waiting、Rework、Frozen分别记录原因和恢复门 |
+| 交付循环 | 唯一范围的Case | Lead/Worker Preset按八阶段产生Artifact并逐门接收 | 回执已核对的业务结果或`NO_ACTION` | Waiting、Rework、Frozen分别记录原因和恢复门 |
 | 能力循环 | 业务Case发现能力缺口 | 建立独立CVS Case，交付Bundle、Skill、连接器或Release | 新建业务Case显式固定的新版本 | 能力发布成功不等于经营成功，旧Case不静默升级 |
 
 ## 一张业务闭环
@@ -49,7 +49,7 @@
 ```text
 经营信号
   → Case Control唯一建单
-  → 单Case Agent装配主人格、Bundle、Skills和Tools
+  → Case Control装配Lead/Worker Preset、Bundle、Skills和Tools
   → 八阶段Artifact与Acceptance Gate
   → Action Intent
   → Policy Gate：ALLOW / HOLD / DENY / NO_ACTION
@@ -58,7 +58,7 @@
   → 结果核对、Case关闭、异步记忆与评测
 ```
 
-四平面岗位、八条业务流和四条能力流是同一系统的不同视图，不产生岗位Agent互聊。组织图回答责任归属，价值流回答结果闭环，五契约回答Agent版本管理，平台图回答运行和资产控制。
+四平面岗位、八条业务流和四条能力流是同一系统的不同视图，不产生隐式岗位Agent互聊。组织图回答责任归属，价值流回答结果闭环，五契约回答Agent版本管理，平台图回答运行和资产控制。
 
 ## 当前方案主线
 

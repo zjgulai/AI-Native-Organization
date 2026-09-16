@@ -5,11 +5,14 @@
   "decision_id": "D-022",
   "source_roles": "../04-organization/organization-graph.json",
   "semantics": {
-    "management": "Versioned contracts and deterministic gates manage role profiles; no manager-agent hierarchy.",
+    "management": "Versioned contracts and deterministic gates manage 50 independent role presets; no manager-agent hierarchy.",
     "proposal": "AI roles may propose evidence-backed changes.",
     "publication": "No AI role can publish its own configuration or grant permissions.",
     "authorization": "Credentials, service identities, policy enforcement and release gates remain outside the model.",
-    "production_authorized": false
+    "production_authorized": false,
+    "role_asset_contract": "Each role has Soul Contract, Role Playbook and Preset Blueprint; complex cases use explicit Lead/Worker ArtifactEnvelope handoff.",
+    "runtime_modes": ["standalone_role_preset", "bounded_role_worker"],
+    "implicit_peer_chat": false
   },
   "contract_types": [
     {

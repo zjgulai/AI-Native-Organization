@@ -1,8 +1,8 @@
 # Momcozy 50岗位Agent自主经营总体方案
 
-采用50种逻辑AI岗位、每张Case一个上下文所有者、按阶段加载Skills、工具连接业务系统、业务控制层记录策略与回执的组织方式。GMV为第一优先级，同时把取消退款、现金、客户体验、产品质量和经营损失作为单独可见的约束。
+采用50种独立Role Preset、Case Control和Lead/Worker受控组队的组织方式。独立岗位可闭环边界清晰的任务，复杂Case由一个Lead持有结果责任，Worker通过ArtifactEnvelope交接；工具连接业务系统，业务控制层记录策略与回执。GMV为第一优先级，同时把取消退款、现金、客户体验、产品质量和经营损失作为单独可见的约束。
 
-战略框架v1.1保留业务责任基线，D-020至D-026已将运行架构升级为50个Role Profiles、单Case Agent、不可变Bundle、八阶段产物门禁协议、一张Case只绑定一条主价值流和一个主场景，以及FLOW-07模型外确定性紧急保护。初始运行不设置真人负责人或HITL为常规节点。具体系统连接、动作策略、Guard规则、服务身份、经营对象和生产动作仍未配置或授权。
+战略框架v1.1保留业务责任基线，D-020至D-026与D-053已将运行架构升级为50个独立Role Preset、不可变Bundle、Lead/Worker受控组队、八阶段产物门禁协议、一张Case只绑定一条主价值流和一个主场景，以及FLOW-07模型外确定性紧急保护。初始运行不设置真人负责人或HITL为常规节点。具体系统连接、动作策略、Guard规则、服务身份、经营对象和生产动作仍未配置或授权。
 
 ## 经营问题与第一性原理
 
@@ -13,8 +13,8 @@
 第一性原理是把组织变成一个可验证的经营控制循环：
 
 1. 每个信号先进入带业务范围的场景工单，而不是流入部门群聊。
-2. 模型外Case Control为Case确定唯一主价值流、唯一主场景、业务范围和主岗位，只把当前阶段必要的Skill描述、工具和数据引用装配进上下文。
-3. 每个工单只有一位AI结果负责人和一个主岗位人格；专业能力通过Skills与阶段产物贡献，独立复核通过Assurance Contract与外部门禁生效。
+2. 模型外Case Control为Case确定唯一主价值流、唯一主场景、业务范围和Lead，只把当前阶段必要的Worker Preset、Skill描述、工具和数据引用装配进上下文。
+3. 每个岗位都能以独立Preset完成自身产物；每个Case只有一位Lead结果负责人，专业能力通过受控Worker、Skills与阶段产物贡献，独立复核通过Assurance Contract与外部门禁生效。
 4. 工具是Agent的手和脚；提示词不是权限，工具UI不是权威记录。
 5. 业务控制层或受控目标系统校验策略、范围、参数、幂等、回执和恢复；无策略或回执不明时冻结受影响范围。
 6. 效率用GMV、经营约束、等待、异常、全成本和复用能力衡量，不用聊天量或Agent数量衡量。
@@ -60,7 +60,7 @@
 
 ## 日常经营如何协同
 
-场景工单从业务信号开始，逐步绑定品牌、市场、账号、商品集合、时间窗、主岗位、Bundle、数据来源和策略版本。Case Control装配唯一主岗位人格与必要Skills；同一个Case Agent依次完成证据诊断、方案产物和Action Intent。Assurance Gate、Policy Gate与Execution Broker分别控制产物接收、动作许可与实际执行。
+场景工单从业务信号开始，逐步绑定品牌、市场、账号、商品集合、时间窗、Lead/Worker、Bundle、数据来源和策略版本。Case Control装配Lead与必要Worker Preset；各角色按阶段形成产物，Lead汇总证据诊断、方案产物和Action Intent。Assurance Gate、Policy Gate与Execution Broker分别控制产物接收、动作许可与实际执行。
 
 1013家店铺不需要1013套永久岗位；2000+SKU也不能直接与店铺数相乘。系统以真实变化、经营节奏、事件和例外触发任务，并按账号、产品和库存/预算对象隔离并发工作。
 
@@ -78,7 +78,7 @@
 
 ## DeepSeek Harness与业务系统
 
-DeepSeek Harness承担Case Agent会话、Skills和受限工具调用；业务控制层承担Case Control、阶段状态、策略、幂等、外部回执、异常账与恢复。窄范围只读Delegate只作为可独立验收的工具调用，不形成LLM多Agent路由。
+DeepSeek Harness承担独立Role Preset会话、Skills和受限工具调用；业务控制层承担Case Control、Lead/Worker装配、阶段状态、策略、幂等、外部回执、异常账与恢复。窄范围只读Delegate只作为可独立验收的工具调用，不形成LLM自由多Agent路由。
 
 本机资料已显示native tools的scope限制和单调guard、MCP tools桥接、工具调用展示意图等能力方向。企业材料同时表明品牌AI平台仍在建设，RootData、ERP、PLM、QMS、WMS、TMS、Amazon、Shopify和CRM是候选系统资产。目标环境版本、插件、接口与身份尚未核实，具体方法见[Harness落实方案](../10-platform/deepseek-harness/IMPLEMENTATION-PLAN.md)和[系统接入盘点](../10-platform/deepseek-harness/SYSTEM-INTEGRATION-INVENTORY.md)。
 

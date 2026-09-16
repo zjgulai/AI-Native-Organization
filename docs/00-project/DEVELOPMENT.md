@@ -14,7 +14,7 @@
 | 用户原意、回答与追问 | `docs/01-discovery/interviews/` |
 | 已确认与待确认的经营取舍 | `docs/00-project/DECISIONS.md` |
 | 已澄清业务词汇 | `CONTEXT.md` |
-| 重要且难逆转的取舍 | `docs/adr/`，当前有ADR-0001至ADR-0011 |
+| 重要且难逆转的取舍 | `docs/adr/`，当前有ADR-0001至ADR-0012 |
 | 场景与职责结构数据 | `docs/05-agents/role-catalog.json`、`docs/07-orchestration/collaboration-graph.json` |
 | v2组织责任主图 | `docs/04-organization/AI-ORGANIZATION-MAP.md`、`docs/04-organization/organization-graph.json` |
 | v2 Agent管理主图 | `docs/05-agents/AGENT-MANAGEMENT-GRAPH.md`、`docs/05-agents/agent-management-graph.json` |
@@ -48,7 +48,7 @@
 
 组织材料总览2354与19项明细合计2352并不一致，21部门的口径亦未闭合；不静默修正或据此推导裁撤。OEM与内部研发可以并存；产品线集中不等于只售单个SKU。
 
-岗位卡是职责与行为设计，业务技能名称不代表已实现工具。D-020之后，50个岗位是逻辑Role Profiles，不是运行Agent目录；一张紧耦合工单只有一个Case Agent和一个主岗位人格，其他岗位贡献按需Skills。AGT-002旧的LLM多Agent路由语义已由模型外Case Control替代。`role-catalog.json`和`collaboration-graph.json`已升级为v2业务设计数据，仍不是Harness配置；140条历史岗位-流程关系只是待编译为Skill Contract的能力来源，51条场景-价值流关系仍待业务验证。修改岗位或流程时，同步卡片、总表、JSON、Playbook、四层图谱、自主运行模型与PRD的直接相关内容。
+岗位卡是职责与行为设计，业务技能名称不代表已实现工具。D-053之后，50个岗位各自拥有独立Soul Contract、Role Playbook和Preset Blueprint，可独立处理边界清晰的岗位任务，也可由模型外Case Control编排为Lead/Worker组队；组队通过ArtifactEnvelope交接，不使用隐式岗位聊天。D-020的“岗位不是运行Agent目录”语义由D-053替代，但五契约、Bundle生命周期、Action Intent与模型外执行控制继续有效。AGT-002旧的LLM多Agent路由语义仍由模型外Case Control替代。`role-catalog.json`、`docs/05-agents/roles/souls/`、`docs/06-playbooks/role-playbooks/`和`docs/10-platform/deepseek-harness/preset-blueprints/`是岗位设计资产，仍不是目标Harness导入配置；140条历史岗位-流程关系只是能力来源，51条场景-价值流关系仍待业务验证。修改岗位或流程时，同步卡片、总表、JSON、Soul、Role Playbook、Preset Blueprint、四层图谱、自主运行模型与PRD的直接相关内容。
 
 v2图谱分为组织责任、场景协同、Agent管理和资产边界。正常Action Intent由模型在STG-07提出；Emergency Guard只能按已发布规则生成固定保护Intent。两类Intent都由模型外Policy Gate与Execution Broker控制Service Identity、资产写入、幂等和回执。Presentation Tool只表达展示意图；服务端补齐权威事实，Site负责渲染。长期记忆由独立任务异步提取；经营事实和决策/执行账分别留在system-of-record与Decision/Event Ledger。
 
@@ -68,7 +68,7 @@ D-028确认模型评估与选型、缓存参数和异步记忆边界。模型选
 
 D-029确认Action Intent与执行分离：模型只提出Action Intent，不持有Service Identity；Policy Gate独立裁决（ALLOW/HOLD/DENY/NO_ACTION）；Execution Broker独立执行并按幂等键与回执对账，资产边界未明确时默认拒绝。未配置动作为例默认NoActionRecord，紧急动作仍按D-026单向最小模板，不代替正常STG-07恢复与补偿动作。
 
-D-031确认两层价值流：FLOW-01至FLOW-08继续作为业务经营流，并以BVS-01至BVS-08提供产品视图；CVS-01至CVS-04分别管理岗位Bundle、Skill绑定、连接器验收和可回退Release。业务流以业务结果与外部回执闭环，能力流以可复用能力产品闭环。两层流通过版本引用与关联Case连接，状态和验收相互独立；能力发布成功不等于经营成功。每条流同时维护产品方案和分工协作投影，运行时仍只有一个Case Agent。
+D-031确认两层价值流：FLOW-01至FLOW-08继续作为业务经营流，并以BVS-01至BVS-08提供产品视图；CVS-01至CVS-04分别管理岗位Bundle、Skill绑定、连接器验收和可回退Release。业务流以业务结果与外部回执闭环，能力流以可复用能力产品闭环。两层流通过版本引用与关联Case连接，状态和验收相互独立；能力发布成功不等于经营成功。每条流同时维护产品方案和分工协作投影；D-053新增独立Role Preset和受控Lead/Worker协作模式。
 
 D-033至D-035确认首个运行样本为Momcozy美国Shopify主站、可穿戴式吸奶器、3–10个高GMV SKU和滚动30天，由AGT-023担任主人格；试点原始GMV固定为`gross_sales`，折扣、销售冲销、退款、税费、运费、支付状态和结算现金分别保留。Shopify只作为首个渠道事实入口：外部广告花费与回执、ERP/WMS可承诺库存和成本、QMS质量准入保持独立权威来源。`PILOT-G1A`通过不能替代跨系统`PILOT-G1B`。具体Shop GID、SKU白名单、App身份和Scopes在实例化前保持未确认。
 
@@ -108,9 +108,13 @@ D-050补充了更早的业务事实门：Shopify当前是空白新店且无上�
 
 写入前检查 branch 与工作区。写入后检查内部相对链接、编号引用、状态一致性、未决项是否被误写为事实，以及 Git 空白错误；首次创建文件尚未跟踪时，同时检查文件自身。
 
-v2完成前继续核对50个唯一岗位ID、50张岗位卡、8流程、20场景和8份Playbook不丢失。v2结构检查还须核对：12条端到端价值流为8条BVS与4条CVS；BVS与原FLOW一一映射且角色并集覆盖50/50；每条流有5个产品步骤、5个协作步骤、有效结果负责人、完整role_scope、协作角色不越界和production_authorized=false；文档目录与Site投影语义一致。每个Case只有一个主价值流、一个主场景和一个主岗位；跨价值流信号的关联Case状态独立且只引用已验收产物；Skills不携带第二人格；8阶段、64条flow-stage绑定、51条候选flow-scenario绑定和140条历史role-flow覆盖一致；每个阶段有产物与接收记录；STG-01不要求case或Bundle；Bundle从STG-03固定；Case状态不使用Quarantined；Agent管理对象引用Prompt/Skill/Tool/Model/Eval/Memory版本；普通动作与紧急保护均经过Policy Gate和Execution Broker；Emergency Guard为模型外且只限FLOW-07，原子边界只覆盖本地Case/Outbox记录，建单前歧义只能产生Pre-Case Exception，紧急Attempt不充当STG-07且TTL不自动恢复；Service Identity不属于模型；所有生产授权为false。检查结果只证明文档与设计数据一致。
+独立岗位资产还要核对50份Soul Contract、50份Role Playbook、50份Preset Blueprint的ID、引用、模式和生产授权状态一致，并验证standalone与Lead/Worker两种运行说明都存在。
+
+v2完成前继续核对50个唯一岗位ID、50张岗位卡、50份Role Playbook、50份Preset Blueprint、8流程、20场景和8份共享Playbook不丢失。v2结构检查还须核对：12条端到端价值流为8条BVS与4条CVS；BVS与原FLOW一一映射且角色并集覆盖50/50；每条流有5个产品步骤、5个协作步骤、有效结果负责人、完整role_scope、协作角色不越界和production_authorized=false；文档目录与Site投影语义一致。每个Case只有一个主价值流、一个主场景和一个Lead结果负责人；Worker只消费已验收ArtifactEnvelope，不能共享隐式会话或转授权限；跨价值流信号的关联Case状态独立且只引用已验收产物；Skills不携带第二人格；8阶段、64条flow-stage绑定、51条候选flow-scenario绑定和140条历史role-flow覆盖一致；每个阶段有产物与接收记录；STG-01不要求case或Bundle；Bundle从STG-03固定；Case状态不使用Quarantined；Agent管理对象引用Prompt/Skill/Tool/Model/Eval/Memory版本；普通动作与紧急保护均经过Policy Gate和Execution Broker；Emergency Guard为模型外且只限FLOW-07，原子边界只覆盖本地Case/Outbox记录，建单前歧义只能产生Pre-Case Exception，紧急Attempt不充当STG-07且TTL不自动恢复；Service Identity不属于模型；所有生产授权为false。检查结果只证明文档与设计数据一致。
 
 新增长期方法记录须从本文件和领域入口可达。当前人力与成本方法见[容量和成本模型](../02-strategy/CAPACITY-AND-COST.md)，组织覆盖方法见[职责承接表](../04-organization/RESPONSIBILITY-MAP.md)。
+
+50个岗位的Soul、Role Playbook、Preset Blueprint和Site资产由`scripts/build-role-assets.mjs`从`docs/05-agents/role-catalog.json`生成；修改岗位目录后运行`node scripts/build-role-assets.mjs`，再执行50项资产契约、JSON、链接和`git diff --check`验证。生成物仍是设计资产，不能当作DSH导入配置。
 
 目标Harness版本必须先对齐：企业材料描述的在建平台与本机LUTE Agentic System安装包不是同一版本证据。MCP、native tool、API、hook和tool UI各自进入工具能力登记册，资料列出的系统不等于已有读写权限。当进入代码或配置阶段，先依据实际平台版本补充运行和测试方式，再修改本记录。不得提前编造命令或宣称平台可导入。
 

@@ -65,6 +65,6 @@
 
 ## 版本事实必须先对齐
 
-本机安装包为LUTE Agentic System Desktop 2.0.5，内含Harness 0.1.2-rc.1；企业材料则描述一个仍在建设中的、以DeepSeek Harness为基础的平台并提到2.0.4。两者不是可以互相替代的版本证明。
+本机安装包为LUTE Agentic System Desktop 2.0.5，内含Harness 0.1.2-rc.1；本机 `/opt/homebrew/bin/dsh` CLI 自报 0.1.5-rc.1；企业材料则描述一个仍在建设中的、以DeepSeek Harness为基础的平台并提到2.0.4。三者不是可以互相替代的版本证明。
 
 在导出或编写任何preset、MCP配置、plugin配置或导入包前，必须从目标环境确认：产品身份、Harness/插件版本、实际profile、配置schema、tool presenter、身份/密钥托管和审计位置。本项目不生成貌似可运行的猜测配置。

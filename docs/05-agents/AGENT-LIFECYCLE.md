@@ -4,7 +4,7 @@
 
 ## 不可变Bundle
 
-一个Role Release Bundle必须固定包含：
+一个独立Role Preset的Role Release Bundle必须固定包含：
 
 | 字段 | 含义 |
 | --- | --- |
@@ -52,7 +52,7 @@ stateDiagram-v2
 
 ## Case版本固定
 
-Case Control在创建工单时记录`role_release_bundle_ref`。同一Case的主岗位人格、Skills、模型、Access和Assurance不能静默跟随最新版本。
+Case Control在创建工单时记录Lead与每个Worker的`role_release_bundle_ref`。同一Case的Lead/Worker人格、Skills、模型、Access和Assurance不能静默跟随最新版本。
 
 - 新Bundle只影响新Case，或经迁移检查后明确切换的未执行Case。
 - Bundle进入Quarantined后停止创建新Case。

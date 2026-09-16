@@ -1,12 +1,13 @@
-# 单Case Agent自主运行模型
+# 独立岗位Preset与受控组队运行模型
 
-状态：D-020至D-029已确认逻辑岗位、单Case Agent、五契约Bundle生命周期、八阶段协同协议、Case唯一主价值流/主场景规则、Action Intent与Policy/Execution分离边界、以及FLOW-07模型外确定性紧急保护。本文是v2业务运行设计，不是Harness配置或生产授权；结构化阶段、流程、场景和岗位贡献关系见[协同图谱](COLLABORATION-GRAPH.md)。
+状态：D-020至D-029与D-053已确认逻辑岗位、独立岗位Preset、Lead/Worker受控组队、五契约Bundle生命周期、八阶段协同协议、Case唯一主价值流/主场景规则、Action Intent与Policy/Execution分离边界、以及FLOW-07模型外确定性紧急保护。本文是v2.3业务运行设计，不是Harness配置或生产授权；结构化阶段、流程、场景和岗位贡献关系见[协同图谱](COLLABORATION-GRAPH.md)。
 
 ## 已决定的运行原则
 
-- 50个岗位是长期责任与能力契约，不是50个运行Agent、固定会话或并发任务。
-- 每张工单只运行一个Case Agent，绑定一个主岗位人格和一个不可变Role Release Bundle。
-- Case Control依据已发布规则绑定一个主价值流和一个主场景、选择一个主岗位并装配必要Skills和Tools；AGT-002提供制度、分诊与异常协调能力，不充当LLM路由器。
+- 50个岗位各自拥有可独立寻址的Role Preset；岗位类型、能力包、运行实例和并发任务分别计量。
+- 独立任务使用`standalone_role_preset`；复杂Case由Case Control选择一个Lead并按需装配`bounded_role_worker`，Lead持有Case结果责任。
+- Case Control依据已发布规则绑定一个主价值流和一个主场景，固定Lead/Worker的Bundle、阶段、输入和输出；AGT-002提供制度、分诊与异常协调能力，不充当LLM自由路由器。
+- Worker只消费已验收Stage Artifact并返回ArtifactEnvelope；岗位之间不共享隐式会话、不转授权限、不通过自由聊天决定资产动作。
 - 每个阶段形成版本化产物和Acceptance Record；岗位通过Skills、产物规范和保障规则贡献能力。
 - 初始运行不把真人负责人或HITL设为常规步骤。需要外部身份、资质或实物工作的步骤通过受控执行主体取得真实回执。
 - 工具UI/UX可以成为工作入口；Case/Event Ledger、业务系统、Policy和外部回执保存权威状态。
@@ -14,7 +15,7 @@
 
 ## 第一性原理
 
-一个经营闭环需要一个持续上下文、明确范围、可接收产物、模型外资产控制和可核对结果。协同通过阶段产物推进，不通过部门群聊或岗位Agent互聊推进。
+一个经营闭环需要明确范围、可接收产物、模型外资产控制和可核对结果。独立岗位通过自己的Preset闭环；复杂协同通过Lead/Worker的ArtifactEnvelope推进，不通过部门群聊或隐式岗位Agent互聊推进。
 
 ~~~mermaid
 flowchart LR
@@ -40,13 +41,23 @@ Case Control不按部门名派工，也不把50个岗位全部放入上下文。
 | --- | --- | --- |
 | 信号 | 来源、时间、去重键和初步业务对象 | Signal Envelope |
 | 业务范围 | 目标、品牌/市场/账号/商品、时间窗、唯一主价值流、唯一主场景、去重键及其规则引用/版本、自有资源预留引用集合和完成条件 | Case Charter |
-| 主岗位 | STG-03依据已接收的Case Charter恰好选择一个AI结果负责人及依据 | Context Manifest中的`primary_role_ref` |
+| 组队角色 | STG-03依据已接收的Case Charter选择一个Lead及零个或多个Worker，记录每个角色的阶段责任和装配依据 | Context Manifest中的`lead_role_ref`与`worker_role_refs` |
 | Bundle | STG-03固定五契约确定版本、Hash和生命周期状态 | Context Manifest中的`role_release_bundle_ref` |
 | 能力 | 当前阶段需要的Skill描述、产物schema和保障规则 | Context Manifest |
 | 数据与工具 | 权威来源、质量、可访问范围、工具scope和回执能力 | Context Manifest中的允许清单 |
 | 运行冲突 | 同对象预算、库存、账号、队列与已有异常 | 预留、等待或冻结记录 |
 
-D-025规定一张Case只选一条主价值流和一个主场景；一个信号需要多个价值流时创建共享`correlation_id`、相互引用但状态独立的Case。相关Case只引用已验收Stage Artifact，分别拥有目标、主岗位、Bundle、资源、异常和关闭结果。角色参与一条流程只表示其能力可以被装配，不产生会话、数据访问或工具权限。
+D-025规定一张Case只选一条主价值流和一个主场景；一个信号需要多个价值流时创建共享`correlation_id`、相互引用但状态独立的Case。相关Case只引用已验收Stage Artifact，分别拥有目标、主岗位、Bundle、资源、异常和关闭结果。角色参与一条流程可表现为独立Preset或受控Worker；任何参与都必须有自己的Bundle、Access范围和产物责任，不产生隐式会话或权限。
+
+## 独立岗位与组队装配
+
+| 装配 | 适用任务 | 结果责任 | 最低交接 |
+| --- | --- | --- | --- |
+| `standalone_role_preset` | 单岗位诊断、分析、计划、复核或回执查询 | 该岗位对岗位产物负责 | 任务合同 + ArtifactEnvelope |
+| `lead_case_preset` | 需要多个专业角色的一张复杂Case | Lead对Case整体结果负责 | Case Charter + 固定Bundle |
+| `bounded_role_worker` | Lead指定的阶段增量任务 | Worker对增量产物、证据和异常负责 | 已验收Stage Artifact → ArtifactEnvelope |
+
+Case Control必须在运行前写入角色装配清单；Worker不能自行增加角色、Skill、工具、范围或权限。需要新的专业能力时，返回缺口并由Case Control重新装配。
 
 ## FLOW-07紧急保护双通道
 
@@ -75,7 +86,7 @@ flowchart LR
 
 ## 八条流程的默认主岗位与能力
 
-下表中的负责人是默认主岗位；渠道、单一客诉和账号事件按已记录规则选择其他主岗位。所有其他岗位只以必要Skills、产物和检查规则进入同一个Case Agent上下文。
+下表中的负责人是默认Lead岗位；渠道、单一客诉和账号事件按已记录规则选择其他Lead。其他岗位可以独立执行自己的任务，也可以作为Worker通过ArtifactEnvelope贡献阶段产物；不会把全部50个岗位塞入同一个上下文。
 
 | 流程 | 默认AI结果负责人 | 典型按需能力 | 主要结果 |
 | --- | --- | --- | --- |

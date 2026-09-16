@@ -1,10 +1,10 @@
-# 单Case Agent八阶段协同图谱
+# 独立岗位Preset与八阶段协同图谱
 
-状态：D-024与[ADR-0006](../adr/0006-artifact-gated-eight-stage-collaboration.md)已确认统一协议；D-025与[ADR-0007](../adr/0007-one-flow-one-scenario-per-case.md)已确认Case唯一主价值流/主场景及关联Case规则；D-026与[ADR-0008](../adr/0008-deterministic-emergency-protection-guard.md)已确认FLOW-07模型外确定性紧急保护通道。全部8条价值流和当前20个候选业务场景使用同一逻辑协议；结构化图谱见[collaboration-graph.json](collaboration-graph.json)。当前没有Case、Guard规则、Outbox、工具连接或生产动作由本图谱实例化。
+状态：D-024与[ADR-0006](../adr/0006-artifact-gated-eight-stage-collaboration.md)已确认统一协议；D-025与[ADR-0007](../adr/0007-one-flow-one-scenario-per-case.md)已确认Case唯一主价值流/主场景及关联Case规则；D-026与[ADR-0008](../adr/0008-deterministic-emergency-protection-guard.md)已确认FLOW-07模型外确定性紧急保护通道；D-053与[ADR-0012](../adr/0012-independent-role-presets-and-bounded-composition.md)确认50个岗位可独立运行并可受控组队。全部8条价值流和当前20个候选业务场景使用同一逻辑协议；结构化图谱见[collaboration-graph.json](collaboration-graph.json)。当前没有Case、Guard规则、Outbox、工具连接或生产动作由本图谱实例化。
 
 ## 协同的第一性原理
 
-协同的最小单位不是两个岗位Agent互发消息，而是一个Stage Artifact被下一阶段按Acceptance Gate正式接收。每张Case只有一个上下文所有者；到STG-03时固定一个主岗位人格和一个Role Release Bundle。其他岗位提供按需Skill、产物schema、判断规则或Assurance要求。
+协同的最小单位不是两个岗位Agent互发消息，而是一个Stage Artifact被下一阶段按Acceptance Gate正式接收。独立任务由一个Role Preset持有自己的上下文和产物责任；复杂Case到STG-03时固定一个Lead、零个或多个Worker及各自Role Release Bundle。Worker只提供带来源的ArtifactEnvelope，不建立隐式会话。
 
 ```mermaid
 flowchart LR
@@ -43,13 +43,33 @@ D-026的Emergency Guard是FLOW-07在已接收STG-01信号后的模型外保护�
 
 | 参与方式 | 运行含义 | 边界 |
 | --- | --- | --- |
-| 主岗位人格 | 从所选价值流和业务范围确定唯一AI结果负责人 | 一张Case只能有一个，不因加载Skill叠加人格 |
-| Skill贡献 | 其他岗位把方法、步骤、知识和产物规范贡献给同一个Case Agent | Skill不成为独立岗位Agent，不获得额外权限 |
+| Lead岗位人格 | 从所选价值流和业务范围确定Case唯一结果负责人 | 一张Case只能有一个，不因加载Skill叠加人格 |
+| Worker岗位Preset | 以独立Preset执行阶段增量任务并返回ArtifactEnvelope | 必须由Case Control显式绑定；不能自行扩权、转授权限或增加角色 |
+| Skill贡献 | 岗位Playbook中的方法、步骤、知识和产物规范按需加载 | Skill不改变Role身份或Access边界 |
 | 保障贡献 | 独立控制岗位提供Assurance Contract、Eval和审计标准 | 硬门禁在模型外执行，发起者不能覆盖拒绝 |
 | Delegate | 处理窄范围、只读、自包含的语义评估或分析 | 输入最小且不可变；无完整会话、写入、再委派和状态修改能力 |
 | 外部执行 | Policy Gate通过后由Execution Broker执行 | 模型不持有凭据或直接资产权限 |
 
-图谱中不存在岗位到岗位的运行通信边。角色边只表示某岗位可以为一条价值流贡献人格、Skill、产物或保障规则。
+图谱中不存在岗位到岗位的隐式运行通信边。角色边只表示某岗位可独立运行，或可在Case Control显式绑定后贡献人格、Skill、产物或保障规则；实际交接必须落到ArtifactEnvelope和Acceptance Record。
+
+## D-053运行投影
+
+```mermaid
+flowchart LR
+  T[独立任务合同] --> R[Role Preset]
+  R --> A[岗位产物 / Action Intent / HOLD]
+  C[Case Control] --> L[Lead Preset]
+  C --> W1[Worker Preset A]
+  C --> W2[Worker Preset B]
+  W1 --> E1[ArtifactEnvelope]
+  W2 --> E2[ArtifactEnvelope]
+  E1 --> G[Acceptance Gate]
+  E2 --> G
+  G --> L
+  L --> P[Policy Gate → Execution Broker]
+```
+
+Lead负责一张Case的结果；Worker负责自身阶段产物。Case Control负责选择、版本固定、范围与异常，不能把Preset之间的连接渲染成行政上下级或权限授权。
 
 ## 八条价值流绑定
 

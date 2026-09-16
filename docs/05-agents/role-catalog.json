@@ -2,6 +2,19 @@
   "artifact_kind": "confirmed_logical_role_profile_catalog_not_runtime_configuration",
   "version": "2.0",
   "role_count": 50,
+  "runtime_model": {
+    "independent_role_preset": true,
+    "composition_mode": "external_case_control_lead_worker",
+    "handoff": "accepted_artifact_envelope",
+    "implicit_peer_chat": false,
+    "production_authorized": false,
+    "supersedes_legacy_runtime_agent_identity_flags": true,
+    "canonical_asset_indexes": {
+      "soul_contracts": "roles/souls/",
+      "role_playbooks": "../06-playbooks/role-playbooks/index.json",
+      "preset_blueprints": "../10-platform/deepseek-harness/preset-blueprints/manifest.json"
+    }
+  },
   "roles": [
     {
       "id": "AGT-001",

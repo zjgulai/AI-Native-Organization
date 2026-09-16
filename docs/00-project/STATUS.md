@@ -1,8 +1,8 @@
 # 项目状态
 
-更新日期：2026-09-16
+更新日期：2026-09-17
 
-当前阶段：v2根架构、50岗位、12条价值流和完整方案Site已形成。D-050确认目标Shopify是尚无上线产品的空白新店；D-051把当前范围限定为完整方案最终审阅和Shopify店铺治理底座方案，不实例化Case或执行店铺、商品、App、连接、测试订单和业务发布。未来取得独立授权后，才按`SHOP-G2`至`SHOP-G7`推进绿地实施、只读连接、30天基线和FLOW-01 Shadow。D-052授权把本项目文档与Site提交至GitHub并公开部署GitHub Pages；该文档发布不改变Shopify、企业系统、裁员、预算或生产自治权限。
+当前阶段：v2.3独立岗位分身与受控组队方案已形成。D-053确认50个岗位各自拥有独立Role Playbook、Preset Blueprint、Skills、产物、评估集和Access边界，可独立处理边界清晰的岗位任务，也可由模型外Case Control编排为Lead/Worker组队。D-050确认目标Shopify是尚无上线产品的空白新店；D-051把当前范围限定为完整方案最终审阅和Shopify店铺治理底座方案，不实例化Case或执行店铺、商品、App、连接、测试订单和业务发布。D-052授权把本项目文档与Site提交至GitHub并公开部署GitHub Pages；该文档发布不改变Shopify、企业系统、裁员、预算或生产自治权限。
 
 ## 已完成
 
@@ -54,6 +54,7 @@
 - D-051将店铺治理收敛为[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)：六个治理域、十项方案产物、三条未来关联价值流、敏捷变更通路、验收条件和逐动作授权边界均已形成；没有登录或修改Shopify。
 - 为避免三套阶段编号冲突，Shopify绿地门统一为`SHOP-G0`至`SHOP-G7`，组织变革门统一为`ORG-G0`至`ORG-G5`，经营试点门统一为`PILOT-G0`至`PILOT-G4`。
 - D-052发布已完成：方案提交`7c84617467cd2ad1a2db08ccf8cad1072ebe6c4d`已推送至GitHub `main`，GitHub Actions Pages运行[35073360037](https://github.com/zjgulai/AI-Native-Organization/actions/runs/35073360037)成功，[公开Site](https://zjgulai.github.io/AI-Native-Organization/)返回HTTP 200。公网首页、CSS、JS、50岗位数据和12价值流数据与该提交的`dist/`发布包逐字一致；Pages控制面为`build_type=workflow`且强制HTTPS。该证据只验收文档Site发布，不是Shopify、Harness或企业经营上线证据。
+- D-053与ADR-0012已完成首批设计资产：由生成器从50岗位目录生成50份独立[Soul Contract](../05-agents/roles/souls/)、50份[Role Playbook](../06-playbooks/role-playbooks/index.json)、50份[DSH Preset Blueprint](../10-platform/deepseek-harness/preset-blueprints/manifest.json)及逐岗位文件。每份资产均声明独立模式、Lead/Worker组队模式、ArtifactEnvelope交接、工具类别、Access和Assurance边界；状态为设计完成但目标DSH导入schema未知，不可直接导入或宣称已运行。
 
 ## GitHub Pages发布证据
 
@@ -69,9 +70,9 @@
 
 验收对象为本地文档与业务设计数据。完成标准是职责和流程覆盖一致、角色行为与产物可检查、研究可回溯、需求有验收条件、未知项和决策状态清楚；不将文档交付写成企业系统运行验收。
 
-检查包括：50个唯一岗位及对应卡片；8流程的AI结果负责人、参与者、编排者与Playbook映射；20业务场景完整覆盖；关系引用与语义；19部门映射覆盖全部50岗位；需求ID；内部链接、引文脚注、Markdown代码围栏、文件空白及Git状态。
+检查包括：50个唯一岗位及对应卡片；50份Soul Contract、50份Role Playbook、50份Preset Blueprint；8流程的AI结果负责人、参与者、编排者与Playbook映射；20业务场景完整覆盖；关系引用与语义；19部门映射覆盖全部50岗位；需求ID；内部链接、引文脚注、Markdown代码围栏、文件空白及Git状态。
 
-v1.1结构检查曾通过的356条关系仅保留在Git历史。当前本地结构检查已覆盖：50个Role Profiles和岗位卡、四平面5/35/5/5、五类契约、七个生命周期状态、8条业务价值流、4条能力供应流、20个候选场景、8份Playbook、8个有序阶段、64条flow-stage绑定、51条候选flow-scenario绑定、140条待编译Skill Contract的历史role-flow覆盖、338条类型化关系和零条岗位间运行通信边。该结果只验证本地文档与设计数据；未开展五个参考项目运行测试、企业接口测试、Harness配置导入或经营试点。
+v1.1结构检查曾通过的356条关系仅保留在Git历史。当前本地结构检查已覆盖：50个Role Profiles和岗位卡、50份Role Playbook、50份Preset Blueprint、四平面5/35/5/5、五类契约、七个生命周期状态、8条业务价值流、4条能力供应流、20个候选场景、8份共享Playbook、8个有序阶段、64条flow-stage绑定、51条候选flow-scenario绑定、140条待编译Skill Contract的历史role-flow覆盖、338条类型化关系和零条未经Case Control控制的岗位间运行通信边。该结果只验证本地文档与设计数据；未开展五个参考项目运行测试、企业接口测试、Harness配置导入或经营试点。
 
 ## 当前待决定
 
@@ -88,10 +89,12 @@ v1.1结构检查曾通过的356条关系仅保留在Git历史。当前本地结�
 5. 工具优先UI/UX的工作入口边界（R04-Q6）。
 6. 首个新品验证机会与受保护资源（R04-Q7）。
 
-当前下一步是管理层在[公开Site](https://zjgulai.github.io/AI-Native-Organization/)审阅完整方案并提出需要调整的模块；Shopify仍停在`SHOP-G1`方案状态。未来若另行授权Shopify实施，再以[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)生成真实对象实施包；目标Dev Dashboard登录、[L1资格现场证据包](../10-platform/deepseek-harness/SHOPIFY-LEVEL1-QUALIFICATION-EVIDENCE-PACK.md)和API预检延期到`SHOP-G6`，产品家族、Product GID种子、Variant报告和Top 5延期到`SHOP-G7`。
+当前下一步是管理层在[公开Site](https://zjgulai.github.io/AI-Native-Organization/)审阅独立岗位分身与组队方案，并指定需要优先回放的岗位/场景；同时核实目标DSH版本、preset schema、插件、Host tool行为和服务身份边界。具体门禁见[50个独立数字分身实施TODO](../12-rollout/ROLE-PRESET-IMPLEMENTATION-TODO.md)。Shopify仍停在`SHOP-G1`方案状态。未来若另行授权Shopify实施，再以[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)生成真实对象实施包。
+
+本轮已在本地工作区生成50份Soul、50份Role Playbook、50份Preset Blueprint并更新Site；这些改动目前尚未提交或同步到GitHub Pages，因此公网仍以最近一次已发布提交为准。
 
 ## 实施前尚需落实
 
-首个经营样本的真实账号/商品范围、系统和数据来源、GMV定义与基线、动作策略、预算阈值、企业目标部署、服务身份及验收窗口。当前岗位、组织、管理、生命周期和协同JSON是v2业务设计数据，不是生产导入包；所有Bundle、Case和生产授权仍未实例化。
+首个经营样本的真实账号/商品范围、系统和数据来源、GMV定义与基线、动作策略、预算阈值、企业目标部署、服务身份及验收窗口；50个Preset Blueprint仍需目标DSH schema映射、独立/组队回放和逐岗位评估。当前岗位、Role Playbook、Preset Blueprint、组织、管理、生命周期和协同JSON是业务设计数据，不是生产导入包；所有Bundle、Case和生产授权仍未实例化。
 
 真人组织设计后置；经营收益、可释放费用和未来HITL介入规则仍需要真实负荷与运行证据。没有已实施裁撤、平台上线或已证明的百亿规模自动运行结论。

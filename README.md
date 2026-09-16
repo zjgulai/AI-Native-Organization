@@ -6,7 +6,7 @@
 
 ## 当前进度
 
-战略框架 v1.1 已完成；用户随后确认v2根架构：50表示逻辑AI岗位分身与责任契约，每张紧耦合场景工单由一个Case Agent绑定一个主岗位人格并按需加载Skills，不采用LLM多Agent路由或岗位Agent互聊。全部8条业务价值流和当前20个候选场景依据D-024共用八阶段门禁协议；D-031与[ADR-0011](docs/adr/0011-business-and-capability-value-streams.md)进一步把Magpie-Horch的岗位、Skill、连接器和Release闭环建模为4条正交能力供应流，形成12条端到端价值流的产品方案与分工协作双视图。资产动作仍由Policy Gate与Execution Broker控制，HITL与真人负责人后置。D-050确认目标Shopify是空白新店且无上线产品；D-051将当前范围固定为完整方案最终审阅与店铺治理底座方案，不实例化Case或执行任何Shopify动作。D-033至D-049定义的Shopify存量GMV、App、Scope、Level 1、45天保留、产品家族、报表和Top 5规则全部保留为目标状态合同，在产品上线并形成连续30个完整销售日后才实例化。D-052只授权把方案仓库与Site公开发布到GitHub Pages。Amazon US契约继续作为后续渠道模板。
+战略框架 v1.1 已完成；D-053与[ADR-0012](docs/adr/0012-independent-role-presets-and-bounded-composition.md)进一步确认：50个岗位各自成为可独立寻址的数字分身，每个岗位拥有独立Soul Contract、Role Playbook、Preset Blueprint、Skills、产物、评估和Access边界；既可独立完成边界清晰的岗位任务，也可由模型外Case Control以Lead/Worker方式受控组队。每张Case仍只保留一个结果责任Lead，Worker只通过已验收ArtifactEnvelope交接，不采用隐式岗位Agent互聊或LLM自由路由。全部8条业务价值流和当前20个候选场景依据D-024共用八阶段门禁协议；D-031与[ADR-0011](docs/adr/0011-business-and-capability-value-streams.md)进一步把Magpie-Horch的岗位、Skill、连接器和Release闭环建模为4条正交能力供应流，形成12条端到端价值流的产品方案与分工协作双视图。资产动作仍由Policy Gate与Execution Broker控制，HITL与真人负责人后置。D-050确认目标Shopify是空白新店且无上线产品；D-051将当前范围固定为完整方案最终审阅与店铺治理底座方案，不实例化Case或执行任何Shopify动作。D-033至D-049定义的Shopify存量GMV、App、Scope、Level 1、45天保留、产品家族、报表和Top 5规则全部保留为目标状态合同，在产品上线并形成连续30个完整销售日后才实例化。D-052只授权把方案仓库与Site公开发布到GitHub Pages。Amazon US契约继续作为后续渠道模板。
 
 - [中文交互Site源文件](dist/index.html)：集中浏览完整方案全景、50岗位、四平面组织、八阶段协同、12条端到端价值流、平台架构、Agent治理与Shopify绿地路线。
 - [完整方案地图](docs/02-strategy/SOLUTION-MAP.md)、[Shopify绿地路线](docs/12-rollout/SHOPIFY-GREENFIELD-ROADMAP.md)与[店铺治理底座方案](docs/12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)：Site的方案索引、未来阶段门和当前只设计不执行的治理方案。
@@ -18,12 +18,12 @@
 - [用户已表达的方向与决策记录](docs/00-project/DECISIONS.md)
 - [已知事实与证据等级](docs/01-discovery/FACTS.md)
 - [总体方案](docs/02-strategy/BLUEPRINT.md)与 [PRD](docs/13-prd/PRD.md)：已确认的战略框架；系统、账号和动作实施另行授权。
-- [50 岗位总表](docs/05-agents/ROSTER.md)、[8 条业务流程](docs/03-scenarios/FLOW-CATALOG.md)、[Playbook](docs/06-playbooks/PLAYBOOKS.md)、[单Case Agent自主运行模型](docs/07-orchestration/AUTONOMOUS-OPERATING-MODEL.md)与[八阶段协同图谱](docs/07-orchestration/COLLABORATION-GRAPH.md)。
+- [50 岗位总表](docs/05-agents/ROSTER.md)、[50份Soul Contract](docs/05-agents/roles/souls/)、[50份Role Playbook](docs/06-playbooks/role-playbooks/index.json)、[8 条共享业务流程](docs/03-scenarios/FLOW-CATALOG.md)、[Playbook](docs/06-playbooks/PLAYBOOKS.md)、[受控独立/组队运行模型](docs/07-orchestration/AUTONOMOUS-OPERATING-MODEL.md)与[八阶段协同图谱](docs/07-orchestration/COLLABORATION-GRAPH.md)。
 - [现有组织评估](docs/01-discovery/ORGANIZATION-ASSESSMENT.md)、[部门职责承接](docs/04-organization/RESPONSIBILITY-MAP.md)与[容量和成本模型](docs/02-strategy/CAPACITY-AND-COST.md)。
 - [50岗位四平面组织责任图](docs/04-organization/AI-ORGANIZATION-MAP.md)：5个经营管理、35个业务运营、5个独立控制、5个数据与Agent平台岗位。
 - [50岗位五契约管理图](docs/05-agents/AGENT-MANAGEMENT-GRAPH.md)：Business、Skill、Runtime、Access和Assurance分别版本化，岗位无自发布权。
 - [不可变Bundle与七状态岗位生命周期](docs/05-agents/AGENT-LIFECYCLE.md)：Case固定版本，隔离后禁止新动作，回退从Shadow重新验证。
-- [八阶段场景协同图](docs/07-orchestration/COLLABORATION-GRAPH.md)：50个岗位以主人格、Skills、产物和保障规则覆盖8条价值流；51条场景映射仍是待业务验证的候选关系。
+- [八阶段场景协同图](docs/07-orchestration/COLLABORATION-GRAPH.md)：50个岗位以独立Preset、Soul、Skills、产物和保障规则覆盖8条价值流；51条场景映射仍是待业务验证的候选关系。
 - [五项目深度比较](docs/14-research/REFERENCE-EVALUATION.md)、[DeepSeek Harness 落实方案](docs/10-platform/deepseek-harness/IMPLEMENTATION-PLAN.md)与[系统接入盘点](docs/10-platform/deepseek-harness/SYSTEM-INTEGRATION-INVENTORY.md)。
 - [实施章程](docs/12-rollout/IMPLEMENTATION-CHARTER.md)与[架构决策](docs/adr/0001-harness-execution-and-business-control.md)、[ADR-0002](docs/adr/0002-agent-autonomy-and-deferred-hitl.md)。
 - [Shopify DTC目标状态试点章程](docs/12-rollout/BVS-01-SHOPIFY-DTC-PILOT-CHARTER.md)、[8数据集契约](docs/08-data/BVS-01-SHOPIFY-DTC-DATA-CONTRACT.md)、[SKU范围清单契约](docs/08-data/BVS-01-SHOPIFY-SKU-SCOPE-MANIFEST.md)、[只读连接器登记契约](docs/10-platform/deepseek-harness/SHOPIFY-READONLY-CONNECTOR-REGISTRATION.md)与[结构化登记](docs/10-platform/deepseek-harness/shopify-readonly-connector-registration.json)：它们是商品上线和30天基线形成后的目标合同；当前没有可实例化的Product/Variant/SKU、报表、订单、App或Scope证据。
@@ -56,21 +56,25 @@
 │   ├── 03-scenarios/                 全链路业务场景与优先级
 │   ├── 04-organization/              外部执行边界与未来真人组织
 │   ├── 05-agents/                    AI 岗位、人格、行为原则与技能
+│   │   └── roles/souls/              50份独立Soul Contract
 │   ├── 06-playbooks/                 场景操作、判断规则与异常处理
+│   │   └── role-playbooks/            50份独立Role Playbook
 │   ├── 07-orchestration/             协同关系图谱、交接与运行编排
 │   ├── 08-data/                      系统、数据、知识与集成契约
 │   ├── 09-governance/                权限、审批、审计与责任边界
 │   ├── 10-platform/
 │   │   └── deepseek-harness/         平台证据、能力映射与配置落实
+│   │       └── preset-blueprints/     50份独立DSH Preset设计稿
 │   │       └── configs/              经版本和 schema 核实后的配置
 │   ├── 11-validation/               基线、试点、容量、效果与验收
 │   ├── 12-rollout/                   组织迁移、人员转型与推广
 │   ├── 13-prd/                      最终需求规格与需求追踪
 │   └── 14-research/                 官方来源与调研证据索引
-└── templates/                       场景、分身与 Playbook 模板
+├── templates/                       场景、分身与 Playbook 模板
+└── scripts/                         Role Playbook、Soul与Preset资产生成器
 ```
 
-重要且难逆转的取舍记录在 `docs/adr/`，当前已有ADR-0001至ADR-0011。岗位、图谱和端到端价值流JSON是业务设计数据，且始终不是Harness导入配置；各领域文件区分战略框架、已知事实、实施参数和生产验收。
+重要且难逆转的取舍记录在 `docs/adr/`，当前已有ADR-0001至ADR-0012。岗位、Soul、Playbook、Preset、图谱和端到端价值流JSON是业务设计数据，且始终不是Harness导入配置；各领域文件区分战略框架、已知事实、实施参数和生产验收。
 
 ## 如何推进
 
@@ -83,3 +87,5 @@
 ## 本轮交付边界
 
 目录与 Git 初始化、战略框架、五项目比较、PRD、实施章程及中文交互Site已完成；本轮授权发布方案仓库和GitHub Pages。设计资产公开可读不等于业务权限生效、系统连接、未来真人组织调整或生产上线。
+
+本地最新工作区已补齐50份Soul、Role Playbook和DSH Preset Blueprint，并将Site更新为独立Preset与Lead/Worker组队视图；这些新增改动尚未提交，公网仍以最近一次已发布版本为准。

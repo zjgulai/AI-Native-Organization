@@ -1,0 +1,1714 @@
+{
+  "artifact_kind": "site_role_asset_index",
+  "version": "1.0.0",
+  "role_count": 50,
+  "assets": [
+    {
+      "role_id": "AGT-001",
+      "playbook_id": "RPB-AGT-001",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-001.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-001.soul.md",
+      "preset_id": "dsh.role.agt-001.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-001.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-003",
+        "AGT-008",
+        "AGT-021",
+        "AGT-041"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-017",
+        "SCN-019"
+      ],
+      "skill_count": 3,
+      "artifact": "目标与资源决策包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-002",
+      "playbook_id": "RPB-AGT-002",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-002.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-002.soul.md",
+      "preset_id": "dsh.role.agt-002.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-002.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-003",
+        "PB-004",
+        "PB-005",
+        "PB-006",
+        "PB-007",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-001",
+        "AGT-021",
+        "AGT-047",
+        "AGT-049"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-03",
+        "FLOW-04",
+        "FLOW-05",
+        "FLOW-06",
+        "FLOW-07",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-002",
+        "SCN-003",
+        "SCN-004",
+        "SCN-005",
+        "SCN-006",
+        "SCN-007",
+        "SCN-008",
+        "SCN-009",
+        "SCN-010",
+        "SCN-011",
+        "SCN-012",
+        "SCN-013",
+        "SCN-014",
+        "SCN-015",
+        "SCN-016",
+        "SCN-017",
+        "SCN-018",
+        "SCN-019",
+        "SCN-020"
+      ],
+      "skill_count": 4,
+      "artifact": "场景规则、装配决策依据、Case状态与自治异常分析",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-003",
+      "playbook_id": "RPB-AGT-003",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-003.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-003.soul.md",
+      "preset_id": "dsh.role.agt-003.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-003.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-006",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-021",
+        "AGT-035",
+        "AGT-040",
+        "AGT-045"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-06",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-016"
+      ],
+      "skill_count": 3,
+      "artifact": "带来源的经营分析包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-004",
+      "playbook_id": "RPB-AGT-004",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-004.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-004.soul.md",
+      "preset_id": "dsh.role.agt-004.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-004.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-001",
+        "AGT-005",
+        "AGT-048",
+        "AGT-050"
+      ],
+      "flows": [
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-019"
+      ],
+      "skill_count": 3,
+      "artifact": "能力矩阵与组织调整建议",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-005",
+      "playbook_id": "RPB-AGT-005",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-005.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-005.soul.md",
+      "preset_id": "dsh.role.agt-005.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-005.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-007",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-003",
+        "AGT-040",
+        "AGT-043",
+        "AGT-050"
+      ],
+      "flows": [
+        "FLOW-07",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-016",
+        "SCN-019"
+      ],
+      "skill_count": 3,
+      "artifact": "复核结论与整改清单",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-006",
+      "playbook_id": "RPB-AGT-006",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-006.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-006.soul.md",
+      "preset_id": "dsh.role.agt-006.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-006.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-005"
+      ],
+      "collaborators": [
+        "AGT-007",
+        "AGT-009",
+        "AGT-038",
+        "AGT-039"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-05"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-003"
+      ],
+      "skill_count": 3,
+      "artifact": "需求证据与问题地图",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-007",
+      "playbook_id": "RPB-AGT-007",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-007.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-007.soul.md",
+      "preset_id": "dsh.role.agt-007.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-007.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-006",
+        "AGT-008",
+        "AGT-024",
+        "AGT-043"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-003"
+      ],
+      "skill_count": 3,
+      "artifact": "机会证据包与反证",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-008",
+      "playbook_id": "RPB-AGT-008",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-008.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-008.soul.md",
+      "preset_id": "dsh.role.agt-008.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-008.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-001",
+        "AGT-006",
+        "AGT-009",
+        "AGT-035"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-003",
+        "SCN-004"
+      ],
+      "skill_count": 3,
+      "artifact": "新品组合与继续停止建议",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-009",
+      "playbook_id": "RPB-AGT-009",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-009.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-009.soul.md",
+      "preset_id": "dsh.role.agt-009.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-009.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-006",
+        "AGT-008",
+        "AGT-010",
+        "AGT-013"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-003",
+        "SCN-004"
+      ],
+      "skill_count": 3,
+      "artifact": "产品定义与立项包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-010",
+      "playbook_id": "RPB-AGT-010",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-010.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-010.soul.md",
+      "preset_id": "dsh.role.agt-010.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-010.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002"
+      ],
+      "collaborators": [
+        "AGT-009",
+        "AGT-011",
+        "AGT-013",
+        "AGT-038"
+      ],
+      "flows": [
+        "FLOW-02"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-013"
+      ],
+      "skill_count": 3,
+      "artifact": "设计方案与体验验证计划",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-011",
+      "playbook_id": "RPB-AGT-011",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-011.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-011.soul.md",
+      "preset_id": "dsh.role.agt-011.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-011.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-009",
+        "AGT-013",
+        "AGT-014",
+        "AGT-018"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-006"
+      ],
+      "skill_count": 3,
+      "artifact": "技术风险与工程验证清单",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-012",
+      "playbook_id": "RPB-AGT-012",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-012.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-012.soul.md",
+      "preset_id": "dsh.role.agt-012.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-012.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-009",
+        "AGT-013",
+        "AGT-044",
+        "AGT-049"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-013",
+        "SCN-020"
+      ],
+      "skill_count": 3,
+      "artifact": "软件方案与验证证据",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-013",
+      "playbook_id": "RPB-AGT-013",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-013.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-013.soul.md",
+      "preset_id": "dsh.role.agt-013.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-013.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-009",
+        "AGT-011",
+        "AGT-012",
+        "AGT-018"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-005"
+      ],
+      "skill_count": 3,
+      "artifact": "验证报告与缺陷闭合记录",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-014",
+      "playbook_id": "RPB-AGT-014",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-014.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-014.soul.md",
+      "preset_id": "dsh.role.agt-014.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-014.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-003",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-011",
+        "AGT-015",
+        "AGT-018",
+        "AGT-043"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-03",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-006"
+      ],
+      "skill_count": 3,
+      "artifact": "供应商能力与风险档案",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-015",
+      "playbook_id": "RPB-AGT-015",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-015.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-015.soul.md",
+      "preset_id": "dsh.role.agt-015.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-015.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-003"
+      ],
+      "collaborators": [
+        "AGT-014",
+        "AGT-016",
+        "AGT-018",
+        "AGT-041"
+      ],
+      "flows": [
+        "FLOW-03"
+      ],
+      "scenarios": [
+        "SCN-006"
+      ],
+      "skill_count": 3,
+      "artifact": "采购建议与交期异常记录",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-016",
+      "playbook_id": "RPB-AGT-016",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-016.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-016.soul.md",
+      "preset_id": "dsh.role.agt-016.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-016.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-003"
+      ],
+      "collaborators": [
+        "AGT-017",
+        "AGT-021",
+        "AGT-032",
+        "AGT-041"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-03"
+      ],
+      "scenarios": [
+        "SCN-007"
+      ],
+      "skill_count": 3,
+      "artifact": "补货方案与预测区间",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-017",
+      "playbook_id": "RPB-AGT-017",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-017.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-017.soul.md",
+      "preset_id": "dsh.role.agt-017.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-017.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-003",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-016",
+        "AGT-020",
+        "AGT-026",
+        "AGT-040"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-03",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-007",
+        "SCN-010"
+      ],
+      "skill_count": 3,
+      "artifact": "库存风险与处置方案",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-018",
+      "playbook_id": "RPB-AGT-018",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-018.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-018.soul.md",
+      "preset_id": "dsh.role.agt-018.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-018.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-003",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-011",
+        "AGT-013",
+        "AGT-014",
+        "AGT-037"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-03",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-006",
+        "SCN-015"
+      ],
+      "skill_count": 3,
+      "artifact": "质量事件与纠正措施包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-019",
+      "playbook_id": "RPB-AGT-019",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-019.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-019.soul.md",
+      "preset_id": "dsh.role.agt-019.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-019.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-003",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-015",
+        "AGT-016",
+        "AGT-020",
+        "AGT-042"
+      ],
+      "flows": [
+        "FLOW-03",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-008"
+      ],
+      "skill_count": 3,
+      "artifact": "运输方案与异常处置建议",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-020",
+      "playbook_id": "RPB-AGT-020",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-020.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-020.soul.md",
+      "preset_id": "dsh.role.agt-020.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-020.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-003",
+        "PB-005",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-017",
+        "AGT-019",
+        "AGT-037",
+        "AGT-040"
+      ],
+      "flows": [
+        "FLOW-03",
+        "FLOW-05",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-008",
+        "SCN-014",
+        "SCN-015"
+      ],
+      "skill_count": 3,
+      "artifact": "履约与退货处置记录",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-021",
+      "playbook_id": "RPB-AGT-021",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-021.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-021.soul.md",
+      "preset_id": "dsh.role.agt-021.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-021.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-003",
+        "PB-004",
+        "PB-006",
+        "PB-007",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-016",
+        "AGT-022",
+        "AGT-026",
+        "AGT-032"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-03",
+        "FLOW-04",
+        "FLOW-06",
+        "FLOW-07",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-009",
+        "SCN-010",
+        "SCN-011",
+        "SCN-018"
+      ],
+      "skill_count": 3,
+      "artifact": "Amazon场景行动包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-022",
+      "playbook_id": "RPB-AGT-022",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-022.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-022.soul.md",
+      "preset_id": "dsh.role.agt-022.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-022.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-021",
+        "AGT-028",
+        "AGT-030",
+        "AGT-044"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-009",
+        "SCN-018"
+      ],
+      "skill_count": 3,
+      "artifact": "商品与搜索优化包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-023",
+      "playbook_id": "RPB-AGT-023",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-023.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-023.soul.md",
+      "preset_id": "dsh.role.agt-023.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-023.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-004",
+        "PB-005",
+        "PB-006"
+      ],
+      "collaborators": [
+        "AGT-026",
+        "AGT-031",
+        "AGT-034",
+        "AGT-035"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-04",
+        "FLOW-05",
+        "FLOW-06"
+      ],
+      "scenarios": [
+        "SCN-009",
+        "SCN-010",
+        "SCN-013"
+      ],
+      "skill_count": 3,
+      "artifact": "独立站经营与实验包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-024",
+      "playbook_id": "RPB-AGT-024",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-024.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-024.soul.md",
+      "preset_id": "dsh.role.agt-024.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-024.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-007",
+        "AGT-025",
+        "AGT-028",
+        "AGT-044"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-009",
+        "SCN-012",
+        "SCN-018"
+      ],
+      "skill_count": 3,
+      "artifact": "新渠道进入与验证方案",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-025",
+      "playbook_id": "RPB-AGT-025",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-025.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-025.soul.md",
+      "preset_id": "dsh.role.agt-025.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-025.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-014",
+        "AGT-019",
+        "AGT-024",
+        "AGT-043"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-012",
+        "SCN-014",
+        "SCN-016"
+      ],
+      "skill_count": 3,
+      "artifact": "渠道机会与合作建议",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-026",
+      "playbook_id": "RPB-AGT-026",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-026.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-026.soul.md",
+      "preset_id": "dsh.role.agt-026.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-026.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-003"
+      ],
+      "collaborators": [
+        "AGT-017",
+        "AGT-021",
+        "AGT-023",
+        "AGT-041"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-03"
+      ],
+      "scenarios": [
+        "SCN-010"
+      ],
+      "skill_count": 3,
+      "artifact": "价格与促销决策包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-027",
+      "playbook_id": "RPB-AGT-027",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-027.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-027.soul.md",
+      "preset_id": "dsh.role.agt-027.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-027.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-004",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-021",
+        "AGT-022",
+        "AGT-043",
+        "AGT-050"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-04",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-018"
+      ],
+      "skill_count": 3,
+      "artifact": "账号健康与处置建议",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-028",
+      "playbook_id": "RPB-AGT-028",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-028.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-028.soul.md",
+      "preset_id": "dsh.role.agt-028.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-028.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-004",
+        "PB-005"
+      ],
+      "collaborators": [
+        "AGT-022",
+        "AGT-024",
+        "AGT-029",
+        "AGT-044"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-04",
+        "FLOW-05"
+      ],
+      "scenarios": [
+        "SCN-005",
+        "SCN-009",
+        "SCN-012"
+      ],
+      "skill_count": 3,
+      "artifact": "本地化内容与差异清单",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-029",
+      "playbook_id": "RPB-AGT-029",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-029.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-029.soul.md",
+      "preset_id": "dsh.role.agt-029.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-029.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-004",
+        "PB-005",
+        "PB-007",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-006",
+        "AGT-028",
+        "AGT-030",
+        "AGT-039"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-04",
+        "FLOW-05",
+        "FLOW-07",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-012"
+      ],
+      "skill_count": 3,
+      "artifact": "品牌原则与传播方案",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-030",
+      "playbook_id": "RPB-AGT-030",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-030.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-030.soul.md",
+      "preset_id": "dsh.role.agt-030.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-030.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-006",
+        "AGT-022",
+        "AGT-029",
+        "AGT-031"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-009",
+        "SCN-012"
+      ],
+      "skill_count": 3,
+      "artifact": "内容方案与证据引用",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-031",
+      "playbook_id": "RPB-AGT-031",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-031.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-031.soul.md",
+      "preset_id": "dsh.role.agt-031.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-031.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-010",
+        "AGT-023",
+        "AGT-030",
+        "AGT-044"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-009",
+        "SCN-012"
+      ],
+      "skill_count": 3,
+      "artifact": "带版本的渠道素材包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-032",
+      "playbook_id": "RPB-AGT-032",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-032.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-032.soul.md",
+      "preset_id": "dsh.role.agt-032.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-032.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001"
+      ],
+      "collaborators": [
+        "AGT-016",
+        "AGT-021",
+        "AGT-026",
+        "AGT-035"
+      ],
+      "flows": [
+        "FLOW-01"
+      ],
+      "scenarios": [
+        "SCN-011"
+      ],
+      "skill_count": 3,
+      "artifact": "广告行动与效果报告",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-033",
+      "playbook_id": "RPB-AGT-033",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-033.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-033.soul.md",
+      "preset_id": "dsh.role.agt-033.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-033.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-004"
+      ],
+      "collaborators": [
+        "AGT-024",
+        "AGT-029",
+        "AGT-030",
+        "AGT-043"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-04"
+      ],
+      "scenarios": [
+        "SCN-012"
+      ],
+      "skill_count": 3,
+      "artifact": "合作候选与效果归因包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-034",
+      "playbook_id": "RPB-AGT-034",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-034.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-034.soul.md",
+      "preset_id": "dsh.role.agt-034.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-034.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-005"
+      ],
+      "collaborators": [
+        "AGT-023",
+        "AGT-035",
+        "AGT-037",
+        "AGT-039"
+      ],
+      "flows": [
+        "FLOW-05"
+      ],
+      "scenarios": [
+        "SCN-013",
+        "SCN-015"
+      ],
+      "skill_count": 3,
+      "artifact": "用户经营计划与实验结果",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-035",
+      "playbook_id": "RPB-AGT-035",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-035.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-035.soul.md",
+      "preset_id": "dsh.role.agt-035.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-035.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-005",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-003",
+        "AGT-008",
+        "AGT-023",
+        "AGT-032"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-05",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-003",
+        "SCN-011",
+        "SCN-013"
+      ],
+      "skill_count": 3,
+      "artifact": "实验协议与继续停止结论",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-036",
+      "playbook_id": "RPB-AGT-036",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-036.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-036.soul.md",
+      "preset_id": "dsh.role.agt-036.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-036.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-004",
+        "PB-005",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-022",
+        "AGT-028",
+        "AGT-037",
+        "AGT-044"
+      ],
+      "flows": [
+        "FLOW-04",
+        "FLOW-05",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-015"
+      ],
+      "skill_count": 3,
+      "artifact": "有依据的售前答复与线索",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-037",
+      "playbook_id": "RPB-AGT-037",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-037.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-037.soul.md",
+      "preset_id": "dsh.role.agt-037.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-037.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-005",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-018",
+        "AGT-020",
+        "AGT-038",
+        "AGT-041"
+      ],
+      "flows": [
+        "FLOW-05",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-014",
+        "SCN-015"
+      ],
+      "skill_count": 3,
+      "artifact": "客诉工单与补救建议",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-038",
+      "playbook_id": "RPB-AGT-038",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-038.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-038.soul.md",
+      "preset_id": "dsh.role.agt-038.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-038.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-005",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-006",
+        "AGT-013",
+        "AGT-018",
+        "AGT-037"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-05",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-002",
+        "SCN-004",
+        "SCN-015"
+      ],
+      "skill_count": 3,
+      "artifact": "体验问题与根因假设",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-039",
+      "playbook_id": "RPB-AGT-039",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-039.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-039.soul.md",
+      "preset_id": "dsh.role.agt-039.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-039.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-005"
+      ],
+      "collaborators": [
+        "AGT-006",
+        "AGT-029",
+        "AGT-034",
+        "AGT-036"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-05"
+      ],
+      "scenarios": [
+        "SCN-012",
+        "SCN-013",
+        "SCN-015"
+      ],
+      "skill_count": 3,
+      "artifact": "教育内容与服务反馈",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-040",
+      "playbook_id": "RPB-AGT-040",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-040.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-040.soul.md",
+      "preset_id": "dsh.role.agt-040.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-040.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-003",
+        "PB-005",
+        "PB-006",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-003",
+        "AGT-020",
+        "AGT-041",
+        "AGT-045"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-03",
+        "FLOW-05",
+        "FLOW-06",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-016"
+      ],
+      "skill_count": 3,
+      "artifact": "对账表与差异处理包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-041",
+      "playbook_id": "RPB-AGT-041",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-041.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-041.soul.md",
+      "preset_id": "dsh.role.agt-041.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-041.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-003",
+        "PB-007",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-001",
+        "AGT-015",
+        "AGT-026",
+        "AGT-040"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-02",
+        "FLOW-03",
+        "FLOW-07",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-016",
+        "SCN-017"
+      ],
+      "skill_count": 3,
+      "artifact": "现金与资源约束方案",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-042",
+      "playbook_id": "RPB-AGT-042",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-042.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-042.soul.md",
+      "preset_id": "dsh.role.agt-042.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-042.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-003",
+        "PB-004",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-019",
+        "AGT-025",
+        "AGT-040",
+        "AGT-043"
+      ],
+      "flows": [
+        "FLOW-03",
+        "FLOW-04",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-005",
+        "SCN-016",
+        "SCN-017"
+      ],
+      "skill_count": 3,
+      "artifact": "税务与实体事项清单",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-043",
+      "playbook_id": "RPB-AGT-043",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-043.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-043.soul.md",
+      "preset_id": "dsh.role.agt-043.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-043.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-004",
+        "PB-007",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-007",
+        "AGT-014",
+        "AGT-025",
+        "AGT-029"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-04",
+        "FLOW-07",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-003",
+        "SCN-005",
+        "SCN-006",
+        "SCN-012"
+      ],
+      "skill_count": 3,
+      "artifact": "法律风险与处理建议",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-044",
+      "playbook_id": "RPB-AGT-044",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-044.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-044.soul.md",
+      "preset_id": "dsh.role.agt-044.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-044.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-004",
+        "PB-005",
+        "PB-006",
+        "PB-007"
+      ],
+      "collaborators": [
+        "AGT-009",
+        "AGT-013",
+        "AGT-028",
+        "AGT-050"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-04",
+        "FLOW-05",
+        "FLOW-06",
+        "FLOW-07"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-005",
+        "SCN-009"
+      ],
+      "skill_count": 3,
+      "artifact": "合规矩阵与证据缺口",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-045",
+      "playbook_id": "RPB-AGT-045",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-045.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-045.soul.md",
+      "preset_id": "dsh.role.agt-045.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-045.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-001",
+        "PB-006",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-003",
+        "AGT-021",
+        "AGT-040",
+        "AGT-046"
+      ],
+      "flows": [
+        "FLOW-01",
+        "FLOW-06",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-001",
+        "SCN-016",
+        "SCN-020"
+      ],
+      "skill_count": 3,
+      "artifact": "数据口径与对象关系契约",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-046",
+      "playbook_id": "RPB-AGT-046",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-046.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-046.soul.md",
+      "preset_id": "dsh.role.agt-046.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-046.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-006"
+      ],
+      "collaborators": [
+        "AGT-045",
+        "AGT-047",
+        "AGT-049",
+        "AGT-050"
+      ],
+      "flows": [
+        "FLOW-06"
+      ],
+      "scenarios": [
+        "SCN-020"
+      ],
+      "skill_count": 3,
+      "artifact": "带质量状态的数据产物",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-047",
+      "playbook_id": "RPB-AGT-047",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-047.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-047.soul.md",
+      "preset_id": "dsh.role.agt-047.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-047.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-006"
+      ],
+      "collaborators": [
+        "AGT-002",
+        "AGT-021",
+        "AGT-046",
+        "AGT-050"
+      ],
+      "flows": [
+        "FLOW-06"
+      ],
+      "scenarios": [
+        "SCN-020"
+      ],
+      "skill_count": 3,
+      "artifact": "工具能力与验收包",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-048",
+      "playbook_id": "RPB-AGT-048",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-048.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-048.soul.md",
+      "preset_id": "dsh.role.agt-048.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-048.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-002",
+        "PB-006",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-004",
+        "AGT-013",
+        "AGT-035",
+        "AGT-049"
+      ],
+      "flows": [
+        "FLOW-02",
+        "FLOW-06",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-004",
+        "SCN-019",
+        "SCN-020"
+      ],
+      "skill_count": 3,
+      "artifact": "能力版本与评估记录",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-049",
+      "playbook_id": "RPB-AGT-049",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-049.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-049.soul.md",
+      "preset_id": "dsh.role.agt-049.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-049.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-006",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-002",
+        "AGT-047",
+        "AGT-048",
+        "AGT-050"
+      ],
+      "flows": [
+        "FLOW-06",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-020"
+      ],
+      "skill_count": 3,
+      "artifact": "运行状态与恢复证据",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    },
+    {
+      "role_id": "AGT-050",
+      "playbook_id": "RPB-AGT-050",
+      "playbook_ref": "docs/06-playbooks/role-playbooks/AGT-050.md",
+      "soul_ref": "docs/05-agents/roles/souls/AGT-050.soul.md",
+      "preset_id": "dsh.role.agt-050.v1",
+      "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-050.json",
+      "status": "blueprint_only_not_importable",
+      "standalone_mode": "role_task",
+      "composition_mode": "bounded_role_worker",
+      "shared_playbooks": [
+        "PB-004",
+        "PB-006",
+        "PB-007",
+        "PB-008"
+      ],
+      "collaborators": [
+        "AGT-005",
+        "AGT-044",
+        "AGT-046",
+        "AGT-049"
+      ],
+      "flows": [
+        "FLOW-04",
+        "FLOW-06",
+        "FLOW-07",
+        "FLOW-08"
+      ],
+      "scenarios": [
+        "SCN-018",
+        "SCN-020"
+      ],
+      "skill_count": 3,
+      "artifact": "权限矩阵与访问证据",
+      "boundary": "action_intent_only_to_model_external_policy_gate"
+    }
+  ]
+}

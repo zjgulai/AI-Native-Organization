@@ -1,18 +1,18 @@
 # Momcozy 50岗位Agent自主经营 PRD
 
-版本v2.2全景方案稿。D-020至D-029已确认50个逻辑岗位分身、单Case Agent、唯一主岗位人格、按需Skills、不可变Bundle生命周期、八阶段协同、一张Case只绑定一条主价值流和一个主场景、Action Intent→Policy Gate→Execution Broker边界、上下文缓存边界及模型评估/选型与异步记忆边界。D-051把当前Shopify范围限定为店铺治理方案设计；D-052只授权本方案仓库和静态Site公开发布。当前没有Guard规则、生产配置、Shopify配置或业务动作生效。
+版本v2.3独立岗位分身与受控组队方案稿。D-053与ADR-0012在D-020至D-029基础上确认：50个岗位各自拥有独立Role Playbook、Preset Blueprint、Skills、产物、评估集和Access边界；岗位可以独立处理边界清晰的任务，也可以在复杂Case中作为Lead或Worker参与。D-051把当前Shopify范围限定为店铺治理方案设计；D-052只授权本方案仓库和静态Site公开发布。当前没有目标DSH导入配置、Guard规则、生产配置、Shopify配置或业务动作生效。
 
 ## 1. 问题与目标
 
 为Momcozy建立按场景组织50种AI岗位的自主经营体系，连接产品、供应、渠道、品牌、服务、财务和数字化。重点缩短数据与业务需求响应、提高存量GMV经营联动效率，并建立持续验证新品机会的机制。
 
-系统以场景工单、单Case Agent、Stage Artifact、Acceptance Gate、动作策略、工具和回执形成闭环。完整经营设计见[总体方案](../02-strategy/BLUEPRINT.md)，企业事实与证据见[事实表](../01-discovery/FACTS.md)。
+系统以场景工单、独立Role Preset、Lead/Worker、Stage Artifact、Acceptance Gate、动作策略、工具和回执形成闭环。完整经营设计见[总体方案](../02-strategy/BLUEPRINT.md)，企业事实与证据见[事实表](../01-discovery/FACTS.md)。
 
 ## 2. 初始运行主体
 
-- 模型外Case Control接收信号，依据已发布规则创建Case、确定范围、选择主岗位、固定Bundle并装配必要Skills和Tools。
-- 每张工单只运行一个Case Agent和一个主岗位人格，负责形成阶段产物、核对结果和关闭工单。
-- 其他专业岗位作为Skill、产物schema、判断规则或Assurance来源进入同一个Case，不创建岗位Agent消息链。
+- 模型外Case Control接收信号，依据已发布规则创建Case、确定范围、选择Lead、固定Bundle并装配必要Skills和Tools。
+- 每个岗位都有独立Role Preset，可在独立任务合同下完成自身产物；复杂Case由Case Control选择一个Lead和若干bounded Role Worker。
+- Lead负责一张Case的结果责任、阶段推进和关闭；Worker只消费已验收Stage Artifact，返回ArtifactEnvelope，不共享隐式会话或通过自由聊天协作。
 - Assurance Gate及适用的只读Evaluator Delegate提供独立复核；发起者不能覆盖确定性拒绝，Evaluator不能批准资产动作。
 - 业务控制层和目标业务系统保存工单、动作策略、幂等、回执和自治异常账。
 - HITL和真人组织不是初始运行依赖，未来如启用须另行定义策略、触发条件和记录方式。
@@ -29,7 +29,10 @@ D-050确认Shopify是空白新店且无上线产品并定义未来绿地顺序�
 
 | 对象 | 必要信息 | 约束 |
 | --- | --- | --- |
-| 岗位 | 稳定ID、职责、人格、技能、版本、能力范围 | 50种Role Profiles；不等于运行实例 |
+| 岗位 | 稳定ID、职责、人格、技能、版本、能力范围 | 50种Role Profiles；每种岗位可映射独立Preset与多个运行实例 |
+| Soul Contract | 人格、灵魂原则、反模式、停止信号和协作姿态 | 每个岗位一份；不授予数据、工具、预算或账号权限 |
+| Role Playbook | 独立触发、输入、判断、产物、边界、评估和组队交接规则 | 50份岗位Playbook；与8份共享业务Playbook分层维护 |
+| Role Preset Blueprint | Preset身份、Prompt层、Skills、Tools、Access、Assurance、独立/组队模式 | 50份设计蓝图；目标DSH导入schema核实前不可导入 |
 | Role Release Bundle | 五契约固定版本、Hash、来源、状态与作用范围 | 任一契约变化创建新Bundle；Case不得静默跟随最新版本 |
 | 能力包 | 来源、任务、输入输出、工具、数据范围、评估、成本和状态 | 193/46等既有Agent资产归并为能力包，不自动形成长期身份 |
 | 场景工单 | ID、信号、唯一主价值流、唯一主场景、去重键及其规则引用/版本、关联Case、自有资源预留引用集合、业务范围、主岗位、固定Bundle、目标、完成条件、状态与验收 | 所有视图引用同一Case/Event Ledger状态；关联Case不共用资源预留，只引用与来源Envelope及ACCEPT记录一致的已验收Stage Artifact |
@@ -57,8 +60,8 @@ FLOW-07采用双通道：正常Case仍完整运行八阶段；已接收权威信
 
 | ID | 需求 | 验收条件 | 依据 |
 | --- | --- | --- | --- |
-| REQ-001 | 50岗位目录及版本 | 数量、ID、职责、技能、Playbook、协作、动作边界可追踪 | D-006、D-014 |
-| REQ-002 | Case创建与能力装配 | 每单只有一个主价值流、一个主场景、一个主岗位人格、一个固定Bundle和一个Case Agent；跨价值流信号拆为关联独立Case，选择、去重、资源预留归属与Skill/Tool装配可回放 | D-020、D-023、D-024、D-025 |
+| REQ-001 | 50岗位目录及版本 | 数量、ID、职责、技能、Role Playbook、Preset Blueprint、协作、动作边界可追踪 | D-006、D-014、D-053 |
+| REQ-002 | Case创建与能力装配 | 每单只有一个主价值流、一个主场景和一个Lead；Lead/Worker Preset、固定Bundle、选择、去重、资源预留归属与Skill/Tool装配可回放；跨价值流信号拆为关联独立Case | D-020、D-023、D-024、D-025、D-053 |
 | REQ-003 | 人格与行为原则 | 能对冲突输入提出异议、保留证据并正确分派、复核或冻结 | 岗位卡 |
 | REQ-004 | Stage Artifact与接收 | 八阶段均有类型化产物、尝试记录和Stage Acceptance Record；只有ACCEPT可顺序推进 | D-024 |
 | REQ-005 | 业务对象与口径 | 同一经营指标可追溯到已确认定义和真实对象映射 | D-011 |
@@ -87,9 +90,14 @@ FLOW-07采用双通道：正常Case仍完整运行八阶段；已接收权威信
 | REQ-028 | 八阶段统一协同协议 | 8条价值流、20个候选场景均引用同一协议；64条flow-stage绑定完整且无岗位间运行通信边 | D-024 |
 | REQ-029 | 业务流与能力流MECE | 保留FLOW-01至FLOW-08，并以BVS产品视图映射；增加且仅增加岗位Bundle、Skill、连接器、Release四条能力供应流，每条流有唯一闭环产物 | D-031、ADR-0011 |
 | REQ-030 | 产品方案工作流 | 12条价值流分别记录起点、终点、用户/经营价值、5个产品步骤、每步产物、指标、复用能力和硬边界 | D-031 |
-| REQ-031 | 分工协作工作流 | 12条价值流分别记录5个协作步骤、主责、贡献、独立保障和交接条件；8条业务流岗位范围并集完整覆盖50岗位且无岗位Agent通信边 | D-020、D-031 |
+| REQ-031 | 分工协作工作流 | 12条价值流分别记录5个协作步骤、Lead、Worker贡献、独立保障和ArtifactEnvelope交接条件；8条业务流岗位范围并集完整覆盖50岗位且无隐式岗位Agent通信边 | D-020、D-031、D-053 |
 | REQ-032 | 店铺治理方案包 | 在不登录Shopify、不填真实配置和不调用API的条件下，完整定义六个治理域、十项SGF产物、责任分离、HOLD、变更/回退通路、脱敏证据和未来逐动作授权；所有未知值有来源和责任，不得猜测 | D-051、F-040 |
 | REQ-033 | 全景方案Site与公开发布 | Site按战略→岗位→协同→价值流→Agent治理→平台→数据/权限→验证/Shopify路线呈现完整方案；`SHOP/ORG/PILOT`阶段ID不冲突；桌面与移动可达；GitHub/Pages发布与业务生产授权明确分离并有远端验证证据 | D-052、F-040 |
+| REQ-034 | 50份独立Role Playbook | 每个岗位都有独立触发、最小输入、执行步骤、产物合同、人格/灵魂原则、岗位边界、停止条件、评估集和独立/组队交接说明 | D-053、ADR-0012 |
+| REQ-035 | 50份独立Preset Blueprint | 每个岗位有唯一Preset ID、Role Profile/Playbook引用、Prompt层、Skill refs、Tool类别、Access、Assurance、生命周期和生产授权状态；目标DSH schema未知时必须标为不可导入 | D-053、ADR-0012 |
+| REQ-036 | 独立岗位运行模式 | 岗位在明确任务合同、范围、输入、策略和验收者后可独立形成主产物，并对缺失证据返回HOLD、NO_ACTION或冻结 | D-053 |
+| REQ-037 | Lead/Worker受控组队 | 复杂Case由模型外Case Control选择一个Lead和若干Worker；Worker只消费已验收Stage Artifact并以ArtifactEnvelope交接，不能共享隐式会话、转授权限或改变Case范围 | D-053、ADR-0012 |
+| REQ-038 | Preset隔离与版本固定 | 独立Preset的Role Profile、Playbook、Skills、Access、Assurance和Runtime版本可单独评估、隔离、回退和停用；运行中的Case固定启动时Bundle | D-022、D-023、D-053 |
 
 ## 7. 关键工作界面
 
@@ -119,7 +127,7 @@ FLOW-07采用双通道：正常Case仍完整运行八阶段；已接收权威信
 
 ## 11. 实施与依赖
 
-框架决定后，先补齐首个场景的业务对象、口径、工具能力与目标部署；再适配最少读取工具和状态控制；验证后在明确策略范围实操，依据结果扩展。完整步骤见[Harness落实方案](../10-platform/deepseek-harness/IMPLEMENTATION-PLAN.md)。
+框架决定后，先补齐50份Role Playbook和Preset Blueprint的结构化资产，再核实首个场景的业务对象、口径、工具能力与目标部署；随后适配最少读取工具和状态控制，分别验证独立模式与Lead/Worker组队模式，最后在明确策略范围实操并依据结果扩展。完整步骤见[Harness落实方案](../10-platform/deepseek-harness/IMPLEMENTATION-PLAN.md)与[Preset Blueprint总表](../10-platform/deepseek-harness/preset-blueprints/manifest.json)。
 
 五个参考项目的能力与许可不同，本PRD采用机制级参考，未决定安装或复制其中源码。需要采用具体组件时核实版本、许可和与现有系统的兼容性。
 
@@ -127,4 +135,4 @@ FLOW-07采用双通道：正常Case仍完整运行八阶段；已接收权威信
 
 R03已确认运行主体转向Agent-first。D-050确认Shopify是空白新店且无上线产品，D-051把当前路线收敛为完整方案Site和店铺治理方案静态审阅。未来取得实施授权后，才进入`SHOP-G2`至`SHOP-G5`、`SHOP-G6`只读连接、连续30个完整销售日和FLOW-01 Shadow。D-033至D-049的专用App、认证、SKU/报表、产品家族、Scope、Level 1、45天保留和现场证据路径继续作为后续目标合同；当前没有可实例化的Product/Variant/SKU、销售报表、订单、App或Scope证据。D-052只发布方案仓库和Site。自治异常基线、既有Agent归并、工具UI边界和新品机会继续逐项决定；D-030的Amazon US范围保留为后续渠道模板。
 
-当前交付：已确认战略框架、50岗位卡、五契约管理、Bundle生命周期、8份Playbook、八阶段场景协同图谱、12条MECE端到端价值流的产品方案与分工协作双视图、Magpie-Horch深度研究、FLOW-07 Emergency Guard边界、自主运行模型、平台落实方案、系统接入盘点、店铺治理底座方案、实施章程和33项需求。尚未交付：目标版本配置、Guard规则、企业系统连接、运行测试、经营效果、HITL设计、真人组织设计和任何业务系统上线验收。
+当前交付：已确认战略框架、50岗位卡、50份Role Playbook、50份Preset Blueprint、五契约管理、Bundle生命周期、8份共享业务Playbook、八阶段场景协同图谱、12条MECE端到端价值流的产品方案与分工协作双视图、Magpie-Horch深度研究、FLOW-07 Emergency Guard边界、独立/组队运行模型、平台落实方案、系统接入盘点、店铺治理底座方案、实施章程和38项需求。尚未交付：目标DSH版本的可导入配置、Guard规则、企业系统连接、独立/组队运行测试、经营效果、HITL设计、真人组织设计和任何业务系统上线验收。

@@ -3,6 +3,7 @@
 
   var state = {
     roles: [],
+    roleAssets: {},
     flows: [],
     e2e: [],
     plane: "全部",
@@ -79,6 +80,7 @@
 
   function renderRoleCard(role) {
     var detailId = "detail-" + role.id.toLowerCase();
+    var asset = state.roleAssets[role.id] || {};
     var tags = (role.flows || [])
       .concat(role.scenarios || [])
       .map(function (tag) {
@@ -96,10 +98,12 @@
           "<h3>" + escapeHtml(role.title) + "</h3>" +
           '<div class="role-alias">分身 · ' + escapeHtml(role.alias) + "</div>" +
           '<p class="role-principle">“' + escapeHtml(role.principle) + '”</p>' +
-          '<div class="role-more"><span>' + escapeHtml(role.personality) + '</span><span class="expand-label">展开边界 ＋</span></div>' +
+          '<div class="role-more"><span>' + escapeHtml(role.personality) + '</span><span class="expand-label">展开资产与边界 ＋</span></div>' +
         "</button>" +
         '<div class="role-detail" id="' + detailId + '" hidden>' +
           '<div class="detail-block"><span>动作边界</span><p>' + escapeHtml(role.boundary) + "</p></div>" +
+          '<div class="detail-block role-asset-meta"><span>独立分身资产</span><p>' + escapeHtml(asset.playbook_id || "RPB-" + role.id) + ' · ' + escapeHtml(asset.preset_id || "dsh.role." + role.id.toLowerCase() + ".v1") + ' · ' + escapeHtml(asset.status || "设计资产") + '</p><p>模式：' + escapeHtml(asset.standalone_mode || "standalone_role_preset") + ' + ' + escapeHtml(asset.composition_mode || "bounded_role_worker") + ' · 技能 ' + escapeHtml(asset.skill_count == null ? "待载入" : asset.skill_count) + '项</p></div>' +
+          '<div class="detail-block"><span>协同方法</span><p>共享Playbook：' + escapeHtml((asset.shared_playbooks || role.playbooks || []).join("、") || "按Case Control装配") + '；常用协作：' + escapeHtml((asset.collaborators || role.collaborates_with || []).join("、") || "由Case Control按产物契约选择") + '</p></div>' +
           '<div class="role-tags" aria-label="参与的价值流和场景">' + tags + "</div>" +
         "</div>" +
       "</article>"
@@ -243,7 +247,7 @@
   function renderCollaborationWorkflow(stream) {
     return (
       '<div class="workflow-heading"><span>RESPONSIBILITY & HANDOFF</span><h4>分工协作工作流</h4>' +
-        "<p>主责、能力贡献、独立保障与下游接收条件；不会启动岗位Agent互聊。</p></div>" +
+        "<p>Lead结果责任、Worker能力贡献、独立保障与ArtifactEnvelope接收条件；不会启动隐式岗位Agent互聊。</p></div>" +
       '<ol class="workflow-track collaboration-track">' +
         stream.collaboration_workflow.map(function (step) {
           return (
@@ -353,7 +357,7 @@
       button.setAttribute("aria-expanded", String(!expanded));
       detail.hidden = expanded;
       var label = button.querySelector(".expand-label");
-      label.textContent = expanded ? "展开边界 ＋" : "收起边界 －";
+      label.textContent = expanded ? "展开资产与边界 ＋" : "收起资产与边界 －";
     });
 
     document.querySelectorAll(".family-toggle").forEach(function (button) {
@@ -397,7 +401,8 @@
   Promise.allSettled([
     loadJson("./data/roles.json"),
     loadJson("./data/flows.json"),
-    loadJson("./data/e2e-workflows.json")
+    loadJson("./data/e2e-workflows.json"),
+    loadJson("./data/role-assets.json")
   ]).then(function (results) {
     if (results[0].status === "fulfilled") {
       state.roles = results[0].value.map(function (role) {
@@ -424,6 +429,14 @@
     } else {
       showDataError("e2e-stream-list", "端到端价值流目录暂时无法读取");
       showDataError("e2e-stream-detail", "双工作流暂时无法装配");
+    }
+
+    if (results[3].status === "fulfilled") {
+      state.roleAssets = results[3].value.assets.reduce(function (map, asset) {
+        map[asset.role_id] = asset;
+        return map;
+      }, {});
+      renderRoles();
     }
   });
 })();
