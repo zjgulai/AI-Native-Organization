@@ -53,6 +53,17 @@
 - 已新增[完整方案地图](../02-strategy/SOLUTION-MAP.md)与[Shopify绿地路线](../12-rollout/SHOPIFY-GREENFIELD-ROADMAP.md)，作为Site完整方案全景、平台架构和绿地八阶段门的源文档。
 - D-051将店铺治理收敛为[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)：六个治理域、十项方案产物、三条未来关联价值流、敏捷变更通路、验收条件和逐动作授权边界均已形成；没有登录或修改Shopify。
 - 为避免三套阶段编号冲突，Shopify绿地门统一为`SHOP-G0`至`SHOP-G7`，组织变革门统一为`ORG-G0`至`ORG-G5`，经营试点门统一为`PILOT-G0`至`PILOT-G4`。
+- D-052发布已完成：方案提交`7c84617467cd2ad1a2db08ccf8cad1072ebe6c4d`已推送至GitHub `main`，GitHub Actions Pages运行[35073360037](https://github.com/zjgulai/AI-Native-Organization/actions/runs/35073360037)成功，[公开Site](https://zjgulai.github.io/AI-Native-Organization/)返回HTTP 200。公网首页、CSS、JS、50岗位数据和12价值流数据与该提交的`dist/`发布包逐字一致；Pages控制面为`build_type=workflow`且强制HTTPS。该证据只验收文档Site发布，不是Shopify、Harness或企业经营上线证据。
+
+## GitHub Pages发布证据
+
+| 证据层 | 结果 | 边界 |
+| --- | --- | --- |
+| 本地发布包 | 50岗位、8条业务流、4条能力流、33项PRD需求、6个治理域和10项治理产物检查通过；WCAG A/AA自动审计0项违规 | 自动审计对背景渐变上的598个元素无法计算颜色对比，保留为`incomplete`，不是通过结论 |
+| Git commit与远端分支 | 本地HEAD、`origin/main`和GitHub API在首次Pages发布时均为`7c84617467cd2ad1a2db08ccf8cad1072ebe6c4d` | 后续仅文档证据提交不改变已发布`dist/`字节 |
+| GitHub Actions | Pages workflow运行`35073360037`成功 | Workflow成功不单独证明公网内容正确 |
+| Pages控制面 | `https://zjgulai.github.io/AI-Native-Organization/`，`build_type=workflow`，HTTPS开启 | 控制面配置不替代公网取证 |
+| 公网内容 | 首页、`styles.css`、`app.js`、`roles.json`和`e2e-workflows.json`均返回成功并与本地发布包SHA-256字节一致；浏览器加载50岗位和12价值流、无错误覆盖层、无横向溢出 | 不证明企业系统连接、业务权限或经营效果 |
 
 ## 本轮验收范围
 
@@ -66,7 +77,7 @@ v1.1结构检查曾通过的356条关系仅保留在Git历史。当前本地结�
 
 [R05](../01-discovery/interviews/R05-organization-operating-system.md)与R04按一次一个问题推进。R05-Q10已完成；D-050已将R04-Q5现场取证延期到`SHOP-G6`访问门，D-051进一步确认当前只审阅方案而不进入实施。R04-Q2其余口径在后续继续。接下来R05后续项为：
 
-1. Site双工作流版本完成最终内容审阅；D-052已单独授权GitHub与GitHub Pages文档发布。
+1. 完整方案Site已完成发布级内容审阅并公开部署；后续管理层评审以公网版本和权威源文档为准。
 
 [R02](../01-discovery/interviews/R02-strategic-decisions.md)已确认，R03回答已记录。[R04自主运行决策包](../01-discovery/interviews/R04-autonomous-runtime.md)在四层图谱明确后继续：
 
@@ -77,7 +88,7 @@ v1.1结构检查曾通过的356条关系仅保留在Git历史。当前本地结�
 5. 工具优先UI/UX的工作入口边界（R04-Q6）。
 6. 首个新品验证机会与受保护资源（R04-Q7）。
 
-当前下一步是完成Site、源文档和Pages发布链的一致性验收并公开发布。未来若另行授权Shopify实施，再以[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)生成真实对象实施包；目标Dev Dashboard登录、[L1资格现场证据包](../10-platform/deepseek-harness/SHOPIFY-LEVEL1-QUALIFICATION-EVIDENCE-PACK.md)和API预检延期到`SHOP-G6`，产品家族、Product GID种子、Variant报告和Top 5延期到`SHOP-G7`。
+当前下一步是管理层在[公开Site](https://zjgulai.github.io/AI-Native-Organization/)审阅完整方案并提出需要调整的模块；Shopify仍停在`SHOP-G1`方案状态。未来若另行授权Shopify实施，再以[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)生成真实对象实施包；目标Dev Dashboard登录、[L1资格现场证据包](../10-platform/deepseek-harness/SHOPIFY-LEVEL1-QUALIFICATION-EVIDENCE-PACK.md)和API预检延期到`SHOP-G6`，产品家族、Product GID种子、Variant报告和Top 5延期到`SHOP-G7`。
 
 ## 实施前尚需落实
 
