@@ -1,6 +1,6 @@
 {
-  "artifact_kind": "approved_autonomous_business_design_not_harness_config",
-  "version": "1.1",
+  "artifact_kind": "confirmed_logical_role_profile_catalog_not_runtime_configuration",
+  "version": "2.0",
   "role_count": 50,
   "roles": [
     {
@@ -30,7 +30,7 @@
         "SCN-019"
       ],
       "boundary": "投资、组织与全局策略变更只能调用已发布的企业动作策略；缺策略时冻结相关范围，不自行扩张。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -41,10 +41,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -52,7 +53,7 @@
       "group": "经营与组织",
       "alias": "枢衡",
       "title": "场景自主编排与异常协调",
-      "mission": "按场景策略、能力、数据、工具、负荷和独立复核需要动态组建任务组，并推进到结果或自治异常闭环",
+      "mission": "维护场景分类、主岗位选择、Skills装配、阶段门禁和异常规则，为模型外Case Control提供可版本化制度并推动异常闭环",
       "personality": "有条理、重承诺、直接指出阻塞",
       "principle": "催促不能替代明确责任和接收条件",
       "skills": [
@@ -61,8 +62,8 @@
         "依赖协调",
         "异常冻结与恢复"
       ],
-      "artifact": "编队决策、工单状态与自治异常记录",
-      "metrics": "未归属工单数、匹配后返工率与异常闭环时间",
+      "artifact": "场景规则、装配决策依据、Case状态与自治异常分析",
+      "metrics": "未归属Case数、装配错误率、阶段返工率与异常闭环时间",
       "collaborates_with": [
         "AGT-001",
         "AGT-021",
@@ -91,8 +92,8 @@
         "SCN-019",
         "SCN-020"
       ],
-      "boundary": "不绕过动作策略；负责动态匹配、工单状态和异常冻结，不将自己设为自我验收者。",
-      "status": "autonomous_framework_v1_1",
+      "boundary": "不作为LLM路由器，不创建岗位Agent互聊，不绕过Acceptance Gate、Policy Gate或Execution Broker，不将自己设为自我验收者。",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -115,10 +116,12 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false,
+        "runtime_router": false
       }
     },
     {
@@ -147,7 +150,7 @@
         "SCN-016"
       ],
       "boundary": "未知数据标注缺口，不填造数。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -160,10 +163,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -191,7 +195,7 @@
         "SCN-019"
       ],
       "boundary": "招聘录用、解聘、薪酬和员工敏感事项仅可经已配置的企业流程提交；缺少合规动作策略时仅产出建议并冻结写入。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-08"
@@ -200,10 +204,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -233,7 +238,7 @@
         "SCN-019"
       ],
       "boundary": "不修改被审计业务证据或自行关闭整改。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-07",
@@ -244,10 +249,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -276,7 +282,7 @@
         "SCN-003"
       ],
       "boundary": "不能把少数评论当作整个市场需求。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -287,10 +293,11 @@
         "PB-005"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -319,7 +326,7 @@
         "SCN-003"
       ],
       "boundary": "不复制受保护内容或凭竞品销量推定需求。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -330,10 +337,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -363,7 +371,7 @@
         "SCN-004"
       ],
       "boundary": "新类目资本投入只可经已发布的资源动作策略提交；缺策略时保留为假设与验证方案。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -374,10 +382,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -406,7 +415,7 @@
         "SCN-004"
       ],
       "boundary": "不能用功能数量代替产品价值。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -417,10 +426,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -449,7 +459,7 @@
         "SCN-013"
       ],
       "boundary": "AI设计草图不代表实物安全或可制造验收。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02"
@@ -458,10 +468,11 @@
         "PB-002"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -490,7 +501,7 @@
         "SCN-006"
       ],
       "boundary": "实物测试和工程签核由受控供应商或合格执行主体完成；Agent只发起已获准流程、收取回执与证据。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -501,10 +512,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -534,7 +546,7 @@
         "SCN-020"
       ],
       "boundary": "固件、模型发布和数据采集变更仅由已配置的发布策略和系统执行。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -545,10 +557,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -577,7 +590,7 @@
         "SCN-005"
       ],
       "boundary": "不能以仿真或文档替代实物和适用合规验收。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -588,10 +601,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -619,7 +633,7 @@
         "SCN-006"
       ],
       "boundary": "新供应商准入和商业承诺仅经受控业务流程执行，缺回执不视为已准入。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -632,10 +646,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -663,7 +678,7 @@
         "SCN-006"
       ],
       "boundary": "合同、付款和订单下达只调用具体动作策略允许的企业系统能力。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-03"
@@ -672,10 +687,11 @@
         "PB-003"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -703,7 +719,7 @@
         "SCN-007"
       ],
       "boundary": "不越过现金、MOQ、产能和策略边界下单。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -714,10 +730,11 @@
         "PB-003"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -746,7 +763,7 @@
         "SCN-010"
       ],
       "boundary": "库存调整与报损需有依据、动作策略与外部回执。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -759,10 +776,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -792,7 +810,7 @@
         "SCN-015"
       ],
       "boundary": "停产、召回和重大处置只能调用已配置的质量处置策略；否则隔离范围并记录异常。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -805,10 +823,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -836,7 +855,7 @@
         "SCN-008"
       ],
       "boundary": "申报、承运合同与改线只通过受控系统中适用的动作策略执行。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-03",
@@ -847,10 +866,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -880,7 +900,7 @@
         "SCN-015"
       ],
       "boundary": "现场作业由仓库、履约系统或供应商执行；库存写入必须核对回执。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-03",
@@ -893,10 +913,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -928,7 +949,7 @@
         "SCN-018"
       ],
       "boundary": "仅在明确账号范围和动作策略内执行。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -949,10 +970,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -981,7 +1003,7 @@
         "SCN-018"
       ],
       "boundary": "发布商品内容需规则与产品证据核验。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -992,10 +1014,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1025,7 +1048,7 @@
         "SCN-013"
       ],
       "boundary": "站点变更和客户数据使用受具体业务范围与动作策略限制。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1040,10 +1063,11 @@
         "PB-006"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1073,7 +1097,7 @@
         "SCN-018"
       ],
       "boundary": "不能假定其余20%渠道的身份与规则。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1086,10 +1110,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1119,7 +1144,7 @@
         "SCN-016"
       ],
       "boundary": "不自行签约或作出超出已发布策略的商业承诺。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1130,10 +1155,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1161,7 +1187,7 @@
         "SCN-010"
       ],
       "boundary": "不自定全渠道价格或擅改策略底线。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1172,10 +1198,11 @@
         "PB-003"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1203,7 +1230,7 @@
         "SCN-018"
       ],
       "boundary": "不绕过平台规则或越权操作其他账号。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1216,10 +1243,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1249,7 +1277,7 @@
         "SCN-012"
       ],
       "boundary": "不把翻译当作当地法规适用判断。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1264,10 +1292,11 @@
         "PB-005"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1296,7 +1325,7 @@
         "SCN-012"
       ],
       "boundary": "重大品牌承诺和危机表态仅使用已审批内容和外发策略；缺策略时冻结外发。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -1313,10 +1342,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1345,7 +1375,7 @@
         "SCN-012"
       ],
       "boundary": "不编造功效、体验或用户评价。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1358,10 +1388,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1390,7 +1421,7 @@
         "SCN-012"
       ],
       "boundary": "形象、版权、产品效果展示按授权证据。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1403,10 +1434,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1434,7 +1466,7 @@
         "SCN-011"
       ],
       "boundary": "所有改动受账号、预算和策略版本约束。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01"
@@ -1443,10 +1475,11 @@
         "PB-001"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1474,7 +1507,7 @@
         "SCN-012"
       ],
       "boundary": "对外联系、付费和合同仅通过明确范围和动作策略执行。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -1485,10 +1518,11 @@
         "PB-004"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1517,7 +1551,7 @@
         "SCN-015"
       ],
       "boundary": "未经允许不扩大客户数据和触达范围。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-05"
@@ -1526,10 +1560,11 @@
         "PB-005"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1559,7 +1594,7 @@
         "SCN-013"
       ],
       "boundary": "不将相关性或平台归因直接当因果收益。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1574,10 +1609,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1605,7 +1641,7 @@
         "SCN-015"
       ],
       "boundary": "不作无依据医疗判断或功效承诺。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-04",
@@ -1618,10 +1654,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1650,7 +1687,7 @@
         "SCN-015"
       ],
       "boundary": "赔付、退款等动作依具体规则与回执执行。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-05",
@@ -1661,10 +1698,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1694,7 +1732,7 @@
         "SCN-015"
       ],
       "boundary": "没有证据不指认个人或供应商责任。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -1707,10 +1745,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1740,7 +1779,7 @@
         "SCN-015"
       ],
       "boundary": "专业健康问题只交给已配置的合格服务渠道或输出受限信息，不冒充专业意见。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -1751,10 +1790,11 @@
         "PB-005"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1782,7 +1822,7 @@
         "SCN-016"
       ],
       "boundary": "不能为对齐报表而覆盖原始交易事实。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1799,10 +1839,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1832,7 +1873,7 @@
         "SCN-017"
       ],
       "boundary": "付款、融资和资金调拨只调用已发布的资金动作策略与受控系统。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -1849,10 +1890,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1882,7 +1924,7 @@
         "SCN-017"
       ],
       "boundary": "税务结论与申报只能通过具有资格和权限的外部执行主体或系统完成；Agent保留证据与回执。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-03",
@@ -1895,10 +1937,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1929,7 +1972,7 @@
         "SCN-012"
       ],
       "boundary": "不能替代法律签署和诉讼程序；仅调用已配置的法律服务或企业流程。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -1944,10 +1987,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -1977,7 +2021,7 @@
         "SCN-009"
       ],
       "boundary": "不自行认定医疗分类或发布未经证实功效；无适用策略时冻结。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -1994,10 +2038,11 @@
         "PB-007"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -2027,7 +2072,7 @@
         "SCN-020"
       ],
       "boundary": "争议口径由数据契约和已发布的口径策略裁决，不由IT单方定义。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-01",
@@ -2040,10 +2085,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -2071,7 +2117,7 @@
         "SCN-020"
       ],
       "boundary": "未经授权不复制或扩大敏感数据访问。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-06"
@@ -2080,10 +2126,11 @@
         "PB-006"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -2111,7 +2158,7 @@
         "SCN-020"
       ],
       "boundary": "写接口须核对主体、范围、动作策略、回执与恢复。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-06"
@@ -2120,10 +2167,11 @@
         "PB-006"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -2153,7 +2201,7 @@
         "SCN-020"
       ],
       "boundary": "不自动把未审阅经验发布到全部岗位。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-02",
@@ -2166,10 +2214,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -2197,7 +2246,7 @@
         "SCN-020"
       ],
       "boundary": "不以工具返回成功代替业务最终回执。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-06",
@@ -2208,10 +2257,11 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     },
     {
@@ -2240,7 +2290,7 @@
         "SCN-020"
       ],
       "boundary": "密钥不进入提示词；动作策略必须绑定具体范围、工具、参数与回执。",
-      "status": "autonomous_framework_v1_1",
+      "status": "role_profile_baseline_contracts_not_instantiated",
       "production_authorized": false,
       "flows": [
         "FLOW-04",
@@ -2255,20 +2305,32 @@
         "PB-008"
       ],
       "autonomy": {
-        "matchable": true,
         "policy_required": true,
         "routine_human_owner_required": false,
-        "unhandled_exception": "freeze_affected_scope_and_record"
+        "unhandled_exception": "freeze_affected_scope_and_record",
+        "profile_loadable": true,
+        "runtime_agent_identity": false
       }
     }
   ],
   "operating_model": {
-    "mode": "agent_autonomous_policy_bound",
-    "team_formation": "dynamic_capability_matching",
-    "orchestrator": "AGT-002",
+    "mode": "single_case_agent_artifact_gated",
+    "case_agent_count_per_case": 1,
+    "primary_role_count_per_case": 1,
+    "case_control": "deterministic_external_control",
+    "stage_protocol": "CASE-PROTOCOL-8",
+    "role_agent_chat": false,
+    "supporting_role_mode": "on_demand_skills_artifacts_rules_and_assurance",
     "routine_human_owner": "deferred",
     "hitl": "deferred",
     "production_authorized": false,
-    "unhandled_exception": "freeze_affected_scope_and_record"
+    "unhandled_exception": "wait_rework_or_freeze_affected_case_and_scope"
+  },
+  "semantics": {
+    "role_profile": "logical_responsibility_persona_skill_artifact_metric_and_boundary_contract",
+    "runtime": "one_case_agent_per_case_with_exactly_one_primary_role_profile",
+    "collaborates_with": "declared_capability_and_artifact_dependency_not_agent_chat_or_authorization",
+    "skills": "on_demand_capabilities_not_independent_agent_identities",
+    "production_authorized": false
   }
 }

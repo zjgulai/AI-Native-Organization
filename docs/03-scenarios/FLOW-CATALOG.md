@@ -1,6 +1,8 @@
-# 通过场景组织50个自治岗位
+# 通过场景组织50个逻辑AI岗位
 
-状态：流程与责任覆盖基线保留，运行语义已由D-020升级。每个实际工单有一个主岗位和一个Case Agent；流程中的其他岗位将转为可按需加载的Skills、检查规则和产物规范，不再表示多个岗位Agent被路由进入会话。初始不设置真人负责人或HITL为常规节点。
+状态：流程与责任覆盖已按D-020、D-024和D-025升级。每个实际工单只有一个Case Agent、一个主价值流、一个主场景和一个主岗位；跨价值流信号拆成关联但状态独立的Case。其他岗位通过按需Skills、检查规则和产物规范贡献能力。全部流程使用[八阶段协同协议](../07-orchestration/COLLABORATION-GRAPH.md)，初始不设置真人负责人或HITL为常规节点。
+
+D-031保留以下8条业务经营流，并在其外增加4条正交能力供应流。12条流的产品方案工作流、分工协作工作流、MECE边界与结构化数据见[端到端价值流设计](END-TO-END-VALUE-STREAMS.md)和[e2e-value-streams.json](e2e-value-streams.json)。能力流不改写本文件的Flow ID、场景绑定或Playbook。
 
 | 流程 | 经营闭环 | 默认AI结果负责人 | 自治控制 | 完成条件 |
 | --- | --- | --- | --- | --- |
@@ -13,53 +15,53 @@
 | FLOW-07 | 质量和账号重大事件处理 | AGT-018 | 隔离范围、质量/账号动作策略、恢复证据 | 事件范围、处置、根因和恢复证据闭合 |
 | FLOW-08 | 经营复盘、资源和组织能力更新 | AGT-001 | 版本化策略、独立复核、能力回退 | 形成有依据的资源与能力版本变更建议或动作结果 |
 
-所有流程均由AGT-002依据[自主运行模型](../07-orchestration/AUTONOMOUS-OPERATING-MODEL.md)完成编队。具体业务对象、工具和策略尚未配置。
+所有流程均由模型外Case Control依据已发布规则建单、选择主岗位、固定Bundle并装配必要Skills；AGT-002提供场景制度、分诊和异常协调能力，不运行LLM多Agent路由。具体业务对象、工具和策略尚未配置。
 
 ## FLOW-01 存量GMV增长：投放、价格、库存联动
 
-业务场景：SCN-001、SCN-007、SCN-009、SCN-010、SCN-011、SCN-013、SCN-016、SCN-018。候选参与岗位：AGT-002、AGT-003、AGT-016、AGT-017、AGT-021、AGT-022、AGT-023、AGT-024、AGT-025、AGT-026、AGT-027、AGT-028、AGT-030、AGT-031、AGT-032、AGT-035、AGT-040、AGT-041、AGT-045。
+业务场景：SCN-001、SCN-007、SCN-009、SCN-010、SCN-011、SCN-013、SCN-016、SCN-018。能力贡献岗位：AGT-002、AGT-003、AGT-016、AGT-017、AGT-021、AGT-022、AGT-023、AGT-024、AGT-025、AGT-026、AGT-027、AGT-028、AGT-030、AGT-031、AGT-032、AGT-035、AGT-040、AGT-041、AGT-045。
 
-本条默认Amazon；独立站、其他平台和B2B实例分别由AGT-023、AGT-024、AGT-025担任AI结果负责人。手册：PB-001，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
+本条按渠道实例选择结果负责人：Amazon由AGT-021负责，独立站、其他平台和B2B实例分别由AGT-023、AGT-024、AGT-025负责。D-033/D-034确定首个Shopify DTC实例由AGT-023担任AI结果负责人，范围和交接见[Shopify试点章程](../12-rollout/BVS-01-SHOPIFY-DTC-PILOT-CHARTER.md)。手册：PB-001，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
 
 ## FLOW-02 新品：需求证据到商业验证
 
-业务场景：SCN-002、SCN-003、SCN-004、SCN-005、SCN-006、SCN-009、SCN-012、SCN-013。候选参与岗位：AGT-001、AGT-002、AGT-006、AGT-007、AGT-008、AGT-009、AGT-010、AGT-011、AGT-012、AGT-013、AGT-014、AGT-018、AGT-021、AGT-024、AGT-028、AGT-029、AGT-030、AGT-031、AGT-033、AGT-035、AGT-038、AGT-039、AGT-041、AGT-043、AGT-044、AGT-048。
+业务场景：SCN-002、SCN-003、SCN-004、SCN-005、SCN-006、SCN-009、SCN-012、SCN-013。能力贡献岗位：AGT-001、AGT-002、AGT-006、AGT-007、AGT-008、AGT-009、AGT-010、AGT-011、AGT-012、AGT-013、AGT-014、AGT-018、AGT-021、AGT-024、AGT-028、AGT-029、AGT-030、AGT-031、AGT-033、AGT-035、AGT-038、AGT-039、AGT-041、AGT-043、AGT-044、AGT-048。
 
 实物、临床或适用合规验证由经策略选定的受控执行主体或外部系统提供证据；Agent不能把文档当作实物回执。手册：PB-002，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
 
 ## FLOW-03 供需：补货、采购与交付
 
-业务场景：SCN-006、SCN-007、SCN-008、SCN-010、SCN-014、SCN-016、SCN-017。候选参与岗位：AGT-002、AGT-014、AGT-015、AGT-016、AGT-017、AGT-018、AGT-019、AGT-020、AGT-021、AGT-026、AGT-040、AGT-041、AGT-042。
+业务场景：SCN-006、SCN-007、SCN-008、SCN-010、SCN-014、SCN-016、SCN-017。能力贡献岗位：AGT-002、AGT-014、AGT-015、AGT-016、AGT-017、AGT-018、AGT-019、AGT-020、AGT-021、AGT-026、AGT-040、AGT-041、AGT-042。
 
 库存预留和采购承诺只复用业务系统权威记录与回执。手册：PB-003，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
 
 ## FLOW-04 新市场、新渠道与合规上架
 
-业务场景：SCN-002、SCN-005、SCN-008、SCN-009、SCN-012、SCN-014、SCN-018。候选参与岗位：AGT-002、AGT-007、AGT-009、AGT-019、AGT-021、AGT-022、AGT-023、AGT-024、AGT-025、AGT-027、AGT-028、AGT-029、AGT-030、AGT-031、AGT-033、AGT-036、AGT-042、AGT-043、AGT-044、AGT-050。
+业务场景：SCN-002、SCN-005、SCN-008、SCN-009、SCN-012、SCN-014、SCN-018。能力贡献岗位：AGT-002、AGT-007、AGT-009、AGT-019、AGT-021、AGT-022、AGT-023、AGT-024、AGT-025、AGT-027、AGT-028、AGT-029、AGT-030、AGT-031、AGT-033、AGT-036、AGT-042、AGT-043、AGT-044、AGT-050。
 
 其余20%渠道构成未明，按真实平台、账号和动作策略实例化。手册：PB-004，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
 
 ## FLOW-05 客户旅程：服务、留存与复购
 
-业务场景：SCN-002、SCN-012、SCN-013、SCN-014、SCN-015、SCN-016。候选参与岗位：AGT-002、AGT-006、AGT-020、AGT-023、AGT-028、AGT-029、AGT-034、AGT-035、AGT-036、AGT-037、AGT-038、AGT-039、AGT-040、AGT-044。
+业务场景：SCN-002、SCN-012、SCN-013、SCN-014、SCN-015、SCN-016。能力贡献岗位：AGT-002、AGT-006、AGT-020、AGT-023、AGT-028、AGT-029、AGT-034、AGT-035、AGT-036、AGT-037、AGT-038、AGT-039、AGT-040、AGT-044。
 
 重大质量事件转FLOW-07；退款与触达分别使用具体动作策略和外部回执。手册：PB-005，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
 
 ## FLOW-06 需求到数据产品与业务工具
 
-业务场景：SCN-001、SCN-016、SCN-020。候选参与岗位：AGT-002、AGT-003、AGT-021、AGT-023、AGT-040、AGT-044、AGT-045、AGT-046、AGT-047、AGT-048、AGT-049、AGT-050。
+业务场景：SCN-001、SCN-016、SCN-020。能力贡献岗位：AGT-002、AGT-003、AGT-021、AGT-023、AGT-040、AGT-044、AGT-045、AGT-046、AGT-047、AGT-048、AGT-049、AGT-050。
 
 AGT-047负责工具交付，AGT-045维护数据契约；验收依赖工单定义的AI结果负责人及独立复核机制。手册：PB-006，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
 
 ## FLOW-07 质量和账号重大事件处理
 
-业务场景：SCN-004、SCN-005、SCN-006、SCN-014、SCN-015、SCN-018。候选参与岗位：AGT-002、AGT-005、AGT-011、AGT-012、AGT-013、AGT-014、AGT-017、AGT-018、AGT-020、AGT-021、AGT-027、AGT-029、AGT-036、AGT-037、AGT-038、AGT-041、AGT-043、AGT-044、AGT-050。
+业务场景：SCN-004、SCN-005、SCN-006、SCN-014、SCN-015、SCN-018。能力贡献岗位：AGT-002、AGT-005、AGT-011、AGT-012、AGT-013、AGT-014、AGT-017、AGT-018、AGT-020、AGT-021、AGT-027、AGT-029、AGT-036、AGT-037、AGT-038、AGT-041、AGT-043、AGT-044、AGT-050。
 
-账号事件可指定AGT-027负责该实例；召回等处置只走已配置质量动作策略，未配置时冻结受影响范围。手册：PB-007，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
+账号事件可指定AGT-027负责该实例。D-026允许已接收的权威信号命中一条已发布互斥规则且唯一Case绑定成立时，由模型外Emergency Guard固定场景、最小范围、保护模板、Policy、TTL、幂等和最大影响边界，并在本地原子建单后交Execution Broker执行；模型不能选参或扩围。绑定前若规则、主场景或范围不唯一，只生成Pre-Case Exception并冻结信号范围。恢复、重新开放、外部承诺、退款、召回、销毁和永久变更只走正常STG-07。具体规则尚未配置，未匹配或校验失败时按记录进入正常流程、等待或冻结。手册：PB-007，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
 
 ## FLOW-08 经营复盘、资源和组织能力更新
 
-业务场景：SCN-001、SCN-003、SCN-016、SCN-017、SCN-019、SCN-020。候选参与岗位：AGT-001、AGT-002、AGT-003、AGT-004、AGT-005、AGT-008、AGT-021、AGT-029、AGT-035、AGT-040、AGT-041、AGT-042、AGT-043、AGT-045、AGT-048、AGT-049、AGT-050。
+业务场景：SCN-001、SCN-003、SCN-016、SCN-017、SCN-019、SCN-020。能力贡献岗位：AGT-001、AGT-002、AGT-003、AGT-004、AGT-005、AGT-008、AGT-021、AGT-029、AGT-035、AGT-040、AGT-041、AGT-042、AGT-043、AGT-045、AGT-048、AGT-049、AGT-050。
 
 资源、技能和长期策略变更使用版本化动作策略；无适用策略时记录建议并冻结相关写入。手册：PB-008，见[Playbook](../06-playbooks/PLAYBOOKS.md)。
 

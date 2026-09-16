@@ -1,0 +1,137 @@
+{
+  "schema_version": "shopify_level1_qualification_evidence_pack_v1",
+  "evidence_pack_id": "L1Q-BVS01-SHP-US-001",
+  "decision_refs": [
+    "D-036",
+    "D-037",
+    "D-046",
+    "D-047",
+    "D-048",
+    "D-049",
+    "D-050",
+    "D-051"
+  ],
+  "path_id": "TARGET_DEV_DASHBOARD_IN_PLACE_V1",
+  "status": "DEFERRED_TO_SHOP_G6_GREENFIELD_ACCESS_GATE",
+  "qualification_observation_status": "BLOCKED_BROWSER_CONNECTION_VERIFICATION",
+  "business_activation": {
+    "status": "HOLD_NO_PUBLISHED_PRODUCTS",
+    "published_product_count": 0,
+    "evidence_class": "owner_statement",
+    "orders_and_sales_missing_means_zero": false,
+    "reactivate_after": "shop_g2_to_shop_g5_complete_and_shop_g6_access_gate_authorized"
+  },
+  "target_environment": "target_dev_dashboard_app_record",
+  "development_store_surrogate_allowed": false,
+  "inspection_mode": "read_only_ui_observation",
+  "official_level1_matrix": {
+    "public_app": "REQUIRES_REVIEW",
+    "custom_app": "ALWAYS_AVAILABLE",
+    "admin_created_custom_app": "ALWAYS_AVAILABLE"
+  },
+  "observations": {
+    "operator_permission_class": null,
+    "organization_ref": null,
+    "app_ref": null,
+    "shop_ref": null,
+    "same_organization_verified": false,
+    "app_type": "NOT_OBSERVED",
+    "distribution_method": "NOT_OBSERVED",
+    "app_lifecycle_state": "NOT_OBSERVED",
+    "configuration_version_ref": null,
+    "declared_scopes": [],
+    "declared_scopes_verified": false,
+    "level1_policy_path": "NOT_OBSERVED",
+    "review_required": null,
+    "review_status": "NOT_OBSERVED",
+    "qualification_verified": false
+  },
+  "data_protection_requirements": {
+    "minimum_necessary_data": "NOT_OBSERVED",
+    "merchant_transparency": "NOT_OBSERVED",
+    "purpose_limitation": "NOT_OBSERVED",
+    "privacy_or_data_protection_agreement": "NOT_OBSERVED",
+    "retention_policy_d048": "DESIGN_CONFIRMED_RUNTIME_UNVERIFIED",
+    "encryption_at_rest_and_in_transit": "DESIGN_REQUIRED_RUNTIME_UNVERIFIED",
+    "access_control_and_audit_logs": "DESIGN_REQUIRED_RUNTIME_UNVERIFIED",
+    "incident_response": "NOT_OBSERVED"
+  },
+  "evidence_items": [
+    {
+      "evidence_id": "L1Q-E01",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    },
+    {
+      "evidence_id": "L1Q-E02",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    },
+    {
+      "evidence_id": "L1Q-E03",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    },
+    {
+      "evidence_id": "L1Q-E04",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    },
+    {
+      "evidence_id": "L1Q-E05",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    },
+    {
+      "evidence_id": "L1Q-E06",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    },
+    {
+      "evidence_id": "L1Q-E07",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    },
+    {
+      "evidence_id": "L1Q-E08",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    },
+    {
+      "evidence_id": "L1Q-E09",
+      "state": "NOT_OBSERVED",
+      "evidence_ref": null,
+      "hash": null
+    }
+  ],
+  "hold_rules": [
+    "HOLD_APP_DISTRIBUTION_IDENTITY_UNKNOWN",
+    "HOLD_ORGANIZATION_RELATION_MISMATCH",
+    "HOLD_PCD_LEVEL1_QUALIFICATION_UNPROVEN",
+    "HOLD_DATA_PROTECTION_REQUIREMENT_GAP",
+    "HOLD_SCOPE_MISMATCH",
+    "HOLD_EVIDENCE_REDACTION_FAILURE"
+  ],
+  "authorization": {
+    "app_creation_authorized": false,
+    "configuration_release_authorized": false,
+    "distribution_selection_authorized": false,
+    "review_submission_authorized": false,
+    "shop_install_authorized": false,
+    "scope_change_authorized": false,
+    "token_exchange_authorized": false,
+    "api_call_authorized": false,
+    "protected_customer_data_access_authorized": false
+  },
+  "runtime_query_status": "DISABLED_PENDING_PCD_QUALIFICATION_SCOPE_READBACK_QUERY_HASH_AND_RETENTION_CONTROL_TESTS",
+  "sealed": false,
+  "content_hash": null
+}

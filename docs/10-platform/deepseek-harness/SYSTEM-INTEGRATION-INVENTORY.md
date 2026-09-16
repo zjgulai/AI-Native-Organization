@@ -42,12 +42,14 @@
 | 阶段 | 首要对象 | 目的 | 产出 | 进入下一阶段的证据 |
 | --- | --- | --- | --- | --- |
 | 0 | 全部候选系统 | 建立工具能力登记册、对象映射和访问边界 | 可核实的连接清单 | 每项明确系统状态、负责人、环境和读写能力 |
-| 1 | RootData、Amazon Seller Central、数智星图候选 | 验证Amazon GMV闭环的只读事实和口径 | 场景数据契约、读取工具、质量状态 | 同一范围的订单、广告、库存等可解释且跨账号被拒绝 |
-| 2 | 自研ERP、PLM、QMS、WMS、TMS | 连接商品、供应、库存、质量和履约的权威记录与回执 | 系统-of-record映射、回执查询 | 同一对象能从计划到外部状态核对，重复事件不重复执行 |
-| 3 | Shopify、CRM、增长、KOL与内容系统 | 扩展独立站、客户、内容和外发场景 | 渠道/客户动作策略与工具UI | 客户数据和外发范围受控，结果可被回收 |
+| 1 | Shopify | 验证首个DTC样本的Shop、订单/销售调整、商品价格、渠道库存、流量和结算候选事实 | Shopify数据契约、只读工具、质量状态 | Shop/SKU范围唯一，指标可重算，PII被最小化，越界在请求前被拒绝 |
+| 2 | 实际广告平台、自研ERP、PLM、QMS、WMS、TMS | 补齐投放成本、商品、供应、库存、质量和履约的权威记录与回执 | 跨源覆盖矩阵、system-of-record映射、回执查询 | 同一对象可对账，缺失域显式冻结，重复事件不重复执行 |
+| 3 | RootData、Amazon Seller Central、数智星图、CRM、KOL与内容系统 | 扩展Amazon、客户、内容和外发等后续场景 | 渠道数据契约、动作策略与工具UI | 各渠道事实独立，客户数据和外发范围受控 |
 | 4 | 经验证的写入能力 | 仅把已定义的动作纳入Agent自主闭环 | 动作策略、幂等、回执、补偿和自治异常账 | 通过离线、影子和有限范围验证 |
 
-这是一条推荐顺序，具体首批接口仍由R04-Q5决定；不隐含已获得接入或生产写入授权。
+这是D-033至D-049后的执行顺序；首个Shopify入口采用试点专用Dev Dashboard App和[只读连接器登记契约](SHOPIFY-READONLY-CONNECTOR-REGISTRATION.md)，同一Shopify Organization下认证固定为`client_credentials`；`custom.product_family=wearable_breast_pump`定义产品家族成员，一次性负责人确认的Product GID清单负责初始化，首批SKU以官方`Total sales by product variant` CSV中的原始Top 5经三类风险剔除后形成[范围清单](../../08-data/BVS-01-SHOPIFY-SKU-SCOPE-MANIFEST.md)。目标Shop先以只读预检证据包验证身份/Scopes、Level 1资格、订单字段与45天保留控制、Definition三态、目录、种子和报告能力，任何写入另案。D-049进一步固定直接在目标Dev Dashboard读取[9项资格证据](SHOPIFY-LEVEL1-QUALIFICATION-EVIDENCE-PACK.md)，不以development store替代目标App/Shop/Organization关系；按App类型适用官方Level 1矩阵，并对身份、组织关系、PCD状态、Data protection要求、Scopes、用户权限和分发状态分别留证。声明Scope已固定为Products、Orders、Inventory、Locations和Markets五项读取；订单采用Level 1最小必要字段、原始响应零持久化、规范化行45天加密保留、模型仅见SKU日聚合。资格证据当前仍为`NOT_OBSERVED`，浏览器连接验证尚未完成；删除/访问/备份TTL测试、实际授权、Shop/App/SKU标识及真实实例仍由R04-Q5实例化。Scope、PCD Shape、保留控制、成员或报告能力不匹配时HOLD。本决定不隐含已创建定义、回填字段、读取客户/报表/商品、修改商品、创建App、交换Token、调用API或获得生产写入授权。
+
+2026-09-16决定更新：当前没有可执行的Amazon SP-API、RootData或数智星图只读入口，D-033确认Shopify DTC先行。D-050进一步确认Shopify是无上线产品的空白新店；D-051要求当前只完成店铺治理底座方案，不实例化连接器或Case。未来连接器实例、Level 1、订单数据和30天报表分别延期到`SHOP-G6/SHOP-G7`；D-033至D-049仍是目标合同。Shopify只负责自身渠道事实，不完成Amazon US订单、广告、价格与FBA库存验证；Amazon入口可用后另建渠道Case和连接器证据包。
 
 ## DeepSeek Harness的连接方式
 

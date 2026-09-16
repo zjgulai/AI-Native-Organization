@@ -1,0 +1,327 @@
+{
+  "schema_version": "bvs01_amazon_us_data_contract_v0",
+  "contract_id": "DC-BVS01-AMZ-US-001",
+  "status": "deferred_channel_template_pending_source_verification",
+  "business_scope": {
+    "brand": "Momcozy",
+    "marketplace": "Amazon US",
+    "product_family": "可穿戴式吸奶器",
+    "account_scope": "one_account_or_store_group_pending_identifier",
+    "sku_scope": "3_to_10_high_gmv_skus_pending_identifiers",
+    "observation_window": "rolling_30_days",
+    "exclusions": [
+      "recent_material_quality_risk",
+      "recent_material_stockout_risk",
+      "recent_material_account_risk"
+    ]
+  },
+  "connection_entry": {
+    "current_status": "no_available_entry",
+    "unavailable_candidates": [
+      "Amazon SP-API",
+      "RootData",
+      "数智星图"
+    ],
+    "shopify_relation": "first_dtc_pilot_separate_from_amazon",
+    "amazon_channel_evidence_coverage": "not_satisfied",
+    "pilot_execution_status": "deferred_by_d033",
+    "decision_date": "2026-09-16"
+  },
+  "metric_contract": {
+    "primary_metric": "raw_gmv",
+    "separate_adjustments": [
+      "cancellation_amount",
+      "refund_amount"
+    ],
+    "guardrails": [
+      "ad_spend",
+      "effective_price",
+      "sellable_inventory",
+      "settlement_cash",
+      "quality_and_account_eligibility"
+    ],
+    "raw_gmv_formula_status": "unconfirmed",
+    "formula_components_to_decide": [
+      "item_principal",
+      "shipping",
+      "gift_wrap",
+      "tax",
+      "discounts_and_promotions"
+    ],
+    "currency_policy": "preserve_source_currency_and_store_fx_rate_version_when_converted"
+  },
+  "identity_keys": [
+    "tenant_id",
+    "brand_id",
+    "marketplace_id",
+    "selling_partner_id",
+    "account_scope_id",
+    "asin",
+    "seller_sku",
+    "order_id",
+    "order_item_id",
+    "source_event_id",
+    "source_snapshot_id"
+  ],
+  "datasets": [
+    {
+      "dataset_id": "order_events",
+      "business_question": "哪些订单事件构成原始GMV，以及何时发生取消",
+      "grain": "one_order_item_state_event",
+      "event_or_snapshot": "event",
+      "required_fields": [
+        "marketplace_id",
+        "selling_partner_id",
+        "order_id",
+        "order_item_id",
+        "asin",
+        "seller_sku",
+        "quantity",
+        "order_status",
+        "purchase_time",
+        "last_update_time",
+        "currency",
+        "item_principal",
+        "shipping_amount",
+        "gift_wrap_amount",
+        "tax_amount",
+        "promotion_discount_amount",
+        "source_event_id",
+        "source_observed_at"
+      ],
+      "authority_candidate": "Amazon Orders API or Amazon order report",
+      "enterprise_projection_candidates": [
+        "RootData",
+        "数智星图",
+        "自研ERP"
+      ],
+      "pii_policy": "buyer_name_address_email_phone_and_free_text_excluded",
+      "freshness_target_status": "pending_baseline",
+      "reconciliation": "order_id_plus_order_item_id_to_enterprise_order_mapping"
+    },
+    {
+      "dataset_id": "refund_and_finance_events",
+      "business_question": "退款、费用与可结算现金如何独立影响经营结果",
+      "grain": "one_financial_transaction_or_refund_event",
+      "event_or_snapshot": "event",
+      "required_fields": [
+        "marketplace_id",
+        "selling_partner_id",
+        "transaction_id",
+        "transaction_type",
+        "transaction_status",
+        "related_order_id",
+        "related_shipment_id",
+        "posted_time",
+        "currency",
+        "principal_amount",
+        "fee_amount",
+        "tax_amount",
+        "total_amount",
+        "source_event_id",
+        "source_observed_at"
+      ],
+      "authority_candidate": "Amazon Finances API",
+      "enterprise_projection_candidates": [
+        "自研ERP",
+        "RootData",
+        "数智星图"
+      ],
+      "pii_policy": "no_customer_pii",
+      "freshness_target_status": "pending_baseline",
+      "reconciliation": "related_order_id_to_order_events_and_released_transactions_to_settlement"
+    },
+    {
+      "dataset_id": "advertising_daily",
+      "business_question": "广告投入、流量和归因销售如何影响SKU级GMV机会",
+      "grain": "one_local_date_by_advertiser_campaign_ad_group_and_advertised_product",
+      "event_or_snapshot": "daily_snapshot",
+      "required_fields": [
+        "advertiser_account_id",
+        "marketplace_id",
+        "local_date",
+        "timezone",
+        "campaign_id",
+        "ad_group_id",
+        "advertised_asin",
+        "advertised_sku",
+        "impressions",
+        "clicks",
+        "spend",
+        "attributed_orders",
+        "attributed_units",
+        "attributed_sales",
+        "attribution_window",
+        "report_schema_version",
+        "currency",
+        "source_snapshot_id",
+        "source_observed_at"
+      ],
+      "authority_candidate": "Amazon Ads reporting surface selected after target-account verification",
+      "enterprise_projection_candidates": [
+        "RootData",
+        "数智星图"
+      ],
+      "pii_policy": "no_customer_pii",
+      "freshness_target_status": "pending_baseline_and_attribution_lag",
+      "reconciliation": "advertised_asin_or_sku_to_master_product_and_attribution_window_kept_explicit"
+    },
+    {
+      "dataset_id": "offer_price_and_promotion",
+      "business_question": "每个SKU在何时以什么有效价格和促销状态参与经营",
+      "grain": "one_seller_sku_offer_state_interval",
+      "event_or_snapshot": "snapshot_with_effective_interval",
+      "required_fields": [
+        "marketplace_id",
+        "selling_partner_id",
+        "asin",
+        "seller_sku",
+        "condition",
+        "fulfillment_channel",
+        "listing_price",
+        "shipping_price",
+        "landed_price",
+        "promotion_id",
+        "promotion_type",
+        "promotion_start_time",
+        "promotion_end_time",
+        "currency",
+        "effective_from",
+        "effective_to",
+        "source_snapshot_id",
+        "source_observed_at"
+      ],
+      "authority_candidate": "Amazon offer and promotion read surfaces pending endpoint verification",
+      "enterprise_projection_candidates": [
+        "RootData",
+        "自研ERP",
+        "数智星图"
+      ],
+      "pii_policy": "not_applicable",
+      "freshness_target_status": "pending_baseline",
+      "reconciliation": "seller_sku_to_asin_and_price_interval_to_order_purchase_time"
+    },
+    {
+      "dataset_id": "inventory_position",
+      "business_question": "SKU的可售、预留、在途和不可售库存是否允许增长动作继续",
+      "grain": "one_marketplace_seller_sku_fulfillment_channel_snapshot",
+      "event_or_snapshot": "snapshot",
+      "required_fields": [
+        "marketplace_id",
+        "selling_partner_id",
+        "asin",
+        "seller_sku",
+        "fulfillment_channel",
+        "fulfillable_quantity",
+        "reserved_quantity",
+        "inbound_quantity",
+        "unfulfillable_quantity",
+        "researching_quantity",
+        "merchant_fulfilled_available_quantity",
+        "source_snapshot_id",
+        "source_observed_at"
+      ],
+      "authority_candidate": "Amazon FBA Inventory API for FBA plus verified merchant inventory source for MFN",
+      "enterprise_projection_candidates": [
+        "自研ERP",
+        "WMS",
+        "RootData",
+        "数智星图"
+      ],
+      "pii_policy": "not_applicable",
+      "freshness_target_status": "pending_baseline",
+      "reconciliation": "amazon_channel_position_to_erp_and_wms_position_without_summing_overlapping_buckets"
+    },
+    {
+      "dataset_id": "pilot_eligibility",
+      "business_question": "哪些SKU仍满足本试点的质量、缺货和账号风险排除条件",
+      "grain": "one_scope_object_eligibility_decision",
+      "event_or_snapshot": "versioned_decision",
+      "required_fields": [
+        "scope_object_type",
+        "scope_object_id",
+        "quality_risk_state",
+        "stockout_risk_state",
+        "account_risk_state",
+        "eligible",
+        "rule_version",
+        "evidence_refs",
+        "effective_from",
+        "expires_at"
+      ],
+      "authority_candidate": "cross-system decision from QMS, inventory and Amazon account-health evidence",
+      "enterprise_projection_candidates": [
+        "QMS",
+        "自研ERP",
+        "WMS",
+        "Amazon Seller Central"
+      ],
+      "pii_policy": "no_employee_or_customer_pii",
+      "freshness_target_status": "must_expire_but_ttl_pending",
+      "reconciliation": "fail_closed_if_any_required_risk_evidence_is_missing_stale_or_conflicting"
+    }
+  ],
+  "quality_rules": [
+    {
+      "rule_id": "DQ-01",
+      "rule": "scope keys are present and belong to the approved account, marketplace and SKU set",
+      "failure_action": "quarantine_affected_records_and_freeze_affected_scope"
+    },
+    {
+      "rule_id": "DQ-02",
+      "rule": "currency, timezone, source timestamp and source schema version are explicit",
+      "failure_action": "do_not_aggregate_or_compare"
+    },
+    {
+      "rule_id": "DQ-03",
+      "rule": "order and financial events are deduplicated by source identity and correction semantics",
+      "failure_action": "rebuild_affected_partition"
+    },
+    {
+      "rule_id": "DQ-04",
+      "rule": "raw GMV, cancellations, refunds, ad-attributed sales and settlement cash remain separate",
+      "failure_action": "reject_metric_publication"
+    },
+    {
+      "rule_id": "DQ-05",
+      "rule": "inventory buckets from Amazon, ERP and WMS are mapped before reconciliation and never blindly summed",
+      "failure_action": "freeze_inventory_dependent_recommendations"
+    },
+    {
+      "rule_id": "DQ-06",
+      "rule": "cross-account and out-of-scope SKU reads are denied and produce an audit receipt",
+      "failure_action": "deny_and_raise_access_exception"
+    }
+  ],
+  "connector_evidence_required": [
+    "connector_identity_and_version",
+    "environment_and_account_scope",
+    "approved_read_operations",
+    "authorization_role_without_secret_material",
+    "pagination_and_incremental_cursor_behavior",
+    "observed_rate_limit_and_retry_policy",
+    "request_id_or_equivalent_source_receipt",
+    "schema_and_sample_shape_hash",
+    "freshness_and_completeness_probe",
+    "cross_account_denial_probe",
+    "timeout_partial_failure_and_replay_behavior",
+    "pii_field_exclusion_probe",
+    "revocation_and_disable_evidence"
+  ],
+  "authorization": {
+    "read_only_connector_authorized": false,
+    "production_write_authorized": false,
+    "budget_action_authorized": false,
+    "external_message_authorized": false,
+    "credentials_allowed_in_repository": false
+  },
+  "open_decisions": [
+    "exact_account_scope_identifier",
+    "exact_3_to_10_sku_identifiers",
+    "raw_gmv_formula_components",
+    "domain_authority_and_enterprise_projection_precedence",
+    "freshness_targets_and_stop_lines",
+    "official_interface_and_service_identity_inventory",
+    "baseline_window_and_comparison_method"
+  ]
+}

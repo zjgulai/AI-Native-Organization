@@ -1,0 +1,1158 @@
+{
+  "version": "2.0",
+  "status": "confirmed_topology",
+  "artifact_kind": "organization_responsibility_graph",
+  "decision_id": "D-021",
+  "source_role_catalog": "../05-agents/role-catalog.json",
+  "semantics": {
+    "plane_membership": "A logical responsibility classification; not reporting hierarchy, runtime routing, or authorization.",
+    "domain_view": "An orthogonal business capability classification inherited from v1.1.",
+    "runtime": "One Case Agent owns one tightly coupled case and binds one primary role persona.",
+    "authorization": "No graph edge grants data, tool, policy, credential, or asset permissions.",
+    "production_authorized": false
+  },
+  "planes": [
+    {
+      "id": "PLN-MGT",
+      "name": "经营管理",
+      "purpose": "目标、优先级、资源约束、经营判断与组织能力",
+      "role_ids": [
+        "AGT-001",
+        "AGT-002",
+        "AGT-003",
+        "AGT-004",
+        "AGT-041"
+      ],
+      "role_count": 5
+    },
+    {
+      "id": "PLN-OPS",
+      "name": "业务运营",
+      "purpose": "产品、供应、渠道、增长、服务和GMV事实闭环",
+      "role_ids": [
+        "AGT-006",
+        "AGT-007",
+        "AGT-008",
+        "AGT-009",
+        "AGT-010",
+        "AGT-011",
+        "AGT-012",
+        "AGT-013",
+        "AGT-014",
+        "AGT-015",
+        "AGT-016",
+        "AGT-017",
+        "AGT-018",
+        "AGT-019",
+        "AGT-020",
+        "AGT-021",
+        "AGT-022",
+        "AGT-023",
+        "AGT-024",
+        "AGT-025",
+        "AGT-026",
+        "AGT-027",
+        "AGT-028",
+        "AGT-029",
+        "AGT-030",
+        "AGT-031",
+        "AGT-032",
+        "AGT-033",
+        "AGT-034",
+        "AGT-035",
+        "AGT-036",
+        "AGT-037",
+        "AGT-038",
+        "AGT-039",
+        "AGT-040"
+      ],
+      "role_count": 35
+    },
+    {
+      "id": "PLN-CTL",
+      "name": "独立控制",
+      "purpose": "审计、税务、法务、产品合规、隐私、安全与权限边界",
+      "role_ids": [
+        "AGT-005",
+        "AGT-042",
+        "AGT-043",
+        "AGT-044",
+        "AGT-050"
+      ],
+      "role_count": 5
+    },
+    {
+      "id": "PLN-PLT",
+      "name": "数据与Agent平台",
+      "purpose": "数据口径、质量、集成工具、Skills、Memory、Model与可靠性",
+      "role_ids": [
+        "AGT-045",
+        "AGT-046",
+        "AGT-047",
+        "AGT-048",
+        "AGT-049"
+      ],
+      "role_count": 5
+    }
+  ],
+  "domain_views": [
+    {
+      "id": "DOM-01",
+      "name": "经营与组织",
+      "role_count": 5,
+      "role_ids": [
+        "AGT-001",
+        "AGT-002",
+        "AGT-003",
+        "AGT-004",
+        "AGT-005"
+      ]
+    },
+    {
+      "id": "DOM-02",
+      "name": "产品与创新",
+      "role_count": 8,
+      "role_ids": [
+        "AGT-006",
+        "AGT-007",
+        "AGT-008",
+        "AGT-009",
+        "AGT-010",
+        "AGT-011",
+        "AGT-012",
+        "AGT-013"
+      ]
+    },
+    {
+      "id": "DOM-03",
+      "name": "供应与履约",
+      "role_count": 7,
+      "role_ids": [
+        "AGT-014",
+        "AGT-015",
+        "AGT-016",
+        "AGT-017",
+        "AGT-018",
+        "AGT-019",
+        "AGT-020"
+      ]
+    },
+    {
+      "id": "DOM-04",
+      "name": "渠道经营",
+      "role_count": 8,
+      "role_ids": [
+        "AGT-021",
+        "AGT-022",
+        "AGT-023",
+        "AGT-024",
+        "AGT-025",
+        "AGT-026",
+        "AGT-027",
+        "AGT-028"
+      ]
+    },
+    {
+      "id": "DOM-05",
+      "name": "品牌与增长",
+      "role_count": 7,
+      "role_ids": [
+        "AGT-029",
+        "AGT-030",
+        "AGT-031",
+        "AGT-032",
+        "AGT-033",
+        "AGT-034",
+        "AGT-035"
+      ]
+    },
+    {
+      "id": "DOM-06",
+      "name": "服务与体验",
+      "role_count": 4,
+      "role_ids": [
+        "AGT-036",
+        "AGT-037",
+        "AGT-038",
+        "AGT-039"
+      ]
+    },
+    {
+      "id": "DOM-07",
+      "name": "财务与合规",
+      "role_count": 5,
+      "role_ids": [
+        "AGT-040",
+        "AGT-041",
+        "AGT-042",
+        "AGT-043",
+        "AGT-044"
+      ]
+    },
+    {
+      "id": "DOM-08",
+      "name": "数据与AI运行",
+      "role_count": 6,
+      "role_ids": [
+        "AGT-045",
+        "AGT-046",
+        "AGT-047",
+        "AGT-048",
+        "AGT-049",
+        "AGT-050"
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "id": "AGT-001",
+      "alias": "衡远",
+      "title": "经营目标与资源统筹",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织"
+    },
+    {
+      "id": "AGT-002",
+      "alias": "枢衡",
+      "title": "场景自主编排与异常协调",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织",
+      "v2_note": "负责工单制度与例外协调建议；运行时路由由模型外Case Control替代。"
+    },
+    {
+      "id": "AGT-003",
+      "alias": "明镜",
+      "title": "经营分析与决策支持",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织"
+    },
+    {
+      "id": "AGT-004",
+      "alias": "知人",
+      "title": "组织能力与人事行政",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织"
+    },
+    {
+      "id": "AGT-005",
+      "alias": "守衡",
+      "title": "内控审计与独立复核",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织"
+    },
+    {
+      "id": "AGT-006",
+      "alias": "听澜",
+      "title": "消费者需求与VOC研究",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新"
+    },
+    {
+      "id": "AGT-007",
+      "alias": "望野",
+      "title": "市场竞争与机会研究",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新"
+    },
+    {
+      "id": "AGT-008",
+      "alias": "拓新",
+      "title": "产品组合与新品孵化",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新"
+    },
+    {
+      "id": "AGT-009",
+      "alias": "定形",
+      "title": "产品定义与商业立项",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新"
+    },
+    {
+      "id": "AGT-010",
+      "alias": "映物",
+      "title": "工业设计与用户体验",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新"
+    },
+    {
+      "id": "AGT-011",
+      "alias": "砺器",
+      "title": "硬件结构与材料工程",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新"
+    },
+    {
+      "id": "AGT-012",
+      "alias": "灵枢",
+      "title": "软件算法与应用生态",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新"
+    },
+    {
+      "id": "AGT-013",
+      "alias": "求证",
+      "title": "产品验证与研发项目",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新"
+    },
+    {
+      "id": "AGT-014",
+      "alias": "择源",
+      "title": "OEM供应商开发与协同",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约"
+    },
+    {
+      "id": "AGT-015",
+      "alias": "契约",
+      "title": "采购与合同履约",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约"
+    },
+    {
+      "id": "AGT-016",
+      "alias": "知量",
+      "title": "需求预测与补货计划",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约"
+    },
+    {
+      "id": "AGT-017",
+      "alias": "衡仓",
+      "title": "库存与商品生命周期",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约"
+    },
+    {
+      "id": "AGT-018",
+      "alias": "质守",
+      "title": "生产协同与质量控制",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约"
+    },
+    {
+      "id": "AGT-019",
+      "alias": "通途",
+      "title": "跨境物流与关务",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约"
+    },
+    {
+      "id": "AGT-020",
+      "alias": "行舟",
+      "title": "仓储履约与退货处置",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约"
+    },
+    {
+      "id": "AGT-021",
+      "alias": "北辰",
+      "title": "Amazon业务经营",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营"
+    },
+    {
+      "id": "AGT-022",
+      "alias": "觅位",
+      "title": "Amazon商品与搜索运营",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营"
+    },
+    {
+      "id": "AGT-023",
+      "alias": "自航",
+      "title": "独立站经营与转化",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营"
+    },
+    {
+      "id": "AGT-024",
+      "alias": "拓域",
+      "title": "其他平台与新市场经营",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营"
+    },
+    {
+      "id": "AGT-025",
+      "alias": "联商",
+      "title": "零售渠道与B2B拓展",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营"
+    },
+    {
+      "id": "AGT-026",
+      "alias": "衡价",
+      "title": "定价促销与商品组合",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营"
+    },
+    {
+      "id": "AGT-027",
+      "alias": "守店",
+      "title": "店铺账号健康与规则",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营"
+    },
+    {
+      "id": "AGT-028",
+      "alias": "译境",
+      "title": "本地化与市场适配",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营"
+    },
+    {
+      "id": "AGT-029",
+      "alias": "立言",
+      "title": "品牌战略与传播",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长"
+    },
+    {
+      "id": "AGT-030",
+      "alias": "叙事",
+      "title": "内容与创意策划",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长"
+    },
+    {
+      "id": "AGT-031",
+      "alias": "绘影",
+      "title": "视觉视频与素材生产",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长"
+    },
+    {
+      "id": "AGT-032",
+      "alias": "点火",
+      "title": "效果广告投放",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长"
+    },
+    {
+      "id": "AGT-033",
+      "alias": "结伴",
+      "title": "达人与联盟合作",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长"
+    },
+    {
+      "id": "AGT-034",
+      "alias": "续缘",
+      "title": "CRM留存与复购",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长"
+    },
+    {
+      "id": "AGT-035",
+      "alias": "试真",
+      "title": "增长实验与增量评估",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长"
+    },
+    {
+      "id": "AGT-036",
+      "alias": "安心",
+      "title": "售前服务与购买指导",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-06",
+      "domain": "服务与体验"
+    },
+    {
+      "id": "AGT-037",
+      "alias": "解忧",
+      "title": "售后客诉与服务补救",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-06",
+      "domain": "服务与体验"
+    },
+    {
+      "id": "AGT-038",
+      "alias": "回声",
+      "title": "体验洞察与质量反馈",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-06",
+      "domain": "服务与体验"
+    },
+    {
+      "id": "AGT-039",
+      "alias": "同行",
+      "title": "用户教育与会员社区",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-06",
+      "domain": "服务与体验"
+    },
+    {
+      "id": "AGT-040",
+      "alias": "清账",
+      "title": "GMV结算与会计对账",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规"
+    },
+    {
+      "id": "AGT-041",
+      "alias": "守金",
+      "title": "经营财务与资金",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规"
+    },
+    {
+      "id": "AGT-042",
+      "alias": "合账",
+      "title": "税务与跨境实体协作",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规"
+    },
+    {
+      "id": "AGT-043",
+      "alias": "律衡",
+      "title": "法务与知识产权",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规"
+    },
+    {
+      "id": "AGT-044",
+      "alias": "安界",
+      "title": "产品合规与隐私",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规"
+    },
+    {
+      "id": "AGT-045",
+      "alias": "同尺",
+      "title": "业务口径与主数据",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行"
+    },
+    {
+      "id": "AGT-046",
+      "alias": "清源",
+      "title": "数据工程与质量",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行"
+    },
+    {
+      "id": "AGT-047",
+      "alias": "接桥",
+      "title": "系统集成与业务工具",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行"
+    },
+    {
+      "id": "AGT-048",
+      "alias": "积知",
+      "title": "知识技能与Playbook治理",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行"
+    },
+    {
+      "id": "AGT-049",
+      "alias": "稳行",
+      "title": "Agent平台与可靠运行",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行"
+    },
+    {
+      "id": "AGT-050",
+      "alias": "门卫",
+      "title": "信息安全与权限",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行"
+    }
+  ],
+  "edges": [
+    {
+      "from": "AGT-001",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-001",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-002",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-002",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-003",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-003",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-004",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-004",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-005",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-005",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-006",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-006",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-007",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-007",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-008",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-008",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-009",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-009",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-010",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-010",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-011",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-011",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-012",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-012",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-013",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-013",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-014",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-014",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-015",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-015",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-016",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-016",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-017",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-017",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-018",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-018",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-019",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-019",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-020",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-020",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-021",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-021",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-022",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-022",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-023",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-023",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-024",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-024",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-025",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-025",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-026",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-026",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-027",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-027",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-028",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-028",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-029",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-029",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-030",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-030",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-031",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-031",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-032",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-032",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-033",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-033",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-034",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-034",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-035",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-035",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-036",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-036",
+      "to": "DOM-06",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-037",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-037",
+      "to": "DOM-06",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-038",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-038",
+      "to": "DOM-06",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-039",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-039",
+      "to": "DOM-06",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-040",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-040",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-041",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-041",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-042",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-042",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-043",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-043",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-044",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-044",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-045",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-045",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-046",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-046",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-047",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-047",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-048",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-048",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-049",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-049",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view"
+    },
+    {
+      "from": "AGT-050",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane"
+    },
+    {
+      "from": "AGT-050",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view"
+    }
+  ],
+  "cross_plane_contracts": [
+    {
+      "from": "PLN-MGT",
+      "to": "PLN-OPS",
+      "type": "sets_objectives_and_constraints"
+    },
+    {
+      "from": "PLN-OPS",
+      "to": "PLN-MGT",
+      "type": "returns_business_results_and_evidence"
+    },
+    {
+      "from": "PLN-CTL",
+      "to": "PLN-MGT",
+      "type": "independently_checks_and_can_reject"
+    },
+    {
+      "from": "PLN-CTL",
+      "to": "PLN-OPS",
+      "type": "independently_checks_and_can_reject"
+    },
+    {
+      "from": "PLN-PLT",
+      "to": "PLN-MGT",
+      "type": "provides_data_skills_tools_and_runtime"
+    },
+    {
+      "from": "PLN-PLT",
+      "to": "PLN-OPS",
+      "type": "provides_data_skills_tools_and_runtime"
+    },
+    {
+      "from": "PLN-PLT",
+      "to": "PLN-CTL",
+      "type": "provides_control_evidence_and_capabilities"
+    },
+    {
+      "from": "PLN-MGT",
+      "to": "PLN-PLT",
+      "type": "defines_capability_demand_and_acceptance"
+    },
+    {
+      "from": "PLN-OPS",
+      "to": "PLN-PLT",
+      "type": "defines_capability_demand_and_acceptance"
+    }
+  ]
+}

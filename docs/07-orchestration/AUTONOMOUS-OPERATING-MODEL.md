@@ -1,56 +1,83 @@
-# 50 Agent 自主运行模型
+# 单Case Agent自主运行模型
 
-状态：v1.1历史基线。D-020和[ADR-0003](../adr/0003-single-case-agent-with-role-skills.md)已替代本文的“AGT-002动态编队多个岗位Agent”语义；v2将采用单Case Agent、唯一主岗位人格、按需Skills和模型外资产执行控制。本文尚未完成重构，不能作为当前运行配置或生产授权。
+状态：D-020至D-029已确认逻辑岗位、单Case Agent、五契约Bundle生命周期、八阶段协同协议、Case唯一主价值流/主场景规则、Action Intent与Policy/Execution分离边界、以及FLOW-07模型外确定性紧急保护。本文是v2业务运行设计，不是Harness配置或生产授权；结构化阶段、流程、场景和岗位贡献关系见[协同图谱](COLLABORATION-GRAPH.md)。
 
 ## 已决定的运行原则
 
-- 50个岗位是长期能力和责任类型，不是50个固定会话，也不是50人同时开会。
-- 每张场景工单由AGT-002依据业务范围、能力、数据、工具、负荷和独立复核需要动态组建小型任务组。
-- 每个工单有一位AI结果负责人；AGT-002负责编队、状态和异常协调，不负责替自己验收。
-- 初始运行不把真人负责人或HITL设为常规步骤。HITL是以后可增加的模式。
-- 工具UI/UX是工作入口；业务范围、动作策略、幂等、回执和异常账是权威记录。
+- 50个岗位是长期责任与能力契约，不是50个运行Agent、固定会话或并发任务。
+- 每张工单只运行一个Case Agent，绑定一个主岗位人格和一个不可变Role Release Bundle。
+- Case Control依据已发布规则绑定一个主价值流和一个主场景、选择一个主岗位并装配必要Skills和Tools；AGT-002提供制度、分诊与异常协调能力，不充当LLM路由器。
+- 每个阶段形成版本化产物和Acceptance Record；岗位通过Skills、产物规范和保障规则贡献能力。
+- 初始运行不把真人负责人或HITL设为常规步骤。需要外部身份、资质或实物工作的步骤通过受控执行主体取得真实回执。
+- 工具UI/UX可以成为工作入口；Case/Event Ledger、业务系统、Policy和外部回执保存权威状态。
+- FLOW-07命中已发布确定性规则时，模型外Emergency Guard可在诊断前提交固定保护Intent；它不成为第二个Agent、不持有Service Identity，也不完成或跳过任何Case阶段。
 
 ## 第一性原理
 
-一个经营闭环不需要按部门传递聊天记录。它只需要把可信信号放入明确范围，以最少能力组合形成决策，让受控工具产生可核对结果，并把有效经验回写为下一次可复用能力。
+一个经营闭环需要一个持续上下文、明确范围、可接收产物、模型外资产控制和可核对结果。协同通过阶段产物推进，不通过部门群聊或岗位Agent互聊推进。
 
 ~~~mermaid
 flowchart LR
-  S[业务信号] --> W[场景工单<br/>目标、范围、证据、规则]
-  W --> O[AGT-002 枢衡<br/>动态编队]
-  O --> C[最小Agent任务组<br/>结果负责人、执行、独立复核]
-  C --> P{动作策略<br/>范围与幂等校验}
-  P -->|允许| T[工具平面<br/>MCP / native tool / API / hook]
-  T --> R[外部回执与结果核对]
-  R --> E[经营结果与证据]
-  E --> K[AGT-048<br/>能力、知识与Playbook版本]
-  K --> W
-  P -->|拒绝或缺策略| A[自治异常账]
-  T -->|失败或回执不明| A
-  A --> F[冻结受影响范围<br/>重查、补偿或恢复]
-  F --> O
+  S[信号] --> W[范围与Case]
+  W --> C[上下文<br/>主岗位 + Bundle + Skills]
+  C --> E[证据与诊断]
+  E --> D[方案产物]
+  D --> A{Assurance Gate}
+  A -->|接受| I[Action Intent]
+  I --> P{Policy Gate}
+  P -->|允许| X[Execution Broker]
+  P -->|拒绝| R[返工或NoAction]
+  X --> Q[回执与结果核验]
+  Q --> K[Case关闭<br/>异步学习候选]
+  X -->|回执不明| F[冻结Case<br/>查询外部状态]
 ~~~
 
-## 动态编队契约
+## Case创建与装配契约
 
-AGT-002不按部门名派工，也不默认拉满50个岗位。每次匹配必须产出下列可检查记录：
+Case Control不按部门名派工，也不把50个岗位全部放入上下文。每次建单和装配必须留下下列记录：
 
-| 判断输入 | 最低要求 | 输出 |
+| 判断输入 | 最低要求 | 正式产物 |
 | --- | --- | --- |
-| 场景 | 目标、品牌/市场/账号/商品、时间窗、流程和完成条件 | 场景工单 |
-| 能力 | 结果负责人、所需专业能力、独立复核需要 | 候选岗位与取舍理由 |
-| 数据 | 权威来源、质量状态、新鲜度、可访问范围 | 输入清单与缺口 |
-| 工具 | 可读、可写、外部发起、回执查询和补偿能力 | 工具能力清单 |
-| 策略 | 动作类别、对象范围、参数、预算/约束、有效期和幂等要求 | 可执行或拒绝理由 |
-| 运行 | 负荷、同对象冲突、队列和已有异常 | 小型任务组与执行顺序 |
+| 信号 | 来源、时间、去重键和初步业务对象 | Signal Envelope |
+| 业务范围 | 目标、品牌/市场/账号/商品、时间窗、唯一主价值流、唯一主场景、去重键及其规则引用/版本、自有资源预留引用集合和完成条件 | Case Charter |
+| 主岗位 | STG-03依据已接收的Case Charter恰好选择一个AI结果负责人及依据 | Context Manifest中的`primary_role_ref` |
+| Bundle | STG-03固定五契约确定版本、Hash和生命周期状态 | Context Manifest中的`role_release_bundle_ref` |
+| 能力 | 当前阶段需要的Skill描述、产物schema和保障规则 | Context Manifest |
+| 数据与工具 | 权威来源、质量、可访问范围、工具scope和回执能力 | Context Manifest中的允许清单 |
+| 运行冲突 | 同对象预算、库存、账号、队列与已有异常 | 预留、等待或冻结记录 |
 
-每个任务组至少明确：AI结果负责人、必要的专业执行岗位、独立复核岗位或确定性规则、接收条件和异常处理方式。角色参与流程不代表自动得到数据或工具权限。
+D-025规定一张Case只选一条主价值流和一个主场景；一个信号需要多个价值流时创建共享`correlation_id`、相互引用但状态独立的Case。相关Case只引用已验收Stage Artifact，分别拥有目标、主岗位、Bundle、资源、异常和关闭结果。角色参与一条流程只表示其能力可以被装配，不产生会话、数据访问或工具权限。
 
-## 八条流程的默认自治单元
+## FLOW-07紧急保护双通道
 
-AGT-002参与全部流程。下表中的负责人是默认AI结果负责人；具体场景可在符合匹配契约时调整，但必须留存原因。
+正常通道始终按STG-01至STG-08顺序运行。紧急通道只在已接收的FLOW-07权威信号命中一条已发布互斥规则时启动，并嵌在STG-02建单事务中：
 
-| 流程 | 默认AI结果负责人 | 典型最小单元 | 主要结果 |
+```mermaid
+flowchart LR
+  S[已接收STG-01信号] --> G{模型外<br/>Emergency Guard}
+  G -->|NO_MATCH| N[记录无匹配结论<br/>正常STG-02建单]
+  G -->|绑定前FREEZE| F0[Pre-Case Exception<br/>不创建残缺Case]
+  G -->|绑定后FREEZE| F1[Case Exception<br/>冻结受影响Case/对象]
+  G -->|PROTECT| P{Policy Gate}
+  P -->|DENY / HOLD| C[记录结论<br/>不创建Outbox]
+  P -->|ALLOW| O[本地事务提交<br/>Case + STG-02 + Outbox]
+  O --> B[Execution Broker<br/>幂等派发]
+  B --> R[权威状态对账]
+  N --> T[STG-03至STG-08]
+  C --> T
+  O --> T
+  R --> T
+```
+
+`NO_MATCH`只记录不含规则、Case或动作引用的Guard Decision，然后继续正常STG-02。在主价值流、主场景或范围不能唯一绑定时，Guard只写入`Pre-Case Exception`并冻结受影响信号范围，不创建Guard Decision、残缺Case、Intent、Policy或Outbox。本地事务提交结果不明时同样先用Pre-Case Exception并查询账本；只有证明Case已提交，后续异常才使用`Case Exception`。本地原子性只覆盖Case/Event Ledger中的Case、STG-02 Charter/Acceptance、Guard Decision、固定Action Intent、Policy Decision和ALLOW时的Emergency Execution Outbox。外部系统副作用在事务提交后发生，必须通过幂等键、Execution Attempt和权威回执核对。
+
+紧急通道只允许固定、最小、限制性且可逆的暴露控制；TTL仅限制首次派发，不自动恢复业务。紧急Attempt不是STG-07产物。重新开放、恢复曝光、扩大范围、对外承诺、退款、召回、销毁和永久变更仍须在正常STG-07经过方案、Assurance、Policy Gate与Execution Broker。具体信号、阈值、规则、模板、系统和Service Identity均未配置。
+
+## 八条流程的默认主岗位与能力
+
+下表中的负责人是默认主岗位；渠道、单一客诉和账号事件按已记录规则选择其他主岗位。所有其他岗位只以必要Skills、产物和检查规则进入同一个Case Agent上下文。
+
+| 流程 | 默认AI结果负责人 | 典型按需能力 | 主要结果 |
 | --- | --- | --- | --- |
 | FLOW-01 存量GMV | AGT-021 | 经营分析、渠道、库存、价格/广告、财务约束、增量评估 | 可执行且可复核的联合行动包 |
 | FLOW-02 新品验证 | AGT-008 | VOC、机会、产品定义、工程/供应、合规、验证 | 继续、转向或停止的证据包 |
@@ -61,7 +88,7 @@ AGT-002参与全部流程。下表中的负责人是默认AI结果负责人；�
 | FLOW-07 重大事件 | AGT-018 | 质量、账号、服务、法务/合规、运行安全 | 范围受控、处置与恢复证据 |
 | FLOW-08 经营与能力复盘 | AGT-001 | 分析、财务、审计、组织、知识与运行 | 资源、能力和策略版本建议 |
 
-完整成员关系见[协同图谱](COLLABORATION-GRAPH.md)和[结构化数据](collaboration-graph.json)。
+完整岗位贡献、场景入口、八阶段和异常关系见[协同图谱](COLLABORATION-GRAPH.md)和[结构化数据](collaboration-graph.json)。
 
 ## 工具是Agent的手和脚
 

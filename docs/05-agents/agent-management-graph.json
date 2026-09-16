@@ -1,0 +1,3181 @@
+{
+  "version": "2.0",
+  "status": "confirmed_management_model_contracts_not_instantiated",
+  "artifact_kind": "agent_management_graph",
+  "decision_id": "D-022",
+  "source_roles": "../04-organization/organization-graph.json",
+  "semantics": {
+    "management": "Versioned contracts and deterministic gates manage role profiles; no manager-agent hierarchy.",
+    "proposal": "AI roles may propose evidence-backed changes.",
+    "publication": "No AI role can publish its own configuration or grant permissions.",
+    "authorization": "Credentials, service identities, policy enforcement and release gates remain outside the model.",
+    "production_authorized": false
+  },
+  "contract_types": [
+    {
+      "id": "CTR-BUSINESS",
+      "name": "Business Contract",
+      "scope": "mission, primary persona, objectives, KPIs, artifacts, business scope, conflict rules",
+      "candidate_stewards": [
+        "AGT-001",
+        "FLOW_PRIMARY_ROLE"
+      ],
+      "enforced_by": [
+        "CORPORATE_OBJECTIVE_CONTRACT",
+        "DETERMINISTIC_RELEASE_GATE"
+      ]
+    },
+    {
+      "id": "CTR-SKILL",
+      "name": "Skill Contract",
+      "scope": "skill descriptors and bodies, playbooks, knowledge provenance, artifact schemas, dependencies, eval cases, memory policy references",
+      "candidate_stewards": [
+        "AGT-048"
+      ],
+      "enforced_by": [
+        "SKILL_REGISTRY",
+        "DETERMINISTIC_RELEASE_GATE"
+      ]
+    },
+    {
+      "id": "CTR-RUNTIME",
+      "name": "Runtime Contract",
+      "scope": "model, effort, context order, caching, timeouts, cost, SLO, concurrency, failure and rollback",
+      "candidate_stewards": [
+        "AGT-049"
+      ],
+      "enforced_by": [
+        "RUNTIME_REGISTRY",
+        "DETERMINISTIC_RELEASE_GATE"
+      ]
+    },
+    {
+      "id": "CTR-ACCESS",
+      "name": "Access Contract",
+      "scope": "data scope, visible tools, action intent classes, policies, expiry, revocation and audit",
+      "candidate_stewards": [
+        "AGT-050"
+      ],
+      "enforced_by": [
+        "CASE_CONTROL",
+        "POLICY_GATE",
+        "EXECUTION_BROKER"
+      ]
+    },
+    {
+      "id": "CTR-ASSURANCE",
+      "name": "Assurance Contract",
+      "scope": "eval suites, thresholds, conflicts of interest, independent checks, release gates, observation and rollback evidence",
+      "candidate_stewards": [
+        "AGT-005",
+        "APPLICABLE_CONTROL_ROLE"
+      ],
+      "enforced_by": [
+        "DETERMINISTIC_EVAL_RUNNER",
+        "DETERMINISTIC_RELEASE_GATE"
+      ]
+    }
+  ],
+  "governance_components": [
+    {
+      "id": "CORPORATE_OBJECTIVE_CONTRACT",
+      "kind": "external_business_constitution",
+      "model_controlled": false
+    },
+    {
+      "id": "SKILL_REGISTRY",
+      "kind": "versioned_registry",
+      "model_controlled": false
+    },
+    {
+      "id": "RUNTIME_REGISTRY",
+      "kind": "versioned_registry",
+      "model_controlled": false
+    },
+    {
+      "id": "CASE_CONTROL",
+      "kind": "deterministic_context_and_state_control",
+      "model_controlled": false
+    },
+    {
+      "id": "POLICY_GATE",
+      "kind": "deterministic_policy_enforcement",
+      "model_controlled": false
+    },
+    {
+      "id": "EXECUTION_BROKER",
+      "kind": "credential_holding_executor",
+      "model_controlled": false
+    },
+    {
+      "id": "DETERMINISTIC_EVAL_RUNNER",
+      "kind": "evaluation_control",
+      "model_controlled": false
+    },
+    {
+      "id": "DETERMINISTIC_RELEASE_GATE",
+      "kind": "publication_control",
+      "model_controlled": false
+    }
+  ],
+  "role_bindings": [
+    {
+      "role_id": "AGT-001",
+      "plane_id": "PLN-MGT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-001",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-001",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-001",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-001",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-001",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-002",
+      "plane_id": "PLN-MGT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-002",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-002",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-002",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-002",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-002",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-003",
+      "plane_id": "PLN-MGT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-003",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-003",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-003",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-003",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-003",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-004",
+      "plane_id": "PLN-MGT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-004",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-004",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-004",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-004",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-004",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-005",
+      "plane_id": "PLN-CTL",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-005",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-005",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-005",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-005",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-005",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-006",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-006",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-006",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-006",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-006",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-006",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-007",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-007",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-007",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-007",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-007",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-007",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-008",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-008",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-008",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-008",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-008",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-008",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-009",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-009",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-009",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-009",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-009",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-009",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-010",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-010",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-010",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-010",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-010",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-010",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-011",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-011",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-011",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-011",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-011",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-011",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-012",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-012",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-012",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-012",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-012",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-012",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-013",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-013",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-013",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-013",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-013",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-013",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-014",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-014",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-014",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-014",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-014",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-014",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-015",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-015",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-015",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-015",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-015",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-015",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-016",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-016",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-016",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-016",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-016",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-016",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-017",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-017",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-017",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-017",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-017",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-017",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-018",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-018",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-018",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-018",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-018",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-018",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-019",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-019",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-019",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-019",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-019",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-019",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-020",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-020",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-020",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-020",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-020",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-020",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-021",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-021",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-021",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-021",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-021",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-021",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-022",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-022",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-022",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-022",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-022",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-022",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-023",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-023",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-023",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-023",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-023",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-023",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-024",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-024",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-024",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-024",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-024",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-024",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-025",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-025",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-025",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-025",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-025",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-025",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-026",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-026",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-026",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-026",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-026",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-026",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-027",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-027",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-027",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-027",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-027",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-027",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-028",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-028",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-028",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-028",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-028",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-028",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-029",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-029",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-029",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-029",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-029",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-029",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-030",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-030",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-030",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-030",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-030",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-030",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-031",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-031",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-031",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-031",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-031",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-031",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-032",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-032",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-032",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-032",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-032",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-032",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-033",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-033",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-033",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-033",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-033",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-033",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-034",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-034",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-034",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-034",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-034",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-034",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-035",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-035",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-035",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-035",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-035",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-035",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-036",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-036",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-036",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-036",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-036",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-036",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-037",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-037",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-037",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-037",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-037",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-037",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-038",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-038",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-038",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-038",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-038",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-038",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-039",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-039",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-039",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-039",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-039",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-039",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-040",
+      "plane_id": "PLN-OPS",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-040",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-040",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-040",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-040",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-040",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-041",
+      "plane_id": "PLN-MGT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-041",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-041",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-041",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-041",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-041",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-042",
+      "plane_id": "PLN-CTL",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-042",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-042",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-042",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-042",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-042",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-043",
+      "plane_id": "PLN-CTL",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-043",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-043",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-043",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-043",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-043",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-044",
+      "plane_id": "PLN-CTL",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-044",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-044",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-044",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-044",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-044",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-045",
+      "plane_id": "PLN-PLT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-045",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-045",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-045",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-045",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-045",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-046",
+      "plane_id": "PLN-PLT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-046",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-046",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-046",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-046",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-046",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-047",
+      "plane_id": "PLN-PLT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-047",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-047",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-047",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-047",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-047",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-048",
+      "plane_id": "PLN-PLT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-048",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-048",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-048",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-048",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-048",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-049",
+      "plane_id": "PLN-PLT",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-049",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-049",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-049",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-049",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-049",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-050",
+      "plane_id": "PLN-CTL",
+      "contracts": [
+        {
+          "contract_type_id": "CTR-BUSINESS",
+          "required_ref": "BUSINESS-AGT-050",
+          "status": "business_baseline_exists_requires_v2_contract"
+        },
+        {
+          "contract_type_id": "CTR-SKILL",
+          "required_ref": "SKILL-AGT-050",
+          "status": "skill_names_exist_bodies_not_compiled_v2"
+        },
+        {
+          "contract_type_id": "CTR-RUNTIME",
+          "required_ref": "RUNTIME-AGT-050",
+          "status": "runtime_profile_not_selected"
+        },
+        {
+          "contract_type_id": "CTR-ACCESS",
+          "required_ref": "ACCESS-AGT-050",
+          "status": "deny_by_default_contract_not_instantiated"
+        },
+        {
+          "contract_type_id": "CTR-ASSURANCE",
+          "required_ref": "ASSURANCE-AGT-050",
+          "status": "requirements_exist_contract_not_instantiated"
+        }
+      ],
+      "can_propose_change": true,
+      "can_publish_own_change": false,
+      "can_hold_service_identity": false,
+      "production_authorized": false
+    }
+  ],
+  "release_rules": {
+    "self_publish": false,
+    "auto_publish_requires": [
+      "within_existing_corporate_objectives",
+      "within_existing_access_ceiling",
+      "all_assurance_thresholds_pass",
+      "rollback_target_exists"
+    ],
+    "new_corporate_contract_required_for": [
+      "change_corporate_objective",
+      "expand_asset_access",
+      "lower_control_threshold",
+      "change_independence_constraint"
+    ],
+    "service_identity_holder": "EXECUTION_BROKER",
+    "bundle_immutable": true,
+    "in_place_contract_mutation": false,
+    "case_bundle_pinned": true,
+    "model_can_change_lifecycle_state": false
+  },
+  "edges": [
+    {
+      "from": "AGT-001",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-001",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-001",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-001",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-001",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-002",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-002",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-002",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-002",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-002",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-003",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-003",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-003",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-003",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-003",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-004",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-004",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-004",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-004",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-004",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-005",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-005",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-005",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-005",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-005",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-006",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-006",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-006",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-006",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-006",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-007",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-007",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-007",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-007",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-007",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-008",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-008",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-008",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-008",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-008",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-009",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-009",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-009",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-009",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-009",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-010",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-010",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-010",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-010",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-010",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-011",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-011",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-011",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-011",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-011",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-012",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-012",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-012",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-012",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-012",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-013",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-013",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-013",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-013",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-013",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-014",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-014",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-014",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-014",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-014",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-015",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-015",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-015",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-015",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-015",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-016",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-016",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-016",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-016",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-016",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-017",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-017",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-017",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-017",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-017",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-018",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-018",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-018",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-018",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-018",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-019",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-019",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-019",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-019",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-019",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-020",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-020",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-020",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-020",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-020",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-021",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-021",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-021",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-021",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-021",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-022",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-022",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-022",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-022",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-022",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-023",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-023",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-023",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-023",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-023",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-024",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-024",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-024",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-024",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-024",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-025",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-025",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-025",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-025",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-025",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-026",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-026",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-026",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-026",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-026",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-027",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-027",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-027",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-027",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-027",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-028",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-028",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-028",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-028",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-028",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-029",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-029",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-029",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-029",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-029",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-030",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-030",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-030",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-030",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-030",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-031",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-031",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-031",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-031",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-031",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-032",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-032",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-032",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-032",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-032",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-033",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-033",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-033",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-033",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-033",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-034",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-034",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-034",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-034",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-034",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-035",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-035",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-035",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-035",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-035",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-036",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-036",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-036",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-036",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-036",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-037",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-037",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-037",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-037",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-037",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-038",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-038",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-038",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-038",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-038",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-039",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-039",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-039",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-039",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-039",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-040",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-040",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-040",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-040",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-040",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-041",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-041",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-041",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-041",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-041",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-042",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-042",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-042",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-042",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-042",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-043",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-043",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-043",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-043",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-043",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-044",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-044",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-044",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-044",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-044",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-045",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-045",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-045",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-045",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-045",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-046",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-046",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-046",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-046",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-046",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-047",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-047",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-047",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-047",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-047",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-048",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-048",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-048",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-048",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-048",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-049",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-049",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-049",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-049",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-049",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-050",
+      "to": "CTR-BUSINESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-050",
+      "to": "CTR-SKILL",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-050",
+      "to": "CTR-RUNTIME",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-050",
+      "to": "CTR-ACCESS",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-050",
+      "to": "CTR-ASSURANCE",
+      "type": "must_bind_contract"
+    },
+    {
+      "from": "AGT-001",
+      "to": "CTR-BUSINESS",
+      "type": "may_propose_candidate_for"
+    },
+    {
+      "from": "FLOW_PRIMARY_ROLE",
+      "to": "CTR-BUSINESS",
+      "type": "may_propose_candidate_for"
+    },
+    {
+      "from": "AGT-048",
+      "to": "CTR-SKILL",
+      "type": "may_propose_candidate_for"
+    },
+    {
+      "from": "AGT-049",
+      "to": "CTR-RUNTIME",
+      "type": "may_propose_candidate_for"
+    },
+    {
+      "from": "AGT-050",
+      "to": "CTR-ACCESS",
+      "type": "may_propose_candidate_for"
+    },
+    {
+      "from": "AGT-005",
+      "to": "CTR-ASSURANCE",
+      "type": "may_propose_candidate_for"
+    },
+    {
+      "from": "APPLICABLE_CONTROL_ROLE",
+      "to": "CTR-ASSURANCE",
+      "type": "may_propose_candidate_for"
+    }
+  ],
+  "lifecycle_ref": "agent-lifecycle.json"
+}

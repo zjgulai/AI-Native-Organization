@@ -4,7 +4,7 @@
 
 本项目为跨境电商企业制定 AI 组织变革方案：以经营和运营场景组织有限的AI数字分身，设计岗位人格与行为原则、技能和Playbook、协同关系图谱、DeepSeek Harness落地方式及最终PRD。未来真人团队与HITL属于后置设计，不是初始运行依赖。
 
-用户已明确目标为约50个AI岗位，覆盖全部岗位职责；GMV是第一优先级。D-020进一步明确：50表示逻辑AI岗位分身与责任契约；每张紧耦合场景工单只运行一个Case Agent、绑定一个主岗位人格并按需加载Skills，不采用LLM多Agent路由或岗位Agent互聊。窄范围只读Delegate可作为工具；模型只提出Action Intent，资产动作由模型外Policy Gate与Execution Broker控制。MCP/tools/API/hooks连接、工具UI/UX入口以及后置真人负责人/HITL方向仍保留。规划应连续形成完整框架性战略，将关键经营取舍集中呈现，不因可以标注的未知项而反复中断规划。框架确认不等于已批准裁员、生产动作或已验证经营承诺。
+用户已明确目标为约50个AI岗位，覆盖全部岗位职责；GMV是第一优先级。D-020进一步明确：50表示逻辑AI岗位分身与责任契约；每张紧耦合场景工单只运行一个Case Agent、绑定一个主岗位人格并按需加载Skills，不采用LLM多Agent路由或岗位Agent互聊。窄范围只读Delegate可作为工具；模型只提出Action Intent，资产动作由模型外Policy Gate与Execution Broker控制。D-021采用经营管理5、业务运营35、独立控制5、数据与Agent平台5的四平面组织视图；D-022以Business、Skill、Runtime、Access和Assurance五份版本化契约管理每个岗位，不设置上级Agent或允许AI自发布；D-023将五份契约绑定为不可变Role Release Bundle，并采用七状态生命周期；D-024要求全部8条价值流和当前20个候选场景使用统一八阶段、产物驱动、门禁推进的协同协议；D-025要求每张Case只绑定一条主价值流和一个主场景，跨价值流信号拆成共享`correlation_id`、状态独立且只引用已验收Stage Artifact的Case；D-026允许FLOW-07在已发布确定性规则命中且唯一Case绑定成立时，由模型外Emergency Guard经Policy Gate、原子建单Outbox和Execution Broker执行固定的最小保护动作，建单前歧义只记录Pre-Case Exception，且不得跳过八阶段或执行恢复/扩大性动作。D-050确认目标Shopify是无上线产品的空白新店并保留未来绿地实施顺序；D-051进一步规定当前只交付完整方案门户与Shopify店铺治理底座方案，不实例化Case或执行任何Shopify配置、商品、App、连接、测试订单或发布动作。D-052只授权把本项目方案公开发布到GitHub与GitHub Pages，不扩大任何业务系统权限。MCP/tools/API/hooks连接、工具UI/UX入口以及后置真人负责人/HITL方向仍保留。规划应连续形成完整框架性战略，将关键经营取舍集中呈现，不因可以标注的未知项而反复中断规划。框架确认与文档发布不等于已批准裁员、生产动作或已验证经营承诺。
 
 ## 每次任务必读
 

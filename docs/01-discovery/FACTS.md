@@ -24,6 +24,26 @@
 | F-018 | 该材料列示Agent能力规划为193个、首阶段46个；材料内还记录了多类既有技能/任务型Agent | 已读企业材料，2026-09-11 | 这是既有能力资产和规划口径，不等于本方案的50个长期岗位，也未做运行效果审计 |
 | F-019 | RootData、PLM、ERP、QMS、WMS、TMS、Shopify、Amazon Seller Central、CRM等被列为企业系统资产；品牌AI平台以DeepSeek Harness为基础且仍在建设中 | 已读企业材料，2026-09-11 | 各系统的版本、主数据、接口协议、OAuth/服务身份、权限、读写能力与负责人尚未核实 |
 | F-020 | 用户选择50个Agent按场景自主匹配、通过MCP/tools/API/hooks连接系统并可由工具UI/UX承载工作界面；初始不设置真人负责人，HITL在运行中再补 | 用户回答R03，2026-09-11 | 该方向不授予任何生产系统动作；具体系统连接、动作策略和首个业务范围仍待确定 |
+| F-021 | 当前没有可供BVS-01使用的Amazon SP-API、RootData或数智星图只读入口；用户表示后续将从Shopify入口进入 | 用户回答首个只读入口选择，选项4，2026-09-16 | 当时Shopify角色尚待确认，随后由F-022/D-033确定为独立站先行入口；不证明Shopify已包含Amazon订单、广告、价格或FBA库存 |
+| F-022 | 用户选择Shopify作为首个真实经营闭环的先行渠道 | 用户确认Shopify角色选项1，2026-09-16 | Shopify具体商店、市场、商品范围、接口和身份尚未提供；Amazon仍为最大渠道且后续需独立验证 |
+| F-023 | 用户确认首个Shopify DTC试点采用Momcozy美国主站、可穿戴式吸奶器、3–10个高GMV SKU和滚动30天窗口 | 用户同意建议1，2026-09-16 | 具体Shop GID/别名、Variant/SKU白名单、服务身份和Scopes仍待提供；试点GMV口径随后由F-024/D-035确认；确认范围不等于连接授权 |
+| F-024 | 用户选择Shopify `gross_sales`作为首个试点原始GMV | 用户选择GMV口径选项1，2026-09-16 | Gross Sales仅含商品售价×数量且位于折扣、销售冲销、税、运费、关税和费用前；其他分量继续单列；100亿公司口径仍待核实 |
+| F-025 | 用户选择为Shopify首个试点新建专用Dev Dashboard App | 用户选择连接身份模式选项1，2026-09-16 | 仅确认身份模式；未创建或安装App，未提供凭据，Shopify Organization关系、认证路径、Shop/App标识和实际Scopes仍未知 |
+| F-026 | 用户确认Momcozy美国主Shopify商店与试点专用Dev Dashboard App归属于同一Shopify Organization | 用户选择Organization关系选项1，2026-09-16 | 据此可采用`client_credentials`；不证明App已创建、发布版本、安装、取得Token或完成API调用，非敏感Shop/App标识和实际Scopes仍未知 |
+| F-027 | 用户选择用现有权威报表最近完整30天的`gross_sales`原始Top 5，经质量、缺货和账号风险剔除后生成首批Shopify Variant/SKU白名单 | 用户选择SKU白名单生成方式选项1，2026-09-16 | 方法已确认；报表来源、快照、具体SKU、风险证据和最终封存结果均未提供或验证，不证明报表访问已授权 |
+| F-028 | 用户选择Shopify Admin Analytics导出作为首批SKU排名的权威30天报表来源 | 用户选择权威报表来源选项1，2026-09-16 | 只确认来源类别；尚未读取或导出报告，也未验证目标Shop的具体报告、套餐、字段、过滤器、导出选项、币种、时区或文件Hash，不代表获得报表访问权限 |
+| F-029 | 用户选择Shopify官方`Total sales by product variant`报告CSV作为首份权威快照路径，并接受缺少必需字段或完整导出能力时严格HOLD | 用户选择具体报告路径选项1，2026-09-16 | 只确认报告配方；目标Shop中是否存在该报告、实际字段、过滤器、导出选项、全部行完整性及SKU到Variant GID映射尚未验证；不代表已读取或导出数据 |
+| F-030 | 用户选择目标Shopify商店的商品字段作为“可穿戴式吸奶器”产品家族成员的权威来源类别 | 用户选择产品家族成员来源选项2，2026-09-16 | 候选字段限定为Product type、product tag或product metafield；具体字段、值、匹配谓词、冲突优先级和目标Shop覆盖率尚未确认；不代表已读取或修改商品数据 |
+| F-031 | 用户选择带定义与校验规则的Shopify Product metafield作为产品家族唯一主选择器 | 用户选择主选择器选项1，2026-09-16 | 只确认选择器类型；definition ID、namespace/key、字段类型、允许值、期望值、访问设置与目标Shop覆盖尚未确认；不代表定义已创建、字段已写入或商品数据已读取 |
+| F-032 | 用户选择新建专用`custom.product_family` Product metafield，类型为`single_line_text_field`，首个受控值和成员匹配值为`wearable_breast_pump` | 用户选择Metafield Definition方案选项1，2026-09-16 | 只确认Definition契约；目标Shop同名字段是否冲突、Definition ID、创建/写入授权、首次填充来源、覆盖率和快照均未验证；不代表定义或值已落地 |
+| F-033 | 用户选择一次性、负责人确认的Shopify Product GID清单作为`custom.product_family`首次填充和覆盖验收的权威种子 | 用户选择种子来源选项1，2026-09-16 | 只确认初始化来源；真实清单、负责人确认记录、目录快照、Shop归属、GID解析、Definition实例、字段回填和覆盖读回均未提供或验证，不代表获得Shop访问或写入权限 |
+| F-034 | 用户选择目标Shop先做只读的身份、Definition冲突、全量Product目录、Product GID种子和报告能力核验，再单独提交写入方案 | 用户选择实施顺序选项1，2026-09-16 | 只确认实施顺序；App/Shop身份、Scopes、凭据托管、访问授权和预检证据均未提供，不代表已创建App、访问Shop、调用API、导出报告或取得任何写权限 |
+| F-035 | 用户选择Shopify只读预检首批声明Scope采用完整BVS集合：`read_products`、`read_orders`、`read_inventory`、`read_locations`、`read_markets` | 用户选择Scope方案选项2，2026-09-16 | 只确认请求/声明集合；`read_all_orders`、`read_customers`、`read_reports`和全部`write_*`排除。订单属于Protected Customer Data，字段级策略与批准证据尚未决定；实际授权Scopes也未读回，不代表App已创建/安装、客户数据访问获批、Token已交换或API已调用 |
+| F-036 | 用户选择`read_orders`采用Level 1最小必要Protected Customer Data政策 | 用户选择订单数据方案选项1，2026-09-16 | 直接身份、客户主档、自由文本、支付与员工字段全部拒绝；原始响应不持久化，模型只见SKU日聚合。保留期随后由F-037补充；Level 1实际资格、Query Hash、字段Schema和实际Scope仍未确认或验证，不代表客户数据访问已获批 |
+| F-037 | 用户选择Level 1规范化订单行加密保存45天，用于30天经营窗口和15天晚到/重放缓冲 | 用户选择保留期选项1，2026-09-16 | 这是企业数据政策，不是Shopify规定的期限；原始API响应仍零持久化，模型只见SKU日聚合。Level 1资格、实际Scope、Query/字段、删除与访问控制仍未验证，也不代表客户数据访问、App创建或API调用已获批 |
+| F-038 | 用户同意直接在目标Dev Dashboard现场只读核验Level 1资格证据，不先以development store替代 | 用户同意建议路径，2026-09-16 | 当前只确认核验路径；现场入口停在Shopify连接验证页，尚未观察App类型、分发方式、Organization关系、生命周期或Scope。该决定不授权创建/修改App、提交review、安装、Token交换、API调用或Protected Customer Data访问 |
+| F-039 | 用户明确当前Shopify是全新店铺，尚未上线任何产品，并要求先把完整方案做到网站 | 用户直接陈述，2026-09-16 | 因此当前不存在可用于试点的Product/Variant/SKU实例、30天销售基线、Top 5报告或订单数据证据；不否定企业其他渠道已有的1013家活跃店铺和2000+SKU，也不证明Shopify基础配置已完成 |
+| F-040 | 用户要求继续以完整方案审阅为主，店铺治理底座只写方案；方案完成后上传对应GitHub并部署到对应GitHub Pages | 用户直接陈述，2026-09-16 | 方案公开发布与业务生产上线分开：本轮可提交、推送并发布本项目Site，但不得据此登录或配置Shopify、创建商品/App、调用API或执行其他业务动作 |
 
 组织来源：[公司组织架构（2026-09 快照）](https://momcozy-in.feishu.cn/docx/VbazdHJSfowsnVx1ybrcM9gmn0g)。仅提取部门与聚合数据，不在仓库保存员工个人明细。
 

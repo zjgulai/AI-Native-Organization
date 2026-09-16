@@ -1,0 +1,667 @@
+{
+  "artifact_kind": "case_record_contract_design_not_executable_schema",
+  "schema_version": "2.1",
+  "status": "confirmed_common_protocol_cardinality_and_emergency_guard_no_instances",
+  "decision_refs": [
+    "D-020",
+    "D-023",
+    "D-024",
+    "D-025",
+    "D-026"
+  ],
+  "source_refs": [
+    "COLLABORATION-GRAPH.md",
+    "../adr/0006-artifact-gated-eight-stage-collaboration.md",
+    "../adr/0007-one-flow-one-scenario-per-case.md",
+    "../adr/0008-deterministic-emergency-protection-guard.md"
+  ],
+  "production_authorized": false,
+  "primary_keys": {
+    "case_record": "case_id",
+    "signal_envelope": "signal_id",
+    "stage_attempt": "stage_attempt_id",
+    "case_artifact": "artifact_id",
+    "stage_acceptance": "stage_acceptance_id",
+    "exception": "exception_id",
+    "evaluator_finding": "finding_id",
+    "action_intent": "action_intent_id",
+    "policy_decision": "policy_decision_id",
+    "execution_attempt": "execution_attempt_id",
+    "verified_receipt": "receipt_id",
+    "case_closure": "case_id",
+    "learning_extraction_job": "job_id",
+    "cross_case_artifact_ref": "cross_case_artifact_ref_id",
+    "resource_reservation": "resource_reservation_id",
+    "emergency_guard_decision": "emergency_guard_decision_id",
+    "emergency_execution_outbox": "emergency_execution_outbox_id",
+    "pre_case_exception": "pre_case_exception_id"
+  },
+  "enums": {
+    "case_status": [
+      "OPEN",
+      "WAITING",
+      "REWORK_REQUIRED",
+      "FROZEN",
+      "CLOSED"
+    ],
+    "stage_attempt_status": [
+      "PENDING",
+      "ACTIVE",
+      "BLOCKED",
+      "COMPLETED",
+      "SUPERSEDED"
+    ],
+    "stage_acceptance_disposition": [
+      "ACCEPT",
+      "RETURN",
+      "WAIT",
+      "FREEZE",
+      "CLOSE"
+    ],
+    "exception_status": [
+      "OPEN",
+      "RESOLVED",
+      "SUPERSEDED"
+    ],
+    "policy_decision": [
+      "ALLOW",
+      "DENY",
+      "HOLD"
+    ],
+    "resource_reservation_status": [
+      "REQUESTED",
+      "ACTIVE",
+      "RELEASED",
+      "EXPIRED",
+      "CONFLICTED"
+    ],
+    "closure_outcome": [
+      "SUCCESS",
+      "PARTIAL",
+      "NO_ACTION",
+      "STOPPED_VALID_RESULT",
+      "FAILED",
+      "CANCELLED"
+    ],
+    "action_intent_origin": [
+      "CASE_AGENT_STAGE_07",
+      "EMERGENCY_GUARD"
+    ],
+    "emergency_guard_disposition": [
+      "PROTECT",
+      "NO_MATCH",
+      "FREEZE"
+    ],
+    "emergency_execution_outbox_status": [
+      "PENDING",
+      "LEASED",
+      "DISPATCHED",
+      "ACKNOWLEDGED",
+      "FAILED",
+      "CANCELLED",
+      "EXPIRED"
+    ]
+  },
+  "record_types": [
+    {
+      "id": "REC-SIGNAL-ENVELOPE",
+      "stage_id": "STG-01",
+      "case_required": false,
+      "bundle_required": false,
+      "required_fields": [
+        "signal_id",
+        "artifact_type_ref",
+        "schema_ref",
+        "schema_version",
+        "correlation_id",
+        "trigger_type",
+        "source_ref",
+        "occurred_at",
+        "received_at",
+        "dedupe_key",
+        "payload_hash",
+        "data_classification",
+        "status"
+      ],
+      "optional_fields": [
+        "scope_hint"
+      ]
+    },
+    {
+      "id": "REC-PRE-CASE-EXCEPTION",
+      "stage_relationship": "AFTER_ACCEPTED_STG_01_BEFORE_VALID_CASE_CREATION_OR_WHILE_LOCAL_CASE_COMMIT_IS_UNPROVEN",
+      "case_required": false,
+      "model_controlled": false,
+      "required_fields": [
+        "pre_case_exception_id",
+        "signal_ref",
+        "exception_type",
+        "evaluation_input_hash",
+        "matched_guard_rule_refs",
+        "candidate_primary_scenario_refs",
+        "candidate_business_scope_refs",
+        "affected_scope_refs",
+        "trigger_record_refs",
+        "reason_codes",
+        "recovery_guard_ref",
+        "status",
+        "detected_at"
+      ],
+      "optional_fields": [
+        "atomic_commit_ref_when_local_transaction_outcome_unknown",
+        "authoritative_local_transaction_query_refs",
+        "resolved_at",
+        "resolution_record_refs"
+      ],
+      "rules": [
+        "used_when_exactly_one_primary_FLOW_07_scenario_scope_or_guard_rule_cannot_be_proven_before_case_creation",
+        "also_used_when_local_atomic_transaction_outcome_is_unknown_until_case_commit_is_proven",
+        "binding_ambiguity_creates_no_emergency_guard_decision_case_action_intent_policy_decision_outbox_or_execution_attempt",
+        "unproven_commit_creates_no_new_dispatch_or_case_level_exception_until_ledger_query_proves_case_exists",
+        "cannot_create_partial_case_that_violates_D_025_cardinality",
+        "affected_signal_scope_blocks_automated_asset_actions_until_recovery_guard_passes"
+      ]
+    },
+    {
+      "id": "REC-CASE",
+      "stage_id": "STG-02_AND_LATER",
+      "case_required": true,
+      "bundle_required_from_stage_id": "STG-03",
+      "required_common_fields": [
+        "case_id",
+        "signal_ref",
+        "correlation_id",
+        "primary_flow_ref",
+        "primary_scenario_ref",
+        "case_dedupe_key",
+        "case_dedupe_rule_ref",
+        "case_dedupe_rule_version",
+        "resource_reservation_refs",
+        "business_scope_ref",
+        "objective",
+        "constraints",
+        "completion_conditions",
+        "case_status",
+        "current_stage_ref",
+        "stage_attempt_refs",
+        "artifact_refs",
+        "acceptance_record_refs",
+        "exception_refs",
+        "action_intent_refs",
+        "receipt_refs",
+        "ledger_version",
+        "created_at",
+        "updated_at"
+      ],
+      "flow_binding": {
+        "status": "confirmed_D025",
+        "decision_ref": "D-025",
+        "cardinality": {
+          "primary_flow_ref": "exactly_one",
+          "primary_scenario_ref": "exactly_one"
+        },
+        "compatibility_rule": "primary_flow_ref_and_primary_scenario_ref_must_match_published_eligible_pair",
+        "related_scenario_refs_semantics": "context_only_no_additional_result_owner",
+        "case_dedupe_key_components": [
+          "signal_ref",
+          "primary_flow_ref",
+          "primary_scenario_ref",
+          "business_scope_ref",
+          "case_dedupe_rule_ref",
+          "case_dedupe_rule_version"
+        ],
+        "multi_flow_signal_rule": "create_independent_cases_with_shared_correlation_id",
+        "cross_case_exchange": "accepted_versioned_stage_artifact_refs_only",
+        "prohibited": [
+          "multiple_primary_flow_refs_in_one_case",
+          "multiple_primary_scenario_refs_in_one_case",
+          "cross_case_state_mutation",
+          "mutable_shared_context"
+        ]
+      },
+      "required_from_STG_03": [
+        "primary_role_ref",
+        "role_release_bundle_ref",
+        "bundle_hash"
+      ],
+      "closure_fields": [
+        "closure_outcome",
+        "case_closed_at"
+      ],
+      "optional_common_fields": [
+        "related_scenario_refs",
+        "correlated_case_refs",
+        "cross_case_artifact_ref_ids",
+        "emergency_opening_guard_decision_ref",
+        "emergency_execution_outbox_refs"
+      ],
+      "conditional_common_fields": [
+        "atomic_commit_ref_when_case_created_by_EMERGENCY_GUARD",
+        "emergency_opening_guard_decision_ref_when_case_created_by_EMERGENCY_GUARD",
+        "emergency_execution_outbox_refs_when_emergency_policy_ALLOW"
+      ]
+    },
+    {
+      "id": "REC-EMERGENCY-GUARD-DECISION",
+      "stage_relationship": "OUT_OF_BAND_AFTER_ACCEPTED_STG_01_DURING_STG_02_ATOMIC_OPENING_BEFORE_STG_03",
+      "stage_artifact": false,
+      "model_controlled": false,
+      "required_fields": [
+        "emergency_guard_decision_id",
+        "signal_ref",
+        "primary_flow_ref",
+        "disposition",
+        "evaluation_input_hash",
+        "authoritative_signal_evidence_refs",
+        "reason_codes",
+        "evaluated_at"
+      ],
+      "conditional_fields": [
+        "guard_rule_ref_when_PROTECT_or_FREEZE_after_valid_case_binding",
+        "guard_rule_version_when_PROTECT_or_FREEZE_after_valid_case_binding",
+        "case_id_when_PROTECT_or_when_FREEZE_after_valid_case_binding",
+        "atomic_commit_ref_when_PROTECT_or_when_FREEZE_after_valid_case_binding",
+        "primary_scenario_ref_when_PROTECT_or_when_FREEZE_after_valid_case_binding",
+        "business_scope_ref_when_PROTECT_or_when_FREEZE_after_valid_case_binding",
+        "action_template_ref_when_PROTECT",
+        "action_template_version_when_PROTECT",
+        "resolved_action_params_hash_when_PROTECT",
+        "policy_ref_when_PROTECT",
+        "policy_version_when_PROTECT",
+        "dispatch_expires_at_when_PROTECT",
+        "max_blast_radius_ref_when_PROTECT",
+        "action_intent_ref_when_PROTECT",
+        "policy_decision_ref_when_PROTECT",
+        "emergency_execution_outbox_ref_when_PROTECT_and_policy_ALLOW",
+        "case_exception_ref_when_FREEZE_after_valid_case_binding",
+        "freeze_reason_codes_when_FREEZE_after_valid_case_binding",
+        "affected_scope_refs_when_FREEZE_after_valid_case_binding"
+      ],
+      "rules": [
+        "primary_flow_ref_must_equal_FLOW_07",
+        "PROTECT_requires_authoritative_machine_verifiable_signal_and_exactly_one_published_mutually_exclusive_unexpired_guard_rule",
+        "PROTECT_rule_pins_one_compatible_primary_scenario_case_charter_action_template_minimal_scope_policy_TTL_idempotency_and_maximum_blast_radius",
+        "NO_MATCH_has_no_guard_rule_case_atomic_scenario_scope_action_policy_or_outbox_refs_and_normal_signal_processing_continues",
+        "FREEZE_before_valid_case_binding_is_recorded_only_as_REC_PRE_CASE_EXCEPTION_not_as_guard_decision",
+        "FREEZE_after_valid_case_binding_creates_no_action_intent_or_outbox_and_references_exactly_one_case_exception",
+        "model_cannot_select_or_expand_template_scope_or_parameters"
+      ]
+    },
+    {
+      "id": "REC-RESOURCE-RESERVATION",
+      "stage_id": "STG-02_AND_LATER",
+      "model_controlled": false,
+      "required_fields": [
+        "resource_reservation_id",
+        "owning_case_id",
+        "resource_ref",
+        "business_scope_ref",
+        "reservation_claim_hash",
+        "reservation_rule_ref",
+        "reservation_rule_version",
+        "reservation_dedupe_key",
+        "status",
+        "created_at",
+        "updated_at"
+      ],
+      "conditional_fields": [
+        "authoritative_state_ref",
+        "expires_at",
+        "released_at",
+        "conflict_reservation_refs",
+        "resolution_artifact_refs"
+      ],
+      "rules": [
+        "each_reservation_has_exactly_one_owning_case",
+        "correlated_cases_never_share_the_same_reservation_record",
+        "other_cases_may_read_a_reference_but_cannot_mutate_reservation_state",
+        "reservation_conflict_moves_the_affected_case_to_WAITING_or_FROZEN_per_published_rule",
+        "reservation_record_grants_no_budget_inventory_account_tool_or_execution_authority",
+        "create_and_release_are_idempotent_by_reservation_dedupe_key_and_preserve_rule_version"
+      ]
+    },
+    {
+      "id": "REC-STAGE-ATTEMPT",
+      "required_fields": [
+        "stage_attempt_id",
+        "case_or_signal_ref",
+        "stage_id",
+        "attempt_no",
+        "status",
+        "input_artifact_refs",
+        "output_artifact_refs",
+        "acceptance_record_ref",
+        "started_at"
+      ],
+      "optional_fields": [
+        "ended_at",
+        "supersedes_attempt_ref"
+      ],
+      "conditional_fields": [
+        "atomic_commit_ref_when_STG_02_is_created_by_EMERGENCY_GUARD"
+      ]
+    },
+    {
+      "id": "REC-STAGE-ACCEPTANCE",
+      "required_fields": [
+        "stage_acceptance_id",
+        "case_or_signal_ref",
+        "stage_id",
+        "attempt_no",
+        "evaluated_artifact_refs",
+        "gate_ref",
+        "gate_version",
+        "disposition",
+        "reason_codes",
+        "evidence_refs",
+        "decided_at"
+      ],
+      "conditional_fields": [
+        "next_stage_ref_when_ACCEPT",
+        "return_stage_ref_when_RETURN",
+        "atomic_commit_ref_when_STG_02_is_created_by_EMERGENCY_GUARD"
+      ],
+      "final_disposition_controller": "deterministic_case_or_assurance_gate"
+    },
+    {
+      "id": "REC-CASE-EXCEPTION",
+      "required_fields": [
+        "exception_id",
+        "case_id",
+        "stage_attempt_ref",
+        "exception_type",
+        "case_status_effect",
+        "affected_scope_refs",
+        "trigger_artifact_refs",
+        "recovery_guard_ref",
+        "status",
+        "detected_at"
+      ],
+      "conditional_fields": [
+        "execution_attempt_ref_when_external_state_unknown",
+        "idempotency_key_ref_when_external_state_unknown",
+        "authoritative_state_query_refs_before_resume",
+        "resolved_at_when_closed",
+        "resolution_artifact_refs_when_closed",
+        "atomic_commit_ref_when_emergency_local_transaction_or_dispatch_state_is_unknown"
+      ],
+      "rule": "no_new_action_or_forward_progress_until_recovery_guard_passes"
+    },
+    {
+      "id": "REC-CASE-ARTIFACT-ENVELOPE",
+      "required_fields": [
+        "artifact_id",
+        "artifact_version",
+        "artifact_type_ref",
+        "schema_ref",
+        "schema_version",
+        "case_id",
+        "stage_attempt_ref",
+        "business_scope_ref",
+        "producer_component_ref",
+        "source_refs",
+        "created_at",
+        "status",
+        "content_hash",
+        "classification"
+      ],
+      "required_from_STG_03": [
+        "role_release_bundle_ref"
+      ],
+      "optional_fields": [
+        "supersedes_artifact_ref"
+      ],
+      "conditional_fields": [
+        "atomic_commit_ref_when_ART_CASE_CHARTER_is_created_by_EMERGENCY_GUARD"
+      ]
+    },
+    {
+      "id": "REC-EVALUATOR-FINDING",
+      "required_fields": [
+        "finding_id",
+        "delegate_bundle_ref",
+        "immutable_input_hash",
+        "evaluated_artifact_refs",
+        "finding_codes",
+        "evidence_refs",
+        "created_at"
+      ],
+      "can_set_final_disposition": false,
+      "can_write_assets": false,
+      "can_delegate": false
+    },
+    {
+      "id": "REC-ACTION-INTENT",
+      "required_fields": [
+        "action_intent_id",
+        "case_id",
+        "origin_type",
+        "origin_ref",
+        "action_type",
+        "target_refs",
+        "params_hash",
+        "params_summary",
+        "expected_object_version",
+        "policy_ref",
+        "policy_version",
+        "risk_class",
+        "idempotency_key",
+        "created_at"
+      ],
+      "conditional_fields": [
+        "stage_attempt_ref_when_CASE_AGENT_STAGE_07",
+        "emergency_guard_decision_ref_when_EMERGENCY_GUARD",
+        "action_template_ref_when_EMERGENCY_GUARD",
+        "action_template_version_when_EMERGENCY_GUARD",
+        "dispatch_expires_at_when_EMERGENCY_GUARD",
+        "max_blast_radius_ref_when_EMERGENCY_GUARD",
+        "atomic_commit_ref_when_EMERGENCY_GUARD"
+      ],
+      "rules": [
+        "CASE_AGENT_STAGE_07_origin_ref_points_to_the_current_STG_07_stage_attempt",
+        "EMERGENCY_GUARD_origin_ref_points_to_a_PROTECT_guard_decision",
+        "EMERGENCY_GUARD_action_type_targets_params_policy_TTL_idempotency_and_blast_radius_are_fixed_by_the_published_guard_rule"
+      ],
+      "stage_relationship": "STG_07_when_CASE_AGENT_STAGE_07_or_OUT_OF_BAND_during_emergency_STG_02_opening_when_EMERGENCY_GUARD",
+      "emergency_origin_is_stage_artifact": false
+    },
+    {
+      "id": "REC-POLICY-DECISION",
+      "required_fields": [
+        "policy_decision_id",
+        "action_intent_ref",
+        "decision",
+        "policy_ref",
+        "policy_version",
+        "reason_codes",
+        "decided_at"
+      ],
+      "rule": "DENY_or_HOLD_never_creates_execution_attempt",
+      "emergency_rule": "EMERGENCY_GUARD_origin_still_requires_independent_policy_evaluation_and_only_ALLOW_can_create_outbox",
+      "stage_relationship": "STG_07_for_normal_action_or_OUT_OF_BAND_during_emergency_STG_02_opening",
+      "emergency_origin_is_stage_artifact": false,
+      "conditional_fields": [
+        "atomic_commit_ref_when_action_intent_origin_is_EMERGENCY_GUARD"
+      ]
+    },
+    {
+      "id": "REC-EMERGENCY-EXECUTION-OUTBOX",
+      "stage_relationship": "OUT_OF_BAND_DURING_STG_02_ATOMIC_OPENING_BEFORE_STG_03",
+      "stage_artifact": false,
+      "model_controlled": false,
+      "required_fields": [
+        "emergency_execution_outbox_id",
+        "case_id",
+        "emergency_guard_decision_ref",
+        "action_intent_ref",
+        "policy_decision_ref",
+        "destination_broker_ref",
+        "idempotency_key",
+        "payload_hash",
+        "atomic_commit_ref",
+        "dispatch_expires_at",
+        "status",
+        "created_at",
+        "updated_at"
+      ],
+      "optional_fields": [
+        "lease_owner_ref",
+        "lease_expires_at",
+        "execution_attempt_ref",
+        "failure_reason_codes"
+      ],
+      "rules": [
+        "created_only_when_policy_decision_is_ALLOW",
+        "committed_atomically_with_case_guard_decision_action_intent_and_policy_decision",
+        "invisible_to_broker_until_local_transaction_commit",
+        "first_dispatch_after_dispatch_expires_at_is_forbidden_and_cannot_auto_restore_business",
+        "broker_dispatch_is_at_least_once_but_external_action_is_idempotent_by_idempotency_key",
+        "outbox_record_grants_no_service_identity_or_asset_authority"
+      ]
+    },
+    {
+      "id": "REC-EXECUTION-ATTEMPT",
+      "required_fields": [
+        "execution_attempt_id",
+        "action_intent_ref",
+        "policy_decision_ref",
+        "broker_ref",
+        "opaque_service_identity_ref",
+        "idempotency_key",
+        "attempt_status",
+        "requested_at"
+      ],
+      "optional_fields": [
+        "provider_request_ref",
+        "initial_response_ref",
+        "compensation_ref"
+      ],
+      "stage_relationship": "STG_07_for_normal_action_or_OUT_OF_BAND_after_committed_emergency_outbox_dispatch",
+      "emergency_origin_is_stage_artifact": false,
+      "conditional_fields": [
+        "emergency_execution_outbox_ref_when_action_intent_origin_is_EMERGENCY_GUARD"
+      ]
+    },
+    {
+      "id": "REC-VERIFIED-EXECUTION-RECEIPT",
+      "required_fields": [
+        "receipt_id",
+        "execution_attempt_ref",
+        "authoritative_state_refs",
+        "reconciliation_result",
+        "verified_at",
+        "per_object_results"
+      ],
+      "rule": "unknown_or_unresolved_external_state_cannot_support_success_closure",
+      "stage_relationship": "reconciled_as_soon_as_authoritative_state_is_available_and_included_in_STG_08_closure",
+      "emergency_origin_is_stage_artifact": false
+    },
+    {
+      "id": "REC-CROSS-CASE-ARTIFACT-REF",
+      "required_fields": [
+        "cross_case_artifact_ref_id",
+        "consuming_case_id",
+        "source_case_ref",
+        "source_artifact_ref",
+        "source_artifact_version",
+        "source_artifact_hash",
+        "source_stage_acceptance_ref",
+        "created_at"
+      ],
+      "rules": [
+        "source_case_ref_artifact_ref_version_and_hash_must_match_one_source_artifact_envelope",
+        "source_stage_acceptance_ref_must_belong_to_source_case_have_ACCEPT_disposition_and_include_source_artifact_ref_in_evaluated_artifact_refs",
+        "reference_is_read_only_and_cannot_mutate_source_case",
+        "copied_summary_cannot_replace_source_artifact_reference"
+      ]
+    },
+    {
+      "id": "REC-CASE-CLOSURE",
+      "required_fields": [
+        "case_id",
+        "completion_evaluation",
+        "business_results",
+        "constraint_results",
+        "unresolved_items",
+        "exception_summary",
+        "cost_summary",
+        "slo_summary",
+        "closure_outcome",
+        "case_closed_at"
+      ],
+      "optional_fields": [
+        "learning_extraction_job_ref"
+      ]
+    },
+    {
+      "id": "REC-LEARNING-EXTRACTION-JOB",
+      "trigger_event": "CASE_CLOSED",
+      "blocking_for_case_close": false,
+      "required_fields": [
+        "job_id",
+        "case_ref",
+        "allowed_text_source_refs",
+        "requested_at",
+        "status"
+      ],
+      "prohibited_effects": [
+        "mutate_role_release_bundle",
+        "overwrite_business_fact",
+        "overwrite_policy_or_execution_receipt"
+      ]
+    }
+  ],
+  "invariants": [
+    "signal_envelope_never_requires_case_id_or_bundle_ref",
+    "case_id_required_from_STG_02",
+    "exactly_one_primary_role_and_one_pinned_bundle_required_from_STG_03",
+    "bundle_ref_and_hash_do_not_follow_latest_within_case",
+    "every_stage_attempt_has_exactly_one_stage_acceptance_record",
+    "only_ACCEPT_advances_to_the_next_ordinal_stage",
+    "RETURN_increments_attempt_number_and_preserves_superseded_artifacts",
+    "WAIT_and_FREEZE_block_forward_progress",
+    "case_status_never_contains_QUARANTINED",
+    "every_action_intent_has_exactly_one_policy_decision",
+    "only_ALLOW_can_create_an_execution_attempt",
+    "service_identity_is_opaque_to_the_model",
+    "every_execution_attempt_is_reconciled_before_success_closure",
+    "WAITING_REWORK_REQUIRED_or_FROZEN_case_has_open_exception_with_recovery_guard",
+    "unknown_execution_state_blocks_new_action_until_authoritative_query_is_recorded_and_guard_passes",
+    "async_memory_failure_does_not_reopen_a_closed_case",
+    "each_case_has_exactly_one_primary_flow_ref_and_one_primary_scenario_ref",
+    "case_dedupe_key_is_replayable_from_required_signal_flow_scenario_scope_rule_ref_and_rule_version",
+    "multi_flow_signal_creates_correlated_cases_with_independent_state_bundle_resources_and_closure",
+    "cross_case_collaboration_requires_matching_source_case_artifact_version_hash_and_ACCEPT_record_then_remains_read_only",
+    "each_resource_reservation_has_exactly_one_owning_case_and_correlated_cases_never_share_a_reservation_record",
+    "resource_reservation_is_model_external_idempotent_rule_versioned_read_only_across_cases_and_grants_no_asset_authority",
+    "resource_reservation_conflict_moves_the_affected_case_to_WAITING_or_FROZEN_per_published_rule",
+    "emergency_guard_is_model_external_and_only_evaluates_FLOW_07_candidate_signals",
+    "PROTECT_requires_authoritative_signal_one_published_mutually_exclusive_rule_fixed_scenario_scope_template_policy_TTL_idempotency_and_blast_radius",
+    "model_cannot_select_or_expand_emergency_action_template_scope_or_parameters",
+    "NO_MATCH_creates_no_emergency_intent_policy_or_outbox_and_continues_normal_signal_processing",
+    "emergency_opening_Case_STG_02_attempt_charter_acceptance_guard_intent_policy_and_ALLOWED_outbox_share_one_atomic_commit_ref",
+    "local_atomic_commit_never_claims_atomicity_with_external_system_side_effect",
+    "only_ALLOW_creates_emergency_execution_outbox_and_only_committed_unexpired_outbox_can_create_execution_attempt",
+    "emergency_dispatch_TTL_never_auto_restores_business_state",
+    "emergency_protection_attempt_never_completes_STG_07_or_skips_case_stage_acceptance",
+    "restoration_reopening_expansion_external_commitment_refund_recall_destruction_and_permanent_change_never_use_EMERGENCY_GUARD_origin",
+    "guard_integrity_or_unproven_transaction_uses_pre_case_exception_until_case_commit_is_proven_then_case_exception_only_for_existing_case",
+    "emergency_execution_receipt_is_reconciled_from_authoritative_state_and_included_at_STG_08_closure",
+    "emergency_guard_ambiguity_before_valid_case_binding_creates_only_pre_case_exception_and_never_creates_guard_decision_or_partial_case",
+    "pre_case_exception_blocks_case_action_policy_outbox_and_execution_until_binding_or_commit_state_recovery_guard_passes",
+    "emergency_guard_FREEZE_after_valid_case_binding_references_exactly_one_case_exception",
+    "local_transaction_outcome_unknown_never_requires_case_exception_before_case_commit_is_proven"
+  ],
+  "runtime_instantiation": {
+    "case_records": 0,
+    "stage_attempts": 0,
+    "action_intents": 0,
+    "cross_case_artifact_refs": 0,
+    "resource_reservations": 0,
+    "emergency_guard_decisions": 0,
+    "emergency_execution_outbox_records": 0,
+    "emergency_protection_execution_attempts": 0,
+    "pre_case_exceptions": 0,
+    "production_authorized": false
+  }
+}

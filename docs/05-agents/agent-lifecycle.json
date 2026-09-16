@@ -1,0 +1,512 @@
+{
+  "version": "2.0",
+  "status": "confirmed_lifecycle_no_bundles_instantiated",
+  "artifact_kind": "role_release_bundle_lifecycle",
+  "decision_id": "D-023",
+  "bundle_schema": {
+    "immutable": true,
+    "required_fields": [
+      "role_id",
+      "business_contract_ref",
+      "skill_contract_ref",
+      "runtime_contract_ref",
+      "access_contract_ref",
+      "assurance_contract_ref",
+      "bundle_hash",
+      "created_at",
+      "provenance"
+    ],
+    "contract_refs_must_be": [
+      "resolved",
+      "version_pinned",
+      "compatible",
+      "not_expired"
+    ],
+    "in_place_mutation_allowed": false
+  },
+  "states": [
+    {
+      "id": "DRAFT",
+      "name": "Draft",
+      "real_data": "fixtures_or_approved_design_only",
+      "asset_actions": "forbidden",
+      "runnable_for_business": false
+    },
+    {
+      "id": "EVALUATED",
+      "name": "Evaluated",
+      "real_data": "offline_evaluation_only",
+      "asset_actions": "forbidden",
+      "runnable_for_business": false
+    },
+    {
+      "id": "SHADOW",
+      "name": "Shadow",
+      "real_data": "approved_read_only_scope",
+      "asset_actions": "forbidden_action_intents_may_be_staged",
+      "runnable_for_business": true
+    },
+    {
+      "id": "LIMITED",
+      "name": "Limited",
+      "real_data": "approved_limited_scope",
+      "asset_actions": "low_risk_reversible_hard_limited_only",
+      "runnable_for_business": true
+    },
+    {
+      "id": "PRODUCTION",
+      "name": "Production",
+      "real_data": "explicitly_approved_production_scope",
+      "asset_actions": "access_and_policy_allowed_only",
+      "runnable_for_business": true
+    },
+    {
+      "id": "QUARANTINED",
+      "name": "Quarantined",
+      "real_data": "minimum_diagnostic_read_only",
+      "asset_actions": "forbidden",
+      "runnable_for_business": false
+    },
+    {
+      "id": "RETIRED",
+      "name": "Retired",
+      "real_data": "audit_and_historical_replay_only",
+      "asset_actions": "forbidden",
+      "runnable_for_business": false
+    }
+  ],
+  "transitions": [
+    {
+      "from": "DRAFT",
+      "to": "EVALUATED",
+      "guard": "structure_provenance_capability_safety_regression_and_cost_evals_pass"
+    },
+    {
+      "from": "EVALUATED",
+      "to": "SHADOW",
+      "guard": "real_data_read_scope_and_observation_window_approved"
+    },
+    {
+      "from": "SHADOW",
+      "to": "LIMITED",
+      "guard": "shadow_acceptance_policy_idempotency_receipt_and_rollback_target_ready"
+    },
+    {
+      "from": "LIMITED",
+      "to": "PRODUCTION",
+      "guard": "business_risk_cost_and_reliability_thresholds_pass_for_explicit_scope"
+    },
+    {
+      "from": "DRAFT",
+      "to": "QUARANTINED",
+      "guard": "integrity_or_provenance_failure"
+    },
+    {
+      "from": "EVALUATED",
+      "to": "QUARANTINED",
+      "guard": "evaluation_invalid_or_policy_revoked"
+    },
+    {
+      "from": "SHADOW",
+      "to": "QUARANTINED",
+      "guard": "data_scope_violation_or_behavior_regression"
+    },
+    {
+      "from": "LIMITED",
+      "to": "QUARANTINED",
+      "guard": "action_receipt_or_business_constraint_incident"
+    },
+    {
+      "from": "PRODUCTION",
+      "to": "QUARANTINED",
+      "guard": "incident_scope_violation_expiry_or_sustained_regression"
+    },
+    {
+      "from": "QUARANTINED",
+      "to": "SHADOW",
+      "guard": "rollback_to_last_known_good_bundle_and_shadow_revalidation",
+      "operation": "ROLLBACK"
+    },
+    {
+      "from": "QUARANTINED",
+      "to": "RETIRED",
+      "guard": "retirement_decision_with_history_preserved"
+    }
+  ],
+  "transition_controller": "DETERMINISTIC_RELEASE_GATE",
+  "model_can_change_state": false,
+  "case_pinning": {
+    "required_field": "role_release_bundle_ref",
+    "follow_latest": false,
+    "quarantine_behavior": [
+      "stop_new_cases",
+      "block_new_asset_actions",
+      "freeze_in_flight_at_next_action_boundary",
+      "query_external_state_before_retry_or_compensation"
+    ]
+  },
+  "rollback": {
+    "is_state": false,
+    "source_state": "QUARANTINED",
+    "target_bundle_requirements": [
+      "last_known_good",
+      "same_or_narrower_business_scope",
+      "same_or_narrower_access_scope",
+      "previously_validated_for_target_scope"
+    ],
+    "reentry_state": "SHADOW",
+    "can_restore_external_actions": false
+  },
+  "role_release_status": [
+    {
+      "role_id": "AGT-001",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-002",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-003",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-004",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-005",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-006",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-007",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-008",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-009",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-010",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-011",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-012",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-013",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-014",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-015",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-016",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-017",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-018",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-019",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-020",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-021",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-022",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-023",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-024",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-025",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-026",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-027",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-028",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-029",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-030",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-031",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-032",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-033",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-034",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-035",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-036",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-037",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-038",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-039",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-040",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-041",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-042",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-043",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-044",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-045",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-046",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-047",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-048",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-049",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "role_id": "AGT-050",
+      "bundle_ref": null,
+      "lifecycle_state": null,
+      "status": "not_instantiated",
+      "production_authorized": false
+    }
+  ]
+}

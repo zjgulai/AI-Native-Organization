@@ -1,0 +1,58 @@
+[
+  {
+    "id": "FLOW-01",
+    "name": "存量GMV增长：投放、价格、库存联动",
+    "resultOwner": "AGT-021",
+    "governance": "场景动作策略、预算/库存校验、回执",
+    "completion": "在已确认范围内形成、执行和复核一份联合经营行动包"
+  },
+  {
+    "id": "FLOW-02",
+    "name": "新品：需求证据到商业验证",
+    "resultOwner": "AGT-008",
+    "governance": "假设/停止条件、外部验证回执、准入策略",
+    "completion": "得到有证据的继续、转向或停止结论"
+  },
+  {
+    "id": "FLOW-03",
+    "name": "供需：补货、采购与交付",
+    "resultOwner": "AGT-016",
+    "governance": "system of record、动作策略、幂等与到货回执",
+    "completion": "供应计划与实际到货、可售库存对齐"
+  },
+  {
+    "id": "FLOW-04",
+    "name": "新市场、新渠道与合规上架",
+    "resultOwner": "AGT-024",
+    "governance": "市场/账号范围、准入策略、上线回执",
+    "completion": "在适用策略和履约条件下验证市场进入"
+  },
+  {
+    "id": "FLOW-05",
+    "name": "客户旅程：服务、留存与复购",
+    "resultOwner": "AGT-034",
+    "governance": "客户数据范围、服务/触达策略、结果回执",
+    "completion": "客户问题被解决，并验证相关复购改善"
+  },
+  {
+    "id": "FLOW-06",
+    "name": "需求到数据产品与业务工具",
+    "resultOwner": "AGT-047",
+    "governance": "数据契约、工具范围、运行/安全校验",
+    "completion": "口径、数据质量和工具闭环"
+  },
+  {
+    "id": "FLOW-07",
+    "name": "质量和账号重大事件处理",
+    "resultOwner": "AGT-018",
+    "governance": "隔离范围、质量/账号动作策略、恢复证据",
+    "completion": "事件范围、处置、根因和恢复证据闭合"
+  },
+  {
+    "id": "FLOW-08",
+    "name": "经营复盘、资源和组织能力更新",
+    "resultOwner": "AGT-001",
+    "governance": "版本化策略、独立复核、能力回退",
+    "completion": "形成有依据的资源与能力版本变更建议或动作结果"
+  }
+]

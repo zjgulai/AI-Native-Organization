@@ -1,0 +1,551 @@
+{
+  "schema_version": "shopify_readonly_connector_registration_v1",
+  "registration_id": "CAP-CVS03-SHP-US-READ-001",
+  "status": "target_state_contract_confirmed_greenfield_activation_hold",
+  "runtime_config": false,
+  "decision_refs": [
+    "D-017",
+    "D-020",
+    "D-029",
+    "D-033",
+    "D-034",
+    "D-035",
+    "D-036",
+    "D-037",
+    "D-038",
+    "D-039",
+    "D-040",
+    "D-041",
+    "D-042",
+    "D-043",
+    "D-044",
+    "D-045",
+    "D-046",
+    "D-047",
+    "D-048",
+    "D-049",
+    "D-050",
+    "D-051"
+  ],
+  "business_activation": {
+    "status": "HOLD_NO_PUBLISHED_PRODUCTS",
+    "published_product_count": 0,
+    "published_product_count_source": "F-039_owner_statement",
+    "product_variant_sku_instances_available": false,
+    "thirty_complete_sales_days_available": false,
+    "missing_business_data_means_zero": false,
+    "connector_stage": "shop_g6_after_first_product_launch"
+  },
+  "business_binding": {
+    "pilot_id": "BVS-01-SHOPIFY-DTC-US",
+    "primary_flow": "FLOW-01",
+    "primary_role": "AGT-023",
+    "binding_status": "target_state_after_greenfield_launch",
+    "brand": "Momcozy",
+    "market": "United States",
+    "product_family": "可穿戴式吸奶器",
+    "variant_scope": "raw_top_5_by_gross_sales_then_risk_exclusion_final_3_to_5_pending_members",
+    "window": "rolling_30_days",
+    "primary_metric": "gross_sales"
+  },
+  "bootstrap_report_source": {
+    "method": "shopify_admin_analytics_csv_export",
+    "source_class_confirmed": true,
+    "report_path": "Shopify Admin > Analytics > Reports > Total sales by product variant",
+    "report_identity": "shopify_default_total_sales_by_product_variant",
+    "report_path_confirmed": true,
+    "report_path_confirmed_by": "D-040",
+    "app_scope_required_for_admin_export": false,
+    "api_scope_dependency": [],
+    "read_reports_scope_allowed": false,
+    "separate_report_access_authorization_required": true,
+    "shopifyql_path_enabled": false,
+    "automatic_fallback_allowed": false,
+    "report_capability_mismatch_action": "HOLD_REPORT_CAPABILITY_MISMATCH",
+    "target_shop_report_capability_verified": false,
+    "exported": false
+  },
+  "product_family_membership_source": {
+    "source_class": "shopify_product_catalog_fields",
+    "source_class_confirmed_by": "D-041",
+    "evaluation_level": "product",
+    "variant_membership_inherits_parent_product": true,
+    "selector_kind": "product_metafield",
+    "selector_kind_confirmed": true,
+    "selector_kind_confirmed_by": "D-042",
+    "definition_strategy": "dedicated_custom_definition",
+    "definition_contract_confirmed": true,
+    "definition_contract_confirmed_by": "D-043",
+    "definition_id": null,
+    "definition_created": false,
+    "definition_instance_verified": false,
+    "field_ref": "custom.product_family",
+    "namespace": "custom",
+    "key": "product_family",
+    "owner_type": "PRODUCT",
+    "field_type": "single_line_text_field",
+    "allowed_values": [
+      "wearable_breast_pump"
+    ],
+    "expected_value": "wearable_breast_pump",
+    "match_operator": "EXACT_EQUALS",
+    "normalization_rule": "canonical_snake_case_at_write_time_no_runtime_normalization",
+    "conflict_precedence_rule": "incompatible_existing_definition_or_value_is_hold_no_automatic_overwrite",
+    "access_settings": {
+      "admin_graphql": "read_after_app_scope_and_definition_validation",
+      "storefront": "disabled_initially",
+      "customer_account": "disabled_initially"
+    },
+    "selector_configuration_complete": true,
+    "seed_source": "one_time_owner_approved_shopify_product_gid_manifest",
+    "seed_source_confirmed": true,
+    "seed_source_confirmed_by": "D-044",
+    "seed_authority_transition": "bootstrap_manifest_until_coverage_acceptance_then_custom_product_family",
+    "seed_manifest_contract": {
+      "manifest_ref": null,
+      "manifest_version": null,
+      "manifest_hash": null,
+      "shop_ref": null,
+      "catalog_snapshot_ref": null,
+      "catalog_snapshot_hash": null,
+      "catalog_product_count": null,
+      "listed_product_count": null,
+      "owner_approval_ref": null,
+      "owner_approved_at": null,
+      "required_row_fields": [
+        "product_gid",
+        "expected_value"
+      ],
+      "expected_value": "wearable_breast_pump",
+      "contains_customer_pii": false,
+      "repository_storage_allowed": false
+    },
+    "seed_coverage_acceptance": {
+      "definition_instance_compatible": false,
+      "same_shop_catalog_snapshot_bound": false,
+      "owner_completeness_attested": false,
+      "product_gid_resolution_rate": null,
+      "required_product_gid_resolution_rate": 1.0,
+      "duplicate_product_gid_count": null,
+      "required_duplicate_product_gid_count": 0,
+      "cross_shop_product_gid_count": null,
+      "required_cross_shop_product_gid_count": 0,
+      "post_backfill_exact_value_readback_rate": null,
+      "required_post_backfill_exact_value_readback_rate": 1.0,
+      "snapshot_replay_verified": false
+    },
+    "seed_coverage_verified": false,
+    "missing_value_policy": {
+      "before_seed_coverage_acceptance": "HOLD_PRODUCT_FAMILY_MEMBERSHIP_AMBIGUOUS",
+      "after_seed_coverage_acceptance": "NOT_MEMBER"
+    },
+    "fallback_selector_kinds_allowed": [],
+    "title_or_model_inference_fallback_allowed": false,
+    "ambiguous_membership_action": "HOLD_PRODUCT_FAMILY_MEMBERSHIP_AMBIGUOUS",
+    "target_shop_verified": false
+  },
+  "target_shop_implementation_sequence": {
+    "mode": "read_only_preflight_then_separate_write_plan",
+    "confirmed": true,
+    "confirmed_by": "D-045",
+    "preflight_status": "NOT_STARTED",
+    "ordered_stages": [
+      "shop_app_identity_and_actual_scope_readback",
+      "product_metafield_definition_collision_audit",
+      "full_product_catalog_snapshot",
+      "product_gid_seed_manifest_reconciliation",
+      "official_variant_report_capability_audit",
+      "seal_read_only_preflight_evidence_pack"
+    ],
+    "definition_collision_outcomes": {
+      "ABSENT": "SEPARATE_DEFINITION_CREATE_PLAN_REQUIRED",
+      "COMPATIBLE": "REUSE_DEFINITION_AND_SEPARATE_BACKFILL_PLAN_REQUIRED",
+      "INCOMPATIBLE": "HOLD_PRODUCT_FAMILY_MEMBERSHIP_AMBIGUOUS"
+    },
+    "evidence_pack_type": "READ_ONLY_PREFLIGHT_EVIDENCE_PACK",
+    "evidence_pack_ref": null,
+    "evidence_pack_hash": null,
+    "write_plan_ref": null,
+    "write_plan_requires_separate_authorization": true,
+    "mutations_allowed_during_preflight": false,
+    "preflight_scope_bundle": {
+      "bundle_id": "SHOPIFY_BVS01_READ_V1",
+      "confirmed": true,
+      "confirmed_by": "D-046",
+      "requested_scopes": [
+        "read_products",
+        "read_orders",
+        "read_inventory",
+        "read_locations",
+        "read_markets"
+      ],
+      "excluded_scopes": [
+        "read_all_orders",
+        "read_customers",
+        "read_reports"
+      ],
+      "write_scopes_allowed": [],
+      "order_window_days": 30,
+      "order_platform_default_visibility_days": 60,
+      "read_all_orders_required": false,
+      "admin_report_export_separate_from_api_scope_bundle": true,
+      "actual_granted_scopes": [],
+      "actual_granted_scopes_verified": false,
+      "protected_customer_data_policy": "LEVEL_1_MINIMUM_NECESSARY",
+      "protected_customer_data_approval_verified": false,
+      "field_allowlist_ref": "SHOPIFY_BVS01_ORDER_LEVEL1_V1",
+      "query_allowlist_ref": null,
+      "order_query_templates_enabled": false,
+      "scope_mismatch_action": "HOLD_SCOPE_MISMATCH"
+    },
+    "executed": false
+  },
+  "app_identity": {
+    "mode": "dedicated_dev_dashboard_app",
+    "purpose": "bvs01_shopify_us_readonly_pilot",
+    "app_alias": null,
+    "client_id_ref": null,
+    "dev_dashboard_organization_ref": null,
+    "target_shop_organization_relation": "same_organization_confirmed_by_d037",
+    "auth_path": "client_credentials",
+    "alternative_auth_path_enabled": false,
+    "installation_flow": [
+      "create_dev_dashboard_app",
+      "create_and_release_configuration_version",
+      "install_on_target_shop",
+      "token_broker_client_credentials_exchange",
+      "shop_identity_and_scope_readback"
+    ],
+    "configuration_version_ref": null,
+    "installed": false
+  },
+  "credential_boundary": {
+    "secret_manager_ref": null,
+    "token_broker_ref": null,
+    "client_secret_allowed_in_repository": false,
+    "access_token_allowed_in_repository": false,
+    "credential_or_token_visible_to_model": false,
+    "credential_or_token_visible_to_skill": false,
+    "credential_or_token_visible_to_tool_ui": false,
+    "client_credentials_token_lifetime": "use_expires_in_from_token_response_expected_about_24_hours",
+    "ttl_applicability": "confirmed_client_credentials_path_use_response_expires_in",
+    "manual_token_paste_fallback_allowed": false
+  },
+  "api_contract": {
+    "family": "GraphQL Admin API",
+    "design_candidate_version": "2026-07",
+    "runtime_version_ref": null,
+    "latest_or_unstable_allowed": false,
+    "query_only": true,
+    "mutation_allowed": false,
+    "bulk_operation_allowed_initially": false,
+    "webhook_registration_allowed_initially": false
+  },
+  "scope_ladder": {
+    "bundle_id": "SHOPIFY_BVS01_READ_V1",
+    "confirmed_by": "D-046",
+    "requested_scopes": [
+      "read_products",
+      "read_orders",
+      "read_inventory",
+      "read_locations",
+      "read_markets"
+    ],
+    "explicitly_excluded_scopes": [
+      "read_all_orders",
+      "read_customers",
+      "read_reports"
+    ],
+    "conditional_scopes": [
+      "read_discounts",
+      "read_returns",
+      "read_shopify_payments_payouts"
+    ],
+    "write_scope_patterns_forbidden": [
+      "write_*"
+    ],
+    "declared_scopes_ref": null,
+    "granted_scopes_ref": null,
+    "granted_scope_readback_method": "currentAppInstallation",
+    "actual_granted_scopes_verified": false,
+    "order_query_templates_enabled": false,
+    "protected_customer_data_policy": "LEVEL_1_MINIMUM_NECESSARY",
+    "protected_customer_data_approval_verified": false,
+    "admin_report_export_separate_from_api_scope_bundle": true,
+    "scope_mismatch_policy": "HOLD_SCOPE_MISMATCH"
+  },
+  "order_protected_customer_data_contract": {
+    "policy_id": "SHOPIFY_BVS01_ORDER_LEVEL1_V1",
+    "confirmed": true,
+    "confirmed_by": "D-047",
+    "level": 1,
+    "purpose": "rolling_30_day_sku_gmv_and_status_reconciliation",
+    "allowed_order_fields": [
+      "id",
+      "createdAt",
+      "updatedAt",
+      "processedAt",
+      "cancelledAt",
+      "cancelReason",
+      "closed",
+      "closedAt",
+      "confirmed",
+      "test",
+      "displayFinancialStatus",
+      "displayFulfillmentStatus"
+    ],
+    "allowed_line_item_fields": [
+      "id",
+      "quantity",
+      "currentQuantity",
+      "sku",
+      "product.id",
+      "variant.id",
+      "originalTotalSet",
+      "originalUnitPriceSet",
+      "discountedTotalSet",
+      "totalDiscountSet",
+      "priceAfterAllDiscountsBeforeTaxesSet"
+    ],
+    "allowed_money_fields": [
+      "shopMoney.amount",
+      "shopMoney.currencyCode",
+      "presentmentMoney.amount",
+      "presentmentMoney.currencyCode"
+    ],
+    "denied_field_groups": [
+      "customer",
+      "name_email_phone",
+      "billing_shipping_display_address",
+      "customer_locale_journey_marketing_consent",
+      "client_ip",
+      "cart_checkout_tokens",
+      "note_custom_attributes_metafields_tags",
+      "staff",
+      "payment_transactions_instruments",
+      "gift_cards_discount_codes",
+      "status_urls_customer_facing_order_identifiers",
+      "other_free_text"
+    ],
+    "request_allowlist_required": true,
+    "response_schema_allowlist_required": true,
+    "graphql_error_or_redacted_null_policy": "FAIL_CLOSED_WHOLE_PAGE",
+    "unexpected_field_action": "HOLD_PROTECTED_CUSTOMER_DATA_SHAPE_MISMATCH",
+    "approval_mismatch_action": "HOLD_PROTECTED_CUSTOMER_DATA_APPROVAL_MISMATCH",
+    "raw_response_persistence_allowed": false,
+    "raw_response_retention_hours": 0,
+    "normalized_row_persistence_allowed": true,
+    "normalized_row_retention_days": 45,
+    "retention_policy_status": "CONFIRMED_BY_D048_ACTIVATION_PENDING",
+    "retention_confirmed_by": "D-048",
+    "retention_basis": "source_business_date_end_in_shop_timezone",
+    "operating_window_days": 30,
+    "late_arrival_replay_buffer_days": 15,
+    "expires_at_rule": "end_of_source_business_day_in_shop_timezone_plus_45_days",
+    "hard_delete_sla_hours_after_expiry": 24,
+    "encryption_at_rest_required": true,
+    "encryption_in_transit_required": true,
+    "kms_key_ref_visible_to_model": false,
+    "tenant_and_shop_isolation_required": true,
+    "developer_or_test_copy_allowed": false,
+    "daily_deletion_job_required": true,
+    "deletion_receipt_contains_customer_or_order_identifiers": false,
+    "backup_policy": "same_ttl_or_verified_crypto_erasure",
+    "delete_failure_action": "HOLD_RETENTION_DELETE_FAILURE",
+    "legal_hold_policy": "separate_model_external_approval_isolated_storage_no_silent_extension",
+    "aggregate_artifact_retention_policy": "separate_case_evidence_policy_without_order_or_customer_identifiers",
+    "model_visible_shape": "sku_day_aggregate_only",
+    "production_data_allowed_in_development_test_repository_site_prompt_skill_or_memory": false,
+    "protected_customer_data_approval_verified": false,
+    "field_schema_hash": null,
+    "query_hash": null,
+    "runtime_status": "DISABLED_PENDING_PCD_QUALIFICATION_SCOPE_READBACK_QUERY_HASH_AND_RETENTION_CONTROL_TESTS"
+  },
+  "level1_qualification_evidence": {
+    "path_id": "TARGET_DEV_DASHBOARD_IN_PLACE_V1",
+    "confirmed": true,
+    "confirmed_by": "D-049",
+    "evidence_pack_ref": "shopify-level1-qualification-evidence-pack.json",
+    "development_store_surrogate_allowed": false,
+    "inspection_mode": "read_only_ui_observation",
+    "official_level1_matrix": {
+      "public_app": "REQUIRES_REVIEW",
+      "custom_app": "ALWAYS_AVAILABLE",
+      "admin_created_custom_app": "ALWAYS_AVAILABLE"
+    },
+    "observation_status": "BLOCKED_BROWSER_CONNECTION_VERIFICATION",
+    "app_type_observed": false,
+    "distribution_or_ownership_observed": false,
+    "same_organization_observed": false,
+    "declared_scopes_observed": false,
+    "data_protection_requirements_observed": false,
+    "protected_customer_data_qualification_verified": false,
+    "hold_rules": [
+      "HOLD_APP_DISTRIBUTION_IDENTITY_UNKNOWN",
+      "HOLD_ORGANIZATION_RELATION_MISMATCH",
+      "HOLD_PCD_LEVEL1_QUALIFICATION_UNPROVEN",
+      "HOLD_DATA_PROTECTION_REQUIREMENT_GAP",
+      "HOLD_SCOPE_MISMATCH",
+      "HOLD_EVIDENCE_REDACTION_FAILURE"
+    ],
+    "mutations_or_submissions_authorized": false,
+    "token_exchange_or_api_call_authorized": false
+  },
+  "tool_contract": {
+    "logical_tool_id": "shopify_channel_read",
+    "generic_graphql_console_exposed": false,
+    "allowed_dataset_ids": [
+      "shop_scope_manifest",
+      "sales_line_events",
+      "refund_reversal_events",
+      "product_variant_price_state",
+      "inventory_location_snapshot",
+      "traffic_marketing_daily",
+      "payment_settlement_events",
+      "pilot_eligibility"
+    ],
+    "query_template_registry_ref": null,
+    "field_allowlist_ref": "SHOPIFY_BVS01_ORDER_LEVEL1_V1",
+    "query_family_contract": [
+      {
+        "query_family_id": "SHOP_APP_IDENTITY_V1",
+        "required_scopes": [],
+        "objects": [
+          "shop",
+          "currentAppInstallation.accessScopes"
+        ],
+        "status": "DESIGN_ALLOWED_ACTIVATION_PENDING"
+      },
+      {
+        "query_family_id": "PRODUCT_DEFINITION_AUDIT_V1",
+        "required_scopes": [
+          "read_products"
+        ],
+        "objects": [
+          "product_metafield_definition"
+        ],
+        "status": "DESIGN_ALLOWED_ACTIVATION_PENDING"
+      },
+      {
+        "query_family_id": "PRODUCT_CATALOG_SNAPSHOT_V1",
+        "required_scopes": [
+          "read_products"
+        ],
+        "objects": [
+          "product",
+          "variant",
+          "sku",
+          "custom.product_family"
+        ],
+        "status": "DESIGN_ALLOWED_ACTIVATION_PENDING"
+      },
+      {
+        "query_family_id": "INVENTORY_LOCATION_SNAPSHOT_V1",
+        "required_scopes": [
+          "read_inventory",
+          "read_locations"
+        ],
+        "objects": [
+          "inventory_item",
+          "inventory_level",
+          "location"
+        ],
+        "status": "DESIGN_ALLOWED_ACTIVATION_PENDING"
+      },
+      {
+        "query_family_id": "MARKET_SCOPE_V1",
+        "required_scopes": [
+          "read_markets"
+        ],
+        "objects": [
+          "market"
+        ],
+        "status": "DESIGN_ALLOWED_ACTIVATION_PENDING"
+      },
+      {
+        "query_family_id": "ORDER_LINE_WINDOW_V1",
+        "required_scopes": [
+          "read_orders"
+        ],
+        "objects": [
+          "order",
+          "line_item"
+        ],
+        "status": "DISABLED_PENDING_PCD_QUALIFICATION_SCOPE_READBACK_QUERY_HASH_AND_RETENTION_CONTROL_TESTS"
+      }
+    ],
+    "shop_scope_manifest_ref": null,
+    "variant_whitelist_contract_ref": "../../08-data/bvs-01-shopify-sku-scope-manifest.json",
+    "variant_whitelist_ref": null,
+    "max_window_days": 30,
+    "cursor_source": "last_accepted_evidence_receipt_only",
+    "pre_request_policy_gate_required": true,
+    "raw_response_returned_to_model": false
+  },
+  "evidence_receipt": {
+    "required_fields": [
+      "case_id",
+      "bundle_ref",
+      "registration_version",
+      "dataset_id",
+      "shop_ref",
+      "scope_manifest_ref",
+      "query_template_id",
+      "query_hash",
+      "api_version",
+      "requested_cost",
+      "actual_cost",
+      "throttle_state",
+      "cursor_in",
+      "cursor_out",
+      "graphql_error_state",
+      "redacted_shape_hash",
+      "observed_at"
+    ],
+    "secret_or_token_fields_allowed": false,
+    "customer_identity_fields_allowed": false,
+    "ledger": "case_event_ledger"
+  },
+  "role_contributions": {
+    "business_result_owner": "AGT-023",
+    "connector_product_owner": "AGT-047",
+    "master_data_mapping": "AGT-045",
+    "data_quality": "AGT-046",
+    "privacy_assurance": "AGT-044",
+    "access_assurance": "AGT-050",
+    "reliability_assurance": "AGT-049"
+  },
+  "authorization": {
+    "target_shop_read_only_preflight_authorized": false,
+    "app_creation_authorized": false,
+    "scope_grant_authorized": false,
+    "protected_customer_data_access_authorized": false,
+    "metafield_definition_creation_authorized": false,
+    "product_metafield_backfill_authorized": false,
+    "shop_install_authorized": false,
+    "api_call_authorized": false,
+    "production_write_authorized": false,
+    "budget_action_authorized": false,
+    "external_message_authorized": false
+  },
+  "open_items": [
+    "protected_customer_data_level1_qualification_evidence",
+    "order_line_query_hash_and_field_schema",
+    "retention_delete_access_log_and_backup_ttl_test",
+    "target_shop_scope_grant_and_readback",
+    "read_only_query_and_field_allowlist",
+    "owner_approved_product_gid_seed_manifest_and_catalog_snapshot",
+    "target_shop_definition_collision_check_creation_id_and_access_readback",
+    "target_shop_product_family_field_coverage_and_snapshot_replay",
+    "target_shop_report_field_filter_and_full_export_capability",
+    "non_secret_app_alias",
+    "dev_dashboard_organization_ref",
+    "verified_shop_gid_and_permanent_domain",
+    "exact_variant_and_sku_whitelist",
+    "configuration_version_ref",
+    "secret_manager_and_token_broker_refs",
+    "declared_and_granted_scope_refs",
+    "query_template_and_field_allowlist_refs",
+    "target_environment_evidence"
+  ]
+}

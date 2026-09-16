@@ -8,3 +8,5 @@
 artifacts/local/
 *.log
 __pycache__/
+.loopx/
+.codex/goals/

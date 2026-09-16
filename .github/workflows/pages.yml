@@ -1,0 +1,50 @@
+name: Deploy solution site to Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "dist/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify static bundle
+        run: |
+          test -f dist/index.html
+          test -f dist/styles.css
+          test -f dist/app.js
+          test -f dist/data/roles.json
+          test -f dist/data/flows.json
+          test -f dist/data/e2e-workflows.json
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
+
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
