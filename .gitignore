@@ -10,3 +10,4 @@ artifacts/local/
 __pycache__/
 .loopx/
 .codex/goals/
+bp/preview/

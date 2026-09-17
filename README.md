@@ -24,10 +24,12 @@
 - [50岗位五契约管理图](docs/05-agents/AGENT-MANAGEMENT-GRAPH.md)：Business、Skill、Runtime、Access和Assurance分别版本化，岗位无自发布权。
 - [不可变Bundle与七状态岗位生命周期](docs/05-agents/AGENT-LIFECYCLE.md)：Case固定版本，隔离后禁止新动作，回退从Shadow重新验证。
 - [八阶段场景协同图](docs/07-orchestration/COLLABORATION-GRAPH.md)：50个岗位以独立Preset、Soul、Skills、产物和保障规则覆盖8条价值流；51条场景映射仍是待业务验证的候选关系。
-- [五项目深度比较](docs/14-research/REFERENCE-EVALUATION.md)、[DeepSeek Harness 落实方案](docs/10-platform/deepseek-harness/IMPLEMENTATION-PLAN.md)与[系统接入盘点](docs/10-platform/deepseek-harness/SYSTEM-INTEGRATION-INVENTORY.md)。
+- [五项目深度比较](docs/14-research/REFERENCE-EVALUATION.md)、[DeepSeek Harness 落实方案](docs/10-platform/deepseek-harness/IMPLEMENTATION-PLAN.md)、[Magpie-Horch RP-M1证据](docs/10-platform/deepseek-harness/MAGPIE-RP-M1-SCHEMA-EVIDENCE.md)、[RP-M2 compiler注入规格](docs/12-rollout/MAGPIE-RP-M2-COMPILER-INJECTION-SPEC.md)与[系统接入盘点](docs/10-platform/deepseek-harness/SYSTEM-INTEGRATION-INVENTORY.md)。
 - [实施章程](docs/12-rollout/IMPLEMENTATION-CHARTER.md)与[架构决策](docs/adr/0001-harness-execution-and-business-control.md)、[ADR-0002](docs/adr/0002-agent-autonomy-and-deferred-hitl.md)。
 - [Shopify DTC目标状态试点章程](docs/12-rollout/BVS-01-SHOPIFY-DTC-PILOT-CHARTER.md)、[8数据集契约](docs/08-data/BVS-01-SHOPIFY-DTC-DATA-CONTRACT.md)、[SKU范围清单契约](docs/08-data/BVS-01-SHOPIFY-SKU-SCOPE-MANIFEST.md)、[只读连接器登记契约](docs/10-platform/deepseek-harness/SHOPIFY-READONLY-CONNECTOR-REGISTRATION.md)与[结构化登记](docs/10-platform/deepseek-harness/shopify-readonly-connector-registration.json)：它们是商品上线和30天基线形成后的目标合同；当前没有可实例化的Product/Variant/SKU、报表、订单、App或Scope证据。
 - [Shopify Level 1资格现场证据包](docs/10-platform/deepseek-harness/SHOPIFY-LEVEL1-QUALIFICATION-EVIDENCE-PACK.md)与[结构化模板](docs/10-platform/deepseek-harness/shopify-level1-qualification-evidence-pack.json)：定义目标Dev Dashboard只读核验顺序、App类型资格矩阵、9项证据、HOLD规则与禁止动作。
+- [实施蓝图](docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html)：以对外BP十一节骨架展开的内部实施口径，覆盖资产清单、五条硬约束及其强制机制、八阶段产物门禁、MDC/GOC生效机制、DSH适配八个工作包、六道验证门、三套阶段门命名、排期与停止条件，并单列已识别的源内不一致。
+- [BP经济模型与参数来路](docs/02-strategy/BP-ECONOMIC-MODEL.md)与[机器可读事实源](docs/02-strategy/bp-economic-model.json)：对外BP第08–09节全部金额的权威出处；全部参数性质为「假设」，由`scripts/verify-bp-economics.mjs`强制三处一致。
 
 ## 项目与关联仓库
 
@@ -45,6 +47,7 @@
 .
 ├── .openai/hosting.json              静态Site交付配置
 ├── AGENTS.md                         项目协作规则与必读入口
+├── bp/                               对外BP页面、源片段与装配/预览脚本
 ├── CONTEXT.md                        已澄清的业务词汇
 ├── README.md                         项目入口
 ├── dist/                             中文交互Site与岗位/价值流视图数据

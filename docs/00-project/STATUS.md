@@ -28,7 +28,7 @@
 - 用户确认D-029与R05-Q10：模型只产出 Action Intent，模型外统一Policy Gate给出 `ALLOW/HOLD/DENY/NO_ACTION` 决议，Execution Broker持有Service Identity并执行受控幂等动作。资产边界未在Access Contract中声明的动作/对象/金额/频率/范围默认拒绝。
 - 用户曾以D-030选择Momcozy可穿戴式吸奶器Amazon US样本；D-033现将首个执行渠道调整为Shopify DTC，Amazon范围保留为后续验证模板。
 - 已形成中文交互Site首版，将50岗位、四平面组织、八阶段协同、8条价值流、五契约、生命周期、资产边界和首个试点范围汇总为可筛选的管理工作台；该Site仍是本地设计投影，未获得生产发布或业务执行地位。
-- 完成Magpie-Horch固定HEAD与当前工作树的只读深度研究：识别其“能力来源—岗位/Skill装配—连接器—桌面表面—确定性Gate—同源发行—安装回退”闭环；根快速Gate实测61/61通过，但50个岗位无损校验仍因L10头像源漂移失败，已明确总绿灯不能替代覆盖说明。
+- 完成Magpie-Horch固定HEAD与当前工作树的只读深度研究：识别其“能力来源—岗位/Skill装配—连接器—桌面表面—确定性Gate—同源发行—安装回退”闭环；历史基线曾因L10头像源漂移失败，随后旧版50岗位无损校验已在派生输出重建后通过，已明确总绿灯不能替代新Soul/Role Playbook/Blueprint覆盖说明。
 - 形成D-031与ADR-0011：保留8条业务经营流，并增加岗位Bundle、Skill、连接器和Release四条能力供应流；12条流均有5步产品方案和5步分工协作设计，8条业务流岗位范围并集覆盖50/50。
 - 更新中文Site为双工作流工作台，可按业务/能力家族筛选并在产品方案、分工协作之间切换；页面仍是本地只读设计投影。
 - 用户允许LoopX自主推进BVS-01后，已形成订单、退款/金融、广告、价格、库存和试点准入六类数据对象的结构化契约，明确原始GMV、取消、退款、广告归因和结算现金分离，并定义13项连接证据与10个Shadow验收用例；企业接口和真实数据尚未连接。
@@ -55,6 +55,19 @@
 - 为避免三套阶段编号冲突，Shopify绿地门统一为`SHOP-G0`至`SHOP-G7`，组织变革门统一为`ORG-G0`至`ORG-G5`，经营试点门统一为`PILOT-G0`至`PILOT-G4`。
 - D-052发布已完成：方案提交`7c84617467cd2ad1a2db08ccf8cad1072ebe6c4d`已推送至GitHub `main`，GitHub Actions Pages运行[35073360037](https://github.com/zjgulai/AI-Native-Organization/actions/runs/35073360037)成功，[公开Site](https://zjgulai.github.io/AI-Native-Organization/)返回HTTP 200。公网首页、CSS、JS、50岗位数据和12价值流数据与该提交的`dist/`发布包逐字一致；Pages控制面为`build_type=workflow`且强制HTTPS。该证据只验收文档Site发布，不是Shopify、Harness或企业经营上线证据。
 - D-053与ADR-0012已完成首批设计资产：由生成器从50岗位目录生成50份独立[Soul Contract](../05-agents/roles/souls/)、50份[Role Playbook](../06-playbooks/role-playbooks/index.json)、50份[DSH Preset Blueprint](../10-platform/deepseek-harness/preset-blueprints/manifest.json)及逐岗位文件。每份资产均声明独立模式、Lead/Worker组队模式、ArtifactEnvelope交接、工具类别、Access和Assurance边界；状态为设计完成但目标DSH导入schema未知，不可直接导入或宣称已运行。
+- 已完成Magpie-Horch只读注入审计与[50岗位Preset注入方案](../12-rollout/MAGPIE-HORCH-ROLE-PRESET-INJECTION-PLAN.md)：确认现有生成器只覆盖旧9类材料、旧版L1–L10校验已通过但未覆盖Soul/Role Playbook/Blueprint，且team-gui动态规划与D-053存在边界冲突；当前不修改Magpie-Horch代码、配置或业务连接。
+- 用户已确认D-054暂时保留审计期间重建的派生preset，并确认D-055采用“身份/灵魂摘要常驻、Role Playbook按需Skill加载、loader不可用时受控内嵌回退”；DSH loader与schema仍待RP-M1核实。
+- 用户已确认D-056：50个岗位默认采用最小权限Access allowlist，平台岗位的额外读取能力逐项例外，所有写动作只输出Action Intent；具体工具schema与服务端拒绝机制仍待RP-M1/RP-M3核实。
+- 用户已确认D-057：复杂Case由模型外External Case Control负责编排，team-gui只作为固定执行、UI、运行历史和用量观测适配层；业务Case关闭dynamic planner、adaptive selection和模型驱动路由。
+- 用户已确认D-058：通过模型外preset resolver/adapter将preset_id与不可变Role Release Bundle绑定后启动子会话；名称或systemPrompt映射不得作为正式身份依据。
+- 用户已确认D-059：生成preset目录继续作为`~/.dsh/.agent-presets/`派生输出，不提交到Magpie-Horch仓库；仓库只保存compiler、规则、schema、验证器和来源引用。
+- 用户已确认D-060：compiler一次覆盖全部50个岗位，运行验证先做4个代表岗位影子试验，再按门禁扩展；影子结果不等于生产授权。
+- RP-M1只读核验已完成并沉淀为[DSH预设与适配契约证据](../10-platform/deepseek-harness/MAGPIE-RP-M1-SCHEMA-EVIDENCE.md)：记录Magpie vendor pin、官方preset元数据、mount/composeFrom/select会话语义、dsh-skill-subset边界、team-gui schema限制、现有generator材料缺口，以及`role_assets`、Role Release Bundle、Case/Artifact/Action adapter的候选结构。该文档只形成设计基线；目标企业DSH Host、导入schema、服务端权限和外部控制面仍待验证，Magpie-Horch代码与派生preset未被修改。
+- 已完成[RP-M2 compiler注入规格](../12-rollout/MAGPIE-RP-M2-COMPILER-INJECTION-SPEC.md)的获准代码落地：Magpie-Horch 的 `generate.mjs`、`verify-lossless.mjs` 与 `README.md` 已扩展到 50 份 Soul / Role Playbook / Blueprint；实际 `~/.dsh/.agent-presets/agt-001..agt-050` 已重生成。L1–L12 共 5106 条断言通过，连续重生成逐字节一致，篡改 Soul 快照的反向探针按预期失败。当前仍不代表目标 Host 的岗位 Skill loader、DSH 导入、业务连接或生产授权已验证；批量 I/O 原子替换与实际岗位 Skill 派生属于后续 Host 适配门。
+- 已形成对外BP页面`bp/index.html`（源片段`bp/_body.html`，装配脚本`bp/build.sh`）：十一节结构，第07节并排呈现「已经做完」与「明确没有验证」，第08–09节的市场、定价、单位经济与资金结构**全部标注为示意模型**。
+- 经济模型的假设已同步入仓库，不再只存在于BP页面：[BP经济模型与参数来路](../02-strategy/BP-ECONOMIC-MODEL.md)为权威文档，[bp-economic-model.json](../02-strategy/bp-economic-model.json)为机器可读事实源，`scripts/verify-bp-economics.mjs`核对三处一致。脚本强制`parameters[].kind`只允许`assumption`，并核对21项组内算术、参数性质、页面与文档取值字符串；当前21项算术通过、9项参数全部为假设、页面与文档0项缺失。该结果只证明三处写法一致且算术自洽，不证明假设合理或可达成。
+- 已形成[实施蓝图](../12-rollout/IMPLEMENTATION-BLUEPRINT.html)：以BP十一节骨架展开的内部实施口径，覆盖资产清单、五条硬约束及其强制机制、八阶段产物门禁、MDC/GOC生效机制、DSH适配八个工作包、六道验证门、三套阶段门命名、排期与停止条件，并单列已识别的源内不一致（RP-G编号双轨、Magpie版本未同步、需求条数口径差异、增长官岗位数笔误、BVS-06名称两种写法、GOC英文全称缺失、RP-M5表述滞后）。该文件只记录设计与静态验证状态，不产生运行能力。
+- 本轮已按上述口径校正BP页面三处：定价锚定段落补出`250–900 万 / 年`的推导带宽、「这些数字的来路」表补入团队规模参数、页脚指向仓库内权威文档。BP页面与仓库文档的取值一致性由脚本强制，不再依赖人工同步。
 
 ## GitHub Pages发布证据
 
@@ -89,9 +102,11 @@ v1.1结构检查曾通过的356条关系仅保留在Git历史。当前本地结�
 5. 工具优先UI/UX的工作入口边界（R04-Q6）。
 6. 首个新品验证机会与受保护资源（R04-Q7）。
 
-当前下一步是管理层在[公开Site](https://zjgulai.github.io/AI-Native-Organization/)审阅独立岗位分身与组队方案，并指定需要优先回放的岗位/场景；同时核实目标DSH版本、preset schema、插件、Host tool行为和服务身份边界。具体门禁见[50个独立数字分身实施TODO](../12-rollout/ROLE-PRESET-IMPLEMENTATION-TODO.md)。Shopify仍停在`SHOP-G1`方案状态。未来若另行授权Shopify实施，再以[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)生成真实对象实施包。
+当前下一步是管理层在[公开Site](https://zjgulai.github.io/AI-Native-Organization/)审阅独立岗位分身与组队方案，并指定需要优先回放的岗位/场景；RP-M2 已完成材料注入与静态门禁，后续以目标DSH版本、preset schema、插件、Host tool行为和服务身份边界开展 RP-M3/RP-M4 的隔离适配。具体门禁见[50个独立数字分身实施TODO](../12-rollout/ROLE-PRESET-IMPLEMENTATION-TODO.md)。Shopify仍停在`SHOP-G1`方案状态。未来若另行授权Shopify实施，再以[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)生成真实对象实施包。
 
 本轮已在本地工作区生成50份Soul、50份Role Playbook、50份Preset Blueprint并更新Site；这些改动目前尚未提交或同步到GitHub Pages，因此公网仍以最近一次已发布提交为准。
+
+管理层设计已形成完整设计资产，**结构为3岗位（2026-09-18由D-062确认）**：1个CEO（MGT-001）与2个二级负责人——MGT-002 增长官（覆盖AGT-001~004、AGT-006~039，共38岗）与 MGT-003 治理官（覆盖AGT-005、AGT-040~050，共12岗），两域并集为全部50岗且**双线归属为0**；v1曾为1个CEO + 8个CXO（共9岗），因用户决定减少协调面而改为v2。主设计见[管理层设计](../04-organization/MANAGEMENT-LAYER.md)，决策归属见[决策权阶梯](../04-organization/management/DECISION-RIGHTS.md)，决定依据见[ADR-0014](../adr/0014-management-decision-rights-plane.md)；3份管理岗位档案、3份Soul、3份Role Playbook、3份Preset蓝图与结构化[管理层目录](../04-organization/management/management-catalog.json)位于`docs/04-organization/management/`。该层的核心约束不变：不进入Case执行链、不作为任何Case的Lead或Worker、不与50个岗位发生会话、不持有Service Identity与Action Intent能力、只读聚合视图，权力只通过版本化契约（MDC/GOC）与资源配额生效。**v2新增承重机制**：合并后治理官同时是指标口径的作者、维护者与被评估者，因此①口径冻结权归AGT-005与外部复核（治理官只有提案权）；②涉治理官自身尺度的争议走**L2b真人所有者**（不经CEO）；③AGT-005复核结论直达CEO与真人所有者、不向治理官汇报。这三条必须由模型外机制保障——若目标Host只能以Prompt表达隔离，MGT-003不得进入Shadow阶段。待决项为MGT-Q1/Q2/Q3、MGT-G8/G9与MGT-Q5（是否设单一通用管理Agent对照臂）；外部证据调研见[AI原生组织管理层调研](../14-research/AI-NATIVE-ORG-MANAGEMENT-LAYER.md)（EVD-036~039）。管理决定的生效机制已单列设计：[管理层决定的生效机制](../04-organization/management/ENFORCEMENT.md)明确MDC/GOC最小机器可读schema、包含关系校验（超出即拒绝不截断）、资源预留与队列语义、指标口径由独立复核冻结、独立控制指标豁免与约束记录经Policy Gate生效；其中三项基线已由D-061确认。该设计未实例化任何管理岗位，也未改变D-022。影子验证见[影子验证设计](../04-organization/management/SHADOW-VERIFICATION.md)，定位为`ORG-G1`工作包，采用`MGT-EVAL-A`抗污染、`MGT-EVAL-B`一致性、`MGT-EVAL-C`生效、`MGT-EVAL-R`层数复审、**新增`MGT-EVAL-R0`结构必要性与`MGT-EVAL-R2`独立性复审**六道门，v2的3个岗位**全部同时先验**（代表子集概念已不成立）。v2验证语料已按SHADOW-VERIFICATION.md §3.5重建并冻结：[eval/management-eval-corpus.v2.json](../04-organization/management/eval/management-eval-corpus.v2.json)（25用例：L-A 12 / L-B 13，确定性子集12、阶梯子集6、L2b 2，`corpus_sha256=2a9977d3…d1d57c`）；v1语料（19用例，`corpus_sha256=64c77da5…ead1d72`）原地保留为结构变更的追溯记录，标记`structure_currency=superseded_by_v2_structure`，**不得引用其Hash证明v2已被验证**。校验脚本`scripts/verify-management-eval-corpus.mjs`在校验两份语料时会核Hash、阈值、结构时效、计数自洽、阶梯取值域、L2b用例形态与「L-A条数=各Playbook §2反模式条数」；**语料冻结不等于验证已执行**：`MGT-EVAL-B`已于2026-09-18执行且**未通过**（阶梯归属一致率4/6=66.7%，阈值100%；L2b识别2/2=100%），台账见[eval/runs/2026-09-18-MGT-EVAL-B/RUN-LOG.md](../04-organization/management/eval/runs/2026-09-18-MGT-EVAL-B/RUN-LOG.md)；两项不一致的阶梯项已按用户决定落地为确定性规则（`DECISION-RIGHTS.md`§3.1混合级别捆绑、§3.2实质变更的证据前提），`LB-MGT001-03`上收分类仍待决。且v1与v2的阶梯口径不同（L1已拆为L1-G/L1-V并新增L2b），结果不可横向比较。`MGT-EVAL-C`依赖三个尚未实现的构件（Case Control读取MDC、资源预留服务、Policy Gate读取约束记录），因此在此之前管理层不得被表述为可运行。
 
 ## 实施前尚需落实
 

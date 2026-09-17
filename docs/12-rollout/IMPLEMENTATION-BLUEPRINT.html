@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>AI 组织变革 · 实施蓝图 v1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="以 BP 十一节骨架展开的当前项目实施文档：50 个岗位资产的落地形态、模型外控制层、六道验证门、三套阶段门、排期与停止条件。设计与验证状态，不是上线或经营承诺。">
+<meta name="generator" content="Kami">
+<style>
+/* ========== Tokens ========== */
+
+@font-face {
+  font-family: "TsangerJinKai02";
+  src: url("https://cdn.jsdelivr.net/gh/AlfredoSequeworthy/TsangerJinKai02@main/TsangerJinKai02-W04.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TsangerJinKai02";
+  src: url("https://cdn.jsdelivr.net/gh/AlfredoSequeworthy/TsangerJinKai02@main/TsangerJinKai02-W05.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --parchment:    #f5f4ed;
+  --ivory:        #faf9f5;
+  --inline-code-bg: #f0eee6;
+  --warm-sand:    #e8e6dc;
+
+  --brand:        #1B365D;
+  --brand-light:  #2D5A8A;
+  --brand-tint:   #EEF2F7;
+
+  --near-black:   #141413;
+  --dark-warm:    #3d3d3a;
+  --olive:        #504e49;
+  --stone:        #6b6a64;
+
+  --danger:       #8C2F1E;
+  --danger-tint:  #FAF0ED;
+  --ok:           #2F5D3A;
+  --ok-tint:      #EFF4EF;
+
+  --border:       #e8e6dc;
+  --border-soft:  #e5e3d8;
+  --line:         #d8d5c8;
+
+  --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN",
+           "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun",
+           Georgia, serif;
+  --mono:  "JetBrains Mono", "SF Mono", Consolas, monospace;
+  --latin-ui: "PingFang SC", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--parchment);
+  color: var(--near-black);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.62;
+  letter-spacing: 0.35px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { color: var(--brand-light); text-decoration: underline; }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--inline-code-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+  word-break: break-word;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 64px 56px 120px;
+}
+
+/* ========== Nav ========== */
+
+.toc {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(245, 244, 237, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--warm-sand);
+  margin: 0 -56px 0;
+  padding: 10px 56px;
+}
+.toc-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+}
+.toc-label {
+  font-family: var(--latin-ui);
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-right: 4px;
+}
+.toc a {
+  font-size: 13px;
+  color: var(--olive);
+  white-space: nowrap;
+}
+.toc a:hover { color: var(--brand); text-decoration: none; }
+
+/* ========== Hero ========== */
+
+.hero { padding: 24px 0 40px; border-bottom: 1px solid var(--warm-sand); }
+
+.eyebrow {
+  font-family: var(--latin-ui);
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin: 0 0 20px;
+}
+.eyebrow span { border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; }
+
+h1 {
+  font-size: 42px;
+  line-height: 1.18;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin: 0 0 16px;
+  color: var(--near-black);
+}
+
+.tagline {
+  font-size: 17px;
+  color: var(--olive);
+  max-width: 700px;
+  margin: 0 0 28px;
+}
+
+.hero-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+  margin: 0 0 28px;
+  font-size: 14px;
+  color: var(--olive);
+}
+.hero-tokens b {
+  font-size: 22px;
+  color: var(--brand);
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.status-strip {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--danger);
+  border-radius: 3px;
+  background: var(--danger-tint);
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--dark-warm);
+}
+.status-strip strong { color: var(--danger); }
+
+/* ========== Sections ========== */
+
+section { padding: 56px 0 8px; border-top: 1px solid var(--warm-sand); }
+section:first-of-type { border-top: none; }
+
+.section-head { margin-bottom: 26px; }
+.section-num {
+  font-family: var(--latin-ui);
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin: 0 0 10px;
+}
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.6px;
+  margin: 0 0 12px;
+}
+.section-lede {
+  font-size: 16px;
+  color: var(--olive);
+  max-width: 760px;
+  margin: 0;
+}
+
+h3 {
+  font-size: 19px;
+  font-weight: 500;
+  margin: 40px 0 12px;
+  letter-spacing: 0.4px;
+}
+h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 26px 0 8px;
+  color: var(--dark-warm);
+}
+p { margin: 0 0 14px; max-width: 820px; }
+ul, ol { margin: 0 0 16px; padding-left: 22px; max-width: 820px; }
+li { margin-bottom: 7px; }
+
+.lede-quiet { color: var(--olive); font-size: 14px; }
+
+/* ========== Tables ========== */
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 18px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--ivory);
+}
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+thead th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  color: var(--stone);
+  text-transform: uppercase;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+  background: var(--parchment);
+}
+tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+  line-height: 1.55;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody td:first-child { color: var(--near-black); }
+td.num, th.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+table code { font-size: 0.86em; }
+
+/* ========== Callouts ========== */
+
+.callout {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand);
+  background: var(--brand-tint);
+  border-radius: 3px;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 14.5px;
+  color: var(--dark-warm);
+  max-width: 860px;
+}
+.callout.warn { border-left-color: var(--danger); background: var(--danger-tint); }
+.callout.ok { border-left-color: var(--ok); background: var(--ok-tint); }
+.callout p:last-child { margin-bottom: 0; }
+.callout strong { color: var(--near-black); }
+
+.manifesto {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--near-black);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 22px 0;
+  margin: 30px 0;
+  max-width: 860px;
+}
+.manifesto em { font-style: normal; color: var(--brand); font-weight: 500; }
+
+/* ========== Grid of cards ========== */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin: 0 0 22px;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--ivory);
+  padding: 18px 20px;
+}
+.card-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px;
+  color: var(--brand);
+}
+.card ul { font-size: 13.5px; padding-left: 18px; margin: 0; max-width: none; }
+.card li { margin-bottom: 6px; }
+.card p { font-size: 13.5px; margin: 0 0 8px; max-width: none; }
+
+/* ========== Badges ========== */
+
+.badge {
+  display: inline-block;
+  font-family: var(--latin-ui);
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--stone);
+  background: var(--parchment);
+  white-space: nowrap;
+}
+.badge.done { color: var(--ok); border-color: #c6d6c9; background: var(--ok-tint); }
+.badge.todo { color: var(--danger); border-color: #e5c8c0; background: var(--danger-tint); }
+.badge.doing { color: var(--brand); border-color: #c9d6e6; background: var(--brand-tint); }
+
+/* ========== Phase timeline ========== */
+
+.phases { margin: 0 0 22px; }
+.phase {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 0 22px;
+  padding: 18px 0;
+  border-top: 1px solid var(--border-soft);
+}
+.phase:first-child { border-top: 1px solid var(--line); }
+.phase:last-child { border-bottom: 1px solid var(--line); }
+.phase-key { font-size: 13px; color: var(--stone); }
+.phase-key b { display: block; font-size: 15px; color: var(--brand); font-weight: 500; margin-bottom: 3px; }
+.phase-body { font-size: 14px; }
+.phase-body .artifact { color: var(--olive); font-size: 13px; margin-top: 6px; }
+.phase-body .artifact code { font-size: 0.85em; }
+
+/* ========== Footer ========== */
+
+.foot {
+  margin-top: 72px;
+  padding-top: 28px;
+  border-top: 1px solid var(--warm-sand);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 48px;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 13px;
+  color: var(--stone);
+}
+.foot .wm-name { display: block; font-size: 15px; color: var(--brand); }
+.foot .wm-line { font-size: 12.5px; }
+.foot .ethos { max-width: 560px; margin: 0; }
+
+/* ========== Responsive ========== */
+
+@media (max-width: 860px) {
+  .page { padding: 40px 24px 80px; }
+  .toc { margin: 0 -24px; padding: 10px 24px; }
+  h1 { font-size: 32px; }
+  h2 { font-size: 23px; }
+  .phase { grid-template-columns: 1fr; gap: 6px; }
+}
+
+@media (max-width: 620px) {
+  table { font-size: 12.5px; }
+  thead th { white-space: normal; padding: 9px 10px; }
+  tbody td { padding: 9px 10px; }
+  h1 { font-size: 28px; }
+  .hero-tokens { gap: 8px 20px; }
+  .hero-tokens b { font-size: 19px; }
+}
+
+/* ========== Print ========== */
+
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  .toc { position: static; background: none; border: none; margin: 0; padding: 0; }
+  .page { max-width: none; padding: 0; }
+  section { page-break-inside: auto; }
+  h2, h3 { page-break-after: avoid; }
+  .table-wrap, .card, .callout { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ============ Hero ============ -->
+  <header class="hero">
+    <div class="eyebrow"><span>实施蓝图 · v1.0 · 2026-09-18</span></div>
+
+    <h1>AI 组织变革 · 实施蓝图</h1>
+
+    <p class="tagline">把 <a href="../../bp/index.html">对外 BP</a> 的十一节骨架，展开成一份可执行、可验证、可停止的项目实施结构。BP 回答「这门生意成不成立」，本文件回答「要动哪些文件、过哪些门、按什么顺序、什么时候该停」。</p>
+
+    <div class="hero-tokens">
+      <span><b>50</b> 份岗位资产</span>
+      <span><b>12</b> 条价值流</span>
+      <span><b>6</b> 道验证门</span>
+      <span><b>3</b> 套阶段门</span>
+      <span><b>0</b> 个实例化岗位</span>
+    </div>
+
+    <div class="status-strip">
+      <strong>当前状态：资产完成，运行未开始。</strong>
+      50 个岗位的 Soul Contract、Role Playbook 与 Preset Blueprint 已全部形成并通过静态门禁，但<b>没有任何一个岗位被实例化</b>，没有一个 Case 被创建，<code>production_authorized=false</code>。本文件是设计与验证状态的记录，<b>不是上线计划、不是裁员方案、不是经营承诺，也不构成预算批准</b>。
+    </div>
+  </header>
+
+  <!-- ============ Nav ============ -->
+  <nav class="toc" aria-label="章节导航">
+    <div class="toc-inner">
+      <span class="toc-label">目录</span>
+      <a href="#s00">00 起点</a>
+      <a href="#s01">01 坐标</a>
+      <a href="#s02">02 约束</a>
+      <a href="#s03">03 资产</a>
+      <a href="#s04">04 组织</a>
+      <a href="#s05">05 闭环</a>
+      <a href="#s06">06 控制</a>
+      <a href="#s07">07 平台</a>
+      <a href="#s08">08 验证</a>
+      <a href="#s09">09 数据</a>
+      <a href="#s10">10 排期</a>
+      <a href="#s11">11 风险</a>
+      <a href="#s12">12 待决</a>
+      <a href="#s13">13 索引</a>
+    </div>
+  </nav>
+
+  <!-- ============ 00 · 起点 ============ -->
+  <section id="s00">
+    <div class="section-head">
+      <p class="section-num">00 · 起点</p>
+      <h2>这份文档是什么，不是什么</h2>
+      <p class="section-lede">BP 是给外部看的：为什么这件事现在成立、钱从哪来。本文件是给内部用的：这件事拆开之后长什么样、每一步怎么验收、什么条件下必须停。</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <p class="card-title">它不是什么</p>
+        <ul>
+          <li><b>不是裁员方案。</b>50 是 AI 岗位类型数，不是真人编制，也不倒推缩编人数。</li>
+          <li><b>不是上线计划。</b>全部门禁与授权仍未打通，当前不做任何企业系统写入。</li>
+          <li><b>不是经营承诺。</b>BP 第 08–09 节全部金额是示意模型，没有一个客户出过价。</li>
+          <li><b>不是预算批准。</b>资金结构是规划描述，不代表融资已发生或已获承诺。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">它是什么</p>
+        <ul>
+          <li><b>是资产清单。</b>写清现有哪些文件、多少条、各自怎么验收。</li>
+          <li><b>是门禁地图。</b>六道验证门、三套阶段门、各自的不通过处置。</li>
+          <li><b>是依赖顺序。</b>哪一步必须等哪一步，哪些门不许跨。</li>
+          <li><b>是停止条件。</b>什么信号出现时应当停，而不是调参继续。</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>BP 骨架到实施结构的对照</h3>
+    <p>本文件沿用 BP 的叙事顺序，但每一节换成实施口径。左侧是 BP 的论证，右侧是本项目的实物。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>BP 的论证</th><th>本文件的实施口径</th><th>对应的项目实物</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>00 问题：削中层削错了</td><td>起点：这个项目当前站在哪里</td><td><a href="../00-project/STATUS.md">STATUS.md</a></td></tr>
+          <tr><td>01 洞察：放权与证明</td><td>硬约束：五条不可协商项</td><td><a href="../../AGENTS.md">AGENTS.md</a> 证据与术语规则</td></tr>
+          <tr><td>02 解法：契约 / 控制 / 验证三层</td><td>资产盘：三层各自的文件与数量</td><td><code>docs/05-agents/</code>、<code>docs/06-playbooks/</code>、<code>docs/10-platform/</code></td></tr>
+          <tr><td>03 骨架：1 + 2 + 50</td><td>组织：四平面、两域、三级管理</td><td><a href="../04-organization/AI-ORGANIZATION-MAP.md">AI-ORGANIZATION-MAP.md</a></td></tr>
+          <tr><td>04 闭环：一张工单走完</td><td>八阶段与产物门禁</td><td><a href="../07-orchestration/COLLABORATION-GRAPH.md">COLLABORATION-GRAPH.md</a></td></tr>
+          <tr><td>05 为什么现在</td><td>控制平面：MDC / GOC 生效机制</td><td><a href="../04-organization/management/ENFORCEMENT.md">ENFORCEMENT.md</a></td></tr>
+          <tr><td>06 护城河：没人做验证</td><td>验证：六道门与语料冻结</td><td><a href="../04-organization/management/SHADOW-VERIFICATION.md">SHADOW-VERIFICATION.md</a></td></tr>
+          <tr><td>07 进展：做完的与没验证的</td><td>验证执行记录（含未通过的门）</td><td><code>docs/04-organization/management/eval/runs/</code></td></tr>
+          <tr><td>08 商业模式</td><td>平台落地：DSH 适配与数据连接</td><td><a href="../12-rollout/ROLE-PRESET-IMPLEMENTATION-TODO.md">ROLE-PRESET-IMPLEMENTATION-TODO.md</a></td></tr>
+          <tr><td>09 里程碑：钱绑结论</td><td>排期：三阶段与释放条件</td><td><a href="../02-strategy/BP-ECONOMIC-MODEL.md">BP-ECONOMIC-MODEL.md</a></td></tr>
+          <tr><td>10 质疑</td><td>风险登记与停止条件</td><td>本文件 §11</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 01 · 坐标 ============ -->
+  <section id="s01">
+    <div class="section-head">
+      <p class="section-num">01 · 坐标</p>
+      <h2>设计完成度与运行完成度是两件事</h2>
+      <p class="section-lede">这个项目最容易产生的误解，是把「方案写完了」读成「系统跑起来了」。两者之间隔着一整层没有被建立的东西。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>维度</th><th>设计完成度</th><th>运行完成度</th><th>差在哪</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>岗位</td>
+            <td><span class="badge done">50 / 50</span> Soul、Role Playbook、Preset Blueprint 全部形成</td>
+            <td><span class="badge todo">0 / 50</span> 无一个实例化</td>
+            <td>目标 DSH 的 preset schema 映射、loader 行为与服务身份边界</td>
+          </tr>
+          <tr>
+            <td>价值流</td>
+            <td><span class="badge doing">12 / 12</span> 8 条业务流 + 4 条能力流，64 条 flow-stage 绑定</td>
+            <td><span class="badge todo">0 张 Case</span></td>
+            <td>Case Control 的读写构件、预留服务、selector 规则</td>
+          </tr>
+          <tr>
+            <td>场景</td>
+            <td><span class="badge doing">20 / 20</span> 候选场景登记</td>
+            <td><span class="badge todo">0 经验证</span> 状态为 candidate，未做业务访谈验证</td>
+            <td>18 个场景对应多条候选价值流，选路规则尚未发布</td>
+          </tr>
+          <tr>
+            <td>管理层</td>
+            <td><span class="badge doing">3 / 3</span> 岗位档案、Soul、Playbook、Preset 蓝图</td>
+            <td><span class="badge todo">prod=false</span> 全部未实例化</td>
+            <td>口径冻结与复核线隔离的模型外机制在目标 Host 上尚不存在</td>
+          </tr>
+          <tr>
+            <td>验证</td>
+            <td><span class="badge doing">6 / 6</span> 六道门设计完成，阈值事前冻结</td>
+            <td><span class="badge todo">1 执行 · 未通过</span></td>
+            <td>其余五道门依赖尚未实现的运行构件</td>
+          </tr>
+          <tr>
+            <td>平台</td>
+            <td><span class="badge doing">RP-M0~M2 完成</span> 材料注入侧</td>
+            <td><span class="badge todo">RP-M3~M7 未开始</span></td>
+            <td>目标 DSH 版本、preset schema、Host tool 行为、服务身份边界</td>
+          </tr>
+          <tr>
+            <td>连接</td>
+            <td><span class="badge doing">SHOP-G1 方案就绪</span> 未正式通过</td>
+            <td><span class="badge todo">SHOP-G2 起未开始</span></td>
+            <td>无 App、无 Scope 读回、无 Token 交换、无 API 调用</td>
+          </tr>
+          <tr>
+            <td>发布</td>
+            <td><span class="badge done">已公开</span> 方案 Site 部署到 GitHub Pages</td>
+            <td><span class="badge done">已取证</span> commit、workflow、控制面、公网字节四项一致</td>
+            <td>发布只覆盖文档与静态 Site，不覆盖任何业务系统</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="manifesto">设计完成度是<em>我们写了多少</em>。运行完成度是<em>系统做了多少</em>。现在前者接近满格，后者是零——这份文档的全部价值，就在于不让这两个数字被混为一谈。</p>
+  </section>
+
+  <!-- ============ 02 · 约束 ============ -->
+  <section id="s02">
+    <div class="section-head">
+      <p class="section-num">02 · 约束</p>
+      <h2>五条不可协商项，以及它们各自靠什么强制</h2>
+      <p class="section-lede">约束写在提示词里等于没写。下表的每一行都必须能指向一个具体机制——文件、脚本或门禁——否则这一条就不成立。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>约束</th><th>含义</th><th>强制机制</th><th>违反时的可检出方式</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>证据纪律</b></td>
+            <td>企业事实、公开依据、待验证假设、候选建议、已决定、已验收分别标注，不互相冒充</td>
+            <td>各文档的「状态」行；<a href="../14-research/SOURCES.md">SOURCES.md</a> 证据编号</td>
+            <td>文档内出现无来源的确定语气陈述</td>
+          </tr>
+          <tr>
+            <td><b>权限默认拒绝</b></td>
+            <td>Access Contract 未声明的动作、对象、金额、频率、范围一律拒绝</td>
+            <td>D-056 最小权限 allowlist；Policy Gate 裁决</td>
+            <td>出现未声明范围内的工具调用或字段</td>
+          </tr>
+          <tr>
+            <td><b>单 Case 单责任</b></td>
+            <td>一张 Case 只绑定一条主价值流、一个主场景、一个主岗位人格；只有 Lead 对结果负责</td>
+            <td>D-024 / D-025；Case Charter 的绑定字段；<code>case_dedupe_key</code></td>
+            <td>出现多主岗位、或多价值流的单一 Case</td>
+          </tr>
+          <tr>
+            <td><b>模型外控制</b></td>
+            <td>模型只产出 Action Intent，不持有 Service Identity，不直接触碰资产</td>
+            <td>D-029 Policy Gate 与 Execution Broker；D-057 External Case Control</td>
+            <td>模型侧出现写工具或凭据</td>
+          </tr>
+          <tr>
+            <td><b>契约不可变</b></td>
+            <td>五份契约绑定为不可变 Role Release Bundle，改动产生新版本而非就地修改</td>
+            <td>D-022 / D-023；七状态生命周期</td>
+            <td>同一 Bundle 版本对应两份不同内容</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>这条纪律有一个直接的代价，我们要认。</strong>因为它，本文件与 BP 必须写进若干不利事实：唯一执行过的验证门<b>没有通过</b>；50 个岗位<b>一个都没跑起来</b>；经济模型<b>全部是假设</b>。这些不是谦虚的修辞，是记录。它们同时是本项目最容易被攻击的地方，也是最不能被修改的地方。</p>
+    </div>
+  </section>
+
+  <!-- ============ 03 · 资产 ============ -->
+  <section id="s03">
+    <div class="section-head">
+      <p class="section-num">03 · 资产</p>
+      <h2>现有什么：三层资产清单</h2>
+      <p class="section-lede">BP 的第 02 节说解法是三层。这一节把它落成文件。三层的判据不同：契约层看覆盖与不可变性，控制层看是否真的在模型外，验证层看阈值是否事前冻结。</p>
+    </div>
+
+    <h3>契约层 · 它该怎么做</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>资产</th><th>路径</th><th class="num">数量</th><th>状态</th><th>验收方式</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Soul Contract（判断原则）</td>
+            <td><code>docs/05-agents/roles/souls/</code></td>
+            <td class="num">50</td>
+            <td><span class="badge done">设计完成</span></td>
+            <td>生成器产出；L1–L12 静态断言</td>
+          </tr>
+          <tr>
+            <td>Role Playbook（工作方法）</td>
+            <td><code>docs/06-playbooks/role-playbooks/</code></td>
+            <td class="num">50</td>
+            <td><span class="badge done">设计完成</span></td>
+            <td>索引 <code>index.json</code> 与逐岗位文件一致</td>
+          </tr>
+          <tr>
+            <td>DSH Preset Blueprint（运行蓝图）</td>
+            <td><code>docs/10-platform/deepseek-harness/preset-blueprints/</code></td>
+            <td class="num">50</td>
+            <td><span class="badge done">设计完成</span></td>
+            <td><code>manifest.json</code> 声明独立模式与 Lead/Worker 组队模式</td>
+          </tr>
+          <tr>
+            <td>五份版本化契约</td>
+            <td>各岗位资产内</td>
+            <td class="num">5 类 × 50</td>
+            <td><span class="badge done">设计完成</span></td>
+            <td>Business / Skill / Runtime / Access / Assurance 均有声明</td>
+          </tr>
+          <tr>
+            <td>Role Release Bundle</td>
+            <td>契约绑定产物</td>
+            <td class="num">0</td>
+            <td><span class="badge todo">未实例化</span></td>
+            <td>不可变版本 + Hash；当前无一个 Bundle 进入任何状态</td>
+          </tr>
+          <tr>
+            <td>管理域合同 MDC</td>
+            <td><a href="../04-organization/management/ENFORCEMENT.md">ENFORCEMENT.md</a> §3.1</td>
+            <td class="num">2 域</td>
+            <td><span class="badge doing">schema 已定</span></td>
+            <td>D-061 确认最小机器可读 schema；Case Control 读取能力未实现</td>
+          </tr>
+          <tr>
+            <td>全局约束合同 GOC</td>
+            <td>ENFORCEMENT.md §3.2</td>
+            <td class="num">1</td>
+            <td><span class="badge doing">关系已定</span></td>
+            <td>GOC ⊇ 每个域 MDC 的配额与优先级取值</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>控制层 · 敢不敢放权</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>构件</th><th>在模型外做什么</th><th>状态</th><th>关键规则</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>External Case Control</td>
+            <td>负责 Lead、Worker、Stage、Artifact 与顺序</td>
+            <td><span class="badge doing">设计完成</span></td>
+            <td>纯确定性、无模型判断；不解释优先级原因、不合并冲突意图</td>
+          </tr>
+          <tr>
+            <td>Policy Gate</td>
+            <td>对每个 Action Intent 给出 <code>ALLOW / HOLD / DENY / NO_ACTION</code></td>
+            <td><span class="badge doing">设计完成</span></td>
+            <td>命中 <code>constraint_refs</code> 任一强制约束即拒绝，不因优先级豁免</td>
+          </tr>
+          <tr>
+            <td>Execution Broker</td>
+            <td>持有 Service Identity，执行受控幂等动作并核对回执</td>
+            <td><span class="badge doing">设计完成</span></td>
+            <td>只有 <code>ALLOW</code> 才产生执行尝试；模型侧无凭据</td>
+          </tr>
+          <tr>
+            <td>Emergency Guard</td>
+            <td>FLOW-07 命中已发布确定性规则时的固定最小保护动作</td>
+            <td><span class="badge doing">设计完成</span></td>
+            <td>不能由模型选参或扩围；不能恢复、承诺、退款、召回、销毁</td>
+          </tr>
+          <tr>
+            <td>Preset Resolver / Adapter</td>
+            <td>把 <code>preset_id</code> 与不可变 Role Release Bundle 绑定后再启动子会话</td>
+            <td><span class="badge todo">未实现</span></td>
+            <td>绑定失败、Bundle 缺失或 hash 不一致必须冻结，不得降级为名称匹配</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>验证层 · 能不能证明</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>资产</th><th>路径 / 编号</th><th>状态</th><th>判据</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>六道管理验证门设计</td>
+            <td><a href="../04-organization/management/SHADOW-VERIFICATION.md">SHADOW-VERIFICATION.md</a></td>
+            <td><span class="badge done">设计完成</span></td>
+            <td>阈值事前冻结，跑完不许调</td>
+          </tr>
+          <tr>
+            <td>v2 验证语料</td>
+            <td><code>eval/management-eval-corpus.v2.json</code></td>
+            <td><span class="badge done">已冻结</span></td>
+            <td>25 用例（L-A 12 / L-B 13）；<code>corpus_sha256=2a9977d3…d1d57c</code></td>
+          </tr>
+          <tr>
+            <td>v1 语料（历史）</td>
+            <td><code>eval/management-eval-corpus.v1.json</code></td>
+            <td><span class="badge">已作废但保留</span></td>
+            <td><code>superseded_by_v2_structure</code>；不得引用其 Hash 证明 v2 已验证</td>
+          </tr>
+          <tr>
+            <td>语料校验脚本</td>
+            <td><code>scripts/verify-management-eval-corpus.mjs</code></td>
+            <td><span class="badge done">可用</span></td>
+            <td>核 Hash、阈值、结构时效、计数自洽、阶梯取值域、L2b 形态</td>
+          </tr>
+          <tr>
+            <td>编译器静态门禁</td>
+            <td>Magpie-Horch <code>verify-lossless.mjs</code></td>
+            <td><span class="badge done">通过</span></td>
+            <td>L1–L12 共 <b>5,106</b> 条断言通过；连续重生成逐字节一致</td>
+          </tr>
+          <tr>
+            <td>反向探针</td>
+            <td>篡改 Soul 快照后重跑</td>
+            <td><span class="badge done">按预期失败</span></td>
+            <td>证明门禁不是恒真</td>
+          </tr>
+          <tr>
+            <td>经济模型一致性校验</td>
+            <td><code>scripts/verify-bp-economics.mjs</code></td>
+            <td><span class="badge done">可用</span></td>
+            <td>21 项算术 + 参数性质 + 页面与文档取值一致</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout ok">
+      <p><strong>三层里唯一一条已经跑通全链路的，是编译与静态门禁。</strong>50 个岗位的资产由生成器从岗位目录产出，L1–L12 共 5,106 条断言全部通过，连续两次重生成的结果逐字节一致，篡改 Soul 快照后反向探针按预期失败。这证明的是<strong>生成过程可复现、门禁不是恒真</strong>——不证明任何业务判断正确。</p>
+    </div>
+
+    <h4>这十二层门禁各自在防什么</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>层</th><th>检查对象</th><th>层</th><th>检查对象</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>L1</td><td>覆盖：50 个角色是否齐全</td><td>L7</td><td>官方 preset lint</td></tr>
+          <tr><td>L2</td><td>归档完整性</td><td>L8</td><td>技能引用，0 悬空</td></tr>
+          <tr><td>L3</td><td>岗位卡 7 个小节逐字入 manifest（合计 350 节，0 缺失）</td><td>L9</td><td>编队匹配：零匹配或多匹配一律 WAIT</td></tr>
+          <tr><td>L4</td><td>role-catalog 20 字段 deepEqual，且反向无丢字段</td><td>L10</td><td>头像：50 枚互不重样</td></tr>
+          <tr><td>L5</td><td>七项来源归集（组织 / 管理 / 生命周期 / 协作 / 流程 / 共享 Playbook / ROSTER）</td><td>L11</td><td>角色资产：Soul / Playbook / Blueprint / Skill descriptor / Bundle 引用闭合</td></tr>
+          <tr><td>L6</td><td>哈希</td><td>L12</td><td>源快照：源 revision、generator revision、索引哈希、设计期运行边界可重算</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede-quiet">生成物为每岗位三个文件（<code>preset.yml</code> / <code>manifest.json</code> / <code>agent.cordis.yml</code>），共 150 个文件。<code>manifest</code> 中 <code>production_authorized</code> 全为 <code>false</code>、<code>peer_chat</code> 与 <code>re_delegation</code> 全为 <code>false</code>、<code>PRODUCT_MOUNTS</code> 保持为空。这些不是配置项，是门禁断言。</p>
+  </section>
+
+  <!-- ============ 04 · 组织 ============ -->
+  <section id="s04">
+    <div class="section-head">
+      <p class="section-num">04 · 组织</p>
+      <h2>四平面、两域、三级管理</h2>
+      <p class="section-lede">BP 说管理层从 9 个岗位压到 3 个。这一节写清压完之后每个岗位归谁、边界在哪，以及这次合并自己制造出来的那个新风险怎么处置。</p>
+    </div>
+
+    <h3>四平面：50 个执行岗位的归属</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>平面</th><th class="num">岗位数</th><th>AGT 编号</th><th>职责</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>经营管理</td><td class="num">5</td><td>AGT-001~004、AGT-041</td><td>目标、资源、经营约束与组织能力</td></tr>
+          <tr><td>业务运营</td><td class="num">35</td><td>AGT-006~040</td><td>产品到 GMV、履约与客户价值</td></tr>
+          <tr><td>独立控制</td><td class="num">5</td><td>AGT-005、AGT-042~044、AGT-050</td><td>审计、税务、法务、合规与安全</td></tr>
+          <tr><td>数据与 Agent 平台</td><td class="num">5</td><td>AGT-045~049</td><td>数据、工具、Skills、模型与可靠性</td></tr>
+          <tr><td><b>合计</b></td><td class="num"><b>50</b></td><td colspan="2">一岗只属一个平面；责任域作为第二视角保留，两种分类不能互相替代</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>管理层：3 个岗位，两域并集覆盖全部 50 岗</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>分身</th><th>职位</th><th>管理域</th><th>覆盖执行岗位</th><th class="num">岗位数</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>MGT-001</td><td>持衡</td><td>首席执行官 CEO</td><td>全局组合</td><td>MGT-002、MGT-003（不直接覆盖 AGT）</td><td class="num">2</td></tr>
+          <tr><td>MGT-002</td><td>驭浪</td><td>首席增长官 CGO</td><td>渠道·品牌·增长·服务·履约·产品</td><td>AGT-001~004、AGT-006~039</td><td class="num">38</td></tr>
+          <tr><td>MGT-003</td><td>明界</td><td>首席治理官 CGOv</td><td>财务·合规·质量·账号·数据与 AI 平台</td><td>AGT-005、AGT-040~050</td><td class="num">12</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede-quiet">并集校验：38 + 12 = 50，无遗漏、无重复归属，<b>双线归属为 0</b>。v1 的 8-CXO 结构曾有 5 处岗位双线归属（AGT-002 / 018 / 027 / 038 / 044），v2 全部消除。v1 资产未进入版本控制，无历史版本可回滚。</p>
+
+    <h3>管理层不做什么</h3>
+    <div class="card">
+      <ul>
+        <li>不转述、催办、汇总结下级的叙述性汇报。</li>
+        <li>不参与单张 Case 的阶段推进或方案编写；不作为 Lead 或 Worker 出现在任何 Case 中。</li>
+        <li>不与 50 个岗位发生会话、下发口头指令。</li>
+        <li>不持有业务系统写权限、Service Identity、写工具或凭据；不发出 Action Intent。</li>
+        <li>不拥有 Case 装配指令权（归 Case Control）、Action Intent 策略模板提案权、任何 Bundle 修改权。</li>
+        <li>可见范围限于 Case / Event Ledger 聚合指标、异常队列、资源冲突清单、已验收产物的摘要与引用；不可见业务原始数据、客户明细、员工资料、凭据、未验收产物原文。</li>
+      </ul>
+      <p class="lede-quiet" style="margin-top:10px">这条边界使管理层的权限面<b>窄于任何一个数据与平台岗位</b>。管理层的结论只能通过标准版本与配额生效，<b>不能变成动作</b>。</p>
+    </div>
+
+    <h3>这次合并自己制造的风险，以及它的处置</h3>
+    <p>把 8 个 CXO 压成 2 个二级负责人，换来的是协调面收缩；代价是治理官同时成了<b>指标口径的作者、维护者与被评估者</b>。自己造尺子量自己，天然不成立。用一个结构性缺陷换来的精简，如果不处置，就是净损失。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>机制</th><th>具体形态</th><th>缺了会怎样</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">1</td>
+            <td>冻结权外置</td>
+            <td>指标口径冻结权归 AGT-005 与外部复核；治理官只有提案与维护权。<b>冻结记录签署方不得包含 MGT-003</b>，由发布门禁机械校验，含即拒绝发布。</td>
+            <td>治理官可以自行定义被考核的尺子</td>
+          </tr>
+          <tr>
+            <td class="num">2</td>
+            <td>自涉争议上移 L2b</td>
+            <td>涉及治理官自身评估尺度的争议走<b>真人所有者</b>，不经 CEO。理由是 CEO 的排序输入本身就是争议标的，不具备独立性。</td>
+            <td>争议在 CEO 处被消化，独立性名义存在、实质消失</td>
+          </tr>
+          <tr>
+            <td class="num">3</td>
+            <td>复核线不向其汇报</td>
+            <td>AGT-005 的复核结论<b>直达 CEO 与真人所有者</b>，不向治理官汇报；其结论通道在权限层配置为对 MGT-003 只读。</td>
+            <td>复核结论被修改、延迟或压后</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>这三条必须由模型外机制保障。缺任一即判定为「只有提示词」。</strong></p>
+      <p>依据：AWS Well-Architected Agentic AI Lens —「enforced at the control-plane boundary … rather than relying on agent self-restraint」。</p>
+      <p>硬结论：<b>若目标 Host 只能通过 Prompt 层表达口径冻结权与复核线隔离，MGT-003 不得进入 Shadow 阶段。</b>本文件把它写成停止条件，而不是待办事项——因为这件事一旦妥协，整个管理层设计的合法性就没有了。</p>
+    </div>
+
+    <h3>决策阶梯：六级，L1 分两个分支</h3>
+    <p class="lede-quiet">编号口径说明：文档标题写「六级」，但表内有 7 个行标（L1 拆为 L1-G / L1-V 两个分支）。本文件统一写作「六级阶梯」，机器可读取值域为 <code>["L0","L1-G","L1-V","L2","L2b","L3","L4"]</code>。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>级别</th><th>决策主体</th><th>管什么</th><th>生效方式</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>L0 自动化</td><td>确定性规则、Policy Gate</td><td>已发布规则内的判定与幂等执行</td><td>无人参与，留回执</td></tr>
+          <tr><td>L1-G 增长</td><td>MGT-002 增长官</td><td>增长域标准版本、资源配额、域内 Case 组合的继续 / 停止 / 缩小建议</td><td>版本化 MDC + 配额记录</td></tr>
+          <tr><td>L1-V 治理</td><td>MGT-003 治理官</td><td>治理域标准版本、资源配额、约束记录与强制边界；<b>不可决定指标口径冻结</b></td><td>版本化 MDC + <code>constraint_refs</code></td></tr>
+          <tr><td>L2 跨域</td><td>CEO</td><td>跨域资源再分配、域间冲突裁定、全局优先级排序</td><td>GOC 版本 + 裁定记录</td></tr>
+          <tr><td><b>L2b 自涉争议</b></td><td><b>真人所有者</b></td><td>争议标的涉及治理官自身口径与评估尺度的裁定</td><td>人侧决定，系统只记录；<b>不可委托给 CEO 或任何 Agent</b></td></tr>
+          <tr><td>L3 呈报</td><td>CEO → 真人所有者</td><td>形成建议与备选方案，呈报待批</td><td>呈报单，等待明确决定</td></tr>
+          <tr><td>L4 专属</td><td>仅真人所有者</td><td>资本与预算终审、组织与人事变更、法律与对外承诺签署、最终停止确认</td><td>人侧决定，不可委托任何 Agent</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><b>总则：</b>每个决策事项必须落在恰好一级。没有归属的事项视为未授权，默认 <code>HOLD</code>。</p>
+    <p><b>L2b 硬规则：</b>L2b 事项下发起的所有变更，在真人所有者显式决定前保持旧版本生效（fail-closed）。<b>沉默、超时与「没反对」均不构成批准。</b></p>
+  </section>
+
+  <!-- ============ 05 · 闭环 ============ -->
+  <section id="s05">
+    <div class="section-head">
+      <p class="section-num">05 · 闭环</p>
+      <h2>一张 Case 走完八个阶段，每阶段留下一个产物</h2>
+      <p class="section-lede">BP 用「库存告急 + 广告还在加预算」讲了一遍闭环。这一节换成实施口径：每个阶段的正式产物是什么、谁在门禁上签字、什么情况下不许往下走。</p>
+    </div>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-key"><b>STG-01</b>信号接收</div>
+        <div class="phase-body">
+          外部事件进来，先不做判断，只做登记。
+          <div class="artifact">产物：<code>Signal Envelope</code> — 触发 ID、来源、发生与接收时间、去重键、数据分类可追踪</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-key"><b>STG-02</b>范围确定与建单</div>
+        <div class="phase-body">
+          把信号收敛成一张有边界的工单。绑定不成立就不建单。
+          <div class="artifact">产物：<code>Case Charter</code> — 恰好一个主价值流、恰好一个主场景</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-key"><b>STG-03</b>上下文装配</div>
+        <div class="phase-body">
+          给这张单装上需要的少数几个能力，而不是把 50 个岗位叫来开会。
+          <div class="artifact">产物：<code>Context Manifest</code> — 只选择一个主岗位人格，并固定 Bundle 版本</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-key"><b>STG-04</b>证据与诊断</div>
+        <div class="phase-body">
+          只读。拉数据、做诊断，形成对问题的判断。
+          <div class="artifact">产物：<code>Evidence Pack</code>、<code>Diagnosis Record</code></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-key"><b>STG-05</b>方案与标准产物</div>
+        <div class="phase-body">
+          给出方案。这是<b>意图</b>，不是动作。
+          <div class="artifact">产物：<code>Decision Package</code></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-key"><b>STG-06</b>Assurance 门禁</div>
+        <div class="phase-body">
+          独立复核。Evaluator 不能扩权、不能批准资产动作。
+          <div class="artifact">产物：<code>Assurance Decision</code></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-key"><b>STG-07</b>受控动作</div>
+        <div class="phase-body">
+          模型输出意图，模型外裁决，Broker 持自己的身份执行。模型全程碰不到资产。
+          <div class="artifact">产物：<code>Action Intent</code>、<code>Policy Decision</code>、<code>Execution Attempt</code> 或 <code>NoActionRecord</code>（仅 ALLOW 产生执行尝试）</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-key"><b>STG-08</b>结果核验与关闭</div>
+        <div class="phase-body">
+          核对回执，核对经营结果，然后关闭。关闭后异步触发学习提取——记忆失败不阻塞关闭。
+          <div class="artifact">产物：<code>Verified Execution Receipt</code>、<code>Case Closure</code></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="lede-quiet">每个阶段另有 <code>Stage Acceptance Record</code> 控制状态转换，共 <b>64 条 flow-stage 绑定</b>（8 条业务流 × 8 个逻辑阶段）。D-026 的 Emergency Guard 是 FLOW-07 的模型外保护电路，<b>不是第九阶段</b>。</p>
+
+    <h3>组队：Lead 承担结果，Worker 只交接已验收产物</h3>
+    <div class="grid-2">
+      <div class="card">
+        <p class="card-title">允许的</p>
+        <ul>
+          <li>模型外 Case Control 确定性编排 Lead / Worker</li>
+          <li>Worker 通过<b>已验收 ArtifactEnvelope</b> 交接</li>
+          <li>Lead 持有该 Case 的结果责任</li>
+          <li>窄范围只读 Delegate 可作为工具使用</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">不允许的</p>
+        <ul>
+          <li>岗位 Agent 之间自由互聊</li>
+          <li>LLM 多 Agent 路由或模型驱动的动态选人</li>
+          <li>隐式转授权限</li>
+          <li>team-gui 的 dynamic planner 用于业务 Case</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="manifesto">一张工单只有一个负责人。岗位之间靠<em>产物交接</em>，不靠互相聊天——因为聊天没有验收标准，产物有。</p>
+  </section>
+
+  <!-- ============ 06 · 控制 ============ -->
+  <section id="s06">
+    <div class="section-head">
+      <p class="section-num">06 · 控制</p>
+      <h2>管理层的决定怎么变成约束，而不是变成指令</h2>
+      <p class="section-lede">管理层不运行 Case 阶段、不发指令。它的决定只能通过两份版本化合同生效。这一节写清这两份合同长什么样、怎么校验、什么情况下会被拒绝。</p>
+    </div>
+
+    <h3>MDC 最小机器可读 schema</h3>
+    <p class="lede-quiet">MDC = Management Domain Contract（管理域合同），所有者是该域二级负责人，变更频率为月。GOC 为全局约束合同，所有者是 CEO，变更频率为季。两者都是版本化、不可变、带 Hash 的发布物。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>字段</th><th>作用</th><th>示例 / 取值</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>mdc_id</code> / <code>version</code> / <code>hash</code></td><td>不可变版本标识</td><td><code>MDC-D1-1.2.0</code></td></tr>
+          <tr><td><code>domain</code> / <code>member_role_ids</code></td><td>域与成员岗位</td><td><code>demand_side</code> / <code>[AGT-001..004,006..039]</code></td></tr>
+          <tr><td><code>scope_selector</code></td><td>对象类型 + 标识模式</td><td><code>channel=amazon_us</code>、<code>product_family=wearable_breast_pump</code></td></tr>
+          <tr><td><code>priority_class</code></td><td>优先级枚举</td><td><code>P0</code> / <code>P1</code> / <code>P2</code> / <code>P3</code></td></tr>
+          <tr><td><code>quota</code></td><td>资源上限</td><td><code>compute_units_per_week</code>、<code>concurrent_cases</code>、<code>budget_envelope_ref</code></td></tr>
+          <tr><td><code>reservation_policy</code></td><td>配额用尽后的行为</td><td><code>reserve_first_by_priority</code> / <code>queue</code> / <code>reject</code></td></tr>
+          <tr><td><code>constraint_refs</code></td><td>强制约束引用（责任方为 MGT-003）</td><td><code>GOV-CONSTRAINT-0431</code>、<code>RETENTION-45D</code></td></tr>
+          <tr><td><code>supersedes</code> / <code>effective_from</code></td><td>替代关系与生效时点</td><td>—</td></tr>
+          <tr><td><code>decision_package_ref</code></td><td>回指管理决策包</td><td><code>DP-D1-2026-W38-01</code></td></tr>
+          <tr><td><code>retroactive</code></td><td>是否追溯</td><td>默认 <code>false</code>；<code>true</code> 仅限控制边界</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>包含关系校验：超出即拒绝，不截断。</strong></p>
+      <p>规则是 <code>GOC ⊇ 每个域 MDC 的 quota 与 priority_class 取值范围</code>，且每个域 MDC 的 <code>constraint_refs</code> 必须覆盖全局强制约束（合规 / 隐私 / 保留期）。</p>
+      <p>域 MDC 超出 GOC 授权范围时，Case Control <b>直接拒绝该版本并记录 <code>MDC_OUT_OF_GOC_BOUNDS</code>，不做自动截断</b>。理由：截断会静默改变管理层的决定，属于失真。</p>
+    </div>
+
+    <h3>追溯性：三类变更，三种待遇</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>变更类型</th><th>对在跑 Case 的影响</th><th>是否需要等待批准</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>优先级 / 配额 / 排序</td><td>只影响尚未完成的预留，不追溯已开始的阶段</td><td>已提交的预留不允许被抢占</td></tr>
+          <tr><td>业务标准 / 验收标准 / SOP</td><td><b>不追溯</b>，仅对新 Case 生效</td><td>按正常发布流程</td></tr>
+          <tr><td>控制边界（合规、隐私、数据保留、账号规则）</td><td><b>强制追溯</b>，立即注入所有在跑 Case</td><td><b>fail-closed，不等批准即生效</b>，同步呈报真人所有者</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Case Control 的确定性规则</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>情形</th><th>处置</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>命中 <code>scope_selector</code> 且配额未用尽</td><td>按 <code>reservation_policy</code> 预留或立即装配</td></tr>
+          <tr><td>命中但配额已用尽</td><td>按 <code>reservation_policy</code>：<code>queue</code> 等待、<code>reject</code> 拒绝并记录</td></tr>
+          <tr><td>多 Case 争抢同一对象</td><td>高 <code>priority_class</code> 先得；同级先到先得；<b>不得抢占已提交预留</b></td></tr>
+          <tr><td>命中 <code>constraint_refs</code> 任一强制约束</td><td><b>拒绝，进入 <code>HOLD_CONSTRAINT</code></b>，不因优先级豁免</td></tr>
+          <tr><td>无任何 MDC 覆盖该范围</td><td>使用全局默认（最低优先级、无预留），<b>不猜测意向</b></td></tr>
+          <tr><td>MDC 版本超出 GOC 范围</td><td>拒绝该版本，记 <code>MDC_OUT_OF_GOC_BOUNDS</code></td></tr>
+          <tr><td>异常单类型无队列归属</td><td>进入 HOLD 并记自治异常，<b>不由任一岗位自行认领</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="lede-quiet">边界声明（原文）：<b>Case Control 到此为止。它不解释优先级的原因、不合并冲突的管理意图、不为某个域「通融」。</b></p>
+  </section>
+
+  <!-- ============ 07 · 平台 ============ -->
+  <section id="s07">
+    <div class="section-head">
+      <p class="section-num">07 · 平台</p>
+      <h2>落到 DSH 上：八个工作包，材料侧过了三个</h2>
+      <p class="section-lede">50 份岗位资产要真正跑起来，必须落进目标 Host。这一段是最容易「看起来完成」的地方——生成了文件不等于装上了，装上了不等于跑得对，跑对了不等于业务成立。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>工作包</th><th>目标</th><th>交付物 / 门禁</th><th>状态</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>RP-M0</b></td>
+            <td>事实冻结与边界确认：固定 Magpie branch / HEAD / 工作树，记录源漂移与 team-gui schema 现状</td>
+            <td>注入方案 §8</td>
+            <td><span class="badge done">只读审计完成</span></td>
+          </tr>
+          <tr>
+            <td><b>RP-M1</b></td>
+            <td>目标 DSH 与材料契约定版：preset 官方 schema、mount / composeFrom / select 会话语义、dsh-skill-subset 边界、Host tool 行为与权限边界</td>
+            <td><a href="../10-platform/deepseek-harness/MAGPIE-RP-M1-SCHEMA-EVIDENCE.md">MAGPIE-RP-M1-SCHEMA-EVIDENCE.md</a></td>
+            <td><span class="badge done">已完成</span></td>
+          </tr>
+          <tr>
+            <td><b>RP-M2</b></td>
+            <td>同源 compiler 注入：扩展到 50 份 Soul / Role Playbook / Blueprint，写入源快照与 <code>role_assets</code></td>
+            <td><a href="MAGPIE-RP-M2-COMPILER-INJECTION-SPEC.md">MAGPIE-RP-M2-COMPILER-INJECTION-SPEC.md</a></td>
+            <td><span class="badge done">材料注入完成</span></td>
+          </tr>
+          <tr>
+            <td><b>RP-M3</b></td>
+            <td>角色级组合与 Access 投影：工具可见矩阵、默认拒绝未声明工具、拦截直接资产写与递归委派</td>
+            <td>RP-G3</td>
+            <td><span class="badge todo">未开始</span></td>
+          </tr>
+          <tr>
+            <td><b>RP-M4</b></td>
+            <td>preset resolver 与 Case Control adapter：<code>preset_id</code> ↔ 不可变 Bundle 绑定，Lead / Worker / Stage / Artifact 传递</td>
+            <td>RP-G4</td>
+            <td><span class="badge todo">未开始</span></td>
+          </tr>
+          <tr>
+            <td><b>RP-M5</b></td>
+            <td>静态与动态验证扩展：正负向测试、连接测试、生成稳定性与 hash 漂移</td>
+            <td>RP-G5</td>
+            <td><span class="badge todo">未开始</span></td>
+          </tr>
+          <tr>
+            <td><b>RP-M6</b></td>
+            <td>四角色影子试运行：管理 / 运营 / 独立控制 / 平台各一，每类回放 7 类样例</td>
+            <td>RP-G6</td>
+            <td><span class="badge todo">未开始</span></td>
+          </tr>
+          <tr>
+            <td><b>RP-M7</b></td>
+            <td>逐岗位扩展与版本生命周期：50 个 preset 由同一 compiler 生成，不逐个手改</td>
+            <td>RP-G7</td>
+            <td><span class="badge todo">未开始</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>编号陷阱：RP-G 有两套，同名不同义。</strong>注入方案定义 <code>RP-G0</code>~<code>RP-G7</code>（附在每个工作包末尾），实施 TODO 定义 <code>RP-G0</code>~<code>RP-G8</code>（验收门主表）。两者<b>编号重叠、内容不同</b>。例如注入方案的 RP-G2 是「50/50 角色资产存在、ID 唯一、引用闭合、hash 可重建」，而 TODO 的 RP-G2 是「独立回放」。</p>
+      <p>因此引用门编号时必须带文件名限定。本文件在 §07 一律使用 <b>RP-M</b> 指工作包，避免歧义。</p>
+    </div>
+
+    <h3>五层证据不能互相替代</h3>
+    <p>这是整段里最容易被含糊过去的一句话，原文照录：<b>静态生成成功、DSH mount 成功、影子运行成功、业务有限实操和生产验收是五层不同证据，不能互相替代。</b></p>
+    <p class="lede-quiet">当前项目只走到第一层，且第一层内部还分「材料注入」与「目标 Host 装载」两件事——后者属 RP-M3/RP-M4，尚未开始。旧版 L1–L10 全绿、目录数量正确、systemPrompt 已替换、UI 能显示角色名称、本机 preset 能 mount 但没有新资产与 Bundle 证据，<b>都不算通过</b>。</p>
+
+    <h3>三条已经定下、但还没落地的设计</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>设计</th><th>内容</th><th>为什么还没落地</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Playbook 分层加载</td>
+            <td>persona 只放身份、使命、灵魂原则、停止信号与硬边界；完整 Role Playbook 按任务需要加载；目标 DSH 不支持 loader 时，经体积、缓存与安全评估后才允许<b>受控内嵌回退</b></td>
+            <td>loader 与 Skill schema 须在 RP-M3 核实；<b>loader 未验证前，不得把 <code>role_playbook_ref</code> 当成已加载</b></td>
+          </tr>
+          <tr>
+            <td>最小权限 allowlist</td>
+            <td>50 个岗位默认最小权限；平台岗位的额外读取能力逐项建例外契约；所有业务写动作只输出 Action Intent</td>
+            <td>现有 standard 宽工具面不能直接视为合规；具体工具名与服务端拒绝机制待核实</td>
+          </tr>
+          <tr>
+            <td>身份绑定</td>
+            <td>通过模型外 preset resolver / adapter，把 <code>preset_id</code> 与不可变 Role Release Bundle 绑定后再启动子会话</td>
+            <td>当前 AgentRecord 字段只有 name / systemPrompt / provider / model / maxTokens / toolScope / fallback，<b>没有 presetId 或 Bundle 引用</b>；绑定失败必须冻结，不得降级为名称匹配</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede-quiet">Resolver 的校验顺序固定为七项：角色与 preset ID → Bundle hash → 源材料状态 → 目标运行版本 → Skill 可达性 → 工具视图 → Case 范围。任一失败返回 HOLD + 原因，<b>不得创建一个只带 prompt 的降级 session</b>。成功后写入 session binding snapshot，之后即使 registry 有新版本也不改变该 session。</p>
+
+    <h3>已核实的目标 Host 事实与由此产生的禁止做法</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>已核实</th><th>由此禁止</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>官方 <code>preset.yml</code> 只含 name / description / order；<code>id</code> 来自目录名，trust 来自发现根目录</td>
+            <td>不得把 role_id、Bundle hash 或权限写进这个官方文件</td>
+          </tr>
+          <tr>
+            <td><code>composeFrom</code>：子 Agent 获得父 Agent 同一 standing composition（同一插件实例、工具注册、prompt sections）</td>
+            <td>子 Agent 不会因 <code>composeFrom</code> 自动获得另一个岗位 preset，<b>不能当作换岗机制</b></td>
+          </tr>
+          <tr>
+            <td><code>select</code> / recompose：session 已有 turn 时返回 <code>agent-preset/locked</code></td>
+            <td>preset 绑定是 session 事实，<b>不能在运行中静默换岗</b>；projection 不是 Role Release Bundle registry</td>
+          </tr>
+          <tr>
+            <td><code>dsh-skill-subset</code> 支持 skills 白名单、hideOthers、positiveSource、respectFileFlags</td>
+            <td>源码支持不等于目标 Host 已装配或路径可达；<b>禁止把「请读取某路径」当成已加载</b></td>
+          </tr>
+          <tr>
+            <td>team-gui SquadRecord 成员上限 <b>32</b>，且支持 planner 与 adaptive selection</td>
+            <td>不能创建「50 人固定大队」；业务 Case <b>关闭 dynamic planner 与 adaptive selection</b>；超过 32 应按价值流与 Stage 拆成多张相关 Case</td>
+          </tr>
+          <tr>
+            <td>team-gui 定位为执行与观测适配层</td>
+            <td>不能直接承担本项目的 Case Control；<code>dispatch_to_squad</code> 不向岗位模型暴露为自由路由工具；Worker 不得再调用 squad / workflow / subagent 或转授权限</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede-quiet">服务端强制点共七类：Resolver、Skill scope、team-gui adapter、Artifact gate、Policy Gate、Execution Broker、数据平面。<b>默认角色工具视图采用 deny-by-default。静态 prompt 只能帮助模型理解边界，不能替代服务端拒绝——「在 system prompt 里说不能用」不算权限控制。</b></p>
+
+    <h3>产物不落仓库</h3>
+    <p>生成的 preset 目录落在 <code>~/.dsh/.agent-presets/agt-001..agt-050</code>，作为派生输出，<b>不提交到 Magpie-Horch 仓库</b>。仓库只保存 compiler、规则、schema、验证器与来源引用，运行时按固定源 revision 重建。</p>
+    <p class="lede-quiet">理由：遵守单一事实源与「外部产品不烘焙」规则。若未来需要跨机器发布，另行设计带 provenance 的签名 release artifact，<b>不把生成文件回写成第二事实源</b>。</p>
+
+    <h3>影子试验的扩展规则</h3>
+    <p>compiler 一次覆盖全部 50 个岗位；<b>运行验证先做 4 个代表岗位的影子试验</b>，再按验证门扩展。代表岗位至少覆盖经营管理、业务运营、独立控制、数据与 Agent 平台四类。<b>影子通过不等于生产授权。</b></p>
+    <p class="lede-quiet">全量 preset 生成、运行实例数量、并发数与真人编制分别核算，禁止互相替代。</p>
+  </section>
+
+  <!-- ============ 08 · 验证 ============ -->
+  <section id="s08">
+    <div class="section-head">
+      <p class="section-num">08 · 验证</p>
+      <h2>怎么证明：六道门，一道已经跑过，没过</h2>
+      <p class="section-lede">BP 的第 06 节说五个开源项目都停在「让 Agent 把活干完」，没人做验证。这一段是那句话的兑现记录——包括没通过的那一次。</p>
+    </div>
+
+    <h3>六道门</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>门</th><th>名称</th><th>通过条件</th><th>不通过处置</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>MGT-EVAL-A</code></td><td>抗污染</td>
+            <td>全部 L-A 用例合格，<b>零一票否决项</b></td>
+            <td>修正 Playbook 后<b>重跑全部 L-A</b>，不接受只重跑失败项</td>
+          </tr>
+          <tr>
+            <td><code>MGT-EVAL-B</code></td><td>一致性</td>
+            <td>确定性子集 ≥ 95%，阶梯归属 = 100%，L2b 识别 = 100%</td>
+            <td><b>把该决策下沉为确定性规则，或上收人类</b>。不得降低阈值、挑选样本或增加重试</td>
+          </tr>
+          <tr>
+            <td><code>MGT-EVAL-C</code></td><td>生效</td>
+            <td>六条命题全部有可核对证据</td>
+            <td><b>不得宣称管理层可运行</b></td>
+          </tr>
+          <tr>
+            <td><code>MGT-EVAL-R</code></td><td>层数复审</td>
+            <td>影子运行累计两个季度；三项指标至少改善两项</td>
+            <td>进入 <code>MGT_REVIEW</code>：合并域、降级为制度岗位或撤销</td>
+          </tr>
+          <tr>
+            <td><code>MGT-EVAL-R0</code></td><td>结构必要性</td>
+            <td>3 岗位结构在决策周期、组合偏差、例外升级率三项中<b>至少两项优于对照臂</b></td>
+            <td>对照臂不劣于 3 岗位结构时，<b>本层应撤销而非优化</b></td>
+          </tr>
+          <tr>
+            <td><code>MGT-EVAL-R2</code></td><td>独立性复审</td>
+            <td>复核线独立性违规数 = 0；L2b 季度频次未超阈值</td>
+            <td>L2b 频次过高则判定独立性成本超过协调收益，触发 <code>MGT_REVIEW</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="lede-quiet"><code>MGT-EVAL-R0</code> 的判定方向是反的：它不奖励「3 岗位赢」，而是要求 3 岗位必须在至少两项上<b>明确优于</b>对照臂。对照臂（单一通用管理 Agent）输入完全相同，且<b>不给予任何岗位专属技能</b>。这意味着我们给 3 岗位结构设了一个能把它否掉的测试，而不是一个能证明它对的说辞。依据：arXiv:2512.08296 报告单 agent 基线超过约 45% 后继续加 agent 为负回报（β̂ = −0.404, p &lt; 0.001）。</p>
+
+    <h3>语料冻结</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>项</th><th>v2（当前）</th><th>v1（历史）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>用例总数</td><td class="num">25（L-A 12 / L-B 13）</td><td class="num">19（L-A 9 / L-B 10）</td></tr>
+          <tr><td>子集构成</td><td>确定性 12、阶梯 6、L2b 2</td><td>—</td></tr>
+          <tr><td>Hash</td><td><code>2a9977d3…d1d57c</code></td><td><code>64c77da5…ead1d72</code></td></tr>
+          <tr><td>结构时效</td><td><code>current</code></td><td><code>superseded_by_v2_structure</code></td></tr>
+          <tr><td>可用性</td><td>当前一致性证据</td><td><b>不得作为当前设计证据，不得引用其 Hash 证明 v2 已验证</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede-quiet">Hash 口径：<code>sha256 over canonical JSON of {frozen_rules, cases}</code>，递归键排序、整数归一化、无空白、UTF-8。一致性验证的两次运行必须读取同一 Hash。阈值事前固定，<b>不得放宽</b>；v1 的执行结果不可与 v2 横向比较。</p>
+
+    <h3>已执行的门：MGT-EVAL-B（2026-09-18）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>判定项</th><th>阈值</th><th>实测</th><th>结果</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>阶梯归属一致率</td><td class="num">100%</td><td class="num">4 / 6 = 66.7%</td>
+            <td><span class="badge todo">未通过</span></td>
+          </tr>
+          <tr>
+            <td>L2b 识别一致率</td><td class="num">100%</td><td class="num">2 / 2 = 100%</td>
+            <td><span class="badge done">通过</span></td>
+          </tr>
+          <tr>
+            <td>确定性子集一致率</td><td class="num">≥ 95%</td><td class="num">不可独立判定</td>
+            <td><span class="badge">判分能力不足，非通过</span></td>
+          </tr>
+          <tr>
+            <td>整体</td><td colspan="2"><b>未通过</b></td>
+            <td><span class="badge todo">executed_2026-09-18_not_passed</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>执行方式：<code>deepseek-official / deepseek-flash</code>（effort max），<b>每个岗位 2 次隔离运行</b>，同岗位两次输入逐字一致。两项阶梯归属不一致（<code>LB-MGT001-03</code>：L4 vs L3；<code>LB-MGT003-04</code>：L2 vs L1-V），另有一项一致却偏离期望（<code>LB-MGT001-01</code> 两次均判 L1-G，期望 L3）。</p>
+
+    <div class="callout warn">
+      <p><strong>处置与它证明的事。</strong></p>
+      <p>按不通过处置列，这三项<b>必须下沉为确定性规则或上收人类，不得靠调整阈值或重试消除</b>。其中两项已落地为确定性规则并写入决策权文档，新增两条可检出反模式（「捆绑降级」「无证变更」）；另一项的上收分类<b>仍待决</b>。</p>
+      <p>原文结论一句不改：<b>规则落地不等于门禁通过——本轮结果仍为不通过。</b>管理层维持 <code>production_authorized=false</code>。</p>
+      <p>此外，执行前提核验有 1 项不满足（目标 Host 尚不具备口径冻结签署与队列读取的模型外机制），因此 MGT-003 的读数按<b>参考定性</b>处理，不据此宣称该岗位已通过影子验证。</p>
+    </div>
+
+    <h3>三套阶段门不许混用</h3>
+    <p>为避免编号冲突，三类门使用互不重叠的前缀，禁止再使用含义不明的裸 <code>G1 / G2</code>。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>前缀</th><th>适用对象</th><th>范围</th><th>当前停在</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>ORG-G0</code> ~ <code>ORG-G5</code></td><td>组织变革</td><td>岗位资产、管理层、影子验证</td><td><code>ORG-G1</code>（影子验证工作包）</td></tr>
+          <tr><td><code>PILOT-G0</code> ~ <code>PILOT-G4</code></td><td>经营试点</td><td>样本、受控读取、影子闭环、有限动作、扩展</td><td>未启动</td></tr>
+          <tr><td><code>SHOP-G0</code> ~ <code>SHOP-G7</code></td><td>Shopify 绿地</td><td>店铺底座到 SKU 范围证据</td><td><code>SHOP-G1</code>（治理方案）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 09 · 数据 ============ -->
+  <section id="s09">
+    <div class="section-head">
+      <p class="section-num">09 · 数据</p>
+      <h2>连接：目标是一家空白新店，当前不做任何动作</h2>
+      <p class="section-lede">BP 讲的是能力，这一段讲的是连接。首个样本的起点比通常的试点更靠前——目标 Shopify 是一家尚无上线产品的空白新店。</p>
+    </div>
+
+    <div class="callout">
+      <p><strong>当前范围（D-051）：</strong>只交付并审阅完整方案门户与 Shopify 店铺治理底座方案，<b>不实例化 Case，不执行任何 Shopify 配置、商品、App、连接、测试订单或发布动作</b>。</p>
+    </div>
+
+    <h3>绿地八道门</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>门</th><th>目标</th><th>状态</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>SHOP-G0</code></td><td>方案基线 — 完整方案 Site、价值流、岗位、平台、数据、权限与验证边界一致，无上线或经营成效误述</td><td><span class="badge done">已过</span></td></tr>
+          <tr><td><code>SHOP-G1</code></td><td>店铺治理方案 — 六个治理域、十项 SGF 产物、责任、HOLD、变更通路与验收模板；要求「无登录、无真实配置、无 API 条件下可完整审阅」</td><td><span class="badge doing">方案就绪，验收包待最终审阅</span></td></tr>
+          <tr><td><code>SHOP-G2</code></td><td>商品主数据 — Product / Variant / SKU 模型、<code>custom.product_family</code> 定义计划、媒体、规格、合规、价格与库存字段</td><td><span class="badge todo">未开始</span></td></tr>
+          <tr><td><code>SHOP-G3</code></td><td>交易底座 — Markets、税、支付、运费、库存位置、结账、通知、退换与隐私政策</td><td><span class="badge todo">未开始</span></td></tr>
+          <tr><td><code>SHOP-G4</code></td><td>首批上市准备 — 主题、导航、Collection、PDP、内容、SEO、分析事件与客服知识</td><td><span class="badge todo">未开始</span></td></tr>
+          <tr><td><code>SHOP-G5</code></td><td>测试与受控发布 — 测试订单、库存扣减、运费、税、通知、退款路径与回执；发布检查单</td><td><span class="badge todo">未开始 · 需独立授权</span></td></tr>
+          <tr><td><code>SHOP-G6</code></td><td>数据基线与 Agent 连接 — 只读 App 方案、Scope / PCD 证据、工具契约、日聚合与质量监控</td><td><span class="badge todo">延期 · 需访问授权</span></td></tr>
+          <tr><td><code>SHOP-G7</code></td><td>30 天基线与 FLOW-01 Shadow — 连续 30 个完整销售日、<code>gross_sales</code>、Top 5 与三类风险门</td><td><span class="badge todo">延期</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>已经写死的目标态合同</h3>
+    <p>D-033 至 D-049 形成的目标合同保留为 <code>SHOP-G6 / SHOP-G7</code> 的目标状态，<b>不再表示当前已有商品、SKU、报表、订单、App 或资格证据</b>。其中若干条是本项目里最严格的边界：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>领域</th><th>已固定内容</th><th>当前状态</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>原始 GMV 口径</td>
+            <td>以 <code>gross_sales</code> 为原始 GMV；折扣、销售冲销、退款、税费、运费、支付状态与结算现金<b>分别呈现</b>，不以静默净额替代</td>
+            <td>口径已定，无真实数据</td>
+          </tr>
+          <tr>
+            <td>Scope 声明</td>
+            <td>固定为 <code>read_products</code>、<code>read_orders</code>、<code>read_inventory</code>、<code>read_locations</code>、<code>read_markets</code> 五项；<b>排除 <code>read_all_orders</code>、<code>read_customers</code>、<code>read_reports</code> 及全部写 Scope</b></td>
+            <td>声明包已定，实际授权未发生；读回必须完全相等，缺失或多余均 <code>HOLD_SCOPE_MISMATCH</code></td>
+          </tr>
+          <tr>
+            <td>订单数据政策</td>
+            <td>Level 1 最小必要：直接身份、客户主档、自由文本、支付与员工字段<b>全部拒绝</b>；原始 API 响应零持久化；模型只见 SKU 日聚合</td>
+            <td>资格未批准，订单 Query 继续禁用</td>
+          </tr>
+          <tr>
+            <td>保留期</td>
+            <td>规范化订单行加密保存 <b>45 天</b>（30 天经营窗口 + 15 天晚到/重放缓冲）；期满 24 小时内硬删除；删除失败进入 <code>HOLD_RETENTION_DELETE_FAILURE</code></td>
+            <td>政策已定，删除 / 访问 / 备份 TTL 测试未验证</td>
+          </tr>
+          <tr>
+            <td>产品家族选择器</td>
+            <td>唯一主选择器为 <code>custom.product_family</code>（<code>single_line_text_field</code>，受控值 <code>wearable_breast_pump</code>）；<b>不回退</b>到 Product type、tag、标题或模型推断</td>
+            <td>Definition 契约已定，目标 Shop 未创建、未读回、未填充</td>
+          </tr>
+          <tr>
+            <td>连接身份</td>
+            <td>试点专用 Dev Dashboard App；与目标 Shop 同属一个 Organization；服务端认证固定 <code>client_credentials</code>；<b>模型不得接触凭据与 Token</b></td>
+            <td>App 未创建、未安装、未交换 Token</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>未来三条独立 Case</h3>
+    <p>取得实施授权后，绿地建店、产品准备与数据工具应拆成三张共享 <code>correlation_id</code> 但状态、Bundle、资源与关闭结果独立的 Case：</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Case</th><th>主岗位</th><th>目标</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FLOW-04 绿地建店</td><td>AGT-024</td><td>准入范围内可售，取得上线、首单与风险回执</td></tr>
+          <tr><td>FLOW-02 产品准备</td><td>AGT-008</td><td>形成继续、转向、停止或有限放量决定</td></tr>
+          <tr><td>FLOW-06 数据与工具</td><td>AGT-047</td><td>数据、工具、访问、SLO 与使用效果通过验收</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lede-quiet">商品上线并形成<b>连续 30 个完整销售日</b>后，才可能启用 D-033 至 D-049 的 FLOW-01 存量 GMV Shadow，由 AGT-023 负责。Amazon US 保留为后续独立渠道 Case。</p>
+  </section>
+
+  <!-- ============ 10 · 排期 ============ -->
+  <section id="s10">
+    <div class="section-head">
+      <p class="section-num">10 · 排期</p>
+      <h2>每一批钱，绑一个能被证伪的结论</h2>
+      <p class="section-lede">排期不按部门分，按「要买到哪个结论」分。全部金额是示意模型，逐项来路见 <a href="../02-strategy/BP-ECONOMIC-MODEL.md">BP-ECONOMIC-MODEL.md</a>。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>阶段</th><th>要做的事</th><th>做完能证明什么</th><th>做不成就停</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>一 · 跑通</b><br>0–9 月</td>
+            <td>在标杆客户落地首批岗位，接入只读数据，进影子运行</td>
+            <td>这套岗位契约在真实业务里能不能稳定复现同一个判断</td>
+            <td>首批岗位未完成影子运行，或同一判断无法稳定复现</td>
+          </tr>
+          <tr>
+            <td><b>二 · 放权</b><br>9–18 月</td>
+            <td>开放受控写入，让闸门真正拦下越界动作</td>
+            <td>模型碰真钱时，控制层拦不拦得住</td>
+            <td>控制层未能在真实写入路径上拦下越界动作</td>
+          </tr>
+          <tr>
+            <td><b>三 · 复制</b><br>18–30 月</td>
+            <td>把行业包复制到第二个、第三个客户</td>
+            <td>这套东西是项目，还是产品</td>
+            <td>第二个客户毛利率未进入 80% 以上区间</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>批次</th><th>覆盖阶段</th><th class="num">金额</th><th>释放条件</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>第一批</td><td>一 · 跑通 0–9 月</td><td class="num">1,200 万</td><td>首批岗位在标杆客户完成影子运行，同一个判断能稳定复现</td></tr>
+          <tr><td>第二批</td><td>二 · 放权 9–18 月</td><td class="num">1,800 万</td><td>控制层在真实写入路径上，成功拦下越界动作</td></tr>
+          <tr><td>第三批</td><td>三 · 复制 18–30 月</td><td class="num">3,000 万</td><td>第二个客户签约并交付完，毛利率落进模型区间</td></tr>
+          <tr><td><b>合计</b></td><td>约 30 个月</td><td class="num"><b>6,000 万</b></td><td>本轮拟融 <b>3,000 万</b>，覆盖前两批 18 个月</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="lede-quiet">本轮 3,000 万的用途结构：研发（平台工程 + 控制层）53%、交付与客户成功 20%、行业研究与岗位资产 8%、销售验证 9%、安全法务合规 10%。团队 25–30 人、18 个月。<b>这个结构说明现阶段是产品公司而不是项目公司——如果 18 个月后交付占比还压不下去，那才是真问题。</b></p>
+
+    <div class="callout">
+      <p><strong>与当前工作量的关系要说清。</strong>本文件描述的资产（50 份 Soul / Playbook / Blueprint、12 条价值流、6 道门设计）是在第一阶段资金之前、由方案设计工作完成的。它的意义是把第一阶段的起点从「从零开始」变成「装上去」。<b>这不改变资金表，也不表示第一阶段已经开始。</b></p>
+    </div>
+  </section>
+
+  <!-- ============ 11 · 风险 ============ -->
+  <section id="s11">
+    <div class="section-head">
+      <p class="section-num">11 · 风险</p>
+      <h2>什么信号出现时应当停，而不是调参继续</h2>
+      <p class="section-lede">预演失败比预测成功有用。下表每一行都必须有一个可观测的触发信号——没有触发信号的风险，写下来也没用。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>风险</th><th>触发信号</th><th>处置</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">R1</td>
+            <td>控制层只能以 Prompt 表达隔离</td>
+            <td>目标 Host 无法在权限层配置口径冻结签署校验与只读结论通道</td>
+            <td><b>MGT-003 不得进入 Shadow</b>；同时判定整个控制层设计未落地</td>
+          </tr>
+          <tr>
+            <td class="num">R2</td>
+            <td>一致性门禁靠调参「通过」</td>
+            <td>出现降低阈值、挑选样本、增加重试以提高通过率的提议</td>
+            <td>拒绝该提议；唯一合规处置是下沉为确定性规则或上收人类</td>
+          </tr>
+          <tr>
+            <td class="num">R3</td>
+            <td>把设计完成读成运行完成</td>
+            <td>对外表述出现「已上线」「已交付」「已验收」而未附运行证据</td>
+            <td>按证据纪律更正；文档状态行必须区分设计与运行</td>
+          </tr>
+          <tr>
+            <td class="num">R4</td>
+            <td>经济模型被当成实测数据</td>
+            <td>同一组数字在对外材料中被引用而未带「假设」标注</td>
+            <td>跑 <code>verify-bp-economics.mjs</code>；参数性质一旦篡改即失败</td>
+          </tr>
+          <tr>
+            <td class="num">R5</td>
+            <td>第二单仍是项目而非产品</td>
+            <td>第二个客户首年毛利率停在 55%–65%</td>
+            <td><b>停下来重做</b>，不做规模化投入</td>
+          </tr>
+          <tr>
+            <td class="num">R6</td>
+            <td>3 岗位结构不成立</td>
+            <td><code>MGT-EVAL-R0</code> 对照臂不劣于 3 岗位结构</td>
+            <td><b>本层应撤销而非优化</b></td>
+          </tr>
+          <tr>
+            <td class="num">R7</td>
+            <td>治理官独立性违规</td>
+            <td>复核线独立性违规数 &gt; 0；或 L2b 频次超阈值</td>
+            <td>触发 <code>MGT_REVIEW</code>；判定独立性成本是否超过协调收益</td>
+          </tr>
+          <tr>
+            <td class="num">R8</td>
+            <td>语料被就地改写</td>
+            <td>Hash 与登记值不符，或出现登记表之外的阈值</td>
+            <td>校验脚本失败即停止引用该语料结论；旧语料不得就地覆盖</td>
+          </tr>
+          <tr>
+            <td class="num">R9</td>
+            <td>权威事实被 Ledger 替代</td>
+            <td>出现以缓存或会话记录替代 system-of-record 的设计</td>
+            <td>拒绝；权威事实归 system-of-record 与 Case / Event Ledger</td>
+          </tr>
+          <tr>
+            <td class="num">R10</td>
+            <td>岗位数量被当成编制目标</td>
+            <td>出现以 50 倒推真人缩编或并发数的表述</td>
+            <td>拒绝；岗位类型数、运行实例数、并发数、真人编制分别建模</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>三条硬停止条件</strong>（不是待办，是终止条件）：</p>
+      <p>1. 目标 Host 只能以 Prompt 表达口径冻结与复核线隔离 → MGT-003 不得进入 Shadow。<br>
+      2. 第二个客户毛利率未升到 80% 以上 → 停止规模化，重做产品假设。<br>
+      3. <code>MGT-EVAL-C</code> 未通过 → 管理层整体保持 <code>production_authorized=false</code>，<b>不得进入 Site 发布投影，也不得对管理团队宣称可用</b>。</p>
+    </div>
+  </section>
+
+  <!-- ============ 12 · 待决 ============ -->
+  <section id="s12">
+    <div class="section-head">
+      <p class="section-num">12 · 待决</p>
+      <h2>还缺哪些决定，以及它们各卡住什么</h2>
+      <p class="section-lede">这些是经营取舍，属于用户（真人所有者）的决定范围。本文件只列出、不代替决定。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>编号</th><th>待决内容</th><th>卡住什么</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R04-Q2 剩余</td><td>100 亿统计口径、Shopify 以外约束权威来源、质量与停止阈值</td><td>经营基线与验收</td></tr>
+          <tr><td>R04-Q3</td><td>无策略、无回执或工具失败时的自治处置规则</td><td>异常冻结与恢复，避免重复动作</td></tr>
+          <tr><td>R04-Q4</td><td>既有 Agent 资产与 50 个岗位的整合方式</td><td>能力复用与身份治理</td></tr>
+          <tr><td>R04-Q6</td><td>工具优先 UI/UX 是否作为默认工作入口</td><td>工作台产品范围与记录边界</td></tr>
+          <tr><td>R04-Q7</td><td>首个新品验证机会与受保护资源</td><td>双增长主线落地</td></tr>
+          <tr><td>MGT-Q1</td><td>管理层是否正式采用 MGT 命名空间</td><td>资产索引、生成器与 Site 数据</td></tr>
+          <tr><td>MGT-Q2</td><td>MDC / GOC 是否成为第六类契约</td><td>五契约管理图与 Bundle 构成</td></tr>
+          <tr><td>MGT-Q3</td><td>CXO 是否获得 Action Intent 策略模板提案权（当前设计不授予）</td><td>与 AGT-050、Policy Gate 的职责边界</td></tr>
+          <tr><td>MGT-G8</td><td>独立性三条处置是否接受；L2b 频次是否设为复审触发指标</td><td>独立性机制是否成立</td></tr>
+          <tr><td>MGT-G9</td><td>是否为「增长官申请重新排程」增设形式化通道（建议不加）</td><td>治理官节拍排程权的制衡方式</td></tr>
+          <tr><td>MGT-Q5</td><td>是否把「单一通用管理 Agent」设为影子运行对照臂</td><td><b>直接决定 3 岗位结构是否值得保留；不做对照臂则该结论无法被反证</b></td></tr>
+          <tr><td>LB-MGT001-03</td><td>「超出已批准预算包 + 新增服务身份」的阶梯上收分类</td><td>仍待决，无法由通用次序表替代</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>已识别的源内不一致</h3>
+    <p>以下是本文件编写期间发现的、仓库内两处说法不一致的地方。它们<b>不属于待决的经营取舍，而属于待对账的记录问题</b>；在核对清楚之前，引用相关结论必须带文件名限定，不得择一当真。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>不一致</th><th>影响</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">C1</td>
+            <td><code>RP-G</code> 编号双轨：注入方案的 <code>RP-G0</code>~<code>RP-G7</code> 与实施 TODO 的 <code>RP-G0</code>~<code>RP-G8</code> 同名不同义</td>
+            <td>引用门编号必须带文件名；本文件统一用 RP-M 指工作包</td>
+          </tr>
+          <tr>
+            <td class="num">C2</td>
+            <td>Magpie 版本未同步：文档记 Desktop <code>v2.0.5</code> / 检查日 2026-09-11；<code>vendor/dsh-desktop.pin</code> 已为 <code>v2.0.10</code> / 检查日 2026-09-17，运行时物化为 <code>0.1.5-rc.2</code>；而 generator 内的 <code>SOURCE_DSH_VERSION</code> 仍是 <code>2.0.5</code></td>
+            <td>源快照中的版本声明与当前 pin 不一致；重建 preset 前必须先对账</td>
+          </tr>
+          <tr>
+            <td class="num">C3</td>
+            <td>需求条数：PRD 为 <code>REQ-001</code>~<code>REQ-038</code>（38 条）；已发布 Site 的发布证据表记「33 项 PRD 需求」</td>
+            <td>Site 记的是已发布提交的快照口径；对外引用需求条数时须说明取哪一个</td>
+          </tr>
+          <tr>
+            <td class="num">C4</td>
+            <td>影子验证文档 §7 写「增长官 31 岗」，同文件其他处及组织图、管理层设计、ADR-0014 均为 38 岗</td>
+            <td>38 为多处一致值，31 疑为笔误；不得据 31 推导覆盖面</td>
+          </tr>
+          <tr>
+            <td class="num">C5</td>
+            <td>BVS-06 名称同一文件内两种写法（总表「需求到数据产品与工具」／章节标题「需求到数据产品与业务工具」）</td>
+            <td>引用价值流名称时以总表为准并注明</td>
+          </tr>
+          <tr>
+            <td class="num">C6</td>
+            <td>GOC 的英文全称在全部文档中均无明文；其内容在 ADR-0014 与 <a href="../04-organization/MANAGEMENT-LAYER.md">MANAGEMENT-LAYER.md</a> §9.1 之间表述不同（前者未列「战略停止清单」）</td>
+            <td>不得自行补英文全称；引用 GOC 内容须指明出处</td>
+          </tr>
+          <tr>
+            <td class="num">C7</td>
+            <td>RP-M5 表述滞后：写「从 L1–L10 扩展」，而 RP-M2 已完成 L1–L12</td>
+            <td>以 RP-M2 规格与实际校验器为准</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ 13 · 索引 ============ -->
+  <section id="s13">
+    <div class="section-head">
+      <p class="section-num">13 · 索引</p>
+      <h2>这个项目的编号体系</h2>
+      <p class="section-lede">查证时按编号定位，不靠记忆。</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <p class="card-title">决策与依据</p>
+        <ul>
+          <li><a href="../00-project/DECISIONS.md">DECISIONS.md</a> — D-001 至 D-063，含每条决定的边界</li>
+          <li><a href="../adr/">ADR-0001 至 ADR-0014</a> — 难逆转且有真实取舍的决定</li>
+          <li><a href="../00-project/DESIGN-TREE.md">DESIGN-TREE.md</a> — 未决项与依赖</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">阶段门</p>
+        <ul>
+          <li><code>ORG-G0</code>~<code>ORG-G5</code> — 组织变革</li>
+          <li><code>PILOT-G0</code>~<code>PILOT-G4</code> — 经营试点</li>
+          <li><code>SHOP-G0</code>~<code>SHOP-G7</code> — Shopify 绿地</li>
+          <li><code>RP-M0</code>~<code>RP-M7</code> — DSH 适配工作包</li>
+          <li><code>RP-G0</code>~<code>RP-G8</code> — 验收门（<b>两套同名不同义，引用须带文件名</b>）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">校验脚本</p>
+        <ul>
+          <li><code>verify-bp-economics.mjs</code> — 经济模型三处一致</li>
+          <li><code>verify-management-eval-corpus.mjs</code> — 语料未被改动</li>
+          <li><code>verify-docs-links.mjs</code> — 链接与 JSON 语法</li>
+          <li><code>check-ladder-rules.mjs</code> — 决策阶梯规则</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card-title">核心源文档</p>
+        <ul>
+          <li><a href="../02-strategy/SOLUTION-MAP.md">SOLUTION-MAP.md</a> — 完整方案地图</li>
+          <li><a href="../03-scenarios/END-TO-END-VALUE-STREAMS.md">END-TO-END-VALUE-STREAMS.md</a> — 12 条价值流</li>
+          <li><a href="../07-orchestration/COLLABORATION-GRAPH.md">COLLABORATION-GRAPH.md</a> — 八阶段协同协议</li>
+          <li><a href="../00-project/STATUS.md">STATUS.md</a> — 当前阶段与边界</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>校验结果说明</h3>
+    <p>本文件的校验脚本只证明<strong>同一组数字在文档、页面与机器可读事实源之间写法一致，且组内算术自洽</strong>。它不证明这些假设合理、可达成或已被验证。语料校验脚本同理：只证明语料未被改动，不证明任何业务结论。</p>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer class="foot">
+    <div class="mark">
+      <span class="wm-name">AI 组织变革 · 实施蓝图</span>
+      <span class="wm-line">把岗位写成契约，把结论写成门禁</span>
+    </div>
+    <div>
+      <p class="ethos">全文事实均指向仓库内源文档；测算部分为公开假设的示意模型，不冒充实测数据。所有「已完成」均指设计与静态验证完成，<strong>不含任何企业系统运行</strong>。方案全文与验证记录公开可查。</p>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

@@ -108,6 +108,8 @@ D-050补充了更早的业务事实门：Shopify当前是空白新店且无上�
 
 写入前检查 branch 与工作区。写入后检查内部相对链接、编号引用、状态一致性、未决项是否被误写为事实，以及 Git 空白错误；首次创建文件尚未跟踪时，同时检查文件自身。
 
+**写入工具会产生非仓库惯例权限（必查）**：实测 `write` 落盘为 0600、`edit` 为 **0000**——后者意味着 owner 自己也读不了，后续 `read`/`edit`/`grep` 全部 EACCES，而症状看起来像别的问题（本轮即因此被误判过一次）。因此**每次 `edit` 之后必须立刻恢复权限**。`python3 scripts/fix-file-perms.py` 可批量修复、`--check` 可用于校验；它用 git 界定管辖范围（被 gitignore 的工具状态目录与 `*.lock` 不在管辖内——锁文件用 0600 本就更合理，不该被「修复」）。
+
 独立岗位资产还要核对50份Soul Contract、50份Role Playbook、50份Preset Blueprint的ID、引用、模式和生产授权状态一致，并验证standalone与Lead/Worker两种运行说明都存在。
 
 v2完成前继续核对50个唯一岗位ID、50张岗位卡、50份Role Playbook、50份Preset Blueprint、8流程、20场景和8份共享Playbook不丢失。v2结构检查还须核对：12条端到端价值流为8条BVS与4条CVS；BVS与原FLOW一一映射且角色并集覆盖50/50；每条流有5个产品步骤、5个协作步骤、有效结果负责人、完整role_scope、协作角色不越界和production_authorized=false；文档目录与Site投影语义一致。每个Case只有一个主价值流、一个主场景和一个Lead结果负责人；Worker只消费已验收ArtifactEnvelope，不能共享隐式会话或转授权限；跨价值流信号的关联Case状态独立且只引用已验收产物；Skills不携带第二人格；8阶段、64条flow-stage绑定、51条候选flow-scenario绑定和140条历史role-flow覆盖一致；每个阶段有产物与接收记录；STG-01不要求case或Bundle；Bundle从STG-03固定；Case状态不使用Quarantined；Agent管理对象引用Prompt/Skill/Tool/Model/Eval/Memory版本；普通动作与紧急保护均经过Policy Gate和Execution Broker；Emergency Guard为模型外且只限FLOW-07，原子边界只覆盖本地Case/Outbox记录，建单前歧义只能产生Pre-Case Exception，紧急Attempt不充当STG-07且TTL不自动恢复；Service Identity不属于模型；所有生产授权为false。检查结果只证明文档与设计数据一致。
@@ -116,13 +118,60 @@ v2完成前继续核对50个唯一岗位ID、50张岗位卡、50份Role Playbook
 
 50个岗位的Soul、Role Playbook、Preset Blueprint和Site资产由`scripts/build-role-assets.mjs`从`docs/05-agents/role-catalog.json`生成；修改岗位目录后运行`node scripts/build-role-assets.mjs`，再执行50项资产契约、JSON、链接和`git diff --check`验证。生成物仍是设计资产，不能当作DSH导入配置。
 
+Magpie-Horch的50个preset注入方案见[Magpie-Horch × 50个数字岗位分身注入方案](../12-rollout/MAGPIE-HORCH-ROLE-PRESET-INJECTION-PLAN.md)。Magpie只作为同源compiler、静态校验和DSH运行面适配层；其派生输出位于`~/.dsh/.agent-presets/`，不回写第二份岗位事实。实施前必须重新核实DSH schema、role-specific Skill loader、preset resolver、角色级工具强制边界以及模型外Case Control/Policy Gate/Execution Broker；当前不把任何Magpie代码、配置或业务连接视为已修改或已上线。
+
+RP-M1的只读证据与候选适配结构集中记录在[DSH预设与适配契约证据](../10-platform/deepseek-harness/MAGPIE-RP-M1-SCHEMA-EVIDENCE.md)。该记录区分Observed、Proposed和Unknown：官方preset元数据、mount/composeFrom/select会话语义与Skill子集源码已核实；`role_assets`、Role Release Bundle、Case/Artifact/Action adapter仍是外部契约草案，未经目标Host验证不得生成导入配置。
+
+RP-M2的输入、角色匹配、hash、persona/Skill分层、manifest扩展、幂等生成和失败关闭规则见[compiler注入规格](../12-rollout/MAGPIE-RP-M2-COMPILER-INJECTION-SPEC.md)。当前已获授权并完成 Magpie 代码与派生 preset 重建；这些输出仍是设计或派生运行产物，不是生产配置。目标 Host 的岗位 Skill loader、实际导入和外部执行边界必须在后续隔离门验证。
+
 目标Harness版本必须先对齐：企业材料描述的在建平台与本机LUTE Agentic System安装包不是同一版本证据。MCP、native tool、API、hook和tool UI各自进入工具能力登记册，资料列出的系统不等于已有读写权限。当进入代码或配置阶段，先依据实际平台版本补充运行和测试方式，再修改本记录。不得提前编造命令或宣称平台可导入。
+
+## BP、经济模型与实施蓝图
+
+对外 BP 页面位于 `bp/index.html`（源片段 `bp/_body.html`，装配脚本 `bp/build.sh`），是**面向外部读者的商业化论证**；它不复述项目证据，只引用结论，并把「已做完」与「明确没有验证」并排放在第 07 节。BP 不是本仓库的事实源，任何与其冲突的表述以 `docs/` 为准。
+
+[BP 经济模型与参数来路](../02-strategy/BP-ECONOMIC-MODEL.md)是 BP 第 08–09 节全部金额的唯一权威出处。三层关系固定为：机器可读事实源 [bp-economic-model.json](../02-strategy/bp-economic-model.json) → 文档 → 页面。**任何金额改动先改 JSON，再同步文档与页面，最后跑 `node scripts/verify-bp-economics.mjs`。**
+
+该模型有一条会被机械强制的纪律：`parameters[].kind` 只允许 `assumption`。校验脚本对任何其他取值直接 FAIL——这意味着一个参数**不能**被就地改成「实测」而不迁移到证据文档。这条规则的理由是：整份 BP 的可信度押在「假设被明确标为假设」这一件事上，一旦某个数字被静默升级成实测，第 07 节的自我披露就变成了表演。
+
+脚本同时核对三件事：组内算术自洽（区间乘法、加法、除法、加权百分比、包含关系共 21 项）、页面与文档的取值字符串一致、以及资本批次的金额与用途占比相加正确。它**只**证明三处写法一致且算术自洽，不证明假设合理或可达成。
+
+[实施蓝图](../12-rollout/IMPLEMENTATION-BLUEPRINT.html)以 BP 的十一节骨架展开为内部实施口径：资产清单、硬约束及其强制机制、八阶段产物门禁、MDC/GOC 生效机制、DSH 适配的八个工作包、六道验证门、三套阶段门命名、排期与停止条件。它把 BP 的论证翻译成「动哪些文件、过哪些门、什么时候该停」，并在 §12 记录已识别的源内不一致（含 RP-G 编号双轨、Magpie 版本未同步、需求条数口径差异等）。
+
+**写作纪律**：实施蓝图只写设计与静态验证状态。凡「已完成」必须能指向文件与校验命令；凡运行侧一律写「未开始 / 未授权 / 未实例化」。它不产生任何运行能力，也不改变 D-051 与 D-052 的范围。
+
+## 管理层资产（决策权平面）
+
+管理层是**决策权平面**，不是Agent层级：1个CEO（MGT-001）与**2个二级负责人**（MGT-002 增长官、MGT-003 治理官）通过版本化管理域合同MDC与资源配额影响模型外Case Control的装配规则，不进入Case执行链、不作为任何Case的Lead或Worker、不与50个岗位发生会话、不持有Service Identity与Action Intent能力，可见面限于只读聚合视图。
+
+**结构版本（v2，2026-09-18）**：v1曾为1个CEO + 8个CXO（共9岗），按用户决定改为3岗。v2不是裁剪而是重新划域，并引入了v1不存在的一个失效模式与三条处置（见下"治理官的独立性"）。v1资产未进入版本控制（`management/`目录当时为未跟踪状态），**无历史版本可回滚**；变更依据见D-062。
+
+- **命名空间与边界**：管理层使用独立`MGT`前缀，不占用`AGT-001~050`编号，不改变50岗位的`role_count`、五契约与既有资产索引。两个管理域的覆盖并集必须等于 AGT-001~050 全集（38 + 12 = 50），**双线归属数必须为0**；v1曾有5处（AGT-002/018/027/038/044），v2已全部消除，回归该状态视为设计缺陷。
+- **治理官的独立性是v2承重机制，不得降级为提示词**：口径冻结权归AGT-005与外部复核（治理官只有提案权）；涉及治理官自身评估尺度的争议走**L2b真人所有者**（不经CEO，因CEO的排序输入即争议标的）；AGT-005复核结论直达CEO与真人所有者、**不向治理官汇报**。依据 AWS Well-Architected Agentic AI Lens 的「enforced at the control-plane boundary … rather than relying on agent self-restraint」：**若目标Host只能通过Prompt层表达该隔离，MGT-003不得进入Shadow阶段**——提示词中的约束不构成服务端权限控制（项目平台红线）。
+- **仲裁是兜底机制，不是职责**：六个多智能体框架里没有任何一个把"冲突仲裁"写成manager明文职责；Cursor的生产实测显示冲突仲裁角色「created more bottlenecks than it solved」，移除后反而更好。因此CEO的跨域仲裁次数目标**不是变快而是变少**，每次仲裁须产出"哪条规则本可避免"，同类冲突第二次被仲裁计为失败。
+- **管理幅度的证据纪律**：Fayol「不得超过6名下属」**找不到任何原始文本支撑，不得引用**；Bloom/Lemos/Sadun/Van Reenen系列**没有管理幅度经验发现**（NBER WP 20102全文零命中）。可引用的是 Graicunas(1933)、Rajan & Wulf、Gallup（均值12.1、中位数5–6）、Pave。上下级比例采用 AWS 的 supervisor-to-worker ratio 口径做**监控**而非硬上限（当前38:1与12:1）。
+- **权限阶梯是唯一合法性来源**：任一决策必须落在[决策权阶梯](../04-organization/management/DECISION-RIGHTS.md)的L0至L4之一；没有归属的事项视为未授权并默认HOLD。L4（资本与预算终审、组织与人事变更、法律与对外承诺签署、最终停止确认）不可委托给任何Agent。
+- **管理层的权力不是会话权**：管理层的结论只能以MDC/GOC的版本与资源配额形式生效；任何要求管理层直接改变单张Case装配或顺序的实现方案都违反ADR-0014，必须拒绝。
+- **反证指标与退出条件**：每个管理岗位必须能被判定为冗余——若连续两个季度无法在决策周期、组合偏差、例外升级率三项中改善至少两项，进入`MGT_REVIEW`。
+- **验证语料**：管理层影子验证语料有两份，**当前证据是v2**（`docs/04-organization/management/eval/management-eval-corpus.v2.json`，25用例），v1（`management-eval-corpus.v1.json`，19用例）保留为结构变更的追溯记录并被标记`superseded_by_v2_structure`。由`scripts/verify-management-eval-corpus.mjs`校验两份语料的完整性、阈值与冻结Hash；不带参数时校验登记表内全部语料。
+- **校验脚本只证明「语料未被改动」**：它不证明业务判断正确、不证明管理决定能生效、也不证明语料覆盖完整。「语料已冻结」与「验证已执行」是两件事：是否执行、是否通过，只以 `execution_status` 与 `execution_record.run_log` 指向的台账为准。`execution_status` 按**登记表**校验——未登记的取值一律 FAIL；且一旦声称已执行，必须存在可读的台账文件，否则「已执行」只是无凭据的断言。
+- **`MGT-EVAL-B` 已执行（2026-09-18）且未通过**：阶梯归属一致率 **4/6 = 66.7%**（阈值 100%），L2b 识别 2/2 = 100%，确定性子集因判分能力不足未独立评估。台账见[eval/runs/2026-09-18-MGT-EVAL-B/RUN-LOG.md](../04-organization/management/eval/runs/2026-09-18-MGT-EVAL-B/RUN-LOG.md)。两项不一致的阶梯项（`LB-MGT001-03` L4 vs L3、`LB-MGT003-04` L2 vs L1-V）须下沉为确定性规则或上收人类，**不得靠调阈值或重试消除**。
+- **一致性门禁查不出「稳定地错」**：`LB-MGT001-01` 两次运行都判 L1-G 而期望 L3——它通过了一致性检验，却揭示 `DECISION-RIGHTS.md` §3 的规则缺口：「已批准域标准版本的实质变更（改变阈值／窗口／口径）」按现有升降级规则推不出 L3。一致性门禁能发现「不稳定」，**发现不了「稳定地按规则推导、而规则本身没写清」**；后者要补规则，不能归咎于执行者。**（2026-09-18已补）**：两条缺口分别落地为 `DECISION-RIGHTS.md` **§3.1混合级别捆绑的归属判定**（整批按批内约束强度最高项归属；「多域并列≠L2跨域」；归属线≠版本所有权）与 **§3.2实质变更的证据前提**（缺基线或增量证据 → L3呈报，且不是 L2）。由此得出一条可复用的判据：**门禁不通过的处置不是调阈值，而是把该决策从模型层移出**——落地后它应转为语料中的确定性校验项。
+- **影子验证的执行方法论（本轮踩坑得出，适用于后续所有隔离运行）**：①**两次运行的输入必须逐字一致**——手工复制长 prompt 无法保证（实测出现过标点差异），应把 prompt 固化为文件、两次运行只接收「读取同一文件」并记录文件 Hash。②**隔离不能只靠「不提供答案」**，必须显式声明禁止访问范围：岗位资产与评测语料同处一个目录树时，执行者会自然读到期望答案（实测执行者主动引述了 `expected_deterministic_output`）。③**输出契约须与语料期望的字段形态匹配**：契约若要求自由文本而语料期望枚举，「确定性子集一致率」就无法客观判分，只能退化为可精确比对的那一项，报告里必须写明而不是拿它冒充。④作废轮次的原始输出要逐字留存，否则重跑看起来像在挑结果。
+- **反模式覆盖由脚本强制**：`EXPECTED_L_A_PER_ROLE` 声明每个管理岗位应有的L-A条数，须等于其 Playbook §2 的反模式条数。改 Playbook 而不同步语料会 FAIL，不静默通过。
+- **规则落地必须可机械核验**：`MGT-EVAL-B` 的合规处置是把该决策从模型层移出，因此落地的规则不能只写成散文。`scripts/check-ladder-rules.mjs` 把 `DECISION-RIGHTS.md` §3.1/§3.2 实现为纯函数，断言「机械判定 == 语料期望阶梯」（`LB-MGT003-04` → L1-V、`LB-MGT001-01` → L3），并以 7 项变异对照证明规则对输入敏感而非恒返回期望值；同时做规则文本存在性检查，防止规则被删而脚本仍通过。**它是设计期核对工具，不是 Policy Gate 实现，不产生运行能力（D-051）；脚本通过不代表门禁通过。**
+- **阶梯口径变更使结果不可横比**：v1按L0/L1/L2/L3/L4判分，v2把L1拆为L1-G/L1-V并新增L2b。引用任一份语料的结论时必须同时写明其`structure_version`。冻结Hash必须由Node与Python两套实现交叉复算一致——两种语言对整数值的序列化不同（JS输出`1`、Python输出`1.0`），不显式做整数归一化会得到不同的Hash，使冻结形同虚设。
+- **当前生成方式**：管理层资产由手工维护（不同于由`scripts/build-role-assets.mjs`生成的50岗位资产）。若后续纳入生成器，须先确认MGT-Q1命名空间与MGT-Q2契约类型，且不得改变50岗位的生成结果。
+- **当前状态**：全部3个管理岗位均为设计完成、未实例化、`production_authorized=false`；只读聚合视图的口径与审计契约仍属RP-M1/RP-M3范围，未核实前管理层的输入能力为unknown。
+- **外部依据**：[AI原生组织管理层调研](../14-research/AI-NATIVE-ORG-MANAGEMENT-LAYER.md)区分官方文档、一手材料与二手报道，并单列反面证据与证据缺口。
 
 ## Site投影规则
 
 Site是已确认设计资产的交互视图，不建立独立业务事实。完整方案域以`docs/02-strategy/SOLUTION-MAP.md`为导航，Shopify当前实施顺序以`docs/12-rollout/SHOPIFY-GREENFIELD-ROADMAP.md`为准；岗位内容以`docs/05-agents/role-catalog.json`为准，原8条业务流程以`docs/03-scenarios/FLOW-CATALOG.md`为准，12条端到端双工作流以`docs/03-scenarios/e2e-value-streams.json`为结构化权威目录；`dist/data/e2e-workflows.json`只是发布投影，必须保持语义一致。源文档变化时同步更新`dist/data/`及对应页面表述，并复核50岗位、四平面5/35/5/5、BVS/CVS为8/4、BVS岗位覆盖50/50、每流双工作流完整且全部生产授权为false。站点可用性验证至少覆盖HTML入口、CSS/JavaScript/JSON本地引用、JavaScript语法、岗位与价值流数量、负责人/协作角色引用、桌面与移动视口以及本地HTTP响应。
 
 页面必须持续区分设计基线、运行配置、企业系统连接、影子/有限运行和生产验收。Site中的筛选、卡片与图谱用于理解和决策，不获得Policy判定、业务写入或system-of-record地位。
+
+当前Site**尚未**投影管理层（MGT-001至009）：`dist/data/`只包含50岗位与12价值流。管理层资产处于设计待确认状态，在MGT-Q1至MGT-Q5确认前不得加入发布投影，以免把待确认结构当作已确认事实对外发布。
 
 Shopify绿地阶段、组织变革阶段和经营试点阶段必须使用不同命名空间：`SHOP-G*`、`ORG-G*`和`PILOT-G*`。禁止在没有命名空间时写“进入G1/G2”，以免把方案审阅、店铺实施和经营试点混为同一门。
 
