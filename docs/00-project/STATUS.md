@@ -77,7 +77,7 @@
 | Git commit与远端分支 | 本地HEAD、`origin/main`和GitHub API在首次Pages发布时均为`7c84617467cd2ad1a2db08ccf8cad1072ebe6c4d` | 后续仅文档证据提交不改变已发布`dist/`字节 |
 | GitHub Actions | Pages workflow运行`35073360037`成功 | Workflow成功不单独证明公网内容正确 |
 | Pages控制面 | `https://zjgulai.github.io/AI-Native-Organization/`，`build_type=workflow`，HTTPS开启 | 控制面配置不替代公网取证 |
-| 公网内容 | 首页、`styles.css`、`app.js`、`roles.json`和`e2e-workflows.json`均返回成功并与本地发布包SHA-256字节一致；浏览器加载50岗位和12价值流、无错误覆盖层、无横向溢出 | 不证明企业系统连接、业务权限或经营效果 |
+| 公网内容 | 首页、`styles.css`、`app.js`、`roles.json`和`e2e-workflows.json`均返回成功并与本地发布包SHA-256字节一致；浏览器加载50岗位和12价值流、无错误覆盖层、无横向溢出 | 不证明企业系统连接、业务权限或经营效果；其中「无横向溢出」的窄屏部分受测量方法所限（Chrome headless视口钳制在500px），已由第三次发布条目纠正 |
 
 ### 第二次发布（2026-09-18，D-064）
 
@@ -88,6 +88,20 @@
 | 公网内容 | `dist/`全部7个文件（`index.html`、`styles.css`、`app.js`、`data/roles.json`、`data/flows.json`、`data/role-assets.json`、`data/e2e-workflows.json`）与本地发布包SHA-256**逐字节一致**；首页返回200、标题正确、岗位数据50条 | 本次提交未改动`dist/`，公网字节与首次发布预期相同 |
 | 新增文档可达性 | `docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html`、`docs/02-strategy/BP-ECONOMIC-MODEL.md`、`docs/02-strategy/bp-economic-model.json`、`scripts/verify-bp-economics.mjs`、`bp/index.html`经GitHub API均返回200 | 文件可达不等于内容已被审阅 |
 | 本地网络异常与处置 | `github.com`的DNS解析结果`20.205.243.166:443`不可达，`git push`两次失败；改用`--resolve`指向可用IP后推送成功 | 属本机网络/DNS路由问题，不是仓库或权限问题；未修改系统hosts |
+
+### 第三次发布（2026-09-18，D-065）：两份HTML文档进入公网
+
+| 证据层 | 结果 | 边界 |
+| --- | --- | --- |
+| Git commit与远端分支 | 本地HEAD、`origin/main`均为`351afc198b9fcc61a2227ecfc43c0dee84ba40bc`（`2bf9ce6..351afc1`快进推送） | 推送成功不证明公网内容正确 |
+| GitHub Actions | Pages workflow运行[35259854355](https://github.com/zjgulai/AI-Native-Organization/actions/runs/35259854355)成功 | Workflow成功不单独证明公网内容正确 |
+| 公网内容 | `dist/`全部**9个文件**与本地发布包SHA-256逐字节一致；`/`、`/bp/index.html`、`/docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html`均返回200 | 本次新增2个文件，首次发布的7个文件字节未变 |
+| 此前不可达的纠正 | 第二次发布记录的「文档可达」仅指GitHub API返回200；Pages只上传`./dist`，两份HTML当时在公网均为**404**。本次由`scripts/build-pages-docs.mjs`归入`dist/`，公网转为200 | 文件在GitHub可达不等于在Pages可访问，两者发布面不同 |
+| 链接改写 | 实施文档22条仓库内链接改写为GitHub绝对链接、1条改为站内相对链接；17个唯一改写目标经GitHub API校验全部200；BP页自包含，副本与源逐字节一致 | 改写只发生在`dist/`副本，源文档相对链接未改动 |
+| 窄屏复核与测量方法纠正 | `bp/index.html`在360/390/414/500/600/768/1024/1280/1440九个宽度**0溢出**；实施文档窄屏下3–5个表格超出视口但全部位于`table-wrap[overflow-x:auto]`内可横向滚动，**0个被裁切** | **Chrome headless把视口钳制在最小500px**，此前「390/414无溢出」实为在500px下测得；本轮改用「宽窗口内嵌固定宽度iframe」才真正触达窄屏 |
+| 门户改动 | `dist/index.html`「追溯权威源」新增两条站内入口；按同一方法复测九个宽度，溢出情况与改动前**逐项完全相同**，改动为布局中性 | 门户窄屏下顶部导航`nav[overflow-x:auto]`有3个锚点超出视口，属横向滚动设计，早于本次改动存在 |
+| 陈旧副本闸门 | `pages.yml`发布清单增加两份文档，并新增「重跑生成脚本后比对`dist/`」步骤：源文档改动而未重建`dist`时**硬失败**；触发路径相应加入两份源文档与生成脚本 | 该闸门防的是「公网长期展示旧副本而不报错」，不校验内容是否正确 |
+| 本地网络 | 本次`git push`一次成功，未使用`--resolve`绕行；DNS异常未复现，故未保留绕行参数 | 异常是否消除未经独立验证，仅记录本次未复现 |
 
 ## 本轮验收范围
 
