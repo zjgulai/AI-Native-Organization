@@ -6,6 +6,9 @@ on:
       - main
     paths:
       - "dist/**"
+      - "bp/index.html"
+      - "docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html"
+      - "scripts/build-pages-docs.mjs"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -36,6 +39,19 @@ jobs:
           test -f dist/data/roles.json
           test -f dist/data/flows.json
           test -f dist/data/e2e-workflows.json
+          test -f dist/bp/index.html
+          test -f dist/docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html
+
+      # Pages 只发布 dist/，因此「源文档改了、dist 副本没重建」会让公网长期展示旧内容
+      # 而不报任何错。这里重跑一次生成脚本再比对：副本过期即失败，而不是静默上线。
+      - name: Verify docs bundle matches its sources
+        run: |
+          node scripts/build-pages-docs.mjs
+          if ! git diff --quiet -- dist/; then
+            echo "::error::dist/ 与源文档不一致：请在本地运行 node scripts/build-pages-docs.mjs 并提交结果"
+            git --no-pager diff --stat -- dist/
+            exit 1
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
