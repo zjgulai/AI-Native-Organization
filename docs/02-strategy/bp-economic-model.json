@@ -1,0 +1,182 @@
+{
+  "schema": "bp-economic-model/1",
+  "status": "illustrative",
+  "kind": "all_parameters_are_assumptions",
+  "currency": "CNY",
+  "unit": "人民币万元，除标注外",
+  "authority_doc": "docs/02-strategy/BP-ECONOMIC-MODEL.md",
+  "rendered_in": ["bp/index.html"],
+  "notice": "全部为示意模型。不是实测数据，不是报价，不构成任何商业承诺。任何参数改动先改本文件，再同步文档与页面，最后跑 scripts/verify-bp-economics.mjs。",
+  "boundary": [
+    "D-051：当前只交付并审阅完整方案门户与 Shopify 店铺治理底座方案，不实例化 Case",
+    "D-052：公开部署授权只覆盖方案文档、结构化设计资产、静态 Site 与 Pages 工作流",
+    "文中金额不对任何客户、投资人或第三方构成要约或承诺",
+    "「本轮拟融 3,000 万」是资金规划描述，不代表融资已发生、已启动或已获承诺"
+  ],
+
+  "parameters": [
+    { "id": "P1", "name": "目标客户数（年 GMV ≥ 10 亿的出海消费品牌）", "display": "250–400 家", "range": [250, 400], "unit": "家", "kind": "assumption", "replace_with": "行业名录 × 公开营收 / 融资数据交叉核对" },
+    { "id": "P2", "name": "其中三条同时成立的比例", "display": "12%–18%", "range": [0.12, 0.18], "unit": "ratio", "kind": "assumption", "replace_with": "客户访谈 + 销售漏斗实测" },
+    { "id": "P3", "name": "客户运营与管理层人力成本", "display": "2.5–4.5 亿 / 年", "range": [25000, 45000], "unit": "万元/年", "kind": "assumption", "replace_with": "首个客户提供的组织成本基线" },
+    { "id": "P4", "name": "首年 / 续费年客单价", "display": "360–600 万 / 240–360 万", "first_year_range": [360, 600], "renewal_range": [240, 360], "unit": "万元", "kind": "assumption", "replace_with": "首单实际签约价与后续续约价" },
+    { "id": "P5", "name": "首年 / 续费年毛利率", "display": "55%–65% / 80%–85%", "first_year_range": [0.55, 0.65], "renewal_range": [0.80, 0.85], "unit": "ratio", "kind": "assumption", "replace_with": "交付工时与云成本实账" },
+    { "id": "P6", "name": "续费率", "display": "80%", "range": [0.80, 0.80], "unit": "ratio", "kind": "assumption", "replace_with": "首批客户的续约结果" },
+    { "id": "P7", "name": "复制期获客成本", "display": "100–200 万", "range": [100, 200], "unit": "万元", "kind": "assumption", "replace_with": "第二、三客户的销售费用实账" },
+    { "id": "P8", "name": "团队规模", "display": "25–30 人", "range": [25, 30], "unit": "人", "kind": "assumption", "replace_with": "编制表 × 市场薪酬水平" },
+    { "id": "P9", "name": "30 个月总投入", "display": "6,000 万", "range": [6000, 6000], "unit": "万元", "kind": "assumption", "replace_with": "编制表 × 薪酬 × 采购与外协实账" }
+  ],
+
+  "market": {
+    "serviceable": {
+      "basis": "中国出海消费品牌中年 GMV ≥ 10 亿的企业数，乘以「多渠道复杂度高、已在调整管理层、且有 AI 预算」三条同时成立的比例",
+      "inputs": { "companies": [250, 400], "ratio": [0.12, 0.18] },
+      "result": [30, 72],
+      "display": "约 30–72 家"
+    },
+    "beachhead_annual_value": {
+      "basis": "可服务客户数 × 稳态年收入（不含一次性实施费）",
+      "inputs": { "customers": [45, 45], "steady_annual_revenue": [240, 360] },
+      "result": [10800, 16200],
+      "display": "约 1.1–1.6 亿 / 年",
+      "note": "45 家为 30–72 家的中位取值，不是上限"
+    },
+    "three_year_obtainable": {
+      "basis": "三年内能签下并真正交付完的客户数 × 稳态年收入",
+      "inputs": { "customers": [8, 12], "steady_annual_revenue": [240, 360] },
+      "result": [1920, 4320],
+      "display": "ARR 1,900–4,300 万"
+    }
+  },
+
+  "pricing": {
+    "platform_subscription": { "display": "240–360 万", "first_year": [240, 360], "renewal_year": [240, 360], "includes": "岗位契约与版本管理、模型外控制层、六道验证门禁、审计留痕" },
+    "industry_pack_implementation": { "display": "120–240 万", "first_year": [120, 240], "renewal_year": [0, 0], "one_time": true, "includes": "岗位资产适配、数据接入、影子运行、交付验收" },
+    "total": { "display": "首年 360–600 万；续费年 240–360 万", "first_year": [360, 600], "renewal_year": [240, 360], "note": "人民币，含税口径待定" },
+    "anchor": {
+      "customer_profile": "年 GMV 100 亿的出海企业",
+      "customer_org_cost": [25000, 45000],
+      "share": [0.01, 0.02],
+      "band": [250, 900],
+      "display": "取其约 1%–2%，即 250–900 万 / 年；首年合计 360–600 万落在该带宽的靠下区间",
+      "note": "定价上限由客户的组织成本决定，不由供给方成本加成决定"
+    }
+  },
+
+  "unit_economics": {
+    "first_year_gross_margin": { "range": [0.55, 0.65], "display": "55%–65%" },
+    "renewal_gross_margin": { "range": [0.80, 0.85], "display": "80%–85%" },
+    "cac": { "range": [100, 200], "display": "100–200 万", "excludes": "首个标杆客户" },
+    "renewal_rate": { "range": [0.80, 0.80], "display": "80%" },
+    "ltv_cac_three_year_gross_profit": { "range": [3, 6], "display": "3–6×" },
+    "key_metric": "第二个客户的毛利结构。若第二单毛利率未升到 80% 以上，则这不是产品而是项目。"
+  },
+
+  "capital": {
+    "tranches": [
+      { "id": "T1", "name": "第一批", "stage": "一 · 跑通", "months": [0, 9], "amount": 1200, "release_condition": "首批岗位在标杆客户完成影子运行，同一个判断能稳定复现", "allocation_pct": { "平台工程": 50, "行业研究与岗位资产": 20, "交付与影子运行": 20, "安全合规": 10 } },
+      { "id": "T2", "name": "第二批", "stage": "二 · 放权", "months": [9, 18], "amount": 1800, "release_condition": "控制层在真实写入路径上，成功拦下越界动作", "allocation_pct": { "平台工程": 30, "控制层与安全": 25, "交付与客户成功": 20, "销售验证": 15, "法务合规": 10 } },
+      { "id": "T3", "name": "第三批", "stage": "三 · 复制", "months": [18, 30], "amount": 3000, "release_condition": "第二个客户签约并交付完，毛利率落进模型区间", "allocation_pct": { "交付与客户成功": 35, "销售与市场": 30, "平台工程": 25, "安全合规与运维": 10 } }
+    ],
+    "total": { "amount": 6000, "months": 30, "display": "6,000 万，约 30 个月" },
+    "current_round": { "amount": 3000, "covers": ["T1", "T2"], "months": 18, "note": "覆盖前两批 18 个月；第三批视里程碑达成情况再定" },
+    "current_round_aggregate_pct": { "研发": 53, "交付与客户成功": 20, "行业研究与岗位资产": 8, "销售验证": 9, "安全法务合规": 10 },
+    "team": { "size": [25, 30], "months": 18, "display": "一支 25–30 人的团队、18 个月" }
+  },
+
+  "failure_conditions": [
+    "第二个客户的毛利率没有升到 80% 以上：可复制的产品不成立，定价模型、LTV/CAC 与三年 ARR 同时失效",
+    "行业包无法跨行业平移：滩头年值只是单行业天花板，不构成可扩展市场",
+    "客户组织成本基线显著低于 2.5 亿 / 年：定价锚点下移，首年价失去依据",
+    "控制层无法在目标 Host 上由模型外机制保障：产品最核心的差异点无法交付，护城河论证失效",
+    "首年交付人力成本超出 35%–45% 区间：首年毛利率低于 55%，资金节奏需要重排"
+  ],
+
+  "checks": [
+    { "id": "serviceable_customers", "op": "mul_ranges", "left": [[250, 400]], "right": [[0.12, 0.18]], "expect": [[30, 72]] },
+    { "id": "beachhead_value", "op": "mul_ranges", "left": [[45, 45]], "right": [[240, 360]], "expect": [[10800, 16200]] },
+    { "id": "three_year_arr", "op": "mul_ranges", "left": [[8, 12]], "right": [[240, 360]], "expect": [[1920, 4320]] },
+    { "id": "first_year_price", "op": "add_ranges", "left": [[240, 360]], "right": [[120, 240]], "expect": [[360, 600]] },
+    { "id": "anchor_band", "op": "mul_ranges", "left": [[25000, 45000]], "right": [[0.01, 0.02]], "expect": [[250, 900]] },
+    { "id": "first_year_price_inside_anchor", "op": "range_contains", "outer": [[250, 900]], "inner": [[360, 600]] },
+    {
+      "id": "three_year_gross_profit",
+      "op": "add_ranges",
+      "left": { "op": "mul_ranges", "left": [[360, 600]], "right": [[0.55, 0.65]] },
+      "right": { "op": "mul_ranges", "left": [[480, 720]], "right": [[0.80, 0.85]] },
+      "expect": [[582, 1002]]
+    },
+    { "id": "ltv_cac", "op": "div_ranges", "left": [[582, 1002]], "right": [[200, 100]], "expect": [[2.91, 10.02]] },
+    { "id": "ltv_cac_target_inside", "op": "range_contains", "outer": [[2.91, 10.02]], "inner": [[3, 6]] },
+    { "id": "total_capital", "op": "sum_values", "values": [1200, 1800, 3000], "expect": 6000 },
+    { "id": "round_covers_t1_t2", "op": "sum_values", "values": [1200, 1800], "expect": 3000 },
+    { "id": "allocation_t1", "op": "pct_sum", "values": [50, 20, 20, 10], "expect": 100 },
+    { "id": "allocation_t2", "op": "pct_sum", "values": [30, 25, 20, 15, 10], "expect": 100 },
+    { "id": "allocation_t3", "op": "pct_sum", "values": [35, 30, 25, 10], "expect": 100 },
+    { "id": "round_aggregate_rd", "op": "weighted_pct", "parts": [{ "amount": 1200, "pct": 50 }, { "amount": 1800, "pct": 30 }, { "amount": 1800, "pct": 25 }], "total": 3000, "expect": 53 },
+    { "id": "round_aggregate_delivery", "op": "weighted_pct", "parts": [{ "amount": 1200, "pct": 20 }, { "amount": 1800, "pct": 20 }], "total": 3000, "expect": 20 },
+    { "id": "round_aggregate_research", "op": "weighted_pct", "parts": [{ "amount": 1200, "pct": 20 }], "total": 3000, "expect": 8 },
+    { "id": "round_aggregate_sales", "op": "weighted_pct", "parts": [{ "amount": 1800, "pct": 15 }], "total": 3000, "expect": 9 },
+    { "id": "round_aggregate_compliance", "op": "weighted_pct", "parts": [{ "amount": 1200, "pct": 10 }, { "amount": 1800, "pct": 10 }], "total": 3000, "expect": 10 },
+    { "id": "round_aggregate_sums_to_100", "op": "pct_sum", "values": [53, 20, 8, 9, 10], "expect": 100 },
+    { "id": "round_aggregate_covers_round", "op": "sum_values", "values": [1590, 600, 240, 270, 300], "expect": 3000 }
+  ],
+
+  "checks_tolerance": 0.02,
+
+  "render_tokens": {
+    "bp/index.html": [
+      "250–400 家 × 12%–18%",
+      "30–72 家",
+      "45 家 × 240–360 万",
+      "1.1–1.6 亿 / 年",
+      "8–12 家 × 240–360 万",
+      "1,900–4,300 万",
+      "240–360 万",
+      "120–240 万",
+      "360–600 万",
+      "2.5–4.5 亿 / 年",
+      "250–900 万 / 年",
+      "55–65%",
+      "80–85%",
+      "100–200 万",
+      "3–6×",
+      "1,200 万",
+      "1,800 万",
+      "3,000 万",
+      "6,000 万",
+      "25–30 人",
+      "研发占一半以上",
+      "交付占 20%",
+      "行业研究与岗位资产 8%",
+      "销售验证 9%",
+      "安全法务合规 10%",
+      "6,000 万"
+    ],
+    "docs/02-strategy/BP-ECONOMIC-MODEL.md": [
+      "250–400 家 × 12%–18%",
+      "30–72 家",
+      "45 家 × 240–360 万",
+      "1.1–1.6 亿 / 年",
+      "8–12 家 × 240–360 万",
+      "1,900–4,300 万",
+      "240–360 万",
+      "120–240 万",
+      "360–600 万",
+      "2.5–4.5 亿 / 年",
+      "55%–65%",
+      "80%–85%",
+      "100–200 万",
+      "3–6×",
+      "1,200 万",
+      "1,800 万",
+      "3,000 万",
+      "6,000 万",
+      "25–30 人",
+      "研发（平台工程 + 控制层）53%",
+      "交付与客户成功 20%",
+      "行业研究与岗位资产 8%",
+      "销售验证 9%",
+      "安全法务合规 10%"
+    ]
+  }
+}
