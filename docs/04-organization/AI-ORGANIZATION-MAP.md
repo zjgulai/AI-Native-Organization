@@ -86,3 +86,19 @@ flowchart TB
 - 现有真人部门与四平面不是一一对应关系；人事调整仍须由运行证据和独立组织决定支持。
 
 每个岗位的统一管理关系见[五契约管理图](../05-agents/AGENT-MANAGEMENT-GRAPH.md)：Business定义岗位结果，Skill管理能力，Runtime管理模型与运行，Access管理工具与范围，Assurance管理评测与独立审计。
+
+## 决策权平面（与四平面正交）
+
+四平面描述**责任性质**，不表示行政上下级。在此之上另有一条与其正交的**决策权平面**：1个[CEO MGT-001](management/roles/MGT-001.md)与**2个二级负责人**（[增长官 MGT-002](management/roles/MGT-002.md)、[治理官 MGT-003](management/roles/MGT-003.md)），通过管理域合同与资源配额影响装配规则，不进入Case执行链、不与岗位发生会话、只读聚合视图。
+
+| 管理层岗位 | 管理域 | 覆盖执行岗位 |
+| --- | --- | --- |
+| MGT-001 持衡 CEO | 全局组合 | MGT-002、MGT-003 |
+| MGT-002 驭浪 CGO 增长官 | 渠道·品牌·增长·服务·履约·产品 | AGT-001~004、AGT-006~039（38岗） |
+| MGT-003 明界 CGOv 治理官 | 财务·合规·质量·账号·数据与AI平台 | AGT-005、AGT-040~050（12岗） |
+
+结构版本：v2（3岗位）于2026-09-18取代v1（1个CEO + 8个CXO）。v1的8-CXO结构存在5处岗位双线归属（AGT-002/018/027/038/044），v2全部消除。v1资产未进入版本控制，无历史版本可回滚。
+
+两个管理域的覆盖面并集为 AGT-001~050 全部岗位（38 + 12 = 50），**无遗漏、无重复归属**。四平面的结论不变：**四平面仍不表示行政上下级**；管理层不带编制、不带资产权限，其存在依据是[决策权阶梯](management/DECISION-RIGHTS.md)中L0至L4的决策归属，并受`MGT_REVIEW`退出条件约束。详见[管理层设计](MANAGEMENT-LAYER.md)与[ADR-0014](../adr/0014-management-decision-rights-plane.md)。
+
+**v2的承重机制（合并引入，不可省）**：把8个CXO合并为2个，制造了一个v1不存在的失效模式——治理官同时是指标口径的作者、维护者与被评估者。三条处置缺一不可：①口径冻结权归AGT-005与外部复核，治理官只有提案权；②涉及治理官自身尺度的争议走**L2b真人所有者**，不经CEO；③AGT-005复核结论直达CEO与真人所有者，**不向治理官汇报**。这三条必须由模型外机制保障——依据 AWS Well-Architected Agentic AI Lens「enforced at the control-plane boundary … rather than relying on agent self-restraint」，若目标Host只能用Prompt表达该隔离，治理官不得进入Shadow阶段。

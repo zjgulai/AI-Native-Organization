@@ -1,0 +1,47 @@
+{
+  "artifact_kind": "mgt_eval_b_run_inputs",
+  "generated_on": "2026-09-18",
+  "corpus_file": "docs/04-organization/management/eval/management-eval-corpus.v2.json",
+  "corpus_sha256": "2a9977d32563af1ee3ee55792bc038fe21e61183253e9c19b0ba9750dea1d57c",
+  "repeat_protocol": {
+    "runs_per_case": 2,
+    "isolation": "两次运行使用独立会话、不共享上下文、不接受对方的中间结论",
+    "input_immutability": "两次运行必须读取同一份 corpus_sha256"
+  },
+  "prompts": {
+    "MGT-001": {
+      "file": "prompt-MGT-001.md",
+      "case_count": 5,
+      "case_ids": [
+        "LB-MGT001-01",
+        "LB-MGT001-02",
+        "LB-MGT001-03",
+        "LB-MGT001-04",
+        "LB-MGT001-05"
+      ],
+      "sha256": "e78498f4814befb2a59c619228b85d94b9b741e72a3619e1b20a2056354b9fa0"
+    },
+    "MGT-002": {
+      "file": "prompt-MGT-002.md",
+      "case_count": 4,
+      "case_ids": [
+        "LB-MGT002-01",
+        "LB-MGT002-02",
+        "LB-MGT002-03",
+        "LB-MGT002-04"
+      ],
+      "sha256": "c1a65e0f4f8dc78ec438966924e349d1f1b55abbac193b582a41bc4c986cd67d"
+    },
+    "MGT-003": {
+      "file": "prompt-MGT-003.md",
+      "case_count": 4,
+      "case_ids": [
+        "LB-MGT003-01",
+        "LB-MGT003-02",
+        "LB-MGT003-03",
+        "LB-MGT003-04"
+      ],
+      "sha256": "8e871546c3354b6969ceb31303bd2da9ff5e6efddea8ec025f3d4cf5478d1800"
+    }
+  }
+}

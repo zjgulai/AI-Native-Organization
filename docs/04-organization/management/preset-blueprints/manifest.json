@@ -1,0 +1,35 @@
+{
+  "artifact_kind": "management_preset_blueprint_index",
+  "version": "2.0.0-design",
+  "role_count": 3,
+  "namespace": "MGT",
+  "status": "blueprint_only_not_importable",
+  "note": "管理层preset蓝图；工具面窄于执行岗，无fact_read、无action_intent_request、无写工具。v2为3岗位结构。MGT-003的独立性（口径冻结与复核线隔离）必须由模型外机制保障，不得只靠Prompt表达。真实DSH导入schema仍未知。",
+  "blueprints": [
+    {
+      "role_id": "MGT-001",
+      "preset_id": "dsh.mgt.001.v1",
+      "blueprint_ref": "docs/04-organization/management/preset-blueprints/MGT-001.json",
+      "soul_ref": "docs/04-organization/management/souls/MGT-001.soul.md",
+      "role_playbook_ref": "docs/04-organization/management/playbooks/MGT-001.md",
+      "status": "blueprint_only_not_importable"
+    },
+    {
+      "role_id": "MGT-002",
+      "preset_id": "dsh.mgt.002.v1",
+      "blueprint_ref": "docs/04-organization/management/preset-blueprints/MGT-002.json",
+      "soul_ref": "docs/04-organization/management/souls/MGT-002.soul.md",
+      "role_playbook_ref": "docs/04-organization/management/playbooks/MGT-002.md",
+      "status": "blueprint_only_not_importable"
+    },
+    {
+      "role_id": "MGT-003",
+      "preset_id": "dsh.mgt.003.v1",
+      "blueprint_ref": "docs/04-organization/management/preset-blueprints/MGT-003.json",
+      "soul_ref": "docs/04-organization/management/souls/MGT-003.soul.md",
+      "role_playbook_ref": "docs/04-organization/management/playbooks/MGT-003.md",
+      "status": "blueprint_only_not_importable"
+    }
+  ],
+  "structure_version": "v2_three_management_roles"
+}
