@@ -79,6 +79,16 @@
 | Pages控制面 | `https://zjgulai.github.io/AI-Native-Organization/`，`build_type=workflow`，HTTPS开启 | 控制面配置不替代公网取证 |
 | 公网内容 | 首页、`styles.css`、`app.js`、`roles.json`和`e2e-workflows.json`均返回成功并与本地发布包SHA-256字节一致；浏览器加载50岗位和12价值流、无错误覆盖层、无横向溢出 | 不证明企业系统连接、业务权限或经营效果 |
 
+### 第二次发布（2026-09-18，D-064）
+
+| 证据层 | 结果 | 边界 |
+| --- | --- | --- |
+| Git commit与远端分支 | 本地HEAD、`origin/main`与GitHub API均为`df37941cda79ac39ca1b3fa45f36b26c5b12e456`（`65be4d3..df37941`快进推送，6个提交） | 推送成功不证明公网内容正确 |
+| GitHub Actions | Pages workflow运行[35258440062](https://github.com/zjgulai/AI-Native-Organization/actions/runs/35258440062)成功 | Workflow成功不单独证明公网内容正确 |
+| 公网内容 | `dist/`全部7个文件（`index.html`、`styles.css`、`app.js`、`data/roles.json`、`data/flows.json`、`data/role-assets.json`、`data/e2e-workflows.json`）与本地发布包SHA-256**逐字节一致**；首页返回200、标题正确、岗位数据50条 | 本次提交未改动`dist/`，公网字节与首次发布预期相同 |
+| 新增文档可达性 | `docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html`、`docs/02-strategy/BP-ECONOMIC-MODEL.md`、`docs/02-strategy/bp-economic-model.json`、`scripts/verify-bp-economics.mjs`、`bp/index.html`经GitHub API均返回200 | 文件可达不等于内容已被审阅 |
+| 本地网络异常与处置 | `github.com`的DNS解析结果`20.205.243.166:443`不可达，`git push`两次失败；改用`--resolve`指向可用IP后推送成功 | 属本机网络/DNS路由问题，不是仓库或权限问题；未修改系统hosts |
+
 ## 本轮验收范围
 
 验收对象为本地文档与业务设计数据。完成标准是职责和流程覆盖一致、角色行为与产物可检查、研究可回溯、需求有验收条件、未知项和决策状态清楚；不将文档交付写成企业系统运行验收。
@@ -104,7 +114,7 @@ v1.1结构检查曾通过的356条关系仅保留在Git历史。当前本地结�
 
 当前下一步是管理层在[公开Site](https://zjgulai.github.io/AI-Native-Organization/)审阅独立岗位分身与组队方案，并指定需要优先回放的岗位/场景；RP-M2 已完成材料注入与静态门禁，后续以目标DSH版本、preset schema、插件、Host tool行为和服务身份边界开展 RP-M3/RP-M4 的隔离适配。具体门禁见[50个独立数字分身实施TODO](../12-rollout/ROLE-PRESET-IMPLEMENTATION-TODO.md)。Shopify仍停在`SHOP-G1`方案状态。未来若另行授权Shopify实施，再以[店铺治理底座方案](../12-rollout/SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md)生成真实对象实施包。
 
-本轮已在本地工作区生成50份Soul、50份Role Playbook、50份Preset Blueprint并更新Site；这些改动目前尚未提交或同步到GitHub Pages，因此公网仍以最近一次已发布提交为准。
+50份Soul、50份Role Playbook、50份Preset Blueprint与管理层设计资产已提交并推送至`origin/main`（`df37941c`），Pages workflow运行`35258440062`成功，公网`dist/`字节与本地一致，见上方「第二次发布」证据表。
 
 管理层设计已形成完整设计资产，**结构为3岗位（2026-09-18由D-062确认）**：1个CEO（MGT-001）与2个二级负责人——MGT-002 增长官（覆盖AGT-001~004、AGT-006~039，共38岗）与 MGT-003 治理官（覆盖AGT-005、AGT-040~050，共12岗），两域并集为全部50岗且**双线归属为0**；v1曾为1个CEO + 8个CXO（共9岗），因用户决定减少协调面而改为v2。主设计见[管理层设计](../04-organization/MANAGEMENT-LAYER.md)，决策归属见[决策权阶梯](../04-organization/management/DECISION-RIGHTS.md)，决定依据见[ADR-0014](../adr/0014-management-decision-rights-plane.md)；3份管理岗位档案、3份Soul、3份Role Playbook、3份Preset蓝图与结构化[管理层目录](../04-organization/management/management-catalog.json)位于`docs/04-organization/management/`。该层的核心约束不变：不进入Case执行链、不作为任何Case的Lead或Worker、不与50个岗位发生会话、不持有Service Identity与Action Intent能力、只读聚合视图，权力只通过版本化契约（MDC/GOC）与资源配额生效。**v2新增承重机制**：合并后治理官同时是指标口径的作者、维护者与被评估者，因此①口径冻结权归AGT-005与外部复核（治理官只有提案权）；②涉治理官自身尺度的争议走**L2b真人所有者**（不经CEO）；③AGT-005复核结论直达CEO与真人所有者、不向治理官汇报。这三条必须由模型外机制保障——若目标Host只能以Prompt表达隔离，MGT-003不得进入Shadow阶段。待决项为MGT-Q1/Q2/Q3、MGT-G8/G9与MGT-Q5（是否设单一通用管理Agent对照臂）；外部证据调研见[AI原生组织管理层调研](../14-research/AI-NATIVE-ORG-MANAGEMENT-LAYER.md)（EVD-036~039）。管理决定的生效机制已单列设计：[管理层决定的生效机制](../04-organization/management/ENFORCEMENT.md)明确MDC/GOC最小机器可读schema、包含关系校验（超出即拒绝不截断）、资源预留与队列语义、指标口径由独立复核冻结、独立控制指标豁免与约束记录经Policy Gate生效；其中三项基线已由D-061确认。该设计未实例化任何管理岗位，也未改变D-022。影子验证见[影子验证设计](../04-organization/management/SHADOW-VERIFICATION.md)，定位为`ORG-G1`工作包，采用`MGT-EVAL-A`抗污染、`MGT-EVAL-B`一致性、`MGT-EVAL-C`生效、`MGT-EVAL-R`层数复审、**新增`MGT-EVAL-R0`结构必要性与`MGT-EVAL-R2`独立性复审**六道门，v2的3个岗位**全部同时先验**（代表子集概念已不成立）。v2验证语料已按SHADOW-VERIFICATION.md §3.5重建并冻结：[eval/management-eval-corpus.v2.json](../04-organization/management/eval/management-eval-corpus.v2.json)（25用例：L-A 12 / L-B 13，确定性子集12、阶梯子集6、L2b 2，`corpus_sha256=2a9977d3…d1d57c`）；v1语料（19用例，`corpus_sha256=64c77da5…ead1d72`）原地保留为结构变更的追溯记录，标记`structure_currency=superseded_by_v2_structure`，**不得引用其Hash证明v2已被验证**。校验脚本`scripts/verify-management-eval-corpus.mjs`在校验两份语料时会核Hash、阈值、结构时效、计数自洽、阶梯取值域、L2b用例形态与「L-A条数=各Playbook §2反模式条数」；**语料冻结不等于验证已执行**：`MGT-EVAL-B`已于2026-09-18执行且**未通过**（阶梯归属一致率4/6=66.7%，阈值100%；L2b识别2/2=100%），台账见[eval/runs/2026-09-18-MGT-EVAL-B/RUN-LOG.md](../04-organization/management/eval/runs/2026-09-18-MGT-EVAL-B/RUN-LOG.md)；两项不一致的阶梯项已按用户决定落地为确定性规则（`DECISION-RIGHTS.md`§3.1混合级别捆绑、§3.2实质变更的证据前提），`LB-MGT001-03`上收分类仍待决。且v1与v2的阶梯口径不同（L1已拆为L1-G/L1-V并新增L2b），结果不可横向比较。`MGT-EVAL-C`依赖三个尚未实现的构件（Case Control读取MDC、资源预留服务、Policy Gate读取约束记录），因此在此之前管理层不得被表述为可运行。
 

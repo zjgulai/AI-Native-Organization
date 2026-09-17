@@ -110,6 +110,10 @@ D-050补充了更早的业务事实门：Shopify当前是空白新店且无上�
 
 **写入工具会产生非仓库惯例权限（必查）**：实测 `write` 落盘为 0600、`edit` 为 **0000**——后者意味着 owner 自己也读不了，后续 `read`/`edit`/`grep` 全部 EACCES，而症状看起来像别的问题（本轮即因此被误判过一次）。因此**每次 `edit` 之后必须立刻恢复权限**。`python3 scripts/fix-file-perms.py` 可批量修复、`--check` 可用于校验；它用 git 界定管辖范围（被 gitignore 的工具状态目录与 `*.lock` 不在管辖内——锁文件用 0600 本就更合理，不该被「修复」）。
 
+注意 `chmod` 会让 `edit` 判定「文件已变更」而拒绝写入，因此顺序必须是 **edit → chmod → （需要再改时）read → edit**，不能先 chmod 再 edit。
+
+**本机 `github.com:443` 可能不可达，`git push` 会失败（已复现）**：实测 DNS 把 `github.com` 解析到 `20.205.243.166`，该地址 TCP 连接失败（`Failed to connect ... after 75013 ms`、`HTTP2 framing layer`、`Empty reply from server` 三种报错都出现过），而 `api.github.com`、`codeload.github.com` 正常，`140.82.112.3` / `140.82.113.3` 也可用。判定方法是分别探测这三个地址，**不要**据此认为仓库、权限或凭据有问题。临时处置：`git -c http.curloptResolve=github.com:443:140.82.112.3 push origin main`（只对本次命令生效）。这只绕过本机 DNS 路由，不改变身份校验。修复 DNS 后应去掉该参数。
+
 独立岗位资产还要核对50份Soul Contract、50份Role Playbook、50份Preset Blueprint的ID、引用、模式和生产授权状态一致，并验证standalone与Lead/Worker两种运行说明都存在。
 
 v2完成前继续核对50个唯一岗位ID、50张岗位卡、50份Role Playbook、50份Preset Blueprint、8流程、20场景和8份共享Playbook不丢失。v2结构检查还须核对：12条端到端价值流为8条BVS与4条CVS；BVS与原FLOW一一映射且角色并集覆盖50/50；每条流有5个产品步骤、5个协作步骤、有效结果负责人、完整role_scope、协作角色不越界和production_authorized=false；文档目录与Site投影语义一致。每个Case只有一个主价值流、一个主场景和一个Lead结果负责人；Worker只消费已验收ArtifactEnvelope，不能共享隐式会话或转授权限；跨价值流信号的关联Case状态独立且只引用已验收产物；Skills不携带第二人格；8阶段、64条flow-stage绑定、51条候选flow-scenario绑定和140条历史role-flow覆盖一致；每个阶段有产物与接收记录；STG-01不要求case或Bundle；Bundle从STG-03固定；Case状态不使用Quarantined；Agent管理对象引用Prompt/Skill/Tool/Model/Eval/Memory版本；普通动作与紧急保护均经过Policy Gate和Execution Broker；Emergency Guard为模型外且只限FLOW-07，原子边界只覆盖本地Case/Outbox记录，建单前歧义只能产生Pre-Case Exception，紧急Attempt不充当STG-07且TTL不自动恢复；Service Identity不属于模型；所有生产授权为false。检查结果只证明文档与设计数据一致。
