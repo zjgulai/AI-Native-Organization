@@ -14,6 +14,7 @@
 2. 维护 [能力矩阵](CAPABILITY-MATRIX.md)，区分证实、未核实、需要补足和无法满足的要求。
 3. 将已经确认的场景、50份Role Playbook、50份Preset Blueprint、协作关系与权限映射到实际支持的对象；设计资产入口见[preset-blueprints/manifest.json](preset-blueprints/manifest.json)。
    对应的50份Soul Contract见[roles/souls](../../05-agents/roles/souls/)，岗位独立执行与组队门禁见[实施TODO](../../12-rollout/ROLE-PRESET-IMPLEMENTATION-TODO.md)。
+   Magpie-Horch 与 DSH 的只读 schema、preset 绑定、Skill loader 和外部 Case adapter 证据见[RP-M1 schema 与适配证据](MAGPIE-RP-M1-SCHEMA-EVIDENCE.md)；进入 compiler 前的输入、hash、persona/Skill 分层和验证规格见[RP-M2 compiler 注入规格](../../12-rollout/MAGPIE-RP-M2-COMPILER-INJECTION-SPEC.md)。
 4. 说明原生配置、插件/外部集成和需要开发的边界，给出可评审的配置方案。
 5. 在批准的验证环境中测试正常执行、拒绝越权、失败恢复和审计，再依授权实施。
 

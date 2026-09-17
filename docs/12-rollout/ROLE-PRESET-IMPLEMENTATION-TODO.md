@@ -1,6 +1,6 @@
 # 50个独立数字分身实施 TODO
 
-状态：方案与设计资产已完成；DSH Preset 尚未导入，企业系统尚未连接，生产动作未授权。依据：D-053、[ADR-0012](../adr/0012-independent-role-presets-and-bounded-composition.md)。
+状态：RP-M2 材料注入与静态门禁已完成；目标 DSH Preset loader 尚未核实，企业系统尚未连接，生产动作未授权。依据：D-053、[ADR-0012](../adr/0012-independent-role-presets-and-bounded-composition.md)。
 
 ## 目标
 
@@ -30,7 +30,7 @@
 - [ ] 为本岗位建立正常、缺失、冲突、越权、重复、工具失败、部分成功、回执不明和重启回放样例。
 - [ ] 通过独立评估后才允许进入 Shadow；评估集或契约变化必须生成新的 Role Release Bundle。
 
-统一索引： [Role Playbook index](../06-playbooks/role-playbooks/index.json) · [DSH Preset manifest](../10-platform/deepseek-harness/preset-blueprints/manifest.json)。
+统一索引： [Role Playbook index](../06-playbooks/role-playbooks/index.json) · [DSH Preset manifest](../10-platform/deepseek-harness/preset-blueprints/manifest.json)。Magpie-Horch的源码证据见[RP-M1 schema与适配证据](../10-platform/deepseek-harness/MAGPIE-RP-M1-SCHEMA-EVIDENCE.md)，编译器实施规格与结果见[RP-M2 compiler注入规格](MAGPIE-RP-M2-COMPILER-INJECTION-SPEC.md)。
 
 ## 分阶段 TODO 与门禁
 
@@ -83,10 +83,11 @@
 
 ## 当前执行顺序
 
-1. 完成 RP-G0 静态盘点与网站展示（本轮）。
-2. 选取一个管理岗位、一个运营岗位、一个控制岗位和一个平台岗位做 RP-G2/RP-G3 代表性回放。
-3. 核实 DSH 目标版本/schema 后，才生成第一份导入投影；其余 46 个岗位批量投影。
-4. 先以只读和 `NO_ACTION` Shadow 验证全链路，再讨论有限动作和真人 HITL 负荷。
+1. RP-G0 静态盘点、网站展示与 RP-M1 只读证据已完成；RP-M2 同源 compiler、validator 和 README 已实施，50 个派生 preset 已重生成并通过 L1–L12（5106 条断言）。
+2. 核实 DSH 目标版本/schema、岗位 Skill loader 与 Host mount 行为，形成 RP-M3/RP-M4 隔离适配；当前 `role_assets.role_playbook.loader` 仍为 `target-host-to-be-verified`。
+3. 选取一个管理岗位、一个运营岗位、一个控制岗位和一个平台岗位做 RP-G2/RP-G3 代表性回放。
+4. 核实 DSH 目标版本/schema 后，才生成第一份导入投影；其余 46 个岗位批量投影。
+5. 先以只读和 `NO_ACTION` Shadow 验证全链路，再讨论有限动作和真人 HITL 负荷。
 
 ## 未决的经营取舍
 
