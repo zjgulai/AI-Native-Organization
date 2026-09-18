@@ -194,6 +194,41 @@
     "supersedes": "v1_nine_role_structure",
     "clarifies": "D-022 applies to the execution plane; the management layer is a decision-rights plane, not an agent hierarchy"
   },
+  "dsh_integration": {
+    "status": "approved_2026_09_19",
+    "decision_refs": [
+      "本仓 D-065/D-066（docs/00-project/DECISIONS.md）",
+      "Magpie-Horch docs/adr/ADR-0129.md（D1~D9）"
+    ],
+    "authorization_status": "evaluation_carrier_not_shadow_authorized",
+    "authorization_note": "profile可加载，限MGT-EVAL评估载体与人在环决策演练；未授权Shadow与生产；Prompt层边界不构成服务端权限控制；MGT-003三条承重机制需模型外构件，preset不提供。进出货面前置=MGT-EVAL-A/B通过+R0对照臂结论（MGT-Q5，待决）+另立ADR；出货面当前为exclude档（本机可用、客户拿不到）。",
+    "preset_namespace": "mgt",
+    "preset_ids": {
+      "MGT-001": "mgt-001",
+      "MGT-002": "mgt-002",
+      "MGT-003": "mgt-003"
+    },
+    "projection_plane": {
+      "id": "PLN-EXC",
+      "name": "决策权平面",
+      "purpose": "组合层取舍责任：标准版本、资源配额、组合取舍、升级与冻结；经版本化契约（MDC/GOC）与配额生效，与执行面零会话边。",
+      "nature": "dsh_projection_only_not_a_material_organization_plane",
+      "note": "仅用于DSH侧manifest/UI分组展示；不进organization-graph.json（该文件在50个AGT preset共享快照内，改动触发存量全量重生成）。",
+      "order_base": 0,
+      "orders": {
+        "MGT-001": 101,
+        "MGT-002": 102,
+        "MGT-003": 103
+      }
+    },
+    "projection_domain": {
+      "id": "DOM-EXC",
+      "name": "管理层"
+    },
+    "eval_state_source": "docs/04-organization/management/SHADOW-VERIFICATION.md",
+    "eval_state_note": "评估状态事实唯一住在SHADOW-VERIFICATION.md；Magpie-Horch生成器把该文件状态段哈希入MGT共享快照，状态更新自动传染preset披露块。本块不复制其数值。",
+    "collaboration_facts_home": "本catalog的owned_role_ids/collaborates_with；不写入collaboration-graph.json/role-catalog.json等AGT共享源（Magpie-Horch ADR-0129 D4，存量50 preset字节零扰动）"
+  },
   "roles": [
     {
       "id": "MGT-001",

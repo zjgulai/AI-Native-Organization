@@ -102,3 +102,5 @@ flowchart TB
 两个管理域的覆盖面并集为 AGT-001~050 全部岗位（38 + 12 = 50），**无遗漏、无重复归属**。四平面的结论不变：**四平面仍不表示行政上下级**；管理层不带编制、不带资产权限，其存在依据是[决策权阶梯](management/DECISION-RIGHTS.md)中L0至L4的决策归属，并受`MGT_REVIEW`退出条件约束。详见[管理层设计](MANAGEMENT-LAYER.md)与[ADR-0014](../adr/0014-management-decision-rights-plane.md)。
 
 **v2的承重机制（合并引入，不可省）**：把8个CXO合并为2个，制造了一个v1不存在的失效模式——治理官同时是指标口径的作者、维护者与被评估者。三条处置缺一不可：①口径冻结权归AGT-005与外部复核，治理官只有提案权；②涉及治理官自身尺度的争议走**L2b真人所有者**，不经CEO；③AGT-005复核结论直达CEO与真人所有者，**不向治理官汇报**。这三条必须由模型外机制保障——依据 AWS Well-Architected Agentic AI Lens「enforced at the control-plane boundary … rather than relying on agent self-restraint」，若目标Host只能用Prompt表达该隔离，治理官不得进入Shadow阶段。
+
+**DSH侧投影（2026-09-19，D-065）**：Magpie-Horch（LUTE Agentic System 二开平台，私有仓）已按其仓内决策记录 ADR-0129 把3个管理岗位生成为 `mgt-001~003` preset，UI投影平面为 `PLN-EXC`（决策权平面，渲染置顶）。**投影平面只是DSH侧展示分组，不是第五组织平面**——四平面（PLN-MGT/OPS/CTL/PLT）仍是材料侧唯一的组织平面事实，`organization-graph.json` 不因投影新增平面。整合姿态为**评估载体+本机装配**：profile可加载、限MGT-EVAL与人在环决策演练、未授权Shadow与生产、出货面exclude档（客户拿不到）；机器可读事实家在 [management-catalog.json](management/management-catalog.json) 的 `dsh_integration` 块。该姿态不改变上文承重机制红线：preset的Prompt层表达不构成隔离，MGT-003在模型外构件落地前仍不得进入Shadow。
