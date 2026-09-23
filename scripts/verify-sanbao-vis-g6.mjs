@@ -441,4 +441,4 @@ assert(
 console.log('PASS VIS-G6：53 个角色、318 个本地 WebP 交付件和 Site 页面接入已校验')
 console.log('  管理层：天時、地利、人和；执行岗位：50')
 console.log('  D-076 已接受风险：VIB-AGT-029、VIB-AGT-041；候选池仍未物化或公开')
-console.log('  GitHub Pages 部署尚需在独立发布证据层确认')
+console.log('  发行登记册保留部署前状态；GitHub Pages 发布结果须以独立部署证据确认')

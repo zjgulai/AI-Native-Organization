@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "VIS-G6-PUBLIC-DEPLOYMENT-EVIDENCE-2026-09-24",
+  "observed_at_utc": "2026-09-23T19:40:34Z",
+  "release": {
+    "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+    "release_register": "docs/12-rollout/visual-assets/SANBAO-WEB-VIS-G6-VISUAL-IDENTITY-RELEASE-2026-09-24.json",
+    "release_commit": "abfd1733e884adfe7b576e7fa028c8a9e23b67c4",
+    "local_release_status": "COMPLETE_LOCAL_VISUAL_IDENTITY_RELEASE_PENDING_GITHUB_PAGES_DEPLOYMENT"
+  },
+  "github_pages": {
+    "repository": "zjgulai/AI-Native-Organization",
+    "workflow_name": "Deploy solution site to Pages",
+    "workflow_run_id": 35910354396,
+    "workflow_url": "https://github.com/zjgulai/AI-Native-Organization/actions/runs/35910354396",
+    "head_sha": "abfd1733e884adfe7b576e7fa028c8a9e23b67c4",
+    "conclusion": "success",
+    "completed_at_utc": "2026-09-23T19:35:54Z",
+    "public_url": "https://zjgulai.github.io/AI-Native-Organization/"
+  },
+  "public_byte_integrity": {
+    "method": "read-only HTTPS fetch; SHA-256 compared to the release registry and current dist package",
+    "static_files": [
+      "index.html",
+      "styles.css",
+      "app.js",
+      "data/visual-identities.json"
+    ],
+    "static_files_matching": 4,
+    "visual_webp_assets_checked": 318,
+    "visual_webp_assets_matching": 318,
+    "visual_webp_bytes_in_release": 1479842,
+    "visual_webp_canonical_digest_sha256": "1b3b42808e165093ad9f5bc07dc53475bc141f0640fa982c0d3e450e138134ab",
+    "retry_note": "A first concurrent read received one transient HTTP 503 from the CDN. Its individual retry returned HTTP 200, image/webp, and the expected SHA-256; the final full verification completed with no retries or mismatches."
+  },
+  "public_browser_observation": {
+    "desktop_viewport": "1440x900",
+    "management_images_loaded": 3,
+    "role_list_images_observed_loaded": 5,
+    "theme_switch_verified": true,
+    "public_error_ui_observed": false
+  },
+  "result": "COMPLETE_PUBLIC_VISUAL_IDENTITY_RELEASE",
+  "boundary_assertions": [
+    "The public release contains only the 53 approved role visual identities and their 318 WebP delivery renditions.",
+    "Candidate-pool binaries, native PNG, source, reference, design-input, prompt, and identity-reference material were not included in the public package.",
+    "This evidence does not change Role contracts, Soul, Playbook, Preset, Access, Bundle, DSH, Case, or production state."
+  ]
+}

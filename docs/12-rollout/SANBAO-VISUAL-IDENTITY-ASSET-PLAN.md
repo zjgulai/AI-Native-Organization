@@ -1,6 +1,6 @@
 # Sanbao 视觉身份与资产方案
 
-状态：D-068 已确认的设计与门禁方案；D-069 已完成三位CXO的源人物选择；D-070 保留为历史第一方声明记录；D-071 已记录用户对冻结 Sanbao_Web 全量素材的完整授权；D-072 已启动并完成 VIS-G2 的结构性语义审查；D-073 已接受其可复算目录锚点并完成 VIS-G3 的53条展示绑定表；D-074 已完成 VIS-G4 的53条 Digital Persona Dossier 投影；D-075 已完成 VIS-G5 的实际静态质量验收；D-076 已接受两条近似视觉风险；D-077 已授权并完成 VIS-G6 本地视觉发行。VIS-G0 已于2026-09-23完成只读来源冻结与元数据盘点；VIS-G1 已于2026-09-24完成并通过，结果为 **COMPLETE_AUTHORIZED**：1,729 个图像为 `APPROVED_DELIVERY`、119 个为 `POOL_ONLY`、`HOLD_VIS_G1=0`；VIS-G2 当前状态为 **COMPLETE_STRUCTURAL_SEMANTICS_WITH_G0_FINGERPRINT_EXCEPTION**，VIS-G3 当前状态为 **COMPLETE_BINDING_TABLE_PENDING_VIS_G5**，VIS-G4 当前状态为 **COMPLETE_DOSSIER_PROJECTION_PENDING_VIS_G5**，VIS-G5 当前状态为 **COMPLETE_STATIC_QUALITY_WITH_ACCEPTED_OWNER_VISUAL_RISK_PENDING_VIS_G6**；VIS-G6 本地发行 `VIR-SANBAO-WEB-2026-09-24-R1` 当前状态为 **COMPLETE_LOCAL_VISUAL_IDENTITY_RELEASE_PENDING_GITHUB_PAGES_DEPLOYMENT**：53条视觉身份、318个 WebP 交付件和 Site 接入已校验，`VIB-AGT-029`与`VIB-AGT-041`保留D-076风险记录，GitHub Pages 部署证据尚待独立验收。
+状态：D-068 已确认的设计与门禁方案；D-069 已完成三位CXO的源人物选择；D-070 保留为历史第一方声明记录；D-071 已记录用户对冻结 Sanbao_Web 全量素材的完整授权；D-072 已启动并完成 VIS-G2 的结构性语义审查；D-073 已接受其可复算目录锚点并完成 VIS-G3 的53条展示绑定表；D-074 已完成 VIS-G4 的53条 Digital Persona Dossier 投影；D-075 已完成 VIS-G5 的实际静态质量验收；D-076 已接受两条近似视觉风险；D-077 已授权并完成 VIS-G6 公开视觉发行。VIS-G0 已于2026-09-23完成只读来源冻结与元数据盘点；VIS-G1 已于2026-09-24完成并通过，结果为 **COMPLETE_AUTHORIZED**：1,729 个图像为 `APPROVED_DELIVERY`、119 个为 `POOL_ONLY`、`HOLD_VIS_G1=0`；VIS-G2 当前状态为 **COMPLETE_STRUCTURAL_SEMANTICS_WITH_G0_FINGERPRINT_EXCEPTION**，VIS-G3 当前状态为 **COMPLETE_BINDING_TABLE_PENDING_VIS_G5**，VIS-G4 当前状态为 **COMPLETE_DOSSIER_PROJECTION_PENDING_VIS_G5**，VIS-G5 当前状态为 **COMPLETE_STATIC_QUALITY_WITH_ACCEPTED_OWNER_VISUAL_RISK_PENDING_VIS_G6**；VIS-G6 发行 `VIR-SANBAO-WEB-2026-09-24-R1` 当前状态为 **COMPLETE_PUBLIC_VISUAL_IDENTITY_RELEASE**：53条视觉身份、318个 WebP 交付件和 Site 接入已校验，`VIB-AGT-029`与`VIB-AGT-041`保留D-076风险记录，提交`abfd1733e884adfe7b576e7fa028c8a9e23b67c4`已由GitHub Pages Action `35910354396`成功部署，4个站点核心文件及318个WebP均与发行包哈希匹配。
 
 适用范围：本项目3位管理层分身与50位执行岗位的展示性视觉身份，以及 Sanbao_Web 全量图像的来源治理、受限保存和未来复用。D-077 已授权将53条已验收绑定所需的318个 WebP 交付件接入静态 Site；本文仍不构成图片生成、GitHub Release、DSH配置、业务连接或生产运行授权。
 
@@ -222,7 +222,7 @@ Visual Identity Release 可以引用某个角色ID与其现有合同版本，但
 | VIS-G3 | 50条AGT映射与三位MGT展示绑定表 | 已完成53条结构性绑定：50条AGT同ID、三位MGT按 D-069、同人深浅主题、64/256/128/native 变体及中性 alt text 草案均可审阅；Visual Identity Release 仍未创建 | 不擅自替换已选MGT源人物；不把绑定表当作 VIS-G5 质量通过或发布 |
 | VIS-G4 | 画像卡与展示投影 | 已完成53条可独立寻址的只读 Dossier：角色资料引用既有权威资产，VIS-G3视觉资料独立版本化，223份输入内容哈希可复算，4条MGT Blueprint来源例外已隔离 | 不复制或改写角色契约；不将来源例外误写为已修复、权限或运行状态 |
 | VIS-G5 | 派生件、alt text和静态质量检查 | 已完成：424个实际交付二进制通过核验，53条完成个体质量审阅与alt text定稿；51条通过，`VIB-AGT-029`/`VIB-AGT-041`为D-076已接受风险 | 不把原图、参考图或提示词放入dist；不自动重绑、发行或接入页面 |
-| VIS-G6 | 页面接入、发布与未来角色复用 | 已完成本地发行 `VIR-SANBAO-WEB-2026-09-24-R1`：53条展示身份、318个 WebP、深浅主题切换、alt text、公开范围与静态页面接入均已校验；GitHub Pages 部署待独立验收 | 不把候选人物自动变成运行岗位；不公开候选池或受限来源资料 |
+| VIS-G6 | 页面接入、发布与未来角色复用 | 已完成公开发行 `VIR-SANBAO-WEB-2026-09-24-R1`：53条展示身份、318个 WebP、深浅主题切换、alt text、公开范围与静态页面接入均已校验；GitHub Pages Action `35910354396`成功，核心文件与318个交付件逐项哈希匹配 | 不把候选人物自动变成运行岗位；不公开候选池或受限来源资料 |
 
 视觉接入的完成定义包括：53个角色均有批准或明确HOLD的视觉状态；50条执行岗位映射完整；三位CXO由用户确认；深浅主题和小尺寸展示一致；来源、哈希与可见范围可复核；受限资料不进入公开交付物。上述任何结果都只是视觉资产验收，不是DSH、Case、Policy Gate、企业系统或经营结果验收。
 
@@ -239,4 +239,4 @@ Visual Identity Release 可以引用某个角色ID与其现有合同版本，但
 7. 全量1,848项仍只作为固定远端候选素材池治理；VIS-G6 仅复制了53条已绑定角色所需的318个 WebP 到本项目的`dist/`静态发行包。其余候选、原生PNG、来源、参考、设计和总览图均未物化到项目、GitHub Pages或目标DSH；若要归档候选池，须先决定私有存储与访问控制。
 8. 未改变任何角色职责、Soul、Playbook、Preset、Access、评估、Bundle、运行状态或生产权限。
 
-D-077 已授权并完成 VIS-G6 的本地发行：发行登记册、318个 WebP、53条页面投影、深浅主题切换、风险追溯和公开范围都已复核。下一步是按既有 GitHub Pages 工作流部署，并对 Actions、Pages与公网实际字节独立取证；不得跨门把候选人物变成运行岗位或公开受限素材。
+D-077 已完成 VIS-G6 的公开发行：发行登记册、318个 WebP、53条页面投影、深浅主题切换、风险追溯和公开范围都已复核；GitHub Pages Action `35910354396`成功，公开核心文件与318个WebP逐项哈希匹配。以后视觉变更仍须重新构建、校验、部署和取证；不得跨门把候选人物变成运行岗位或公开受限素材。

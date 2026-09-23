@@ -1,6 +1,6 @@
 # Sanbao_Web VIS-G6 视觉身份发行审查
 
-状态：`COMPLETE_LOCAL_VISUAL_IDENTITY_RELEASE_PENDING_GITHUB_PAGES_DEPLOYMENT`
+状态：`COMPLETE_PUBLIC_VISUAL_IDENTITY_RELEASE`（本地发行登记册保留其部署前的历史状态；公网结果以本审查第7节及独立部署证据为准）
 
 日期：2026-09-24<br>
 发行：`VIR-SANBAO-WEB-2026-09-24-R1`
@@ -11,7 +11,7 @@ D-077 已授权并完成 VIS-G6 的本地视觉发行。静态站点现已接入
 
 本地发行包包含 318 个 WebP：每一角色分别提供浅色/深色的 64px 列表图、128px同主题后备图及 256px详情图。发行登记册记录的 WebP 可复算摘要为 `1b3b42808e165093ad9f5bc07dc53475bc141f0640fa982c0d3e450e138134ab`。
 
-这不是运行时、DSH、Case、Access 或生产发行。GitHub Pages 的 Action、部署和公网实际字节仍须独立观察；在完成该证据前，不能将本地交付描述为已经上线。
+这不是运行时、DSH、Case、Access 或生产发行。GitHub Pages 的 Action、部署和公网实际字节已在独立证据中通过；这只证明静态展示已公开发布，不证明任何运行时或生产能力。
 
 ## 2. 本次接入范围
 
@@ -49,13 +49,20 @@ D-077 已授权并完成 VIS-G6 的本地视觉发行。静态站点现已接入
 ## 5. 发布前后的责任边界
 
 - 本地发行只表明受控静态交付包可重建、可验证、可浏览；它不证明 GitHub Pages、外部缓存或公网页面已更新。
-- GitHub Pages 发布前必须继续运行站点现有的页面构建、文档链接和差异检查；发布后应记录 Actions 成功、Pages部署和公网页面对当前 `dist/` 的实际一致性。
+- 后续 GitHub Pages 发布前必须继续运行站点现有的页面构建、文档链接和差异检查；发布后应重新记录 Actions 成功、Pages部署和公网页面对当时 `dist/` 的实际一致性。
 - 若任何视觉资产、绑定、alt text、公开范围或主题尺寸发生变化，必须重新运行 VIS-G6 构建与校验；若涉及两条 D-076 风险角色，必须重新审阅保留的近似风险。
 - 候选素材池的私有物化、将候选人物绑定为未来数字员工、角色合同变更、DSH接入或生产动作都不在本发行授权内。
 
 ## 6. 关联资产
 
 - [VIS-G6机器可读发行登记册](SANBAO-WEB-VIS-G6-VISUAL-IDENTITY-RELEASE-2026-09-24.json)
+- [VIS-G6公网部署证据](SANBAO-WEB-VIS-G6-PUBLIC-DEPLOYMENT-EVIDENCE-2026-09-24.json)
 - [Sanbao视觉身份与资产方案](../SANBAO-VISUAL-IDENTITY-ASSET-PLAN.md)
 - [VIS-G5静态质量审查](SANBAO-WEB-VIS-G5-STATIC-QUALITY-REVIEW-2026-09-24.md)
 - [VIS-G4 Digital Persona Dossier 审查](SANBAO-WEB-VIS-G4-DOSSIER-REVIEW-2026-09-24.md)
+
+## 7. GitHub Pages 公网部署证据
+
+发行提交 `abfd1733e884adfe7b576e7fa028c8a9e23b67c4` 已由 [Deploy solution site to Pages #35910354396](https://github.com/zjgulai/AI-Native-Organization/actions/runs/35910354396) 成功部署。公开站点为 [zjgulai.github.io/AI-Native-Organization](https://zjgulai.github.io/AI-Native-Organization/)。
+
+部署后以只读 HTTPS 方式逐字节复核：`index.html`、`styles.css`、`app.js` 和 `data/visual-identities.json` 均与当前 `dist/` 匹配；318个 WebP 逐项与发行登记册记录的 SHA-256 匹配。一次并发读取遇到单个 CDN 瞬时503，单项重试已返回 `200 image/webp` 和期望哈希，随后完整复核零重试、零不匹配。公开浏览器在1440×900视口加载三张管理层详情图、滚入列表后的执行岗位头像，并实际验证浅/深主题资源切换，未观察到错误界面。
