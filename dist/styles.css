@@ -429,6 +429,272 @@ h1 {
   color: #5a625d;
 }
 
+.visual-identities-workbench {
+  padding: 2rem;
+  border: 1px solid var(--line-dark);
+  background:
+    linear-gradient(120deg, rgba(255, 253, 248, 0.92), rgba(231, 220, 199, 0.82)),
+    var(--paper-light);
+  box-shadow: var(--shadow);
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.visual-identities-workbench .section-heading {
+  margin-bottom: 1.35rem;
+}
+
+.visual-release-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #c9b99d;
+  background: rgba(255, 253, 248, 0.68);
+}
+
+.visual-release-summary {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.visual-release-summary > span,
+.visual-theme-toggle > span {
+  color: var(--cinnabar);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.visual-release-summary strong {
+  color: var(--jade);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+}
+
+.visual-release-summary small {
+  color: #6a6255;
+  font-size: 0.76rem;
+}
+
+.visual-theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.visual-theme-toggle > span {
+  margin-right: 0.2rem;
+}
+
+.visual-theme-toggle button {
+  min-width: 3.75rem;
+  min-height: 2.7rem;
+  padding: 0.38rem 0.68rem;
+  border: 1px solid #9f927c;
+  border-radius: 0;
+  color: var(--ink);
+  background: var(--white);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.visual-theme-toggle button:hover,
+.visual-theme-toggle button:focus-visible,
+.visual-theme-toggle button.active {
+  border-color: var(--jade);
+  color: var(--white);
+  background: var(--jade);
+}
+
+.management-identity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.management-identity-card {
+  padding: 1rem;
+  border: 1px solid #b8a98e;
+  background: rgba(255, 253, 248, 0.8);
+}
+
+.management-identity-heading {
+  display: grid;
+  grid-template-columns: 6.15rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.85rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #d5c9b5;
+}
+
+.management-identity-heading > div > span {
+  display: block;
+  color: #746b5d;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+.management-identity-heading h3 {
+  margin: 0.28rem 0 0.08rem;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.65rem;
+}
+
+.management-role-title {
+  margin: 0;
+  color: var(--cinnabar);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.management-identity-copy {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding-top: 0.8rem;
+}
+
+.management-identity-copy div {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.management-identity-copy dt {
+  color: var(--cinnabar);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.management-identity-copy dd {
+  margin: 0;
+  color: #43504a;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
+
+.visual-release-boundary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid var(--cinnabar);
+  background: rgba(194, 173, 126, 0.18);
+  color: #5e574b;
+  font-size: 0.78rem;
+}
+
+.visual-release-boundary strong {
+  color: var(--cinnabar-deep);
+  white-space: nowrap;
+}
+
+.portrait-frame {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid #aa9a80;
+  background: #d9d0be;
+  box-shadow: 0 8px 18px rgba(39, 30, 18, 0.13);
+}
+
+.portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait-unavailable {
+  color: #6d6252;
+  background: repeating-linear-gradient(-45deg, #e7decd, #e7decd 8px, #d7c9b3 8px, #d7c9b3 16px);
+  box-shadow: none;
+}
+
+.portrait-unavailable > span {
+  color: #756854;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+}
+
+.management-portrait {
+  width: 6.15rem;
+  height: 6.15rem;
+  border-radius: 0.65rem;
+}
+
+.visual-identities-workbench[data-theme="dark"] {
+  border-color: #5a726b;
+  color: #e9eee9;
+  background:
+    linear-gradient(120deg, rgba(17, 35, 31, 0.96), rgba(36, 59, 53, 0.94)),
+    var(--ink);
+}
+
+.visual-identities-workbench[data-theme="dark"] .section-heading,
+.visual-identities-workbench[data-theme="dark"] .management-identity-heading {
+  border-color: #587168;
+}
+
+.visual-identities-workbench[data-theme="dark"] .section-heading > p,
+.visual-identities-workbench[data-theme="dark"] .visual-release-summary small,
+.visual-identities-workbench[data-theme="dark"] .management-identity-copy dd,
+.visual-identities-workbench[data-theme="dark"] .visual-release-boundary {
+  color: #cbd8d2;
+}
+
+.visual-identities-workbench[data-theme="dark"] .section-heading h2,
+.visual-identities-workbench[data-theme="dark"] .management-identity-heading h3 {
+  color: #fffdf8;
+}
+
+.visual-identities-workbench[data-theme="dark"] .visual-release-toolbar,
+.visual-identities-workbench[data-theme="dark"] .management-identity-card {
+  border-color: #547168;
+  background: rgba(10, 27, 24, 0.58);
+}
+
+.visual-identities-workbench[data-theme="dark"] .visual-release-summary strong {
+  color: #d6e9df;
+}
+
+.visual-identities-workbench[data-theme="dark"] .visual-theme-toggle button {
+  border-color: #789b90;
+  color: #e6eee9;
+  background: #1d3d36;
+}
+
+.visual-identities-workbench[data-theme="dark"] .visual-theme-toggle button.active {
+  border-color: #e0bd73;
+  color: #252016;
+  background: #e0bd73;
+}
+
+.visual-identities-workbench[data-theme="dark"] .management-identity-heading > div > span {
+  color: #aebfb8;
+}
+
+.visual-identities-workbench[data-theme="dark"] .management-role-title,
+.visual-identities-workbench[data-theme="dark"] .management-identity-copy dt {
+  color: #f1c878;
+}
+
+.visual-identities-workbench[data-theme="dark"] .visual-release-boundary {
+  border-left-color: #e0bd73;
+  background: rgba(224, 189, 115, 0.12);
+}
+
+.visual-identities-workbench[data-theme="dark"] .visual-release-boundary strong {
+  color: #f1c878;
+}
+
 .plane-summary {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -586,6 +852,24 @@ h1 {
   cursor: pointer;
 }
 
+.role-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.role-heading-copy {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.role-portrait {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
 .role-topline {
   display: flex;
   align-items: center;
@@ -641,6 +925,24 @@ h1 {
 
 .role-detail[hidden] {
   display: none;
+}
+
+.role-visual-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.role-detail-portrait {
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 0.55rem;
+}
+
+.role-visual-content p {
+  margin: 0;
+  color: #58645e;
+  font-size: 0.78rem;
 }
 
 .detail-block {
@@ -2520,6 +2822,23 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .visual-identities-workbench {
+    padding: 1.35rem;
+  }
+
+  .management-identity-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .management-identity-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .management-portrait {
+    width: 5.3rem;
+    height: 5.3rem;
+  }
+
   .role-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2538,6 +2857,25 @@ footer {
 
   .asset-composition-map {
     grid-template-columns: 1fr;
+  }
+
+  .visual-release-toolbar,
+  .visual-theme-toggle {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .visual-theme-toggle {
+    width: 100%;
+  }
+
+  .visual-theme-toggle > span {
+    margin-right: 0;
+  }
+
+  .visual-theme-toggle button {
+    flex: 1 1 auto;
+    width: 100%;
   }
 
   .asset-mode-join {
@@ -2672,6 +3010,7 @@ footer {
   }
 
   .role-grid,
+  .management-identity-grid,
   .asset-summary-grid,
   .flow-grid,
   .collab-notes,
@@ -2687,6 +3026,11 @@ footer {
   .governance-intro,
   .governance-acceptance {
     grid-template-columns: 1fr;
+  }
+
+  .visual-release-boundary {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
   }
 
   .greenfield-hero {

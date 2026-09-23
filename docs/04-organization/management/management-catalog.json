@@ -233,7 +233,7 @@
     {
       "id": "MGT-001",
       "layer": "layer_1_ceo",
-      "alias": "持衡",
+      "alias": "天時",
       "title": "首席执行官 CEO",
       "management_domain": "全局组合",
       "mission": "在已批准的企业约束内，把全局目标转为跨域取舍、优先级排序和资源再分配",
@@ -306,7 +306,7 @@
     {
       "id": "MGT-002",
       "layer": "layer_2_demand_side",
-      "alias": "驭浪",
+      "alias": "地利",
       "title": "首席增长官 CGO",
       "management_domain": "渠道·品牌·增长·服务·履约·产品",
       "mission": "把需求侧的经营结果做成可归因的组合，让每一份流量、内容、达人、商品与履约投入都能说明它的增量",
@@ -410,7 +410,7 @@
     {
       "id": "MGT-003",
       "layer": "layer_2_governance",
-      "alias": "明界",
+      "alias": "人和",
       "title": "首席治理官 CGOv",
       "management_domain": "财务·合规·质量·账号·数据与AI平台",
       "mission": "让经营在边界内发生，并让边界、资源与能力供给都可版本化、可追溯、可被独立检验",

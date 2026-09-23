@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0",
+  "register_id": "VIS-G1-SANBAO-WEB-2026-09-23",
+  "reviewed_on": "2026-09-24",
+  "review_outcome": "COMPLETE_AUTHORIZED",
+  "scope": {
+    "includes": [
+      "repository provenance and frozen Git anchor review",
+      "repository-level license and notice review",
+      "generation-process self-declaration review",
+      "reference-input, privacy, and visibility evidence classification",
+      "all 1848 image files classified by source domain"
+    ],
+    "excludes": [
+      "image binary download, copy, or local hash recomputation",
+      "image editing, derivation, or visual quality approval",
+      "raw prompt, reference, identity, or appearance-data disclosure",
+      "public site, dist, GitHub Pages, DSH, or runtime integration",
+      "legal opinion or final rights adjudication"
+    ]
+  },
+  "source_anchor": {
+    "repository": "zjgulai/Sanbao_Web",
+    "repository_url": "https://github.com/zjgulai/Sanbao_Web",
+    "commit": "2e676da87999c88fbc70baae9eb5dbf72c2b757e",
+    "commit_url": "https://github.com/zjgulai/Sanbao_Web/commit/2e676da87999c88fbc70baae9eb5dbf72c2b757e",
+    "tree": "4948f180d4e5a0bc8c599022227c384d525729c5",
+    "recursive_tree_api_url": "https://api.github.com/repos/zjgulai/Sanbao_Web/git/trees/4948f180d4e5a0bc8c599022227c384d525729c5?recursive=1",
+    "tree_response_truncated": false,
+    "previous_snapshot": "SANBAO-WEB-SOURCE-SNAPSHOT-2026-09-23.json"
+  },
+  "inventory": {
+    "total_image_files": 1848,
+    "total_image_bytes": 397188626,
+    "classification_coverage_count": 1848,
+    "classification_method": "Complete domain-selector rules: every image under one frozen source-domain selector inherits that domain's status, visibility, candidate-pool disposition, and permitted action; this is not a sample.",
+    "status_counts": {
+      "SOURCE_RECORDED": 1848,
+      "HOLD_VIS_G1": 0,
+      "APPROVED_DELIVERY": 1729,
+      "POOL_ONLY": 119,
+      "EXCLUDED_VIS_G1": 0
+    }
+  },
+  "repository_evidence": {
+    "repository_visibility": "PUBLIC_FORK",
+    "parent_or_source": "lillian-maker/WorldPilot",
+    "rightsholder_authorization": {
+      "status": "USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "asserted_on": "2026-09-24",
+      "evidence_type": "DIRECT_USER_STATEMENT",
+      "decision_reference": "D-071",
+      "authority_holder": "project user; no additional personal identity data recorded",
+      "scope": "All 1848 images in the frozen Sanbao_Web tree for D-068/D-069 visual identity, candidate-pool, cross-repository copy, internal retention, derivation, public display, commercial reuse, redistribution, and future role creation",
+      "resolved_blocker": "The user explicitly confirms full authority to authorize the frozen asset scope; no remaining VIS-G1 rights hold is retained.",
+      "operational_effect": "Complete VIS-G1 with delivery/pool classification; later visual gates and actual implementation actions remain separate."
+    },
+    "generic_image_license": "NOT_FOUND",
+    "repository_license_metadata": "NULL_OR_NOT_APPLICABLE_TO_IMAGES",
+    "identified_license_file": {
+      "path": "brand/logo/licenses/Inter-OFL-1.1.txt",
+      "scope": "Inter font only; not evidence for image, portrait, logo, or website-graphic reuse"
+    },
+    "generation_self_declaration": {
+      "status": "PRESENT",
+      "method": "built-in image_gen",
+      "post_processing_claim": "mechanical split, resize, and format conversion",
+      "provider": "UNKNOWN",
+      "account_rightsholder": "USER_AUTHORIZED_BY_D071",
+      "terms_version_at_generation": "NOT_IDENTIFIED_IN_UPSTREAM_METADATA",
+      "output_reuse_scope": "AUTHORIZED_BY_USER_D071_FOR_PROJECT_SCOPE"
+    },
+    "reference_input_signals": {
+      "identity_reference_non_null_count": 6,
+      "style_reference_present_count": 8,
+      "pose_correction_source_present_count": 3,
+      "raw_reference_details_recorded_here": false,
+      "authorization_basis": "USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION_D071"
+    },
+    "visibility_authorization": {
+      "project_scope_authorization": "USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION_D071",
+      "cross_repository_copy": "AUTHORIZED_BY_USER_D071",
+      "modification_or_transcoding": "AUTHORIZED_BY_USER_D071",
+      "public_display": "AUTHORIZED_BY_USER_D071_PENDING_LATER_VISUAL_GATES",
+      "commercial_reuse": "AUTHORIZED_BY_USER_D071_PENDING_LATER_VISUAL_GATES",
+      "redistribution": "AUTHORIZED_BY_USER_D071_PENDING_LATER_VISUAL_GATES",
+      "portrait_privacy_or_consent": "USER_CONFIRMED_AUTHORIZED_BY_D071"
+    }
+  },
+  "asset_domains": [
+    {
+      "domain_id": "DELIVERY_RENDITIONS",
+      "path_prefix": "digital-employees/assets/",
+      "image_count": 1632,
+      "image_bytes": 187346332,
+      "status": "APPROVED_DELIVERY",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "public_visibility": "AUTHORIZED_PENDING_LATER_VISUAL_GATES",
+      "candidate_pool_disposition": "APPROVED_CANDIDATE_POOL_ELIGIBLE",
+      "permitted_action_now": "AUTHORIZED_FOR_LATER_GATE_EXECUTION_NOT_EXECUTED_IN_VIS_G1"
+    },
+    {
+      "domain_id": "SOURCE_SHEETS",
+      "path_prefix": "digital-employees/sources/",
+      "image_count": 102,
+      "image_bytes": 188000778,
+      "status": "POOL_ONLY",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "public_visibility": "RESTRICTED_BY_DELIVERY_POLICY",
+      "candidate_pool_disposition": "APPROVED_RESTRICTED_SOURCE_POOL",
+      "permitted_action_now": "AUTHORIZED_INTERNAL_SOURCE_POOL_NOT_PUBLIC_DELIVERY"
+    },
+    {
+      "domain_id": "REFERENCE_INPUTS",
+      "path_prefix": "digital-employees/references/",
+      "image_count": 12,
+      "image_bytes": 11598971,
+      "status": "POOL_ONLY",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "public_visibility": "RESTRICTED_BY_DELIVERY_POLICY",
+      "candidate_pool_disposition": "APPROVED_RESTRICTED_REFERENCE_POOL",
+      "permitted_action_now": "AUTHORIZED_INTERNAL_REFERENCE_POOL_NOT_PUBLIC_DELIVERY"
+    },
+    {
+      "domain_id": "DESIGN_INPUT_IMAGE",
+      "path_prefix": "digital-employees/design/",
+      "image_count": 1,
+      "image_bytes": 1878338,
+      "status": "POOL_ONLY",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "public_visibility": "RESTRICTED_BY_DELIVERY_POLICY",
+      "candidate_pool_disposition": "APPROVED_RESTRICTED_DESIGN_POOL",
+      "permitted_action_now": "AUTHORIZED_INTERNAL_DESIGN_POOL_NOT_PUBLIC_DELIVERY"
+    },
+    {
+      "domain_id": "DIGITAL_EMPLOYEE_OVERVIEWS",
+      "path_prefix": "digital-employees/",
+      "path_selector": "overview JPG files",
+      "image_count": 4,
+      "image_bytes": 4584065,
+      "status": "POOL_ONLY",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "public_visibility": "RESTRICTED_BY_DELIVERY_POLICY",
+      "candidate_pool_disposition": "APPROVED_REVIEW_POOL_NOT_PERSONA_DELIVERY",
+      "permitted_action_now": "AUTHORIZED_INTERNAL_REVIEW_POOL_NOT_PUBLIC_DELIVERY"
+    },
+    {
+      "domain_id": "BRAND_LOGO",
+      "path_prefix": "brand/logo/",
+      "image_count": 94,
+      "image_bytes": 1047648,
+      "status": "APPROVED_DELIVERY",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "public_visibility": "AUTHORIZED_PENDING_LATER_VISUAL_GATES",
+      "candidate_pool_disposition": "EXCLUDED_FROM_PERSONA_BINDING",
+      "permitted_action_now": "AUTHORIZED_FOR_LATER_GATE_EXECUTION_NOT_EXECUTED_IN_VIS_G1"
+    },
+    {
+      "domain_id": "WEBSITE_GRAPHICS",
+      "path_prefix": "website/assets/",
+      "image_count": 3,
+      "image_bytes": 2732494,
+      "status": "APPROVED_DELIVERY",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "public_visibility": "AUTHORIZED_PENDING_LATER_VISUAL_GATES",
+      "candidate_pool_disposition": "EXCLUDED_FROM_PERSONA_BINDING",
+      "permitted_action_now": "AUTHORIZED_FOR_LATER_GATE_EXECUTION_NOT_EXECUTED_IN_VIS_G1"
+    }
+  ],
+  "selected_cxo_bindings": [
+    {
+      "role_id": "MGT-001",
+      "role_display_name": "天時",
+      "source_persona_id": "AGT-067",
+      "binding_selection": "D-069_SOURCE_PERSONA_SELECTED",
+      "status": "APPROVED_DELIVERY_PENDING_VIS_G2",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "reference_chain_status": "USER_AUTHORIZED_FULL_SCOPE_D071; RAW_REFERENCE_DETAILS_REMAIN_RESTRICTED",
+      "public_visibility": "AUTHORIZED_PENDING_VIS_G2_TO_VIS_G6",
+      "binary_action": "AUTHORIZED_BY_D071_NOT_EXECUTED_IN_VIS_G1"
+    },
+    {
+      "role_id": "MGT-002",
+      "role_display_name": "地利",
+      "source_persona_id": "AGT-090",
+      "binding_selection": "D-069_SOURCE_PERSONA_SELECTED",
+      "status": "APPROVED_DELIVERY_PENDING_VIS_G2",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "reference_chain_status": "USER_AUTHORIZED_FULL_SCOPE_D071; RAW_REFERENCE_DETAILS_REMAIN_RESTRICTED",
+      "public_visibility": "AUTHORIZED_PENDING_VIS_G2_TO_VIS_G6",
+      "binary_action": "AUTHORIZED_BY_D071_NOT_EXECUTED_IN_VIS_G1"
+    },
+    {
+      "role_id": "MGT-003",
+      "role_display_name": "人和",
+      "source_persona_id": "AGT-056",
+      "binding_selection": "D-069_SOURCE_PERSONA_SELECTED",
+      "status": "APPROVED_DELIVERY_PENDING_VIS_G2",
+      "rightsholder_attestation": "D071_USER_CONFIRMED_FULL_SCOPE_AUTHORIZATION",
+      "reference_chain_status": "USER_AUTHORIZED_FULL_SCOPE_D071; RAW_REFERENCE_DETAILS_REMAIN_RESTRICTED",
+      "public_visibility": "AUTHORIZED_PENDING_VIS_G2_TO_VIS_G6",
+      "binary_action": "AUTHORIZED_BY_D071_NOT_EXECUTED_IN_VIS_G1"
+    }
+  ],
+  "authorization_basis": [
+    "D-071 user-confirmed full-scope ownership and authorization for all 1848 frozen images",
+    "VIS-G1 accepts this first-party authorization as complete for rights and visibility classification"
+  ],
+  "later_gate_requirements": [
+    "actual-binary integrity, rendition, accessibility, and build-output checks in later visual gates",
+    "separate user instruction before any binary copy, derivative creation, page integration, build, or publication action"
+  ],
+  "release_controls": {
+    "rightsholder_authorization_recorded": true,
+    "rightsholder_authorization_reference": "D-071",
+    "delivery_reuse_authorized_by_user": true,
+    "public_display_authorized_by_user": true,
+    "may_advance_to_vis_g2": true,
+    "may_create_visual_identity_release": false,
+    "may_copy_image_binary": false,
+    "may_modify_or_derive_image": false,
+    "may_add_to_candidate_asset_pool": true,
+    "may_integrate_site_or_dist": false,
+    "may_change_role_runtime_assets": false,
+    "may_publish": false
+  },
+  "document_references": {
+    "review": "SANBAO-WEB-VIS-G1-RIGHTS-AND-VISIBILITY-REVIEW-2026-09-23.md",
+    "source_snapshot": "SANBAO-WEB-SOURCE-SNAPSHOT-2026-09-23.md",
+    "visual_plan": "../SANBAO-VISUAL-IDENTITY-ASSET-PLAN.md",
+    "architecture_decision": "../../adr/0015-visual-identity-and-asset-provenance.md"
+  },
+  "notice": "VIS-G1 classification relies on the user's explicit D-071 full-scope ownership and authorization. No image binary or restricted source content is contained in this register, and no later-gate implementation action has been performed."
+}

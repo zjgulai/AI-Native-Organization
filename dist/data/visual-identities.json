@@ -1,0 +1,1501 @@
+{
+  "artifact_kind": "site_visual_identity_release",
+  "version": "1.0.0",
+  "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+  "generated_on": "2026-09-24",
+  "public_presentation_scope": "Approved visual presentation only. It does not instantiate a role, grant access, or change a runtime state.",
+  "counts": {
+    "management": 3,
+    "agents": 50,
+    "visual_identities": 53,
+    "webp_delivery_assets": 318
+  },
+  "candidate_pool": {
+    "status": "RETAINED_IN_GOVERNED_REMOTE_POOL_NOT_INCLUDED_IN_PUBLIC_RELEASE",
+    "role_creation_effect": "NONE"
+  },
+  "management": [
+    {
+      "role_id": "MGT-001",
+      "role_kind": "MGT",
+      "display_name": "天時",
+      "title": "首席执行官 CEO",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "天時数字分身形象，浅色主题",
+          "dark": "天時数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/dark/detail-256.webp"
+          }
+        }
+      },
+      "presentation": {
+        "mission": "在已批准的企业约束内，把全局目标转为跨域取舍、优先级排序和资源再分配",
+        "standard_artifact": "全局组合决策包"
+      }
+    },
+    {
+      "role_id": "MGT-002",
+      "role_kind": "MGT",
+      "display_name": "地利",
+      "title": "首席增长官 CGO",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "地利数字分身形象，浅色主题",
+          "dark": "地利数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/dark/detail-256.webp"
+          }
+        }
+      },
+      "presentation": {
+        "mission": "把需求侧的经营结果做成可归因的组合，让每一份流量、内容、达人、商品与履约投入都能说明它的增量",
+        "standard_artifact": "增长组合决策包"
+      }
+    },
+    {
+      "role_id": "MGT-003",
+      "role_kind": "MGT",
+      "display_name": "人和",
+      "title": "首席治理官 CGOv",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "人和数字分身形象，浅色主题",
+          "dark": "人和数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/dark/detail-256.webp"
+          }
+        }
+      },
+      "presentation": {
+        "mission": "让经营在边界内发生，并让边界、资源与能力供给都可版本化、可追溯、可被独立检验",
+        "standard_artifact": "治理与能力决策包"
+      }
+    }
+  ],
+  "visuals": [
+    {
+      "role_id": "MGT-001",
+      "role_kind": "MGT",
+      "display_name": "天時",
+      "title": "首席执行官 CEO",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "天時数字分身形象，浅色主题",
+          "dark": "天時数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-001/dark/detail-256.webp"
+          }
+        }
+      },
+      "presentation": {
+        "mission": "在已批准的企业约束内，把全局目标转为跨域取舍、优先级排序和资源再分配",
+        "standard_artifact": "全局组合决策包"
+      }
+    },
+    {
+      "role_id": "MGT-002",
+      "role_kind": "MGT",
+      "display_name": "地利",
+      "title": "首席增长官 CGO",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "地利数字分身形象，浅色主题",
+          "dark": "地利数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-002/dark/detail-256.webp"
+          }
+        }
+      },
+      "presentation": {
+        "mission": "把需求侧的经营结果做成可归因的组合，让每一份流量、内容、达人、商品与履约投入都能说明它的增量",
+        "standard_artifact": "增长组合决策包"
+      }
+    },
+    {
+      "role_id": "MGT-003",
+      "role_kind": "MGT",
+      "display_name": "人和",
+      "title": "首席治理官 CGOv",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "人和数字分身形象，浅色主题",
+          "dark": "人和数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/mgt-003/dark/detail-256.webp"
+          }
+        }
+      },
+      "presentation": {
+        "mission": "让经营在边界内发生，并让边界、资源与能力供给都可版本化、可追溯、可被独立检验",
+        "standard_artifact": "治理与能力决策包"
+      }
+    },
+    {
+      "role_id": "AGT-001",
+      "role_kind": "AGT",
+      "display_name": "衡远",
+      "title": "经营目标与资源统筹",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "衡远数字分身形象，浅色主题",
+          "dark": "衡远数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-001/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-001/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-001/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-001/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-001/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-001/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-002",
+      "role_kind": "AGT",
+      "display_name": "枢衡",
+      "title": "场景自主编排与异常协调",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "枢衡数字分身形象，浅色主题",
+          "dark": "枢衡数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-002/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-002/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-002/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-002/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-002/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-002/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-003",
+      "role_kind": "AGT",
+      "display_name": "明镜",
+      "title": "经营分析与决策支持",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "明镜数字分身形象，浅色主题",
+          "dark": "明镜数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-003/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-003/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-003/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-003/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-003/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-003/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-004",
+      "role_kind": "AGT",
+      "display_name": "知人",
+      "title": "组织能力与人事行政",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "知人数字分身形象，浅色主题",
+          "dark": "知人数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-004/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-004/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-004/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-004/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-004/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-004/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-005",
+      "role_kind": "AGT",
+      "display_name": "守衡",
+      "title": "内控审计与独立复核",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "守衡数字分身形象，浅色主题",
+          "dark": "守衡数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-005/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-005/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-005/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-005/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-005/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-005/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-006",
+      "role_kind": "AGT",
+      "display_name": "听澜",
+      "title": "消费者需求与VOC研究",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "听澜数字分身形象，浅色主题",
+          "dark": "听澜数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-006/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-006/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-006/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-006/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-006/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-006/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-007",
+      "role_kind": "AGT",
+      "display_name": "望野",
+      "title": "市场竞争与机会研究",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "望野数字分身形象，浅色主题",
+          "dark": "望野数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-007/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-007/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-007/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-007/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-007/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-007/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-008",
+      "role_kind": "AGT",
+      "display_name": "拓新",
+      "title": "产品组合与新品孵化",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "拓新数字分身形象，浅色主题",
+          "dark": "拓新数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-008/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-008/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-008/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-008/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-008/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-008/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-009",
+      "role_kind": "AGT",
+      "display_name": "定形",
+      "title": "产品定义与商业立项",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "定形数字分身形象，浅色主题",
+          "dark": "定形数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-009/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-009/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-009/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-009/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-009/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-009/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-010",
+      "role_kind": "AGT",
+      "display_name": "映物",
+      "title": "工业设计与用户体验",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "映物数字分身形象，浅色主题",
+          "dark": "映物数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-010/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-010/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-010/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-010/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-010/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-010/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-011",
+      "role_kind": "AGT",
+      "display_name": "砺器",
+      "title": "硬件结构与材料工程",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "砺器数字分身形象，浅色主题",
+          "dark": "砺器数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-011/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-011/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-011/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-011/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-011/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-011/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-012",
+      "role_kind": "AGT",
+      "display_name": "灵枢",
+      "title": "软件算法与应用生态",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "灵枢数字分身形象，浅色主题",
+          "dark": "灵枢数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-012/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-012/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-012/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-012/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-012/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-012/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-013",
+      "role_kind": "AGT",
+      "display_name": "求证",
+      "title": "产品验证与研发项目",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "求证数字分身形象，浅色主题",
+          "dark": "求证数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-013/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-013/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-013/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-013/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-013/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-013/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-014",
+      "role_kind": "AGT",
+      "display_name": "择源",
+      "title": "OEM供应商开发与协同",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "择源数字分身形象，浅色主题",
+          "dark": "择源数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-014/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-014/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-014/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-014/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-014/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-014/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-015",
+      "role_kind": "AGT",
+      "display_name": "契约",
+      "title": "采购与合同履约",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "契约数字分身形象，浅色主题",
+          "dark": "契约数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-015/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-015/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-015/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-015/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-015/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-015/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-016",
+      "role_kind": "AGT",
+      "display_name": "知量",
+      "title": "需求预测与补货计划",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "知量数字分身形象，浅色主题",
+          "dark": "知量数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-016/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-016/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-016/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-016/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-016/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-016/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-017",
+      "role_kind": "AGT",
+      "display_name": "衡仓",
+      "title": "库存与商品生命周期",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "衡仓数字分身形象，浅色主题",
+          "dark": "衡仓数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-017/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-017/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-017/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-017/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-017/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-017/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-018",
+      "role_kind": "AGT",
+      "display_name": "质守",
+      "title": "生产协同与质量控制",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "质守数字分身形象，浅色主题",
+          "dark": "质守数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-018/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-018/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-018/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-018/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-018/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-018/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-019",
+      "role_kind": "AGT",
+      "display_name": "通途",
+      "title": "跨境物流与关务",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "通途数字分身形象，浅色主题",
+          "dark": "通途数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-019/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-019/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-019/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-019/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-019/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-019/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-020",
+      "role_kind": "AGT",
+      "display_name": "行舟",
+      "title": "仓储履约与退货处置",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "行舟数字分身形象，浅色主题",
+          "dark": "行舟数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-020/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-020/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-020/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-020/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-020/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-020/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-021",
+      "role_kind": "AGT",
+      "display_name": "北辰",
+      "title": "Amazon业务经营",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "北辰数字分身形象，浅色主题",
+          "dark": "北辰数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-021/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-021/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-021/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-021/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-021/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-021/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-022",
+      "role_kind": "AGT",
+      "display_name": "觅位",
+      "title": "Amazon商品与搜索运营",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "觅位数字分身形象，浅色主题",
+          "dark": "觅位数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-022/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-022/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-022/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-022/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-022/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-022/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-023",
+      "role_kind": "AGT",
+      "display_name": "自航",
+      "title": "独立站经营与转化",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "自航数字分身形象，浅色主题",
+          "dark": "自航数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-023/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-023/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-023/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-023/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-023/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-023/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-024",
+      "role_kind": "AGT",
+      "display_name": "拓域",
+      "title": "其他平台与新市场经营",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "拓域数字分身形象，浅色主题",
+          "dark": "拓域数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-024/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-024/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-024/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-024/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-024/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-024/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-025",
+      "role_kind": "AGT",
+      "display_name": "联商",
+      "title": "零售渠道与B2B拓展",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "联商数字分身形象，浅色主题",
+          "dark": "联商数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-025/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-025/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-025/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-025/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-025/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-025/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-026",
+      "role_kind": "AGT",
+      "display_name": "衡价",
+      "title": "定价促销与商品组合",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "衡价数字分身形象，浅色主题",
+          "dark": "衡价数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-026/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-026/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-026/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-026/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-026/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-026/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-027",
+      "role_kind": "AGT",
+      "display_name": "守店",
+      "title": "店铺账号健康与规则",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "守店数字分身形象，浅色主题",
+          "dark": "守店数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-027/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-027/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-027/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-027/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-027/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-027/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-028",
+      "role_kind": "AGT",
+      "display_name": "译境",
+      "title": "本地化与市场适配",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "译境数字分身形象，浅色主题",
+          "dark": "译境数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-028/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-028/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-028/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-028/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-028/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-028/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-029",
+      "role_kind": "AGT",
+      "display_name": "立言",
+      "title": "品牌战略与传播",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_WITH_ACCEPTED_OWNER_VISUAL_RISK",
+        "alt_text": {
+          "light": "立言数字分身形象，浅色主题",
+          "dark": "立言数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-029/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-029/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-029/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-029/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-029/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-029/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-030",
+      "role_kind": "AGT",
+      "display_name": "叙事",
+      "title": "内容与创意策划",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "叙事数字分身形象，浅色主题",
+          "dark": "叙事数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-030/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-030/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-030/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-030/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-030/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-030/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-031",
+      "role_kind": "AGT",
+      "display_name": "绘影",
+      "title": "视觉视频与素材生产",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "绘影数字分身形象，浅色主题",
+          "dark": "绘影数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-031/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-031/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-031/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-031/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-031/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-031/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-032",
+      "role_kind": "AGT",
+      "display_name": "点火",
+      "title": "效果广告投放",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "点火数字分身形象，浅色主题",
+          "dark": "点火数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-032/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-032/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-032/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-032/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-032/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-032/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-033",
+      "role_kind": "AGT",
+      "display_name": "结伴",
+      "title": "达人与联盟合作",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "结伴数字分身形象，浅色主题",
+          "dark": "结伴数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-033/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-033/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-033/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-033/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-033/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-033/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-034",
+      "role_kind": "AGT",
+      "display_name": "续缘",
+      "title": "CRM留存与复购",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "续缘数字分身形象，浅色主题",
+          "dark": "续缘数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-034/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-034/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-034/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-034/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-034/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-034/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-035",
+      "role_kind": "AGT",
+      "display_name": "试真",
+      "title": "增长实验与增量评估",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "试真数字分身形象，浅色主题",
+          "dark": "试真数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-035/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-035/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-035/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-035/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-035/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-035/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-036",
+      "role_kind": "AGT",
+      "display_name": "安心",
+      "title": "售前服务与购买指导",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "安心数字分身形象，浅色主题",
+          "dark": "安心数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-036/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-036/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-036/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-036/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-036/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-036/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-037",
+      "role_kind": "AGT",
+      "display_name": "解忧",
+      "title": "售后客诉与服务补救",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "解忧数字分身形象，浅色主题",
+          "dark": "解忧数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-037/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-037/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-037/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-037/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-037/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-037/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-038",
+      "role_kind": "AGT",
+      "display_name": "回声",
+      "title": "体验洞察与质量反馈",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "回声数字分身形象，浅色主题",
+          "dark": "回声数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-038/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-038/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-038/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-038/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-038/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-038/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-039",
+      "role_kind": "AGT",
+      "display_name": "同行",
+      "title": "用户教育与会员社区",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "同行数字分身形象，浅色主题",
+          "dark": "同行数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-039/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-039/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-039/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-039/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-039/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-039/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-040",
+      "role_kind": "AGT",
+      "display_name": "清账",
+      "title": "GMV结算与会计对账",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "清账数字分身形象，浅色主题",
+          "dark": "清账数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-040/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-040/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-040/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-040/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-040/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-040/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-041",
+      "role_kind": "AGT",
+      "display_name": "守金",
+      "title": "经营财务与资金",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_WITH_ACCEPTED_OWNER_VISUAL_RISK",
+        "alt_text": {
+          "light": "守金数字分身形象，浅色主题",
+          "dark": "守金数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-041/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-041/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-041/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-041/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-041/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-041/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-042",
+      "role_kind": "AGT",
+      "display_name": "合账",
+      "title": "税务与跨境实体协作",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "合账数字分身形象，浅色主题",
+          "dark": "合账数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-042/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-042/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-042/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-042/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-042/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-042/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-043",
+      "role_kind": "AGT",
+      "display_name": "律衡",
+      "title": "法务与知识产权",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "律衡数字分身形象，浅色主题",
+          "dark": "律衡数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-043/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-043/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-043/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-043/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-043/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-043/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-044",
+      "role_kind": "AGT",
+      "display_name": "安界",
+      "title": "产品合规与隐私",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "安界数字分身形象，浅色主题",
+          "dark": "安界数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-044/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-044/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-044/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-044/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-044/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-044/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-045",
+      "role_kind": "AGT",
+      "display_name": "同尺",
+      "title": "业务口径与主数据",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "同尺数字分身形象，浅色主题",
+          "dark": "同尺数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-045/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-045/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-045/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-045/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-045/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-045/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-046",
+      "role_kind": "AGT",
+      "display_name": "清源",
+      "title": "数据工程与质量",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "清源数字分身形象，浅色主题",
+          "dark": "清源数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-046/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-046/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-046/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-046/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-046/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-046/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-047",
+      "role_kind": "AGT",
+      "display_name": "接桥",
+      "title": "系统集成与业务工具",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "接桥数字分身形象，浅色主题",
+          "dark": "接桥数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-047/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-047/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-047/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-047/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-047/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-047/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-048",
+      "role_kind": "AGT",
+      "display_name": "积知",
+      "title": "知识技能与Playbook治理",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "积知数字分身形象，浅色主题",
+          "dark": "积知数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-048/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-048/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-048/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-048/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-048/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-048/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-049",
+      "role_kind": "AGT",
+      "display_name": "稳行",
+      "title": "Agent平台与可靠运行",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "稳行数字分身形象，浅色主题",
+          "dark": "稳行数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-049/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-049/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-049/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-049/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-049/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-049/dark/detail-256.webp"
+          }
+        }
+      }
+    },
+    {
+      "role_id": "AGT-050",
+      "role_kind": "AGT",
+      "display_name": "门卫",
+      "title": "信息安全与权限",
+      "visual": {
+        "release_id": "VIR-SANBAO-WEB-2026-09-24-R1",
+        "status": "APPROVED_FOR_PUBLIC_PRESENTATION",
+        "alt_text": {
+          "light": "门卫数字分身形象，浅色主题",
+          "dark": "门卫数字分身形象，深色主题"
+        },
+        "assets": {
+          "light": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-050/light/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-050/light/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-050/light/detail-256.webp"
+          },
+          "dark": {
+            "list": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-050/dark/list-64.webp",
+            "fallback": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-050/dark/fallback-128.webp",
+            "detail": "./assets/visual-identities/vir-sanbao-web-2026-09-24-r1/agt-050/dark/detail-256.webp"
+          }
+        }
+      }
+    }
+  ]
+}

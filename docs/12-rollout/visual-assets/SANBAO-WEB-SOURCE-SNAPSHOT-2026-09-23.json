@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.0",
+  "snapshot_id": "VIS-G0-SANBAO-WEB-2026-09-23",
+  "captured_on": "2026-09-23",
+  "status": "COMPLETE_METADATA_ONLY",
+  "scope": {
+    "includes": [
+      "fixed upstream Git commit and tree",
+      "full recursive Git-tree metadata inventory",
+      "pinned catalog manifest references",
+      "selected CXO source and delivery-candidate metadata"
+    ],
+    "excludes": [
+      "image binary download or copy",
+      "image editing or derivative creation",
+      "license or privacy adjudication",
+      "public site integration or publication",
+      "Role Release Bundle, access, runtime, or production changes"
+    ]
+  },
+  "upstream": {
+    "repository": "zjgulai/Sanbao_Web",
+    "repository_url": "https://github.com/zjgulai/Sanbao_Web",
+    "commit": "2e676da87999c88fbc70baae9eb5dbf72c2b757e",
+    "commit_url": "https://github.com/zjgulai/Sanbao_Web/commit/2e676da87999c88fbc70baae9eb5dbf72c2b757e",
+    "observed_main_ref": "2e676da87999c88fbc70baae9eb5dbf72c2b757e",
+    "commit_timestamp_utc": "2026-09-18T05:18:39Z",
+    "github_commit_verification": "unsigned",
+    "tree": "4948f180d4e5a0bc8c599022227c384d525729c5",
+    "recursive_tree_api_url": "https://api.github.com/repos/zjgulai/Sanbao_Web/git/trees/4948f180d4e5a0bc8c599022227c384d525729c5?recursive=1",
+    "recursive_tree_response_truncated": false,
+    "recursive_tree_entry_count": 2122,
+    "controlled_directory_trees": {
+      "digital-employees": "f85357e3cabe6f6c8dfb292292c35598a8839589",
+      "digital-employees/assets": "954b266e597d8e486e8a81e40281a3a87d4b494a",
+      "digital-employees/assets/dark": "34f7f27609d08d859f03497d39db30c12a773f8d",
+      "digital-employees/assets/light": "eadd03baabefa0a9e3d3db35b7ed9a5de975b62a",
+      "digital-employees/sources": "156151f0efb52ba1b9b9512d92e983e93a0a77ad",
+      "digital-employees/references": "f11c8a5e2977a7bcdfe32cad510316f20b19a40f",
+      "digital-employees/design": "911e6c08bcc092b1a282be68086243311970d966",
+      "brand/logo": "577850ea804ad33de36cd147568ca4d3ae492aa6",
+      "website/assets": "92cce139bb9c909551165868c09b40d999a81d5f"
+    },
+    "raw_content_base_url": "https://raw.githubusercontent.com/zjgulai/Sanbao_Web/2e676da87999c88fbc70baae9eb5dbf72c2b757e/"
+  },
+  "integrity_semantics": {
+    "git_blob_sha": "Git object identifier returned by the frozen tree; not an independently recomputed file SHA-256.",
+    "metadata_fingerprint_algorithm": "SHA-256",
+    "metadata_fingerprint_canonicalization": "Sort all selected tree blobs by path using en locale; concatenate path, TAB, git_blob_sha, TAB, bytes, LF for each row; hash the UTF-8 result.",
+    "upstream_declared_sha256": "Read from the pinned upstream avatar manifest; not recomputed locally because image binaries were not downloaded."
+  },
+  "inventory": {
+    "repository_blobs": {
+      "count": 2084,
+      "bytes": 417143325,
+      "metadata_fingerprint_sha256": "1ad7dbd1731f98f439f46446114ba7f0b945dc4bea3d4dc2394c93c7df9f356f"
+    },
+    "repository_image_blobs": {
+      "count": 1848,
+      "bytes": 397188626,
+      "by_extension": {
+        "ico": { "count": 1, "bytes": 26307 },
+        "jpg": { "count": 5, "bytes": 4682173 },
+        "png": { "count": 396, "bytes": 383471795 },
+        "svg": { "count": 18, "bytes": 113043 },
+        "webp": { "count": 1428, "bytes": 8895308 }
+      },
+      "metadata_fingerprint_sha256": "4fbaa96bf2d3d3f06e7acb1fbefa6dfe783101242301c62fb473eac6269797a8"
+    },
+    "digital_employees": {
+      "blob_count": 1971,
+      "bytes": 408005031,
+      "image_blob_count": 1751,
+      "image_bytes": 393408484,
+      "image_by_extension": {
+        "jpg": { "count": 4, "bytes": 4584065 },
+        "png": { "count": 319, "bytes": 379929111 },
+        "webp": { "count": 1428, "bytes": 8895308 }
+      },
+      "image_metadata_fingerprint_sha256": "c5e897634f7d18b29560937c11bf34082116a4f2afd58a39a5226c2f07470c00",
+      "employee_count_from_avatar_manifest": 102,
+      "delivery_themes": ["dark", "light"],
+      "delivery_webp_sizes_px": [32, 48, 64, 80, 128, 256, 512],
+      "delivery_webp_count": 1428
+    },
+    "image_domains": {
+      "digital_employees_assets": { "count": 1632, "bytes": 187346332 },
+      "digital_employees_assets_dark": { "count": 816, "bytes": 93146927 },
+      "digital_employees_assets_light": { "count": 816, "bytes": 94199405 },
+      "digital_employees_sources": { "count": 102, "bytes": 188000778 },
+      "digital_employees_references": { "count": 12, "bytes": 11598971 },
+      "digital_employees_design_image": { "count": 1, "bytes": 1878338 },
+      "digital_employees_contact_sheets": { "count": 4, "bytes": 4584065 },
+      "brand_logo": { "count": 94, "bytes": 1047648 },
+      "website_assets": { "count": 3, "bytes": 2732494 }
+    }
+  },
+  "pinned_catalogs": {
+    "avatar_manifest": {
+      "relative_path": "digital-employees/avatar-manifest.json",
+      "git_blob_sha": "5fe37b375d415593c19c3712f225b5e21e7f02f8",
+      "bytes": 1003587,
+      "employee_record_count": 102,
+      "raw_url": "https://raw.githubusercontent.com/zjgulai/Sanbao_Web/2e676da87999c88fbc70baae9eb5dbf72c2b757e/digital-employees/avatar-manifest.json"
+    },
+    "workforce": {
+      "relative_path": "digital-employees/workforce.json",
+      "git_blob_sha": "9cfb61bb43b2dd2b36216cb2c8402bcc564fc9e5",
+      "bytes": 24026,
+      "raw_url": "https://raw.githubusercontent.com/zjgulai/Sanbao_Web/2e676da87999c88fbc70baae9eb5dbf72c2b757e/digital-employees/workforce.json"
+    },
+    "avatar_index": {
+      "relative_path": "digital-employees/avatar-index.csv",
+      "git_blob_sha": "45a6c0409b0320cb04801c25a8a6c724d5e94c1d",
+      "bytes": 17363,
+      "raw_url": "https://raw.githubusercontent.com/zjgulai/Sanbao_Web/2e676da87999c88fbc70baae9eb5dbf72c2b757e/digital-employees/avatar-index.csv"
+    }
+  },
+  "selected_cxo_source_bindings": [
+    {
+      "role_id": "MGT-001",
+      "role_display_name": "天時",
+      "source_persona_id": "AGT-067",
+      "upstream_display_name": "星阑",
+      "upstream_catalog_context": { "job": "待分配岗位", "domain": "待分配", "binding_note": "Project-side visual binding only; upstream identity is not renamed." },
+      "binding_status": "SOURCE_LOCKED_AWAITING_VIS_G1",
+      "rights_status": "HOLD_VIS_G1",
+      "visibility_status": "HOLD_VIS_G1",
+      "source_sheet": {
+        "relative_path": "digital-employees/sources/AGT-067.png",
+        "git_blob_sha": "7c6f3c4cb009476d66bb5728f13fde4d11c762bf",
+        "bytes": 1802521,
+        "dimensions_px": [1774, 887],
+        "upstream_declared_sha256": "ab12a9b21833579c8b397050a0f2d43c218ca5da7c2e18389152b03ff1be2741"
+      },
+      "native_portraits": {
+        "dark_png": { "relative_path": "digital-employees/assets/dark/AGT-067.png", "git_blob_sha": "2d4635816994d6ff23fbd24db7b8c55edbe39d79", "bytes": 845639, "dimensions_px": [887, 887], "upstream_declared_sha256": "63aaa1e909e3371be8ad5602e3d676e6594638e4f031d59cedbc1a7b32bd30c4" },
+        "light_png": { "relative_path": "digital-employees/assets/light/AGT-067.png", "git_blob_sha": "10dd71c9a3b068a581015d24e64f2cb0f78458c5", "bytes": 862188, "dimensions_px": [887, 887], "upstream_declared_sha256": "ee6097d876c21e93b3481130ffd5261a872739d49fcf5236e4c85f2e48200006" }
+      },
+      "delivery_candidates": {
+        "dark_64_webp": { "relative_path": "digital-employees/assets/dark/64/AGT-067.webp", "git_blob_sha": "34926ca1caa70bf2dadcda8f705d149cb98cbe15", "bytes": 1380 },
+        "light_64_webp": { "relative_path": "digital-employees/assets/light/64/AGT-067.webp", "git_blob_sha": "93f85a66d6805c113e55e8134aecbcce3370e0a0", "bytes": 1412 },
+        "dark_256_webp": { "relative_path": "digital-employees/assets/dark/256/AGT-067.webp", "git_blob_sha": "4462c9e6891155267f41bde46398581b2dbc67e9", "bytes": 9616 },
+        "light_256_webp": { "relative_path": "digital-employees/assets/light/256/AGT-067.webp", "git_blob_sha": "a57c46fc978dd214beb0eb232d824f7dbabf4b9b", "bytes": 9896 },
+        "dark_512_webp": { "relative_path": "digital-employees/assets/dark/512/AGT-067.webp", "git_blob_sha": "262875c9a19779db61eb88f3da35759aa8bde322", "bytes": 25376 },
+        "light_512_webp": { "relative_path": "digital-employees/assets/light/512/AGT-067.webp", "git_blob_sha": "335b519b7af5f29c1be787f19598e1cf0dafa69a", "bytes": 26918 }
+      }
+    },
+    {
+      "role_id": "MGT-002",
+      "role_display_name": "地利",
+      "source_persona_id": "AGT-090",
+      "upstream_display_name": "语桐",
+      "upstream_catalog_context": { "job": "待分配岗位", "domain": "待分配", "binding_note": "Project-side visual binding only; upstream identity is not renamed." },
+      "binding_status": "SOURCE_LOCKED_AWAITING_VIS_G1",
+      "rights_status": "HOLD_VIS_G1",
+      "visibility_status": "HOLD_VIS_G1",
+      "source_sheet": {
+        "relative_path": "digital-employees/sources/AGT-090.png",
+        "git_blob_sha": "f25d97f3d90c0791549c7ed53f673ed3d2562f1f",
+        "bytes": 2044964,
+        "dimensions_px": [1774, 887],
+        "upstream_declared_sha256": "c69750fd4b0db26cfb7f2366ec8c011648589866be10b68e7360f54f49b91164"
+      },
+      "native_portraits": {
+        "dark_png": { "relative_path": "digital-employees/assets/dark/AGT-090.png", "git_blob_sha": "461f2f267611d21d28ea4062d77e4cd5c7cce3ca", "bytes": 970834, "dimensions_px": [887, 887], "upstream_declared_sha256": "5491daa44c27f756cc02bae2bbf10ced3b56b39ca101944f81f45efc3f7b1805" },
+        "light_png": { "relative_path": "digital-employees/assets/light/AGT-090.png", "git_blob_sha": "14b955576f9eaaf9788b3d574aaf33520e0cd29b", "bytes": 979320, "dimensions_px": [887, 887], "upstream_declared_sha256": "8ec1e4c55e5e085d971b7be54ed9b742b2f76071b0695feed9fd8353fb2f4660" }
+      },
+      "delivery_candidates": {
+        "dark_64_webp": { "relative_path": "digital-employees/assets/dark/64/AGT-090.webp", "git_blob_sha": "6d69e9b2b057f174d2a6aaf13e1082ce711a2aca", "bytes": 1332 },
+        "light_64_webp": { "relative_path": "digital-employees/assets/light/64/AGT-090.webp", "git_blob_sha": "aa781b93d6516f0c314985ce1a6e7de495bf3dcf", "bytes": 1518 },
+        "dark_256_webp": { "relative_path": "digital-employees/assets/dark/256/AGT-090.webp", "git_blob_sha": "e613a98f8ffc2a67230b98d6fbd4b57635cbdadc", "bytes": 11064 },
+        "light_256_webp": { "relative_path": "digital-employees/assets/light/256/AGT-090.webp", "git_blob_sha": "af2cc6e88580dab3432f63c3aff150e11ab5acbd", "bytes": 11758 },
+        "dark_512_webp": { "relative_path": "digital-employees/assets/dark/512/AGT-090.webp", "git_blob_sha": "8847809b0355344ef3b6c5c0528696b8a00dd706", "bytes": 37884 },
+        "light_512_webp": { "relative_path": "digital-employees/assets/light/512/AGT-090.webp", "git_blob_sha": "24109fd3bd4c1b492001c5e1a906c0d17eeb2334", "bytes": 39808 }
+      }
+    },
+    {
+      "role_id": "MGT-003",
+      "role_display_name": "人和",
+      "source_persona_id": "AGT-056",
+      "upstream_display_name": "昭禾",
+      "upstream_catalog_context": { "job": "待分配岗位", "domain": "待分配", "binding_note": "Project-side visual binding only; upstream identity is not renamed." },
+      "binding_status": "SOURCE_LOCKED_AWAITING_VIS_G1",
+      "rights_status": "HOLD_VIS_G1",
+      "visibility_status": "HOLD_VIS_G1",
+      "source_sheet": {
+        "relative_path": "digital-employees/sources/AGT-056.png",
+        "git_blob_sha": "b2d13cc4b84625ba3b23ae72ad041191b17baadb",
+        "bytes": 1860182,
+        "dimensions_px": [1774, 887],
+        "upstream_declared_sha256": "713bd2e8cdb3e8604801b8cd229e852185ce6868f1ee2e3e54ef26d7f5c81bbf"
+      },
+      "native_portraits": {
+        "dark_png": { "relative_path": "digital-employees/assets/dark/AGT-056.png", "git_blob_sha": "86d47eaed3a80149b5c5ecc2eab2f69e7a757d34", "bytes": 883586, "dimensions_px": [887, 887], "upstream_declared_sha256": "e91fbef18552f740e11b995fed702d5a6b349fcc1f2c910920c87f4598805710" },
+        "light_png": { "relative_path": "digital-employees/assets/light/AGT-056.png", "git_blob_sha": "570b13f29d352fabb2fbf75f0d4d436557d5d24f", "bytes": 887274, "dimensions_px": [887, 887], "upstream_declared_sha256": "10f0188f3a785944ed37f331c5243e6c15c872b5ae77b241e9ff7c3422768c3a" }
+      },
+      "delivery_candidates": {
+        "dark_64_webp": { "relative_path": "digital-employees/assets/dark/64/AGT-056.webp", "git_blob_sha": "c4d4e70ca1aad3301d10be4730a6750c069a4cba", "bytes": 1170 },
+        "light_64_webp": { "relative_path": "digital-employees/assets/light/64/AGT-056.webp", "git_blob_sha": "61f37c77fb3b257201157c985d4307f6b5ecf294", "bytes": 1246 },
+        "dark_256_webp": { "relative_path": "digital-employees/assets/dark/256/AGT-056.webp", "git_blob_sha": "c1184f3872062ddacc81011a0c86d3832dba1b03", "bytes": 8772 },
+        "light_256_webp": { "relative_path": "digital-employees/assets/light/256/AGT-056.webp", "git_blob_sha": "13f76115678ce2bd41d5391e02c2fd2a94f8c72c", "bytes": 9296 },
+        "dark_512_webp": { "relative_path": "digital-employees/assets/dark/512/AGT-056.webp", "git_blob_sha": "f045fabd39bc8874ce24a084115546d14454d0df", "bytes": 28134 },
+        "light_512_webp": { "relative_path": "digital-employees/assets/light/512/AGT-056.webp", "git_blob_sha": "6532764606e1f085e6ae5f59dc87dc8ae742d3b9", "bytes": 29920 }
+      }
+    }
+  ],
+  "next_gate": {
+    "id": "VIS-G1",
+    "required_before_any_public_use": [
+      "rights and license review",
+      "reference and privacy review",
+      "generation service terms review",
+      "visibility classification and approval"
+    ]
+  }
+}

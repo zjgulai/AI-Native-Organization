@@ -1,0 +1,3233 @@
+{
+  "schema_version": "1.0",
+  "register_id": "VIS-G3-SANBAO-WEB-2026-09-24",
+  "generated_on": "2026-09-24",
+  "gate": {
+    "id": "VIS-G3",
+    "status": "COMPLETE_BINDING_TABLE_PENDING_VIS_G5",
+    "scope": [
+      "53 role-to-source-persona structural visual bindings",
+      "same-persona dark/light primary, list, detail, fallback, and native quality-trace rendition references",
+      "neutral draft alt text and explicit source/role semantic authority boundaries"
+    ],
+    "excluded": [
+      "image binary download, copy, editing, derivation, or pixel/MIME verification",
+      "Visual Identity Release creation, page integration, publication, DSH, or runtime changes",
+      "any role-contract, access, organizational, or production-state change"
+    ]
+  },
+  "source_anchor": {
+    "repository": "zjgulai/Sanbao_Web",
+    "commit": "2e676da87999c88fbc70baae9eb5dbf72c2b757e",
+    "tree": "4948f180d4e5a0bc8c599022227c384d525729c5",
+    "vis_g2_register_id": "VIS-G2-SANBAO-WEB-2026-09-24",
+    "canonicalization_acceptance": {
+      "decision_id": "D-073",
+      "status": "ACCEPTED",
+      "canonicalization": {
+        "algorithm": "SHA-256",
+        "canonicalization": "Sort selected image blobs by Unicode code-point path order; concatenate path, TAB, git_blob_sha, TAB, bytes, LF; hash UTF-8.",
+        "version": "VIS-G2-CANONICALIZATION-1"
+      },
+      "legacy_g0_fingerprints": {
+        "status": "RETAINED_HISTORICAL_NOT_VERIFIED",
+        "reproduction_status_by_scope": {
+          "repository_blobs": "MISMATCH_REQUIRES_G0_REMEDIATION",
+          "repository_images": "MISMATCH_REQUIRES_G0_REMEDIATION",
+          "digital_employee_images": "MISMATCH_REQUIRES_G0_REMEDIATION"
+        }
+      }
+    }
+  },
+  "binding_policy": {
+    "agent_mapping": "AGT-001 through AGT-050 map to the same source_persona_id",
+    "management_mapping": {
+      "MGT-001": "AGT-067",
+      "MGT-002": "AGT-090",
+      "MGT-003": "AGT-056"
+    },
+    "theme_switching": "dark/light must retain the same source_persona_id",
+    "source_role_semantics": "PROJECT_OR_MANAGEMENT_CATALOG_ONLY",
+    "visual_identity_release": "NOT_CREATED_PENDING_VIS_G5",
+    "binary_and_visual_quality": "PENDING_VIS_G5"
+  },
+  "bindings": [
+    {
+      "binding_id": "VIB-MGT-001",
+      "role_id": "MGT-001",
+      "role_kind": "MGT",
+      "role_catalog_authority": {
+        "path": "docs/04-organization/management/management-catalog.json",
+        "version": "2.0.0-design",
+        "semantic_display_policy": "MANAGEMENT_CATALOG_ONLY"
+      },
+      "role_display_name": "天時",
+      "role_title": "首席执行官 CEO",
+      "source_persona_id": "AGT-067",
+      "source_persona_name": "星阑",
+      "source_context_status": "SOURCE_PERSONA_ONLY_ROLE_SEMANTICS_FROM_MANAGEMENT_CATALOG",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-067-dark-256",
+            "list_asset_id": "RENDITION-AGT-067-dark-64",
+            "detail_asset_id": "RENDITION-AGT-067-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-067-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-067-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-067-light-256",
+            "list_asset_id": "RENDITION-AGT-067-light-64",
+            "detail_asset_id": "RENDITION-AGT-067-light-256",
+            "fallback_asset_id": "RENDITION-AGT-067-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-067-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "天時数字分身形象，深色主题",
+          "light": "天時数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-069",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-MGT-002",
+      "role_id": "MGT-002",
+      "role_kind": "MGT",
+      "role_catalog_authority": {
+        "path": "docs/04-organization/management/management-catalog.json",
+        "version": "2.0.0-design",
+        "semantic_display_policy": "MANAGEMENT_CATALOG_ONLY"
+      },
+      "role_display_name": "地利",
+      "role_title": "首席增长官 CGO",
+      "source_persona_id": "AGT-090",
+      "source_persona_name": "语桐",
+      "source_context_status": "SOURCE_PERSONA_ONLY_ROLE_SEMANTICS_FROM_MANAGEMENT_CATALOG",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-090-dark-256",
+            "list_asset_id": "RENDITION-AGT-090-dark-64",
+            "detail_asset_id": "RENDITION-AGT-090-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-090-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-090-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-090-light-256",
+            "list_asset_id": "RENDITION-AGT-090-light-64",
+            "detail_asset_id": "RENDITION-AGT-090-light-256",
+            "fallback_asset_id": "RENDITION-AGT-090-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-090-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "地利数字分身形象，深色主题",
+          "light": "地利数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-069",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-MGT-003",
+      "role_id": "MGT-003",
+      "role_kind": "MGT",
+      "role_catalog_authority": {
+        "path": "docs/04-organization/management/management-catalog.json",
+        "version": "2.0.0-design",
+        "semantic_display_policy": "MANAGEMENT_CATALOG_ONLY"
+      },
+      "role_display_name": "人和",
+      "role_title": "首席治理官 CGOv",
+      "source_persona_id": "AGT-056",
+      "source_persona_name": "昭禾",
+      "source_context_status": "SOURCE_PERSONA_ONLY_ROLE_SEMANTICS_FROM_MANAGEMENT_CATALOG",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-056-dark-256",
+            "list_asset_id": "RENDITION-AGT-056-dark-64",
+            "detail_asset_id": "RENDITION-AGT-056-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-056-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-056-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-056-light-256",
+            "list_asset_id": "RENDITION-AGT-056-light-64",
+            "detail_asset_id": "RENDITION-AGT-056-light-256",
+            "fallback_asset_id": "RENDITION-AGT-056-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-056-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "人和数字分身形象，深色主题",
+          "light": "人和数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-069",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-001",
+      "role_id": "AGT-001",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "衡远",
+      "role_title": "经营目标与资源统筹",
+      "source_persona_id": "AGT-001",
+      "source_persona_name": "衡远",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-001-dark-256",
+            "list_asset_id": "RENDITION-AGT-001-dark-64",
+            "detail_asset_id": "RENDITION-AGT-001-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-001-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-001-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-001-light-256",
+            "list_asset_id": "RENDITION-AGT-001-light-64",
+            "detail_asset_id": "RENDITION-AGT-001-light-256",
+            "fallback_asset_id": "RENDITION-AGT-001-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-001-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "衡远数字分身形象，深色主题",
+          "light": "衡远数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-002",
+      "role_id": "AGT-002",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "枢衡",
+      "role_title": "场景自主编排与异常协调",
+      "source_persona_id": "AGT-002",
+      "source_persona_name": "枢衡",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-002-dark-256",
+            "list_asset_id": "RENDITION-AGT-002-dark-64",
+            "detail_asset_id": "RENDITION-AGT-002-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-002-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-002-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-002-light-256",
+            "list_asset_id": "RENDITION-AGT-002-light-64",
+            "detail_asset_id": "RENDITION-AGT-002-light-256",
+            "fallback_asset_id": "RENDITION-AGT-002-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-002-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "枢衡数字分身形象，深色主题",
+          "light": "枢衡数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-003",
+      "role_id": "AGT-003",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "明镜",
+      "role_title": "经营分析与决策支持",
+      "source_persona_id": "AGT-003",
+      "source_persona_name": "明镜",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-003-dark-256",
+            "list_asset_id": "RENDITION-AGT-003-dark-64",
+            "detail_asset_id": "RENDITION-AGT-003-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-003-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-003-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-003-light-256",
+            "list_asset_id": "RENDITION-AGT-003-light-64",
+            "detail_asset_id": "RENDITION-AGT-003-light-256",
+            "fallback_asset_id": "RENDITION-AGT-003-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-003-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "明镜数字分身形象，深色主题",
+          "light": "明镜数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-004",
+      "role_id": "AGT-004",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "知人",
+      "role_title": "组织能力与人事行政",
+      "source_persona_id": "AGT-004",
+      "source_persona_name": "知人",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-004-dark-256",
+            "list_asset_id": "RENDITION-AGT-004-dark-64",
+            "detail_asset_id": "RENDITION-AGT-004-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-004-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-004-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-004-light-256",
+            "list_asset_id": "RENDITION-AGT-004-light-64",
+            "detail_asset_id": "RENDITION-AGT-004-light-256",
+            "fallback_asset_id": "RENDITION-AGT-004-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-004-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "知人数字分身形象，深色主题",
+          "light": "知人数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-005",
+      "role_id": "AGT-005",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "守衡",
+      "role_title": "内控审计与独立复核",
+      "source_persona_id": "AGT-005",
+      "source_persona_name": "守衡",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-005-dark-256",
+            "list_asset_id": "RENDITION-AGT-005-dark-64",
+            "detail_asset_id": "RENDITION-AGT-005-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-005-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-005-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-005-light-256",
+            "list_asset_id": "RENDITION-AGT-005-light-64",
+            "detail_asset_id": "RENDITION-AGT-005-light-256",
+            "fallback_asset_id": "RENDITION-AGT-005-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-005-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "守衡数字分身形象，深色主题",
+          "light": "守衡数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-006",
+      "role_id": "AGT-006",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "听澜",
+      "role_title": "消费者需求与VOC研究",
+      "source_persona_id": "AGT-006",
+      "source_persona_name": "听澜",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-006-dark-256",
+            "list_asset_id": "RENDITION-AGT-006-dark-64",
+            "detail_asset_id": "RENDITION-AGT-006-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-006-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-006-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-006-light-256",
+            "list_asset_id": "RENDITION-AGT-006-light-64",
+            "detail_asset_id": "RENDITION-AGT-006-light-256",
+            "fallback_asset_id": "RENDITION-AGT-006-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-006-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "听澜数字分身形象，深色主题",
+          "light": "听澜数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-007",
+      "role_id": "AGT-007",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "望野",
+      "role_title": "市场竞争与机会研究",
+      "source_persona_id": "AGT-007",
+      "source_persona_name": "望野",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-007-dark-256",
+            "list_asset_id": "RENDITION-AGT-007-dark-64",
+            "detail_asset_id": "RENDITION-AGT-007-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-007-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-007-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-007-light-256",
+            "list_asset_id": "RENDITION-AGT-007-light-64",
+            "detail_asset_id": "RENDITION-AGT-007-light-256",
+            "fallback_asset_id": "RENDITION-AGT-007-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-007-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "望野数字分身形象，深色主题",
+          "light": "望野数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-008",
+      "role_id": "AGT-008",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "拓新",
+      "role_title": "产品组合与新品孵化",
+      "source_persona_id": "AGT-008",
+      "source_persona_name": "拓新",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-008-dark-256",
+            "list_asset_id": "RENDITION-AGT-008-dark-64",
+            "detail_asset_id": "RENDITION-AGT-008-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-008-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-008-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-008-light-256",
+            "list_asset_id": "RENDITION-AGT-008-light-64",
+            "detail_asset_id": "RENDITION-AGT-008-light-256",
+            "fallback_asset_id": "RENDITION-AGT-008-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-008-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "拓新数字分身形象，深色主题",
+          "light": "拓新数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-009",
+      "role_id": "AGT-009",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "定形",
+      "role_title": "产品定义与商业立项",
+      "source_persona_id": "AGT-009",
+      "source_persona_name": "定形",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-009-dark-256",
+            "list_asset_id": "RENDITION-AGT-009-dark-64",
+            "detail_asset_id": "RENDITION-AGT-009-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-009-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-009-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-009-light-256",
+            "list_asset_id": "RENDITION-AGT-009-light-64",
+            "detail_asset_id": "RENDITION-AGT-009-light-256",
+            "fallback_asset_id": "RENDITION-AGT-009-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-009-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "定形数字分身形象，深色主题",
+          "light": "定形数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-010",
+      "role_id": "AGT-010",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "映物",
+      "role_title": "工业设计与用户体验",
+      "source_persona_id": "AGT-010",
+      "source_persona_name": "映物",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-010-dark-256",
+            "list_asset_id": "RENDITION-AGT-010-dark-64",
+            "detail_asset_id": "RENDITION-AGT-010-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-010-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-010-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-010-light-256",
+            "list_asset_id": "RENDITION-AGT-010-light-64",
+            "detail_asset_id": "RENDITION-AGT-010-light-256",
+            "fallback_asset_id": "RENDITION-AGT-010-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-010-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "映物数字分身形象，深色主题",
+          "light": "映物数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-011",
+      "role_id": "AGT-011",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "砺器",
+      "role_title": "硬件结构与材料工程",
+      "source_persona_id": "AGT-011",
+      "source_persona_name": "砺器",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-011-dark-256",
+            "list_asset_id": "RENDITION-AGT-011-dark-64",
+            "detail_asset_id": "RENDITION-AGT-011-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-011-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-011-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-011-light-256",
+            "list_asset_id": "RENDITION-AGT-011-light-64",
+            "detail_asset_id": "RENDITION-AGT-011-light-256",
+            "fallback_asset_id": "RENDITION-AGT-011-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-011-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "砺器数字分身形象，深色主题",
+          "light": "砺器数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-012",
+      "role_id": "AGT-012",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "灵枢",
+      "role_title": "软件算法与应用生态",
+      "source_persona_id": "AGT-012",
+      "source_persona_name": "灵枢",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-012-dark-256",
+            "list_asset_id": "RENDITION-AGT-012-dark-64",
+            "detail_asset_id": "RENDITION-AGT-012-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-012-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-012-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-012-light-256",
+            "list_asset_id": "RENDITION-AGT-012-light-64",
+            "detail_asset_id": "RENDITION-AGT-012-light-256",
+            "fallback_asset_id": "RENDITION-AGT-012-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-012-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "灵枢数字分身形象，深色主题",
+          "light": "灵枢数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-013",
+      "role_id": "AGT-013",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "求证",
+      "role_title": "产品验证与研发项目",
+      "source_persona_id": "AGT-013",
+      "source_persona_name": "求证",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-013-dark-256",
+            "list_asset_id": "RENDITION-AGT-013-dark-64",
+            "detail_asset_id": "RENDITION-AGT-013-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-013-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-013-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-013-light-256",
+            "list_asset_id": "RENDITION-AGT-013-light-64",
+            "detail_asset_id": "RENDITION-AGT-013-light-256",
+            "fallback_asset_id": "RENDITION-AGT-013-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-013-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "求证数字分身形象，深色主题",
+          "light": "求证数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-014",
+      "role_id": "AGT-014",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "择源",
+      "role_title": "OEM供应商开发与协同",
+      "source_persona_id": "AGT-014",
+      "source_persona_name": "择源",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-014-dark-256",
+            "list_asset_id": "RENDITION-AGT-014-dark-64",
+            "detail_asset_id": "RENDITION-AGT-014-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-014-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-014-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-014-light-256",
+            "list_asset_id": "RENDITION-AGT-014-light-64",
+            "detail_asset_id": "RENDITION-AGT-014-light-256",
+            "fallback_asset_id": "RENDITION-AGT-014-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-014-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "择源数字分身形象，深色主题",
+          "light": "择源数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-015",
+      "role_id": "AGT-015",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "契约",
+      "role_title": "采购与合同履约",
+      "source_persona_id": "AGT-015",
+      "source_persona_name": "契约",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-015-dark-256",
+            "list_asset_id": "RENDITION-AGT-015-dark-64",
+            "detail_asset_id": "RENDITION-AGT-015-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-015-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-015-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-015-light-256",
+            "list_asset_id": "RENDITION-AGT-015-light-64",
+            "detail_asset_id": "RENDITION-AGT-015-light-256",
+            "fallback_asset_id": "RENDITION-AGT-015-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-015-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "契约数字分身形象，深色主题",
+          "light": "契约数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-016",
+      "role_id": "AGT-016",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "知量",
+      "role_title": "需求预测与补货计划",
+      "source_persona_id": "AGT-016",
+      "source_persona_name": "知量",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-016-dark-256",
+            "list_asset_id": "RENDITION-AGT-016-dark-64",
+            "detail_asset_id": "RENDITION-AGT-016-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-016-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-016-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-016-light-256",
+            "list_asset_id": "RENDITION-AGT-016-light-64",
+            "detail_asset_id": "RENDITION-AGT-016-light-256",
+            "fallback_asset_id": "RENDITION-AGT-016-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-016-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "知量数字分身形象，深色主题",
+          "light": "知量数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-017",
+      "role_id": "AGT-017",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "衡仓",
+      "role_title": "库存与商品生命周期",
+      "source_persona_id": "AGT-017",
+      "source_persona_name": "衡仓",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-017-dark-256",
+            "list_asset_id": "RENDITION-AGT-017-dark-64",
+            "detail_asset_id": "RENDITION-AGT-017-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-017-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-017-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-017-light-256",
+            "list_asset_id": "RENDITION-AGT-017-light-64",
+            "detail_asset_id": "RENDITION-AGT-017-light-256",
+            "fallback_asset_id": "RENDITION-AGT-017-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-017-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "衡仓数字分身形象，深色主题",
+          "light": "衡仓数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-018",
+      "role_id": "AGT-018",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "质守",
+      "role_title": "生产协同与质量控制",
+      "source_persona_id": "AGT-018",
+      "source_persona_name": "质守",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-018-dark-256",
+            "list_asset_id": "RENDITION-AGT-018-dark-64",
+            "detail_asset_id": "RENDITION-AGT-018-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-018-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-018-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-018-light-256",
+            "list_asset_id": "RENDITION-AGT-018-light-64",
+            "detail_asset_id": "RENDITION-AGT-018-light-256",
+            "fallback_asset_id": "RENDITION-AGT-018-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-018-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "质守数字分身形象，深色主题",
+          "light": "质守数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-019",
+      "role_id": "AGT-019",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "通途",
+      "role_title": "跨境物流与关务",
+      "source_persona_id": "AGT-019",
+      "source_persona_name": "通途",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-019-dark-256",
+            "list_asset_id": "RENDITION-AGT-019-dark-64",
+            "detail_asset_id": "RENDITION-AGT-019-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-019-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-019-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-019-light-256",
+            "list_asset_id": "RENDITION-AGT-019-light-64",
+            "detail_asset_id": "RENDITION-AGT-019-light-256",
+            "fallback_asset_id": "RENDITION-AGT-019-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-019-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "通途数字分身形象，深色主题",
+          "light": "通途数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-020",
+      "role_id": "AGT-020",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "行舟",
+      "role_title": "仓储履约与退货处置",
+      "source_persona_id": "AGT-020",
+      "source_persona_name": "行舟",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-020-dark-256",
+            "list_asset_id": "RENDITION-AGT-020-dark-64",
+            "detail_asset_id": "RENDITION-AGT-020-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-020-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-020-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-020-light-256",
+            "list_asset_id": "RENDITION-AGT-020-light-64",
+            "detail_asset_id": "RENDITION-AGT-020-light-256",
+            "fallback_asset_id": "RENDITION-AGT-020-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-020-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "行舟数字分身形象，深色主题",
+          "light": "行舟数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-021",
+      "role_id": "AGT-021",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "北辰",
+      "role_title": "Amazon业务经营",
+      "source_persona_id": "AGT-021",
+      "source_persona_name": "北辰",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-021-dark-256",
+            "list_asset_id": "RENDITION-AGT-021-dark-64",
+            "detail_asset_id": "RENDITION-AGT-021-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-021-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-021-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-021-light-256",
+            "list_asset_id": "RENDITION-AGT-021-light-64",
+            "detail_asset_id": "RENDITION-AGT-021-light-256",
+            "fallback_asset_id": "RENDITION-AGT-021-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-021-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "北辰数字分身形象，深色主题",
+          "light": "北辰数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-022",
+      "role_id": "AGT-022",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "觅位",
+      "role_title": "Amazon商品与搜索运营",
+      "source_persona_id": "AGT-022",
+      "source_persona_name": "觅位",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-022-dark-256",
+            "list_asset_id": "RENDITION-AGT-022-dark-64",
+            "detail_asset_id": "RENDITION-AGT-022-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-022-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-022-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-022-light-256",
+            "list_asset_id": "RENDITION-AGT-022-light-64",
+            "detail_asset_id": "RENDITION-AGT-022-light-256",
+            "fallback_asset_id": "RENDITION-AGT-022-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-022-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "觅位数字分身形象，深色主题",
+          "light": "觅位数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-023",
+      "role_id": "AGT-023",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "自航",
+      "role_title": "独立站经营与转化",
+      "source_persona_id": "AGT-023",
+      "source_persona_name": "自航",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-023-dark-256",
+            "list_asset_id": "RENDITION-AGT-023-dark-64",
+            "detail_asset_id": "RENDITION-AGT-023-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-023-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-023-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-023-light-256",
+            "list_asset_id": "RENDITION-AGT-023-light-64",
+            "detail_asset_id": "RENDITION-AGT-023-light-256",
+            "fallback_asset_id": "RENDITION-AGT-023-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-023-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "自航数字分身形象，深色主题",
+          "light": "自航数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-024",
+      "role_id": "AGT-024",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "拓域",
+      "role_title": "其他平台与新市场经营",
+      "source_persona_id": "AGT-024",
+      "source_persona_name": "拓域",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-024-dark-256",
+            "list_asset_id": "RENDITION-AGT-024-dark-64",
+            "detail_asset_id": "RENDITION-AGT-024-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-024-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-024-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-024-light-256",
+            "list_asset_id": "RENDITION-AGT-024-light-64",
+            "detail_asset_id": "RENDITION-AGT-024-light-256",
+            "fallback_asset_id": "RENDITION-AGT-024-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-024-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "拓域数字分身形象，深色主题",
+          "light": "拓域数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-025",
+      "role_id": "AGT-025",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "联商",
+      "role_title": "零售渠道与B2B拓展",
+      "source_persona_id": "AGT-025",
+      "source_persona_name": "联商",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-025-dark-256",
+            "list_asset_id": "RENDITION-AGT-025-dark-64",
+            "detail_asset_id": "RENDITION-AGT-025-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-025-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-025-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-025-light-256",
+            "list_asset_id": "RENDITION-AGT-025-light-64",
+            "detail_asset_id": "RENDITION-AGT-025-light-256",
+            "fallback_asset_id": "RENDITION-AGT-025-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-025-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "联商数字分身形象，深色主题",
+          "light": "联商数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-026",
+      "role_id": "AGT-026",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "衡价",
+      "role_title": "定价促销与商品组合",
+      "source_persona_id": "AGT-026",
+      "source_persona_name": "衡价",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-026-dark-256",
+            "list_asset_id": "RENDITION-AGT-026-dark-64",
+            "detail_asset_id": "RENDITION-AGT-026-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-026-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-026-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-026-light-256",
+            "list_asset_id": "RENDITION-AGT-026-light-64",
+            "detail_asset_id": "RENDITION-AGT-026-light-256",
+            "fallback_asset_id": "RENDITION-AGT-026-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-026-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "衡价数字分身形象，深色主题",
+          "light": "衡价数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-027",
+      "role_id": "AGT-027",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "守店",
+      "role_title": "店铺账号健康与规则",
+      "source_persona_id": "AGT-027",
+      "source_persona_name": "守店",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-027-dark-256",
+            "list_asset_id": "RENDITION-AGT-027-dark-64",
+            "detail_asset_id": "RENDITION-AGT-027-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-027-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-027-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-027-light-256",
+            "list_asset_id": "RENDITION-AGT-027-light-64",
+            "detail_asset_id": "RENDITION-AGT-027-light-256",
+            "fallback_asset_id": "RENDITION-AGT-027-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-027-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "守店数字分身形象，深色主题",
+          "light": "守店数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-028",
+      "role_id": "AGT-028",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "译境",
+      "role_title": "本地化与市场适配",
+      "source_persona_id": "AGT-028",
+      "source_persona_name": "译境",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-028-dark-256",
+            "list_asset_id": "RENDITION-AGT-028-dark-64",
+            "detail_asset_id": "RENDITION-AGT-028-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-028-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-028-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-028-light-256",
+            "list_asset_id": "RENDITION-AGT-028-light-64",
+            "detail_asset_id": "RENDITION-AGT-028-light-256",
+            "fallback_asset_id": "RENDITION-AGT-028-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-028-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "译境数字分身形象，深色主题",
+          "light": "译境数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-029",
+      "role_id": "AGT-029",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "立言",
+      "role_title": "品牌战略与传播",
+      "source_persona_id": "AGT-029",
+      "source_persona_name": "立言",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-029-dark-256",
+            "list_asset_id": "RENDITION-AGT-029-dark-64",
+            "detail_asset_id": "RENDITION-AGT-029-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-029-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-029-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-029-light-256",
+            "list_asset_id": "RENDITION-AGT-029-light-64",
+            "detail_asset_id": "RENDITION-AGT-029-light-256",
+            "fallback_asset_id": "RENDITION-AGT-029-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-029-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "立言数字分身形象，深色主题",
+          "light": "立言数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-030",
+      "role_id": "AGT-030",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "叙事",
+      "role_title": "内容与创意策划",
+      "source_persona_id": "AGT-030",
+      "source_persona_name": "叙事",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-030-dark-256",
+            "list_asset_id": "RENDITION-AGT-030-dark-64",
+            "detail_asset_id": "RENDITION-AGT-030-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-030-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-030-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-030-light-256",
+            "list_asset_id": "RENDITION-AGT-030-light-64",
+            "detail_asset_id": "RENDITION-AGT-030-light-256",
+            "fallback_asset_id": "RENDITION-AGT-030-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-030-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "叙事数字分身形象，深色主题",
+          "light": "叙事数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-031",
+      "role_id": "AGT-031",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "绘影",
+      "role_title": "视觉视频与素材生产",
+      "source_persona_id": "AGT-031",
+      "source_persona_name": "绘影",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-031-dark-256",
+            "list_asset_id": "RENDITION-AGT-031-dark-64",
+            "detail_asset_id": "RENDITION-AGT-031-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-031-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-031-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-031-light-256",
+            "list_asset_id": "RENDITION-AGT-031-light-64",
+            "detail_asset_id": "RENDITION-AGT-031-light-256",
+            "fallback_asset_id": "RENDITION-AGT-031-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-031-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "绘影数字分身形象，深色主题",
+          "light": "绘影数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-032",
+      "role_id": "AGT-032",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "点火",
+      "role_title": "效果广告投放",
+      "source_persona_id": "AGT-032",
+      "source_persona_name": "点火",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-032-dark-256",
+            "list_asset_id": "RENDITION-AGT-032-dark-64",
+            "detail_asset_id": "RENDITION-AGT-032-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-032-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-032-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-032-light-256",
+            "list_asset_id": "RENDITION-AGT-032-light-64",
+            "detail_asset_id": "RENDITION-AGT-032-light-256",
+            "fallback_asset_id": "RENDITION-AGT-032-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-032-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "点火数字分身形象，深色主题",
+          "light": "点火数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-033",
+      "role_id": "AGT-033",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "结伴",
+      "role_title": "达人与联盟合作",
+      "source_persona_id": "AGT-033",
+      "source_persona_name": "结伴",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-033-dark-256",
+            "list_asset_id": "RENDITION-AGT-033-dark-64",
+            "detail_asset_id": "RENDITION-AGT-033-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-033-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-033-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-033-light-256",
+            "list_asset_id": "RENDITION-AGT-033-light-64",
+            "detail_asset_id": "RENDITION-AGT-033-light-256",
+            "fallback_asset_id": "RENDITION-AGT-033-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-033-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "结伴数字分身形象，深色主题",
+          "light": "结伴数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-034",
+      "role_id": "AGT-034",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "续缘",
+      "role_title": "CRM留存与复购",
+      "source_persona_id": "AGT-034",
+      "source_persona_name": "续缘",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-034-dark-256",
+            "list_asset_id": "RENDITION-AGT-034-dark-64",
+            "detail_asset_id": "RENDITION-AGT-034-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-034-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-034-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-034-light-256",
+            "list_asset_id": "RENDITION-AGT-034-light-64",
+            "detail_asset_id": "RENDITION-AGT-034-light-256",
+            "fallback_asset_id": "RENDITION-AGT-034-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-034-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "续缘数字分身形象，深色主题",
+          "light": "续缘数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-035",
+      "role_id": "AGT-035",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "试真",
+      "role_title": "增长实验与增量评估",
+      "source_persona_id": "AGT-035",
+      "source_persona_name": "试真",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-035-dark-256",
+            "list_asset_id": "RENDITION-AGT-035-dark-64",
+            "detail_asset_id": "RENDITION-AGT-035-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-035-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-035-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-035-light-256",
+            "list_asset_id": "RENDITION-AGT-035-light-64",
+            "detail_asset_id": "RENDITION-AGT-035-light-256",
+            "fallback_asset_id": "RENDITION-AGT-035-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-035-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "试真数字分身形象，深色主题",
+          "light": "试真数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-036",
+      "role_id": "AGT-036",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "安心",
+      "role_title": "售前服务与购买指导",
+      "source_persona_id": "AGT-036",
+      "source_persona_name": "安心",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-036-dark-256",
+            "list_asset_id": "RENDITION-AGT-036-dark-64",
+            "detail_asset_id": "RENDITION-AGT-036-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-036-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-036-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-036-light-256",
+            "list_asset_id": "RENDITION-AGT-036-light-64",
+            "detail_asset_id": "RENDITION-AGT-036-light-256",
+            "fallback_asset_id": "RENDITION-AGT-036-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-036-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "安心数字分身形象，深色主题",
+          "light": "安心数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-037",
+      "role_id": "AGT-037",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "解忧",
+      "role_title": "售后客诉与服务补救",
+      "source_persona_id": "AGT-037",
+      "source_persona_name": "解忧",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-037-dark-256",
+            "list_asset_id": "RENDITION-AGT-037-dark-64",
+            "detail_asset_id": "RENDITION-AGT-037-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-037-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-037-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-037-light-256",
+            "list_asset_id": "RENDITION-AGT-037-light-64",
+            "detail_asset_id": "RENDITION-AGT-037-light-256",
+            "fallback_asset_id": "RENDITION-AGT-037-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-037-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "解忧数字分身形象，深色主题",
+          "light": "解忧数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-038",
+      "role_id": "AGT-038",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "回声",
+      "role_title": "体验洞察与质量反馈",
+      "source_persona_id": "AGT-038",
+      "source_persona_name": "回声",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-038-dark-256",
+            "list_asset_id": "RENDITION-AGT-038-dark-64",
+            "detail_asset_id": "RENDITION-AGT-038-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-038-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-038-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-038-light-256",
+            "list_asset_id": "RENDITION-AGT-038-light-64",
+            "detail_asset_id": "RENDITION-AGT-038-light-256",
+            "fallback_asset_id": "RENDITION-AGT-038-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-038-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "回声数字分身形象，深色主题",
+          "light": "回声数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-039",
+      "role_id": "AGT-039",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "同行",
+      "role_title": "用户教育与会员社区",
+      "source_persona_id": "AGT-039",
+      "source_persona_name": "同行",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-039-dark-256",
+            "list_asset_id": "RENDITION-AGT-039-dark-64",
+            "detail_asset_id": "RENDITION-AGT-039-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-039-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-039-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-039-light-256",
+            "list_asset_id": "RENDITION-AGT-039-light-64",
+            "detail_asset_id": "RENDITION-AGT-039-light-256",
+            "fallback_asset_id": "RENDITION-AGT-039-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-039-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "同行数字分身形象，深色主题",
+          "light": "同行数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-040",
+      "role_id": "AGT-040",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "清账",
+      "role_title": "GMV结算与会计对账",
+      "source_persona_id": "AGT-040",
+      "source_persona_name": "清账",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-040-dark-256",
+            "list_asset_id": "RENDITION-AGT-040-dark-64",
+            "detail_asset_id": "RENDITION-AGT-040-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-040-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-040-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-040-light-256",
+            "list_asset_id": "RENDITION-AGT-040-light-64",
+            "detail_asset_id": "RENDITION-AGT-040-light-256",
+            "fallback_asset_id": "RENDITION-AGT-040-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-040-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "清账数字分身形象，深色主题",
+          "light": "清账数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-041",
+      "role_id": "AGT-041",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "守金",
+      "role_title": "经营财务与资金",
+      "source_persona_id": "AGT-041",
+      "source_persona_name": "守金",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-041-dark-256",
+            "list_asset_id": "RENDITION-AGT-041-dark-64",
+            "detail_asset_id": "RENDITION-AGT-041-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-041-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-041-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-041-light-256",
+            "list_asset_id": "RENDITION-AGT-041-light-64",
+            "detail_asset_id": "RENDITION-AGT-041-light-256",
+            "fallback_asset_id": "RENDITION-AGT-041-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-041-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "守金数字分身形象，深色主题",
+          "light": "守金数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-042",
+      "role_id": "AGT-042",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "合账",
+      "role_title": "税务与跨境实体协作",
+      "source_persona_id": "AGT-042",
+      "source_persona_name": "合账",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-042-dark-256",
+            "list_asset_id": "RENDITION-AGT-042-dark-64",
+            "detail_asset_id": "RENDITION-AGT-042-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-042-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-042-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-042-light-256",
+            "list_asset_id": "RENDITION-AGT-042-light-64",
+            "detail_asset_id": "RENDITION-AGT-042-light-256",
+            "fallback_asset_id": "RENDITION-AGT-042-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-042-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "合账数字分身形象，深色主题",
+          "light": "合账数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-043",
+      "role_id": "AGT-043",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "律衡",
+      "role_title": "法务与知识产权",
+      "source_persona_id": "AGT-043",
+      "source_persona_name": "律衡",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-043-dark-256",
+            "list_asset_id": "RENDITION-AGT-043-dark-64",
+            "detail_asset_id": "RENDITION-AGT-043-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-043-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-043-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-043-light-256",
+            "list_asset_id": "RENDITION-AGT-043-light-64",
+            "detail_asset_id": "RENDITION-AGT-043-light-256",
+            "fallback_asset_id": "RENDITION-AGT-043-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-043-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "律衡数字分身形象，深色主题",
+          "light": "律衡数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-044",
+      "role_id": "AGT-044",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "安界",
+      "role_title": "产品合规与隐私",
+      "source_persona_id": "AGT-044",
+      "source_persona_name": "安界",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-044-dark-256",
+            "list_asset_id": "RENDITION-AGT-044-dark-64",
+            "detail_asset_id": "RENDITION-AGT-044-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-044-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-044-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-044-light-256",
+            "list_asset_id": "RENDITION-AGT-044-light-64",
+            "detail_asset_id": "RENDITION-AGT-044-light-256",
+            "fallback_asset_id": "RENDITION-AGT-044-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-044-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "安界数字分身形象，深色主题",
+          "light": "安界数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-045",
+      "role_id": "AGT-045",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "同尺",
+      "role_title": "业务口径与主数据",
+      "source_persona_id": "AGT-045",
+      "source_persona_name": "同尺",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-045-dark-256",
+            "list_asset_id": "RENDITION-AGT-045-dark-64",
+            "detail_asset_id": "RENDITION-AGT-045-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-045-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-045-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-045-light-256",
+            "list_asset_id": "RENDITION-AGT-045-light-64",
+            "detail_asset_id": "RENDITION-AGT-045-light-256",
+            "fallback_asset_id": "RENDITION-AGT-045-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-045-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "同尺数字分身形象，深色主题",
+          "light": "同尺数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-046",
+      "role_id": "AGT-046",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "清源",
+      "role_title": "数据工程与质量",
+      "source_persona_id": "AGT-046",
+      "source_persona_name": "清源",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-046-dark-256",
+            "list_asset_id": "RENDITION-AGT-046-dark-64",
+            "detail_asset_id": "RENDITION-AGT-046-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-046-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-046-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-046-light-256",
+            "list_asset_id": "RENDITION-AGT-046-light-64",
+            "detail_asset_id": "RENDITION-AGT-046-light-256",
+            "fallback_asset_id": "RENDITION-AGT-046-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-046-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "清源数字分身形象，深色主题",
+          "light": "清源数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-047",
+      "role_id": "AGT-047",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "接桥",
+      "role_title": "系统集成与业务工具",
+      "source_persona_id": "AGT-047",
+      "source_persona_name": "接桥",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-047-dark-256",
+            "list_asset_id": "RENDITION-AGT-047-dark-64",
+            "detail_asset_id": "RENDITION-AGT-047-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-047-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-047-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-047-light-256",
+            "list_asset_id": "RENDITION-AGT-047-light-64",
+            "detail_asset_id": "RENDITION-AGT-047-light-256",
+            "fallback_asset_id": "RENDITION-AGT-047-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-047-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "接桥数字分身形象，深色主题",
+          "light": "接桥数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-048",
+      "role_id": "AGT-048",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "积知",
+      "role_title": "知识技能与Playbook治理",
+      "source_persona_id": "AGT-048",
+      "source_persona_name": "积知",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-048-dark-256",
+            "list_asset_id": "RENDITION-AGT-048-dark-64",
+            "detail_asset_id": "RENDITION-AGT-048-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-048-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-048-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-048-light-256",
+            "list_asset_id": "RENDITION-AGT-048-light-64",
+            "detail_asset_id": "RENDITION-AGT-048-light-256",
+            "fallback_asset_id": "RENDITION-AGT-048-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-048-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "积知数字分身形象，深色主题",
+          "light": "积知数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-049",
+      "role_id": "AGT-049",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "稳行",
+      "role_title": "Agent平台与可靠运行",
+      "source_persona_id": "AGT-049",
+      "source_persona_name": "稳行",
+      "source_context_status": "SOURCE_CONTEXT_NONAUTHORITATIVE",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-049-dark-256",
+            "list_asset_id": "RENDITION-AGT-049-dark-64",
+            "detail_asset_id": "RENDITION-AGT-049-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-049-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-049-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-049-light-256",
+            "list_asset_id": "RENDITION-AGT-049-light-64",
+            "detail_asset_id": "RENDITION-AGT-049-light-256",
+            "fallback_asset_id": "RENDITION-AGT-049-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-049-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "稳行数字分身形象，深色主题",
+          "light": "稳行数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    },
+    {
+      "binding_id": "VIB-AGT-050",
+      "role_id": "AGT-050",
+      "role_kind": "AGT",
+      "role_catalog_authority": {
+        "path": "docs/05-agents/role-catalog.json",
+        "version": "2.0",
+        "semantic_display_policy": "PROJECT_ROLE_CATALOG_ONLY"
+      },
+      "role_display_name": "门卫",
+      "role_title": "信息安全与权限",
+      "source_persona_id": "AGT-050",
+      "source_persona_name": "门卫",
+      "source_context_status": "SOURCE_CONTEXT_MATCHES_PROJECT_LABEL",
+      "binding_status": "STRUCTURAL_BINDING_PENDING_VIS_G5",
+      "visual_identity_release": {
+        "status": "NOT_CREATED_PENDING_VIS_G5",
+        "proposed_release_id": "VIR-SANBAO-WEB-2026-09-24-DRAFT"
+      },
+      "presentation": {
+        "rendering_policy": {
+          "theme_switching": "SAME_SOURCE_PERSONA_REQUIRED",
+          "list_rendition_size_px": 64,
+          "detail_rendition_size_px": 256,
+          "fallback_rendition_size_px": 128,
+          "binary_quality_status": "PENDING_VIS_G5"
+        },
+        "themes": {
+          "dark": {
+            "primary_asset_id": "RENDITION-AGT-050-dark-256",
+            "list_asset_id": "RENDITION-AGT-050-dark-64",
+            "detail_asset_id": "RENDITION-AGT-050-dark-256",
+            "fallback_asset_id": "RENDITION-AGT-050-dark-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-050-dark-native"
+          },
+          "light": {
+            "primary_asset_id": "RENDITION-AGT-050-light-256",
+            "list_asset_id": "RENDITION-AGT-050-light-64",
+            "detail_asset_id": "RENDITION-AGT-050-light-256",
+            "fallback_asset_id": "RENDITION-AGT-050-light-128",
+            "quality_trace_native_asset_id": "RENDITION-AGT-050-light-native"
+          }
+        },
+        "alt_text": {
+          "dark": "门卫数字分身形象，深色主题",
+          "light": "门卫数字分身形象，浅色主题",
+          "status": "DRAFT_NEUTRAL_TEXT_PENDING_VIS_G5"
+        }
+      },
+      "governance": {
+        "approval_references": [
+          "D-068",
+          "D-073"
+        ],
+        "role_contract_impact": "NONE",
+        "runtime_or_access_impact": "NONE",
+        "visual_quality_gate": "VIS-G5_REQUIRED"
+      }
+    }
+  ],
+  "coverage_summary": {
+    "total_bindings": 53,
+    "binding_count_by_role_kind": {
+      "MGT": 3,
+      "AGT": 50
+    },
+    "binding_count_by_status": {
+      "STRUCTURAL_BINDING_PENDING_VIS_G5": 53
+    },
+    "unique_source_persona_count": 53,
+    "selected_renditions_per_binding": {
+      "dark": [
+        "primary_256",
+        "list_64",
+        "detail_256",
+        "fallback_128",
+        "native_quality_trace"
+      ],
+      "light": [
+        "primary_256",
+        "list_64",
+        "detail_256",
+        "fallback_128",
+        "native_quality_trace"
+      ]
+    }
+  },
+  "next_gates": [
+    {
+      "id": "G3-OUT-001",
+      "status": "NOT_IN_VIS-G3",
+      "subject": "Digital Persona Dossier and presentation projection",
+      "owner_gate": "VIS-G4"
+    },
+    {
+      "id": "G3-OUT-002",
+      "status": "PENDING",
+      "subject": "Binary, visual, accessibility, and perceptual-duplicate acceptance",
+      "owner_gate": "VIS-G5"
+    },
+    {
+      "id": "G3-OUT-003",
+      "status": "NOT_IN_VIS-G3",
+      "subject": "Page integration, release, publication, and future-role reuse",
+      "owner_gate": "VIS-G6"
+    }
+  ]
+}

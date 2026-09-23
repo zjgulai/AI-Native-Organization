@@ -4,6 +4,9 @@
   var state = {
     roles: [],
     roleAssets: {},
+    visualIdentities: {},
+    visualIdentityRelease: null,
+    visualTheme: "light",
     flows: [],
     e2e: [],
     plane: "全部",
@@ -78,9 +81,80 @@
     });
   }
 
+  function visualForRole(roleId) {
+    return state.visualIdentities[roleId] || null;
+  }
+
+  function renderPortrait(visualIdentity, rendition, className) {
+    var visual = visualIdentity && visualIdentity.visual;
+    var themeAssets = visual && visual.assets && visual.assets[state.visualTheme];
+    var source = themeAssets && themeAssets[rendition];
+    var fallback = themeAssets && themeAssets.fallback;
+    var altText = visual && visual.alt_text && visual.alt_text[state.visualTheme];
+    var size = rendition === "detail" ? 256 : 64;
+    var classes = "portrait-frame " + (className || "");
+
+    if (!source) {
+      return '<span class="' + escapeHtml(classes + " portrait-unavailable") + '" aria-hidden="true"><span>形</span></span>';
+    }
+
+    return (
+      '<span class="' + escapeHtml(classes) + '">' +
+        '<img src="' + escapeHtml(source) + '" alt="' + escapeHtml(altText || "数字分身形象") + '" ' +
+          'width="' + size + '" height="' + size + '" loading="lazy" decoding="async" ' +
+          'data-portrait-fallback="' + escapeHtml(fallback || "") + '" />' +
+      "</span>"
+    );
+  }
+
+  function renderVisualIdentities() {
+    var section = document.getElementById("visual-identities");
+    var grid = document.getElementById("management-identity-grid");
+    var count = document.getElementById("visual-release-count");
+    var release = state.visualIdentityRelease;
+
+    section.dataset.theme = state.visualTheme;
+    document.querySelectorAll(".visual-theme-toggle button").forEach(function (button) {
+      var selected = button.dataset.visualTheme === state.visualTheme;
+      button.classList.toggle("active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+
+    if (!release) {
+      count.textContent = "视觉身份数据暂时不可用";
+      grid.innerHTML = '<div class="empty-state"><strong>暂时无法读取三位管理层画像</strong><p>请刷新页面后重试。</p></div>';
+      return;
+    }
+
+    var counts = release.counts || {};
+    count.textContent =
+      (counts.management || 3) + " 位管理层 + " + (counts.agents || 50) +
+      " 个岗位 · " + (counts.webp_delivery_assets || 318) + " 个 WebP 交付件";
+
+    grid.innerHTML = (release.management || []).map(function (identity) {
+      var presentation = identity.presentation || {};
+      return (
+        '<article class="management-identity-card" data-role-id="' + escapeHtml(identity.role_id) + '">' +
+          '<div class="management-identity-heading">' +
+            renderPortrait(identity, "detail", "management-portrait") +
+            '<div><span>' + escapeHtml(identity.role_id) + " · 管理层数字分身</span>" +
+              "<h3>" + escapeHtml(identity.display_name) + "</h3>" +
+              '<p class="management-role-title">' + escapeHtml(identity.title) + "</p>" +
+            "</div>" +
+          "</div>" +
+          '<dl class="management-identity-copy">' +
+            "<div><dt>经营使命</dt><dd>" + escapeHtml(presentation.mission || "按已发布角色合同") + "</dd></div>" +
+            "<div><dt>标准产物</dt><dd>" + escapeHtml(presentation.standard_artifact || "按角色合同验收") + "</dd></div>" +
+          "</dl>" +
+        "</article>"
+      );
+    }).join("");
+  }
+
   function renderRoleCard(role) {
     var detailId = "detail-" + role.id.toLowerCase();
     var asset = state.roleAssets[role.id] || {};
+    var visual = visualForRole(role.id);
     var tags = (role.flows || [])
       .concat(role.scenarios || [])
       .map(function (tag) {
@@ -91,16 +165,25 @@
     return (
       '<article class="role-card" data-role-id="' + escapeHtml(role.id) + '">' +
         '<button class="role-toggle" type="button" aria-expanded="false" aria-controls="' + detailId + '">' +
-          '<div class="role-topline">' +
-            "<span>" + escapeHtml(role.id) + " · " + escapeHtml(role.group) + "</span>" +
-            '<span class="plane-badge">' + escapeHtml(role.plane) + "</span>" +
+          '<div class="role-heading">' +
+            '<div class="role-heading-copy">' +
+              '<div class="role-topline">' +
+                "<span>" + escapeHtml(role.id) + " · " + escapeHtml(role.group) + "</span>" +
+                '<span class="plane-badge">' + escapeHtml(role.plane) + "</span>" +
+              "</div>" +
+              "<h3>" + escapeHtml(role.title) + "</h3>" +
+              '<div class="role-alias">分身 · ' + escapeHtml(role.alias) + "</div>" +
+            "</div>" +
+            renderPortrait(visual, "list", "role-portrait") +
           "</div>" +
-          "<h3>" + escapeHtml(role.title) + "</h3>" +
-          '<div class="role-alias">分身 · ' + escapeHtml(role.alias) + "</div>" +
           '<p class="role-principle">“' + escapeHtml(role.principle) + '”</p>' +
           '<div class="role-more"><span>' + escapeHtml(role.personality) + '</span><span class="expand-label">展开资产与边界 ＋</span></div>' +
         "</button>" +
         '<div class="role-detail" id="' + detailId + '" hidden>' +
+          '<div class="detail-block role-visual-detail"><span>VISUAL IDENTITY</span><div class="role-visual-content">' +
+            renderPortrait(visual, "detail", "role-detail-portrait") +
+            '<p>已纳入视觉发行；当前展示为' + escapeHtml(state.visualTheme === "dark" ? "深色主题" : "浅色主题") + '同主题交付件。</p>' +
+          "</div></div>" +
           '<div class="detail-block"><span>动作边界</span><p>' + escapeHtml(role.boundary) + "</p></div>" +
           '<div class="detail-block role-asset-meta"><span>独立分身资产</span><p>' + escapeHtml(asset.playbook_id || "RPB-" + role.id) + ' · ' + escapeHtml(asset.preset_id || "dsh.role." + role.id.toLowerCase() + ".v1") + ' · ' + escapeHtml(asset.status || "设计资产") + '</p><p>模式：' + escapeHtml(asset.standalone_mode || "standalone_role_preset") + ' + ' + escapeHtml(asset.composition_mode || "bounded_role_worker") + ' · 技能 ' + escapeHtml(asset.skill_count == null ? "待载入" : asset.skill_count) + '项</p></div>' +
           '<div class="detail-block"><span>协同方法</span><p>共享Playbook：' + escapeHtml((asset.shared_playbooks || role.playbooks || []).join("、") || "按Case Control装配") + '；常用协作：' + escapeHtml((asset.collaborators || role.collaborates_with || []).join("、") || "由Case Control按产物契约选择") + '</p></div>' +
@@ -325,6 +408,27 @@
   }
 
   function bindInteractions() {
+    document.querySelectorAll(".visual-theme-toggle button").forEach(function (button) {
+      button.addEventListener("click", function () {
+        state.visualTheme = button.dataset.visualTheme;
+        renderVisualIdentities();
+        renderRoles();
+      });
+    });
+
+    document.addEventListener("error", function (event) {
+      var image = event.target;
+      if (!image || image.tagName !== "IMG" || !image.hasAttribute("data-portrait-fallback")) return;
+      var fallback = image.dataset.portraitFallback;
+      if (fallback && image.dataset.fallbackApplied !== "true") {
+        image.dataset.fallbackApplied = "true";
+        image.src = fallback;
+        return;
+      }
+      var frame = image.closest(".portrait-frame");
+      if (frame) frame.classList.add("portrait-unavailable");
+    }, true);
+
     document.querySelectorAll(".plane-chip").forEach(function (button) {
       button.setAttribute("aria-pressed", String(button.classList.contains("active")));
       button.addEventListener("click", function () {
@@ -402,7 +506,8 @@
     loadJson("./data/roles.json"),
     loadJson("./data/flows.json"),
     loadJson("./data/e2e-workflows.json"),
-    loadJson("./data/role-assets.json")
+    loadJson("./data/role-assets.json"),
+    loadJson("./data/visual-identities.json")
   ]).then(function (results) {
     if (results[0].status === "fulfilled") {
       state.roles = results[0].value.map(function (role) {
@@ -437,6 +542,18 @@
         return map;
       }, {});
       renderRoles();
+    }
+
+    if (results[4].status === "fulfilled") {
+      state.visualIdentityRelease = results[4].value;
+      state.visualIdentities = (results[4].value.visuals || []).reduce(function (map, visual) {
+        map[visual.role_id] = visual;
+        return map;
+      }, {});
+      renderVisualIdentities();
+      renderRoles();
+    } else {
+      renderVisualIdentities();
     }
   });
 })();

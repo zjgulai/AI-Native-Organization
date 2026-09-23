@@ -13,6 +13,8 @@
 
 当前每个岗位已具备中文别名、人格、灵魂原则、独立Soul Contract、独立Role Playbook、业务技能、标准产物、协同协议和行为验收情境。技能名称与Role Playbook是设计合同，尚不是已实现API或经过业务验证的技能包；人格、独立完成能力和组合协同能力需要在目标环境分别回放。50份Soul Contract见[roles/souls](roles/souls/)，50份岗位Playbook索引见[role-playbooks](../06-playbooks/role-playbooks/index.json)，50份Preset Blueprint总表见[manifest](../10-platform/deepseek-harness/preset-blueprints/manifest.json)。既有193/46个Agent资产的归并方式见[能力资产整合](EXISTING-AGENT-CONSOLIDATION.md)。
 
+视觉头像、主题、来源、alt text和候选人物由[D-068 Sanbao视觉身份与资产方案](../12-rollout/SANBAO-VISUAL-IDENTITY-ASSET-PLAN.md)独立管理。它们是角色展示投影，不属于五契约、Role Release Bundle、Preset身份、权限或运行状态；不得将视觉字段加入本目录的角色运行资产。
+
 [Agent五契约管理图](AGENT-MANAGEMENT-GRAPH.md)定义每个岗位的Business、Skill、Runtime、Access和Assurance契约、治理责任与禁止自发布规则；[结构化管理图谱](agent-management-graph.json)可供后续Site读取。
 
 [岗位Bundle与生命周期](AGENT-LIFECYCLE.md)定义五契约的不可变绑定、七个状态、隔离、Case版本固定和回退规则；[结构化生命周期](agent-lifecycle.json)不包含任何已部署Bundle。
