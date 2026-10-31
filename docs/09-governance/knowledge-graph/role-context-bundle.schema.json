@@ -1,0 +1,345 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-org:role-context-bundle:1.0.0",
+  "title": "RoleContextBundle",
+  "description": "单岗位上下文包。缺必填字段时 bundle_status=INCOMPLETE 并列 missing[]，禁止推断补齐。任何情况下 grants_authorization=false、runtime=false。",
+  "type": "object",
+  "required": [
+    "role_id",
+    "role_kind",
+    "plane",
+    "mission",
+    "personality",
+    "principle",
+    "boundary",
+    "status",
+    "artifacts",
+    "contract_refs",
+    "standalone_mode",
+    "source_pointers",
+    "bundle_status",
+    "missing",
+    "grants_authorization",
+    "runtime"
+  ],
+  "properties": {
+    "role_id": {
+      "type": "string",
+      "pattern": "^(AGT-(0(0[1-9]|[1-4][0-9]|50))|MGT-00[1-3])$"
+    },
+    "role_kind": {
+      "enum": [
+        "ProjectRole",
+        "ManagementRole"
+      ]
+    },
+    "alias": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "plane": {
+      "type": "string",
+      "pattern": "^PLN-"
+    },
+    "domain": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "mission": {
+      "type": "string"
+    },
+    "personality": {
+      "type": "string"
+    },
+    "principle": {
+      "type": "string"
+    },
+    "boundary": {
+      "type": "string"
+    },
+    "stop_signals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "artifacts": {
+      "type": "object",
+      "required": [
+        "role_profile_ref",
+        "soul_ref",
+        "role_playbook_ref",
+        "preset_ref"
+      ],
+      "properties": {
+        "role_profile_ref": {
+          "type": "string"
+        },
+        "soul_ref": {
+          "type": "string"
+        },
+        "role_playbook_ref": {
+          "type": "string"
+        },
+        "preset_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "contract_refs": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "五契约固定顺序。resolved 必须为 false（源图为未解析占位），禁止伪造已解析。",
+      "items": {
+        "type": "object",
+        "required": [
+          "type",
+          "ref",
+          "resolved"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "BUSINESS",
+              "SKILL",
+              "RUNTIME",
+              "ACCESS",
+              "ASSURANCE"
+            ]
+          },
+          "ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "resolved": {
+            "const": false
+          }
+        }
+      }
+    },
+    "eligible_flows": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^FLOW-\\d{2}$"
+      }
+    },
+    "eligible_scenarios": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^SCN-\\d{3}$"
+      }
+    },
+    "shared_playbooks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "standalone_mode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "worker_mode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "coverage_role_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "仅 ManagementRole"
+    },
+    "decision_rights_ref": {
+      "type": "string",
+      "description": "仅 ManagementRole"
+    },
+    "mdc_goc_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "仅 ManagementRole"
+    },
+    "shadow_status": {
+      "type": "string",
+      "description": "仅 ManagementRole"
+    },
+    "case_role": {
+      "type": "null",
+      "description": "MGT 必须为 null；ProjectRole 不得出现此字段"
+    },
+    "source_pointers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "overlay_corrections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bundle_status": {
+      "enum": [
+        "COMPLETE",
+        "INCOMPLETE"
+      ]
+    },
+    "missing": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "grants_authorization": {
+      "const": false
+    },
+    "runtime": {
+      "const": false
+    },
+    "binding_check": {
+      "type": "object",
+      "description": "flow/scenario 交叉校验结果。以 collaboration-graph.json 的 flow_scenario_bindings 为白名单；叉积不是约束。",
+      "required": [
+        "legal_pair_count",
+        "cross_product_count",
+        "legal_pairs",
+        "errors",
+        "warnings",
+        "status"
+      ],
+      "properties": {
+        "legal_pair_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cross_product_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "legal_pairs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^FLOW-\\d{2}\\|SCN-\\d{3}$"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "PASS_WITH_WARNINGS",
+            "FAIL"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "role_kind": {
+            "const": "ManagementRole"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "coverage_role_ids",
+          "decision_rights_ref",
+          "mdc_goc_refs",
+          "shadow_status",
+          "case_role"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "role_kind": {
+            "const": "ProjectRole"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "eligible_flows",
+          "eligible_scenarios",
+          "worker_mode",
+          "binding_check"
+        ],
+        "not": {
+          "required": [
+            "case_role"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "bundle_status": {
+            "const": "COMPLETE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "missing": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "bundle_status": {
+            "const": "INCOMPLETE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "missing": {
+            "minItems": 1
+          }
+        }
+      }
+    }
+  ]
+}

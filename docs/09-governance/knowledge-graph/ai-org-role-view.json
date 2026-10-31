@@ -1,0 +1,4394 @@
+{
+  "artifact_kind": "knowledge_role_view",
+  "version": "1.0.0",
+  "status": "derived_regenerable",
+  "ticket": "MKG-02",
+  "created": "2026-10-31",
+  "authority": "派生视图。真源为 generated_from 列出的五个文件；冲突时以源文件为准。禁止手工编辑。",
+  "regenerate": "node scripts/build-role-knowledge-view.mjs",
+  "runtime": false,
+  "grants_authorization": false,
+  "generated_from": {
+    "roleCatalog": {
+      "path": "docs/05-agents/role-catalog.json",
+      "sha256": "098288071d5419a9008ecedc510eb0c8b25824118d8b40c3b8d23a883ad0cc8b",
+      "bytes": 68746
+    },
+    "organizationGraph": {
+      "path": "docs/04-organization/organization-graph.json",
+      "sha256": "7075e16086f0435ab32f19ee2357a9227fa9b5f65688e167d9fa47d549fe3d2f",
+      "bytes": 25346
+    },
+    "managementCatalog": {
+      "path": "docs/04-organization/management/management-catalog.json",
+      "sha256": "ed2f2d5006b30e687df3b718744e168db868a5dd68a46f784814a0a848ee82c7",
+      "bytes": 17106
+    },
+    "e2eValueStreams": {
+      "path": "docs/03-scenarios/e2e-value-streams.json",
+      "sha256": "7562db84eba04e7d3c008ac2efab39700a3c40bb0730a603f7c3aefad233cf2e",
+      "bytes": 55851
+    },
+    "collaborationGraph": {
+      "path": "docs/07-orchestration/collaboration-graph.json",
+      "sha256": "44187139fabf6c85f404e793f614eb71011bc2633a91ae182720cc0b28162329",
+      "bytes": 290868
+    }
+  },
+  "counts": {
+    "nodes": 81,
+    "edges": 417,
+    "node_kinds": {
+      "ProjectRole": 50,
+      "ManagementRole": 3,
+      "BusinessValueFlow": 8,
+      "BusinessScenario": 20
+    },
+    "edge_types": {
+      "belongs_to_plane": 50,
+      "belongs_to_domain_view": 50,
+      "role_contributes_to_flow": 140,
+      "role_eligible_for_scenario": 127,
+      "management_covers_role": 50
+    }
+  },
+  "nodes": [
+    {
+      "id": "AGT-001",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "衡远",
+      "title": "经营目标与资源统筹",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-003",
+        "AGT-008",
+        "AGT-021",
+        "AGT-041"
+      ]
+    },
+    {
+      "id": "AGT-002",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "枢衡",
+      "title": "场景自主编排与异常协调",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 4,
+      "playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-003",
+        "PB-004",
+        "PB-005",
+        "PB-006",
+        "PB-007",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-001",
+        "AGT-021",
+        "AGT-047",
+        "AGT-049"
+      ]
+    },
+    {
+      "id": "AGT-003",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "明镜",
+      "title": "经营分析与决策支持",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-006",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-021",
+        "AGT-035",
+        "AGT-040",
+        "AGT-045"
+      ]
+    },
+    {
+      "id": "AGT-004",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "知人",
+      "title": "组织能力与人事行政",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-001",
+        "AGT-005",
+        "AGT-048",
+        "AGT-050"
+      ]
+    },
+    {
+      "id": "AGT-005",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "守衡",
+      "title": "内控审计与独立复核",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-01",
+      "domain": "经营与组织",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-007",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-003",
+        "AGT-040",
+        "AGT-043",
+        "AGT-050"
+      ]
+    },
+    {
+      "id": "AGT-006",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "听澜",
+      "title": "消费者需求与VOC研究",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-005"
+      ],
+      "declared_common_collaborators": [
+        "AGT-007",
+        "AGT-009",
+        "AGT-038",
+        "AGT-039"
+      ]
+    },
+    {
+      "id": "AGT-007",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "望野",
+      "title": "市场竞争与机会研究",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-006",
+        "AGT-008",
+        "AGT-024",
+        "AGT-043"
+      ]
+    },
+    {
+      "id": "AGT-008",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "拓新",
+      "title": "产品组合与新品孵化",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-001",
+        "AGT-006",
+        "AGT-009",
+        "AGT-035"
+      ]
+    },
+    {
+      "id": "AGT-009",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "定形",
+      "title": "产品定义与商业立项",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-006",
+        "AGT-008",
+        "AGT-010",
+        "AGT-013"
+      ]
+    },
+    {
+      "id": "AGT-010",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "映物",
+      "title": "工业设计与用户体验",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002"
+      ],
+      "declared_common_collaborators": [
+        "AGT-009",
+        "AGT-011",
+        "AGT-013",
+        "AGT-038"
+      ]
+    },
+    {
+      "id": "AGT-011",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "砺器",
+      "title": "硬件结构与材料工程",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-009",
+        "AGT-013",
+        "AGT-014",
+        "AGT-018"
+      ]
+    },
+    {
+      "id": "AGT-012",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "灵枢",
+      "title": "软件算法与应用生态",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-009",
+        "AGT-013",
+        "AGT-044",
+        "AGT-049"
+      ]
+    },
+    {
+      "id": "AGT-013",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "求证",
+      "title": "产品验证与研发项目",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-02",
+      "domain": "产品与创新",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-009",
+        "AGT-011",
+        "AGT-012",
+        "AGT-018"
+      ]
+    },
+    {
+      "id": "AGT-014",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "择源",
+      "title": "OEM供应商开发与协同",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-003",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-011",
+        "AGT-015",
+        "AGT-018",
+        "AGT-043"
+      ]
+    },
+    {
+      "id": "AGT-015",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "契约",
+      "title": "采购与合同履约",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-003"
+      ],
+      "declared_common_collaborators": [
+        "AGT-014",
+        "AGT-016",
+        "AGT-018",
+        "AGT-041"
+      ]
+    },
+    {
+      "id": "AGT-016",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "知量",
+      "title": "需求预测与补货计划",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-003"
+      ],
+      "declared_common_collaborators": [
+        "AGT-017",
+        "AGT-021",
+        "AGT-032",
+        "AGT-041"
+      ]
+    },
+    {
+      "id": "AGT-017",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "衡仓",
+      "title": "库存与商品生命周期",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-003",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-016",
+        "AGT-020",
+        "AGT-026",
+        "AGT-040"
+      ]
+    },
+    {
+      "id": "AGT-018",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "质守",
+      "title": "生产协同与质量控制",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-003",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-011",
+        "AGT-013",
+        "AGT-014",
+        "AGT-037"
+      ]
+    },
+    {
+      "id": "AGT-019",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "通途",
+      "title": "跨境物流与关务",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-003",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-015",
+        "AGT-016",
+        "AGT-020",
+        "AGT-042"
+      ]
+    },
+    {
+      "id": "AGT-020",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "行舟",
+      "title": "仓储履约与退货处置",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-03",
+      "domain": "供应与履约",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-003",
+        "PB-005",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-017",
+        "AGT-019",
+        "AGT-037",
+        "AGT-040"
+      ]
+    },
+    {
+      "id": "AGT-021",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "北辰",
+      "title": "Amazon业务经营",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-003",
+        "PB-004",
+        "PB-006",
+        "PB-007",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-016",
+        "AGT-022",
+        "AGT-026",
+        "AGT-032"
+      ]
+    },
+    {
+      "id": "AGT-022",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "觅位",
+      "title": "Amazon商品与搜索运营",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-021",
+        "AGT-028",
+        "AGT-030",
+        "AGT-044"
+      ]
+    },
+    {
+      "id": "AGT-023",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "自航",
+      "title": "独立站经营与转化",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-004",
+        "PB-005",
+        "PB-006"
+      ],
+      "declared_common_collaborators": [
+        "AGT-026",
+        "AGT-031",
+        "AGT-034",
+        "AGT-035"
+      ]
+    },
+    {
+      "id": "AGT-024",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "拓域",
+      "title": "其他平台与新市场经营",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-007",
+        "AGT-025",
+        "AGT-028",
+        "AGT-044"
+      ]
+    },
+    {
+      "id": "AGT-025",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "联商",
+      "title": "零售渠道与B2B拓展",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-014",
+        "AGT-019",
+        "AGT-024",
+        "AGT-043"
+      ]
+    },
+    {
+      "id": "AGT-026",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "衡价",
+      "title": "定价促销与商品组合",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-003"
+      ],
+      "declared_common_collaborators": [
+        "AGT-017",
+        "AGT-021",
+        "AGT-023",
+        "AGT-041"
+      ]
+    },
+    {
+      "id": "AGT-027",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "守店",
+      "title": "店铺账号健康与规则",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-004",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-021",
+        "AGT-022",
+        "AGT-043",
+        "AGT-050"
+      ]
+    },
+    {
+      "id": "AGT-028",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "译境",
+      "title": "本地化与市场适配",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-04",
+      "domain": "渠道经营",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-004",
+        "PB-005"
+      ],
+      "declared_common_collaborators": [
+        "AGT-022",
+        "AGT-024",
+        "AGT-029",
+        "AGT-044"
+      ]
+    },
+    {
+      "id": "AGT-029",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "立言",
+      "title": "品牌战略与传播",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-004",
+        "PB-005",
+        "PB-007",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-006",
+        "AGT-028",
+        "AGT-030",
+        "AGT-039"
+      ]
+    },
+    {
+      "id": "AGT-030",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "叙事",
+      "title": "内容与创意策划",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-006",
+        "AGT-022",
+        "AGT-029",
+        "AGT-031"
+      ]
+    },
+    {
+      "id": "AGT-031",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "绘影",
+      "title": "视觉视频与素材生产",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-010",
+        "AGT-023",
+        "AGT-030",
+        "AGT-044"
+      ]
+    },
+    {
+      "id": "AGT-032",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "点火",
+      "title": "效果广告投放",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001"
+      ],
+      "declared_common_collaborators": [
+        "AGT-016",
+        "AGT-021",
+        "AGT-026",
+        "AGT-035"
+      ]
+    },
+    {
+      "id": "AGT-033",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "结伴",
+      "title": "达人与联盟合作",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-004"
+      ],
+      "declared_common_collaborators": [
+        "AGT-024",
+        "AGT-029",
+        "AGT-030",
+        "AGT-043"
+      ]
+    },
+    {
+      "id": "AGT-034",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "续缘",
+      "title": "CRM留存与复购",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-005"
+      ],
+      "declared_common_collaborators": [
+        "AGT-023",
+        "AGT-035",
+        "AGT-037",
+        "AGT-039"
+      ]
+    },
+    {
+      "id": "AGT-035",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "试真",
+      "title": "增长实验与增量评估",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-05",
+      "domain": "品牌与增长",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-005",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-003",
+        "AGT-008",
+        "AGT-023",
+        "AGT-032"
+      ]
+    },
+    {
+      "id": "AGT-036",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "安心",
+      "title": "售前服务与购买指导",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-06",
+      "domain": "服务与体验",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-004",
+        "PB-005",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-022",
+        "AGT-028",
+        "AGT-037",
+        "AGT-044"
+      ]
+    },
+    {
+      "id": "AGT-037",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "解忧",
+      "title": "售后客诉与服务补救",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-06",
+      "domain": "服务与体验",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-005",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-018",
+        "AGT-020",
+        "AGT-038",
+        "AGT-041"
+      ]
+    },
+    {
+      "id": "AGT-038",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "回声",
+      "title": "体验洞察与质量反馈",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-06",
+      "domain": "服务与体验",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-005",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-006",
+        "AGT-013",
+        "AGT-018",
+        "AGT-037"
+      ]
+    },
+    {
+      "id": "AGT-039",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "同行",
+      "title": "用户教育与会员社区",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-06",
+      "domain": "服务与体验",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-005"
+      ],
+      "declared_common_collaborators": [
+        "AGT-006",
+        "AGT-029",
+        "AGT-034",
+        "AGT-036"
+      ]
+    },
+    {
+      "id": "AGT-040",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "清账",
+      "title": "GMV结算与会计对账",
+      "plane_id": "PLN-OPS",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-003",
+        "PB-005",
+        "PB-006",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-003",
+        "AGT-020",
+        "AGT-041",
+        "AGT-045"
+      ]
+    },
+    {
+      "id": "AGT-041",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "守金",
+      "title": "经营财务与资金",
+      "plane_id": "PLN-MGT",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-002",
+        "PB-003",
+        "PB-007",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-001",
+        "AGT-015",
+        "AGT-026",
+        "AGT-040"
+      ]
+    },
+    {
+      "id": "AGT-042",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "合账",
+      "title": "税务与跨境实体协作",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-003",
+        "PB-004",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-019",
+        "AGT-025",
+        "AGT-040",
+        "AGT-043"
+      ]
+    },
+    {
+      "id": "AGT-043",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "律衡",
+      "title": "法务与知识产权",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-004",
+        "PB-007",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-007",
+        "AGT-014",
+        "AGT-025",
+        "AGT-029"
+      ]
+    },
+    {
+      "id": "AGT-044",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "安界",
+      "title": "产品合规与隐私",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-07",
+      "domain": "财务与合规",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-004",
+        "PB-005",
+        "PB-006",
+        "PB-007"
+      ],
+      "declared_common_collaborators": [
+        "AGT-009",
+        "AGT-013",
+        "AGT-028",
+        "AGT-050"
+      ]
+    },
+    {
+      "id": "AGT-045",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "同尺",
+      "title": "业务口径与主数据",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-001",
+        "PB-006",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-003",
+        "AGT-021",
+        "AGT-040",
+        "AGT-046"
+      ]
+    },
+    {
+      "id": "AGT-046",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "清源",
+      "title": "数据工程与质量",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-006"
+      ],
+      "declared_common_collaborators": [
+        "AGT-045",
+        "AGT-047",
+        "AGT-049",
+        "AGT-050"
+      ]
+    },
+    {
+      "id": "AGT-047",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "接桥",
+      "title": "系统集成与业务工具",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-006"
+      ],
+      "declared_common_collaborators": [
+        "AGT-002",
+        "AGT-021",
+        "AGT-046",
+        "AGT-050"
+      ]
+    },
+    {
+      "id": "AGT-048",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "积知",
+      "title": "知识技能与Playbook治理",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-002",
+        "PB-006",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-004",
+        "AGT-013",
+        "AGT-035",
+        "AGT-049"
+      ]
+    },
+    {
+      "id": "AGT-049",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "稳行",
+      "title": "Agent平台与可靠运行",
+      "plane_id": "PLN-PLT",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-006",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-002",
+        "AGT-047",
+        "AGT-048",
+        "AGT-050"
+      ]
+    },
+    {
+      "id": "AGT-050",
+      "kind": "ProjectRole",
+      "runtime": false,
+      "alias": "门卫",
+      "title": "信息安全与权限",
+      "plane_id": "PLN-CTL",
+      "domain_view_id": "DOM-08",
+      "domain": "数据与AI运行",
+      "status": "role_profile_baseline_contracts_not_instantiated",
+      "production_authorized": false,
+      "contract_ref_count": 5,
+      "skill_count": 3,
+      "playbooks": [
+        "PB-004",
+        "PB-006",
+        "PB-007",
+        "PB-008"
+      ],
+      "declared_common_collaborators": [
+        "AGT-005",
+        "AGT-044",
+        "AGT-046",
+        "AGT-049"
+      ]
+    },
+    {
+      "id": "MGT-001",
+      "kind": "ManagementRole",
+      "runtime": false,
+      "alias": "天時",
+      "title": "首席执行官 CEO",
+      "layer": "layer_1_ceo",
+      "management_domain": "全局组合",
+      "owned_role_count": 2,
+      "status": "management_design_complete_runtime_not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "id": "MGT-002",
+      "kind": "ManagementRole",
+      "runtime": false,
+      "alias": "地利",
+      "title": "首席增长官 CGO",
+      "layer": "layer_2_demand_side",
+      "management_domain": "渠道·品牌·增长·服务·履约·产品",
+      "owned_role_count": 38,
+      "status": "management_design_complete_runtime_not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "id": "MGT-003",
+      "kind": "ManagementRole",
+      "runtime": false,
+      "alias": "人和",
+      "title": "首席治理官 CGOv",
+      "layer": "layer_2_governance",
+      "management_domain": "财务·合规·质量·账号·数据与AI平台",
+      "owned_role_count": 12,
+      "status": "management_design_complete_runtime_not_instantiated",
+      "production_authorized": false
+    },
+    {
+      "id": "FLOW-01",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "FLOW-02",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "FLOW-03",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "FLOW-04",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "FLOW-05",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "FLOW-06",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "FLOW-07",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "FLOW-08",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "SCN-001",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-002",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-003",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-004",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-005",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-006",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-007",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-008",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-009",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-010",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-011",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-012",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-013",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-014",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-015",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-016",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-017",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-018",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-019",
+      "kind": "BusinessScenario",
+      "runtime": false
+    },
+    {
+      "id": "SCN-020",
+      "kind": "BusinessScenario",
+      "runtime": false
+    }
+  ],
+  "edges": [
+    {
+      "from": "AGT-001",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-001",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-002",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-002",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-003",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-003",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-004",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-004",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-005",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-005",
+      "to": "DOM-01",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-006",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-006",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-007",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-007",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-008",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-008",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-009",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-009",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-010",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-010",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-011",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-011",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-012",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-012",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-013",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-013",
+      "to": "DOM-02",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-014",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-014",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-015",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-015",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-016",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-016",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-017",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-017",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-018",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-018",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-019",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-019",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-020",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-020",
+      "to": "DOM-03",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-021",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-021",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-022",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-022",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-023",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-023",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-024",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-024",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-025",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-025",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-026",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-026",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-027",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-027",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-028",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-028",
+      "to": "DOM-04",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-029",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-029",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-030",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-030",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-031",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-031",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-032",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-032",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-033",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-033",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-034",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-034",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-035",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-035",
+      "to": "DOM-05",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-036",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-036",
+      "to": "DOM-06",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-037",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-037",
+      "to": "DOM-06",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-038",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-038",
+      "to": "DOM-06",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-039",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-039",
+      "to": "DOM-06",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-040",
+      "to": "PLN-OPS",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-040",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-041",
+      "to": "PLN-MGT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-041",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-042",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-042",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-043",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-043",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-044",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-044",
+      "to": "DOM-07",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-045",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-045",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-046",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-046",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-047",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-047",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-048",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-048",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-049",
+      "to": "PLN-PLT",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-049",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-050",
+      "to": "PLN-CTL",
+      "type": "belongs_to_plane",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-050",
+      "to": "DOM-08",
+      "type": "belongs_to_domain_view",
+      "runtime": false,
+      "source": "organization-graph"
+    },
+    {
+      "from": "AGT-001",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-001",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-001",
+      "to": "SCN-001",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-001",
+      "to": "SCN-017",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-001",
+      "to": "SCN-019",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-001",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-002",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-003",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-005",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-006",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-007",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-008",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-010",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-011",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-013",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-014",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-015",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-016",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-017",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-018",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-019",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
+      "to": "SCN-020",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-003",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-003",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-003",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-003",
+      "to": "SCN-001",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-003",
+      "to": "SCN-016",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-004",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-004",
+      "to": "SCN-019",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-005",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-005",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-005",
+      "to": "SCN-001",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-005",
+      "to": "SCN-016",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-005",
+      "to": "SCN-019",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-006",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-006",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-006",
+      "to": "SCN-002",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-006",
+      "to": "SCN-003",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-007",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-007",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-007",
+      "to": "SCN-002",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-007",
+      "to": "SCN-003",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-008",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-008",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-008",
+      "to": "SCN-002",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-008",
+      "to": "SCN-003",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-008",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-009",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-009",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-009",
+      "to": "SCN-003",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-009",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-010",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-010",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-010",
+      "to": "SCN-013",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-011",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-011",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-011",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-011",
+      "to": "SCN-006",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-012",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-012",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-012",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-012",
+      "to": "SCN-013",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-012",
+      "to": "SCN-020",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-013",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-013",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-013",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-013",
+      "to": "SCN-005",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-014",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-014",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-014",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-014",
+      "to": "SCN-006",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-015",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-015",
+      "to": "SCN-006",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-016",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-016",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-016",
+      "to": "SCN-007",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-017",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-017",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-017",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-017",
+      "to": "SCN-007",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-017",
+      "to": "SCN-010",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-018",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-018",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-018",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-018",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-018",
+      "to": "SCN-006",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-018",
+      "to": "SCN-015",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-019",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-019",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-019",
+      "to": "SCN-008",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-020",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-020",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-020",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-020",
+      "to": "SCN-008",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-020",
+      "to": "SCN-014",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-020",
+      "to": "SCN-015",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "SCN-001",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "SCN-010",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "SCN-011",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
+      "to": "SCN-018",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-022",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-022",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-022",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-022",
+      "to": "SCN-018",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-023",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-023",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-023",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-023",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-023",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-023",
+      "to": "SCN-010",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-023",
+      "to": "SCN-013",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-024",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-024",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-024",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-024",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-024",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-024",
+      "to": "SCN-018",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-025",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-025",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-025",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-025",
+      "to": "SCN-014",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-025",
+      "to": "SCN-016",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-026",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-026",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-026",
+      "to": "SCN-010",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-027",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-027",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-027",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-027",
+      "to": "SCN-018",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-028",
+      "to": "SCN-005",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-028",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-028",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-029",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-029",
+      "to": "SCN-002",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-029",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-030",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-030",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-030",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-030",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-030",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-031",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-031",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-031",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-031",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-031",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-032",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-032",
+      "to": "SCN-011",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-033",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-033",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-033",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-034",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-034",
+      "to": "SCN-013",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-034",
+      "to": "SCN-015",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-035",
+      "to": "SCN-003",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-035",
+      "to": "SCN-011",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-035",
+      "to": "SCN-013",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-036",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-036",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-036",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-036",
+      "to": "SCN-015",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-037",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-037",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-037",
+      "to": "SCN-014",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-037",
+      "to": "SCN-015",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-038",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-038",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-038",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-038",
+      "to": "SCN-002",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-038",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-038",
+      "to": "SCN-015",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-039",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-039",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-039",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-039",
+      "to": "SCN-013",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-039",
+      "to": "SCN-015",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-040",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-040",
+      "to": "SCN-016",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "SCN-001",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "SCN-016",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "SCN-017",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-042",
+      "to": "FLOW-03",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-042",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-042",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-042",
+      "to": "SCN-005",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-042",
+      "to": "SCN-016",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-042",
+      "to": "SCN-017",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-043",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-043",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-043",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-043",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-043",
+      "to": "SCN-003",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-043",
+      "to": "SCN-005",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-043",
+      "to": "SCN-006",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-043",
+      "to": "SCN-012",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-044",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-044",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-044",
+      "to": "SCN-005",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-044",
+      "to": "SCN-009",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-045",
+      "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-045",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-045",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-045",
+      "to": "SCN-001",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-045",
+      "to": "SCN-016",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-045",
+      "to": "SCN-020",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-046",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-046",
+      "to": "SCN-020",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-047",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-047",
+      "to": "SCN-020",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-048",
+      "to": "FLOW-02",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-048",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-048",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-048",
+      "to": "SCN-004",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-048",
+      "to": "SCN-019",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-048",
+      "to": "SCN-020",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-049",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-049",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-049",
+      "to": "SCN-020",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-050",
+      "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-050",
+      "to": "FLOW-06",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-050",
+      "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-050",
+      "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-050",
+      "to": "SCN-018",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-050",
+      "to": "SCN-020",
+      "type": "role_eligible_for_scenario",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-001",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-002",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-003",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-004",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-006",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-007",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-008",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-009",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-010",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-011",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-012",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-013",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-014",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-015",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-016",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-017",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-018",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-019",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-020",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-021",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-022",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-023",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-024",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-025",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-026",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-027",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-028",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-029",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-030",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-031",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-032",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-033",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-034",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-035",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-036",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-037",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-038",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-002",
+      "to": "AGT-039",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-005",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-040",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-041",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-042",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-043",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-044",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-045",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-046",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-047",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-048",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-049",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    },
+    {
+      "from": "MGT-003",
+      "to": "AGT-050",
+      "type": "management_covers_role",
+      "runtime": false,
+      "source": "management-catalog"
+    }
+  ]
+}

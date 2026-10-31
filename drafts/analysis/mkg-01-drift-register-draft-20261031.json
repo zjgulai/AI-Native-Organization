@@ -1,0 +1,134 @@
+{
+  "artifact_kind": "drift_register",
+  "ticket": "MKG-01",
+  "created": "2026-10-31",
+  "status": "draft_pending_review",
+  "applied_to": "docs/09-governance/knowledge-graph/ai-org-knowledge-overlay.json#corrections",
+  "authority_rule": "以 DECISIONS.md 当前行为准；源文档正文不改，仅登记。修正另立 MKG-01R。",
+  "summary": {
+    "asserted_by_plan": 7,
+    "confirmed": 6,
+    "refuted": 1,
+    "records": 8
+  },
+  "corrections": [
+    {
+      "id": "COR-001",
+      "claim_ref": "docs/00-project/STATUS.md:144",
+      "claim": "待决项为MGT-Q1/Q2/Q3",
+      "claim_excerpt_sha256": "22f4a9d5ff96d0adbcaab52357fe5ca885019dd270eb7cebc7014fc11c98ec9f",
+      "corrected_by": "DECISIONS.md:71 (D-065, 2026-09-19)",
+      "evidence": "D-065 关闭 MGT-Q1（MGT 命名空间采用，preset mgt-001~003）、MGT-Q2（MDC/GOC 成为第六类契约）、MGT-Q3（Action Intent 策略模板提案权不授予）；DECISIONS.md:96-97 以删除线保留原问并以「已由D-065关闭」标注。仍待决者为 MGT-G8/G9/Q5。",
+      "status": "known_stale_not_authoritative",
+      "verified": "2026-10-31",
+      "severity": "high",
+      "why_high": "该行同时是本项目管理层段落的主叙述，读者会据此认为管理层设计仍未定稿",
+      "claim_excerpt_len": 2325,
+      "claim_excerpt_head": "管理层设计已形成完整设计资产，**结构为3岗位（2026-09-18由D-062确认）**：1个CEO（MGT-001）"
+    },
+    {
+      "id": "COR-002",
+      "claim_ref": "docs/adr/0014-management-decision-rights-plane.md:3",
+      "claim": "状态：设计已形成，待用户确认（MGT-Q1至MGT-Q3、MGT-G8、MGT-G9、MGT-Q5）",
+      "corrected_by": "DECISIONS.md:71 (D-065)",
+      "evidence": "MGT-Q1/Q2/Q3 已关闭；ADR 头部仍把三项列为待确认，只应保留 MGT-G8/G9/Q5。",
+      "status": "known_stale_not_authoritative",
+      "verified": "2026-10-31",
+      "severity": "high",
+      "why_high": "ADR 是最高权威文档，其状态行被引用时会把已关闭项重新带回待决",
+      "claim_excerpt_sha256": "0cfe0cb093fea7ccc990d60f8ce9d041ff8fff338d24d47260dccc33d4eb2525",
+      "claim_excerpt_len": 65,
+      "claim_excerpt_head": "状态：设计已形成，待用户确认（MGT-Q1至MGT-Q3、MGT-G8、MGT-G9、MGT-Q5）。日期：2026-0"
+    },
+    {
+      "id": "COR-003",
+      "claim_ref": "docs/04-organization/management/README.md:3,48-54",
+      "claim": "状态：设计完成，待确认（MGT-Q1至MGT-Q3）；待确认清单列 MGT-Q1/Q2/Q3",
+      "corrected_by": "DECISIONS.md:71 (D-065)",
+      "evidence": "同上；该文件第 52-54 行仍以表格形式列出三项待确认。",
+      "status": "known_stale_not_authoritative",
+      "verified": "2026-10-31",
+      "severity": "medium",
+      "claim_excerpt_sha256": "a627f5bcbce3a4caa13f66aa8c89ef6620979c1b0fc80f443616b07e6ac9e272",
+      "claim_excerpt_len": 70,
+      "claim_excerpt_head": "状态：设计完成，待确认（MGT-Q1至MGT-Q3）。当前没有管理岗位被实例化，`production_authoriz"
+    },
+    {
+      "id": "COR-004",
+      "claim_ref": "docs/00-project/DECISIONS.md:112",
+      "claim": "ADR-0014 记录管理层决策权平面（1个CEO+8个二级负责人）",
+      "corrected_by": "DECISIONS.md:68 (D-062) + docs/adr/0014:4",
+      "evidence": "D-062 已将管理层由 9 岗（1 CEO + 8 CXO）改为 3 岗（CEO + 增长官 + 治理官）；ADR-0014 正文第 4 行自述 v2 为 3 岗位。DECISIONS.md:112 的 ADR 索引句仍写 8 个二级负责人。",
+      "status": "known_stale_not_authoritative",
+      "verified": "2026-10-31",
+      "severity": "high",
+      "why_high": "把结构与编制混在一句，读索引的人会得到错误的组织规模",
+      "claim_excerpt_sha256": "73b8001e8106871012c07eba76d26db4f4830e4224b235e2ffc3a075c264012f",
+      "claim_excerpt_len": 1424,
+      "claim_excerpt_head": "已建立[ADR-0001](../adr/0001-harness-execution-and-business-con"
+    },
+    {
+      "id": "COR-005",
+      "claim_ref": "README.md:164, docs/00-project/DEVELOPMENT.md:17",
+      "claim": "当前已有ADR-0001至ADR-0012 / 当前有ADR-0001至ADR-0012",
+      "corrected_by": "docs/adr/ 实际文件清单",
+      "evidence": "docs/adr/ 下实际 15 份，ADR-0001..ADR-0015。ADR-0013（External Case Control 与 Preset Resolver）、ADR-0014（管理层决策权平面）、ADR-0015（视觉身份与资产来源）未进入这两处范围表述。",
+      "status": "known_stale_not_authoritative",
+      "verified": "2026-10-31",
+      "severity": "medium",
+      "claim_excerpt_sha256": "0c1aa8057d1aaafd3103416ec4fe236648433b35db8dbd86fffa463f816ecef7",
+      "claim_excerpt_len": 136,
+      "claim_excerpt_head": "重要且难逆转的取舍记录在 `docs/adr/`，当前已有ADR-0001至ADR-0012。岗位、Soul、Playb"
+    },
+    {
+      "id": "COR-006",
+      "claim_ref": "docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html:1343",
+      "claim": "PILOT-G0 ~ PILOT-G4 经营试点 … 未启动",
+      "corrected_by": "docs/12-rollout/BVS-01-SHOPIFY-DTC-PILOT-CHARTER.md:89",
+      "evidence": "Charter 记 PILOT-G0 范围为「当前部分通过」，已确认范围类别、主人格、30天窗口、gross_sales、SKU 生成方法、product_family 成员契约、CSV 路径、App 模式、认证、声明 Scope、Level 1 字段边界、45 天保留政策与 Dashboard 资格取证路径。二者不矛盾但口径不同：蓝图说「门未正式启动」，Charter 说「范围合同部分确认」。",
+      "status": "known_ambiguous_wording",
+      "verified": "2026-10-31",
+      "severity": "medium",
+      "why_not_stale": "不是事实错误，是两个层级在说不同的事；需在覆盖层显式记录「门状态」与「范围确认度」是两个维度",
+      "claim_excerpt_sha256": "0c4cdc27b2976c84bdc88ec9592b8f331788f9280a0255afaef6d260211f0078",
+      "claim_excerpt_len": 117,
+      "claim_excerpt_head": "<tr><td><code>PILOT-G0</code> ~ <code>PILOT-G4</code></td><t"
+    },
+    {
+      "id": "COR-007",
+      "claim_ref": "docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html:1681-1687 (阶段门 card)",
+      "claim": "门禁族索引只列 ORG-G / PILOT-G / SHOP-G / RP-G",
+      "corrected_by": "docs/12-rollout/SANBAO-VISUAL-IDENTITY-ASSET-PLAN.md",
+      "evidence": "实测 blueprint 内 VIS-G 出现次数 = 0；SANBAO 方案定义了 VIS-G0..VIS-G6 且全部完成，G6 已公开发行 VIR-SANBAO-WEB-2026-09-24-R1。蓝图缺整族门禁。",
+      "status": "known_stale_not_authoritative",
+      "verified": "2026-10-31",
+      "severity": "medium",
+      "claim_excerpt_sha256": "930d71647eb5d870e43a3c66a2d5d0616f2d303781449dfe0e847adaf18f5357",
+      "claim_excerpt_len": 422,
+      "claim_excerpt_head": "<p class=\"card-title\">阶段门</p>         <ul>           <li><code>ORG-G0<"
+    },
+    {
+      "id": "COR-008",
+      "claim_ref": "docs/04-organization/MANAGEMENT-LAYER.md:52",
+      "claim": "第2层 MGT-003 治理官 人和 控制·资源·能力19岗",
+      "corrected_by": "management-catalog.json#roles[MGT-003].owned_role_count = 12",
+      "evidence": "MGT-003 owned_role_ids 实际 12 项（AGT-005、AGT-040..050）；同文第 79 行与 management-catalog.json 均为 12。图内文字「19岗」为孤立错误值。",
+      "status": "known_stale_not_authoritative",
+      "verified": "2026-10-31",
+      "severity": "medium",
+      "claim_excerpt_sha256": "9f21535986c350fe3dc5fce4b0177e94447c60cf6cd9d78c56610c10d440ad12",
+      "claim_excerpt_len": 40,
+      "claim_excerpt_head": "M3[\"第2层 MGT-003 治理官 人和<br/>控制·资源·能力19岗\"]"
+    }
+  ],
+  "refuted_claims": [
+    {
+      "id": "REF-001",
+      "asserted_by_plan": "STATUS.md:142 仍用 df37941c / Pages 35258440062，属过时；D-077 记为 abfd1733 / 35910354396",
+      "verdict": "REFUTED",
+      "reason": "STATUS.md:97-98 与 :142 位于「### 第二次发布（2026-09-18，D-064）」历史证据小节内，是第二次发布的当期记录，不是当前状态声明。D-077 属第三次/visual 发布，两者是不同发布事件。用 D-077 去否定第二次发布记录属于跨事件误判。",
+      "evidence": "STATUS.md 小节标题「### 第二次发布（2026-09-18，D-064）」；:142 原文「…已提交并推送至 origin/main（df37941c），Pages workflow运行35258440062成功…见上方「第二次发布」证据表」",
+      "action": "不登记为 corrections；改记为本条 refuted 记录，防止后续复审重复误报"
+    }
+  ]
+}

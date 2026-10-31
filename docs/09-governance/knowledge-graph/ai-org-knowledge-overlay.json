@@ -1,0 +1,65 @@
+{
+  "artifact_kind": "knowledge_overlay",
+  "version": "1.0.0",
+  "status": "draft_pending_review",
+  "created": "2026-10-31",
+  "ticket": "MKG-02",
+  "authority": "派生索引，非权威源。与源文件冲突时以源文件为准。",
+  "runtime": false,
+  "grants_authorization": false,
+  "read_order": ["overlay", "role_view", "source_files", "nmem_memories"],
+  "scope_note": "本文件只记录源文件中没有的跨切面判断：已知漂移、子句级替代关系、禁止生成的边。不复制实体正文，不物化已存在于源 JSON 的节点与边。",
+  "corrections_source": "drafts/analysis/mkg-01-drift-register-draft-20261031.json",
+  "corrections": [
+    {"id": "COR-001", "claim_ref": "docs/00-project/STATUS.md:144", "claim": "待决项为MGT-Q1/Q2/Q3", "corrected_by": "DECISIONS.md:71 (D-065)", "status": "known_stale_not_authoritative", "severity": "high", "verified": "2026-10-31"},
+    {"id": "COR-002", "claim_ref": "docs/adr/0014-management-decision-rights-plane.md:3", "claim": "状态：设计已形成，待用户确认（MGT-Q1至MGT-Q3、MGT-G8、MGT-G9、MGT-Q5）", "corrected_by": "DECISIONS.md:71 (D-065)", "status": "known_stale_not_authoritative", "severity": "high", "verified": "2026-10-31"},
+    {"id": "COR-003", "claim_ref": "docs/04-organization/management/README.md:3,48-54", "claim": "状态：设计完成，待确认（MGT-Q1至MGT-Q3）", "corrected_by": "DECISIONS.md:71 (D-065)", "status": "known_stale_not_authoritative", "severity": "medium", "verified": "2026-10-31"},
+    {"id": "COR-004", "claim_ref": "docs/00-project/DECISIONS.md:112", "claim": "ADR-0014 记录管理层决策权平面（1个CEO+8个二级负责人）", "corrected_by": "DECISIONS.md:68 (D-062) + docs/adr/0014:4", "status": "known_stale_not_authoritative", "severity": "high", "verified": "2026-10-31"},
+    {"id": "COR-005", "claim_ref": "README.md:164, docs/00-project/DEVELOPMENT.md:17", "claim": "当前已有ADR-0001至ADR-0012", "corrected_by": "docs/adr/ 实际 15 份 (ADR-0001..0015)", "status": "known_stale_not_authoritative", "severity": "medium", "verified": "2026-10-31"},
+    {"id": "COR-006", "claim_ref": "docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html:1343", "claim": "PILOT-G0 ~ PILOT-G4 未启动", "corrected_by": "docs/12-rollout/BVS-01-SHOPIFY-DTC-PILOT-CHARTER.md:89", "status": "known_ambiguous_wording", "severity": "medium", "verified": "2026-10-31", "note": "门状态与范围确认度是两个维度，不是事实错误"},
+    {"id": "COR-007", "claim_ref": "docs/12-rollout/IMPLEMENTATION-BLUEPRINT.html:1681-1687", "claim": "门禁族索引只列 ORG-G/PILOT-G/SHOP-G/RP-M/RP-G", "corrected_by": "docs/12-rollout/SANBAO-VISUAL-IDENTITY-ASSET-PLAN.md", "status": "known_stale_not_authoritative", "severity": "medium", "verified": "2026-10-31"},
+    {"id": "COR-008", "claim_ref": "docs/04-organization/MANAGEMENT-LAYER.md:52", "claim": "MGT-003 治理官 控制·资源·能力19岗", "corrected_by": "management-catalog.json MGT-003 owned_role_count=12", "status": "known_stale_not_authoritative", "severity": "medium", "verified": "2026-10-31"}
+  ],
+  "refuted_claims": [
+    {"id": "REF-001", "asserted_by_plan": "STATUS.md:142 仍用 df37941c / 35258440062 已过时", "verdict": "REFUTED", "reason": "该行位于「### 第二次发布（2026-09-18，D-064）」历史证据小节，是当期记录而非当前状态声明；D-077 属另一次发布事件，不能跨事件否定。", "action": "不登记为 correction，保留此记录防止复审重复误报"}
+  ],
+  "supersedes": [
+    {"id": "SUP-001", "from": "D-016", "to": "D-020", "superseded_clause": "50个长期Agent按场景动态匹配、形成运行 Agent 编队", "retained_clause": "50岗位责任覆盖；窄范围只读 Delegate 可作为工具", "scope": "runtime_semantics", "evidence": "DECISIONS.md D-020「替代D-016中『50个长期Agent动态编队』的运行语义，不改变50岗位责任覆盖」", "status": "verified"},
+    {"id": "SUP-002", "from": "D-020", "to": "D-053", "superseded_clause": "岗位不形成运行 Agent 身份", "retained_clause": "五契约；不可变 Bundle；Action Intent→Policy Gate→Execution Broker；产物门禁；凭据隔离；模型外 Case Control 编排；Lead 持 Case 结果责任；Worker 只经已验收 ArtifactEnvelope 交接", "scope": "runtime_identity_semantics", "evidence": "DECISIONS.md D-053「替代D-020关于『岗位不形成运行Agent身份』的运行语义；保留五契约…」", "status": "verified"},
+    {"id": "SUP-003", "from": "D-030", "to": "D-033", "superseded_clause": "首个自主经营样本为 Amazon US", "retained_clause": "Amazon 65% 渠道的战略优先级；Amazon 数据契约保留为后续验证模板", "scope": "pilot_sequencing", "evidence": "DECISIONS.md D-033「仅改变试点执行顺序，不改变Amazon 65%渠道的战略优先级」", "status": "verified"},
+    {"id": "SUP-004", "from": "D-012", "to": "D-016", "superseded_clause": "真人责任人作为常规运行节点", "retained_clause": "数据与工具责任划分", "scope": "human_in_loop_default", "evidence": "DECISIONS.md D-012「其中『真人责任人作为常规运行节点』的部分已由D-016替代；数据与工具责任划分仍保留」", "status": "verified"},
+    {"id": "SUP-005", "from": "D-013", "to": "D-016", "superseded_clause": "真人责任的实现方式", "retained_clause": "存量GMV经营与新品验证并行；新品独立责任与受保护验证资源；资源比例待明确", "scope": "human_responsibility_implementation", "evidence": "DECISIONS.md D-013「『真人责任』的实现方式已由D-016替代；资源比例、首个机会待明确」", "status": "verified"},
+    {"id": "SUP-006", "from": "ADR-0002", "to": "ADR-0003", "superseded_clause": "AGT-002 动态组建多 Agent 任务组及其相关运行语义", "retained_clause": "初始运行不把真人负责人或HITL设为常规节点；所有外部动作仍受业务控制、回执与恢复约束", "scope": "adr_partial", "evidence": "docs/adr/0002 头部「Status: superseded in part by ADR-0003；第1项『AGT-002动态组建多Agent任务组』及其相关运行语义已由ADR-0003替代」", "status": "verified"}
+  ],
+  "aliases": [
+    {"id": "ALI-001", "canonical": "BVS-06", "variants": ["BVS-06 / FLOW-06"], "canonical_flow": "FLOW-06", "note": "END-TO-END 总表以『BVS-06 / FLOW-06』合写；e2e-value-streams.json 用 id 与 canonical_flow 两字段"},
+    {"id": "ALI-002", "canonical": "BVS-08", "variants": ["BVS-08 / FLOW-08"], "canonical_flow": "FLOW-08", "note": "同上"},
+    {"id": "ALI-003", "canonical": "CVS-03", "variants": ["Tool、MCP与API连接", "Tool、MCP与API连接交付"], "canonical_flow": null, "note": "JSON name 为『Tool、MCP与API连接交付』，总表为『Tool、MCP与API连接』；CVS 无 canonical_flow"},
+    {"id": "ALI-004", "canonical": "CVS-04", "variants": ["Release与运行保障", "Release、运行保障与持续改进"], "canonical_flow": null, "note": "JSON name 为『Release、运行保障与持续改进』，总表为『Release与运行保障』"}
+  ],
+  "source_personas": [
+    {"id": "SP-001", "management_role": "MGT-001", "source_persona": "AGT-067", "alias": "星阑", "display_name": "天時", "evidence": "D-069；SANBAO-VISUAL-IDENTITY-ASSET-PLAN.md", "binding_scope": "visual_display_only", "grants_authorization": false},
+    {"id": "SP-002", "management_role": "MGT-002", "source_persona": "AGT-090", "alias": "语桐", "display_name": "地利", "evidence": "D-069", "binding_scope": "visual_display_only", "grants_authorization": false},
+    {"id": "SP-003", "management_role": "MGT-003", "source_persona": "AGT-056", "alias": "昭禾", "display_name": "人和", "evidence": "D-069", "binding_scope": "visual_display_only", "grants_authorization": false}
+  ],
+  "forbidden_edges": [
+    {"id": "FE-001", "pattern": "ProjectRole -*-> ProjectRole", "types": ["runtime", "session", "delegation", "authorization"], "reason": "岗位间 0 运行边；collaborates_with 只是声明性共同协作人，不是运行关系（D-020/D-053）", "allowed_alternative": "作为 role 属性 declared_common_collaborators 保存，runtime=false"},
+    {"id": "FE-002", "pattern": "ManagementRole -*-> Case", "types": ["lead", "worker", "participation"], "reason": "管理层不进入 Case 执行链，不作为任何 Case 的 Lead 或 Worker（AD-0014 / D-057）", "allowed_alternative": "无；管理层只通过 MDC/GOC 契约与资源配额生效"},
+    {"id": "FE-003", "pattern": "ManagementRole -*-> ProjectRole", "types": ["directive", "session", "command"], "reason": "管理岗位不与 50 个岗位发生会话，不设上级 Agent（D-022）", "allowed_alternative": "management_covers_role（纯覆盖关系，不含指令语义）"},
+    {"id": "FE-004", "pattern": "ProjectRole -*-> Tool|Credential|Permission", "types": ["authorization", "access"], "reason": "模型只产 Action Intent；资产动作由模型外 Policy Gate 与 Execution Broker 控制（D-029 / ADR-0010）", "allowed_alternative": "access 边界只作为 Access Contract 的声名字段，不建授权边"},
+    {"id": "FE-005", "pattern": "create_node", "targets": ["Case", "RoleReleaseBundle", "ServiceIdentity", "ResourceReservation"], "reason": "当前运行实例全为 0；创建这些节点会把设计态写成运行态", "allowed_alternative": "如需引用，只作为 status token 字符串"},
+    {"id": "FE-006", "pattern": "VisualIdentityBinding -*-> authorization|permission", "types": ["authorization"], "reason": "视觉绑定只补充分身展示、可访问性与来源追溯，不作为 Bundle、Access、运行身份或权限依据（D-068）", "allowed_alternative": "visual_display_only 标记"}
+  ],
+  "gate_families": [
+    {"prefix": "SHOP", "range": "G0..G7", "domain": "Shopify 绿地", "current": "SHOP-G1", "as_of": "2026-10-31", "source": "STATUS.md; SHOPIFY-STORE-GOVERNANCE-FOUNDATION.md"},
+    {"prefix": "ORG", "range": "G0..G5", "domain": "组织变革", "current": "ORG-G1", "as_of": "2026-10-31", "note": "MGT-EVAL-B 4/6=66.7%，阈值 100%，未通过；G0/G2/G4/G5 无逐门定义", "source": "STATUS.md; SHADOW-VERIFICATION.md"},
+    {"prefix": "PILOT", "range": "G0..G4", "domain": "经营试点", "current": "PILOT-G0(范围部分确认，门未正式通过)", "as_of": "2026-10-31", "source": "BVS-01-SHOPIFY-DTC-PILOT-CHARTER.md"},
+    {"prefix": "VIS", "range": "G0..G6", "domain": "视觉身份", "current": "VIS-G6 完成", "as_of": "2026-10-31", "release": "VIR-SANBAO-WEB-2026-09-24-R1", "source": "SANBAO-VISUAL-IDENTITY-ASSET-PLAN.md"},
+    {"prefix": "RP", "range": "G0..G8 / M0..M7", "domain": "DSH 适配与验收", "current": "RP-G0 完成；RP-M2 完成；RP-M1 部分", "as_of": "2026-10-31", "note": "RP-G 与 RP-M 同名不同义，引用须带文件名", "source": "ROLE-PRESET-IMPLEMENTATION-TODO.md"},
+    {"prefix": "MGT-EVAL", "range": "A/B/C/R/R0/R2", "domain": "管理层评估", "current": "B 未通过；A/C/R0/R2 未执行", "as_of": "2026-10-31", "source": "SHADOW-VERIFICATION.md"}
+  ],
+  "unverified_status": {
+    "as_of": "2026-10-31",
+    "items": ["ontology apply 的 JSON schema 未实测", "独立 nmem 实例/data root 创建方法未知", "桌面端 ⌘5 对 Space 的过滤未实测", "Library MIME 解析行为未实测", "实体抽取触发条件未实测"]
+  }
+}
