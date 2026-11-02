@@ -77,7 +77,7 @@
 └── scripts/                         Role Playbook、Soul与Preset资产生成器
 ```
 
-重要且难逆转的取舍记录在 `docs/adr/`，当前已有ADR-0001至ADR-0012。岗位、Soul、Playbook、Preset、图谱和端到端价值流JSON是业务设计数据，且始终不是Harness导入配置；各领域文件区分战略框架、已知事实、实施参数和生产验收。
+重要且难逆转的取舍记录在 `docs/adr/`，当前已有ADR-0001至ADR-0015。岗位、Soul、Playbook、Preset、图谱和端到端价值流JSON是业务设计数据，且始终不是Harness导入配置；各领域文件区分战略框架、已知事实、实施参数和生产验收。
 
 ## 如何推进
 

@@ -14,7 +14,7 @@
 | 用户原意、回答与追问 | `docs/01-discovery/interviews/` |
 | 已确认与待确认的经营取舍 | `docs/00-project/DECISIONS.md` |
 | 已澄清业务词汇 | `CONTEXT.md` |
-| 重要且难逆转的取舍 | `docs/adr/`，当前有ADR-0001至ADR-0012 |
+| 重要且难逆转的取舍 | `docs/adr/`，当前有ADR-0001至ADR-0015 |
 | 场景与职责结构数据 | `docs/05-agents/role-catalog.json`、`docs/07-orchestration/collaboration-graph.json` |
 | v2组织责任主图 | `docs/04-organization/AI-ORGANIZATION-MAP.md`、`docs/04-organization/organization-graph.json` |
 | v2 Agent管理主图 | `docs/05-agents/AGENT-MANAGEMENT-GRAPH.md`、`docs/05-agents/agent-management-graph.json` |

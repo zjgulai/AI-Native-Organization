@@ -1,0 +1,62 @@
+name: Verify knowledge graph assets
+
+# 为什么需要这个工作流：
+# ai-org-role-view.json 是由脚本从源 JSON 生成的产物，但已入库。
+# 源文件改了而没人记得重跑脚本时，入库版本会静默过期——没有任何报错，
+# 直到有人用它做判断。这里把它变成一次可拦截的检查。
+#
+# 触发面刻意收窄到知识图谱资产与其源文件，避免无关改动也跑。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/09-governance/knowledge-graph/**"
+      - "docs/04-organization/**"
+      - "docs/05-agents/**"
+      - "docs/07-orchestration/**"
+      - "docs/03-scenarios/**"
+      - "scripts/knowledge-overlay.mjs"
+      - "scripts/build-role-knowledge-view.mjs"
+      - "scripts/role-context-bundle.mjs"
+      - ".github/workflows/verify-knowledge.yml"
+  pull_request:
+    paths:
+      - "docs/09-governance/knowledge-graph/**"
+      - "docs/04-organization/**"
+      - "docs/05-agents/**"
+      - "docs/07-orchestration/**"
+      - "docs/03-scenarios/**"
+      - "scripts/knowledge-overlay.mjs"
+      - "scripts/build-role-knowledge-view.mjs"
+      - "scripts/role-context-bundle.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: 覆盖层结构与禁止边校验
+        run: node scripts/knowledge-overlay.mjs verify
+
+      - name: 岗位派生视图未过期
+        run: node scripts/build-role-knowledge-view.mjs --check
+
+      - name: 岗位上下文包回放（5 份）
+        run: |
+          mkdir -p "$RUNNER_TEMP/bundles"
+          for id in AGT-001 AGT-023 AGT-005 AGT-048 MGT-003; do
+            node scripts/role-context-bundle.mjs assemble "$id" --out "$RUNNER_TEMP/bundles"
+          done
+          for f in "$RUNNER_TEMP"/bundles/*.json; do
+            node scripts/role-context-bundle.mjs validate "$f"
+          done
