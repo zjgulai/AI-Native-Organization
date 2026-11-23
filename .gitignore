@@ -11,3 +11,8 @@ __pycache__/
 .loopx/
 .codex/goals/
 bp/preview/
+
+# 版权源书材料：扫描 PDF/EPUB 仅供本地精读，永不入库（D-052 公开发布授权不含此类资产）
+ref/
+*.pdf
+*.epub
