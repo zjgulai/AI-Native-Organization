@@ -1,1871 +1,2070 @@
 {
-  "artifact_kind": "e2e_value_stream_catalog",
-  "version": "1.1.0",
-  "updated_at": "2026-09-16",
-  "authority": "docs/03-scenarios/END-TO-END-VALUE-STREAMS.md",
-  "source_snapshot": {
-    "project": "Magpie-Horch",
-    "git_head": "af5f2ede6092a38fcb7d119571667771004bf416",
-    "worktree_observed": true,
-    "read_only": true
+ "artifact_kind": "e2e_value_stream_catalog",
+ "version": "1.2.0",
+ "updated_at": "2026-11-23",
+ "authority": "docs/03-scenarios/END-TO-END-VALUE-STREAMS.md",
+ "source_snapshot": {
+  "project": "Magpie-Horch",
+  "git_head": "af5f2ede6092a38fcb7d119571667771004bf416",
+  "worktree_observed": true,
+  "read_only": true
+ },
+ "runtime_rule": "每张业务Case只有一个Case Agent和一个主岗位人格；其他岗位以Skills、产物规范和独立保障规则贡献能力。",
+ "mece_rule": {
+  "exhaustive": "9条业务经营流覆盖从增长、新品、供需、市场、客户、数据工具、重大事件、经营复盘到品牌资产经营；4条能力供应流覆盖岗位、Skill、连接、Release的全生命周期。",
+  "exclusive": "业务经营流以业务结果和外部回执闭环；四条能力供应流分别以岗位Bundle、Skill绑定、连接器验收和可回退Release闭环。"
+ },
+ "families": [
+  {
+   "id": "BVS",
+   "name": "业务经营流",
+   "count": 9,
+   "closure": "业务结果与外部回执"
   },
-  "runtime_rule": "每张业务Case只有一个Case Agent和一个主岗位人格；其他岗位以Skills、产物规范和独立保障规则贡献能力。",
-  "mece_rule": {
-    "exhaustive": "8条业务经营流覆盖从增长、新品、供需、市场、客户、数据工具、重大事件到经营复盘；4条能力供应流覆盖岗位、Skill、连接、Release的全生命周期。",
-    "exclusive": "业务经营流以业务结果和外部回执闭环；四条能力供应流分别以岗位Bundle、Skill绑定、连接器验收和可回退Release闭环。"
+  {
+   "id": "CVS",
+   "name": "能力供应流",
+   "count": 4,
+   "closure": "可复用能力产品与运行证据"
+  }
+ ],
+ "streams": [
+  {
+   "id": "BVS-01",
+   "canonical_flow": "FLOW-01",
+   "family": "业务经营流",
+   "name": "存量GMV增长",
+   "product_name": "存量GMV联营舱",
+   "result_owner": "AGT-023",
+   "result_owner_rule": {
+    "current_pilot": "AGT-023",
+    "by_channel": {
+     "Amazon": "AGT-021",
+     "Shopify_DTC": "AGT-023",
+     "other_platform": "AGT-024",
+     "B2B_retail": "AGT-025"
+    }
+   },
+   "start": "GMV机会、异常或经营目标进入已确认的市场、账号与SKU范围",
+   "finish": "行动已执行并取得逐对象回执，增量GMV与退款、库存、利润约束完成归因",
+   "value": "把广告、价格、内容和库存从分散优化转为同一经营约束下的联合决策",
+   "role_scope": [
+    "AGT-002",
+    "AGT-003",
+    "AGT-016",
+    "AGT-017",
+    "AGT-021",
+    "AGT-022",
+    "AGT-023",
+    "AGT-024",
+    "AGT-025",
+    "AGT-026",
+    "AGT-027",
+    "AGT-028",
+    "AGT-030",
+    "AGT-031",
+    "AGT-032",
+    "AGT-035",
+    "AGT-040",
+    "AGT-041",
+    "AGT-045"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "机会雷达",
+     "description": "统一拉取销售、流量、广告、价格、库存和退款信号，按小时级快照识别可行动机会。",
+     "artifact": "Opportunity Signal"
+    },
+    {
+     "step": "P2",
+     "name": "联合诊断",
+     "description": "按SKU × 市场 × 店铺核对需求、竞争、库存覆盖和预算，区分相关性与可干预因果。",
+     "artifact": "Growth Diagnosis"
+    },
+    {
+     "step": "P3",
+     "name": "经营行动包",
+     "description": "比较投放、价格、促销、内容和补货组合，声明预期GMV、护栏、停止条件和依赖。",
+     "artifact": "Joint Action Package"
+    },
+    {
+     "step": "P4",
+     "name": "受控执行",
+     "description": "把获准方案拆成确定性Action Intent，经Policy Gate和Execution Broker逐对象执行。",
+     "artifact": "Action Receipt Set"
+    },
+    {
+     "step": "P5",
+     "name": "增量归因",
+     "description": "对照基线核对GMV、取消退款、库存风险和费用，决定继续、回退或形成新Case。",
+     "artifact": "Incrementality Record"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "建单与口径",
+     "lead": [
+      "AGT-023"
+     ],
+     "contributors": [
+      "AGT-003",
+      "AGT-045"
+     ],
+     "assurance": [],
+     "handoff": "交付唯一经营对象、GMV口径和数据快照"
+    },
+    {
+     "step": "C2",
+     "name": "渠道与增长诊断",
+     "lead": [
+      "AGT-023"
+     ],
+     "contributors": [
+      "AGT-021",
+      "AGT-022",
+      "AGT-024",
+      "AGT-025",
+      "AGT-026",
+      "AGT-030",
+      "AGT-032",
+      "AGT-035"
+     ],
+     "assurance": [],
+     "handoff": "按Case渠道只装配对应渠道岗位能力，交付分渠道机会排序和反证"
+    },
+    {
+     "step": "C3",
+     "name": "供需可行性",
+     "lead": [
+      "AGT-016"
+     ],
+     "contributors": [
+      "AGT-017",
+      "AGT-032",
+      "AGT-041"
+     ],
+     "assurance": [],
+     "handoff": "交付库存与交付约束，不满足则退回方案阶段"
+    },
+    {
+     "step": "C4",
+     "name": "行动包装配",
+     "lead": [
+      "AGT-023"
+     ],
+     "contributors": [
+      "AGT-027",
+      "AGT-028",
+      "AGT-031",
+      "AGT-040"
+     ],
+     "assurance": [],
+     "handoff": "交付逐对象Intent、预算护栏与停止条件"
+    },
+    {
+     "step": "C5",
+     "name": "结果复核",
+     "lead": [
+      "AGT-003"
+     ],
+     "contributors": [
+      "AGT-002"
+     ],
+     "assurance": [
+      "AGT-041"
+     ],
+     "handoff": "以外部回执和增量记录关闭或关联下一Case"
+    }
+   ],
+   "metrics": [
+    "增量GMV",
+    "TACOS/贡献毛利护栏",
+    "缺货风险",
+    "取消退款率",
+    "有效动作回执率"
+   ],
+   "magpie_capabilities": [
+    "岗位Preset编译",
+    "Skill subset装配",
+    "连接器与凭据隔离",
+    "确定性Gate与自测"
+   ],
+   "boundary": "不得为追求GMV突破预算、库存、账号、价格或合规策略；无权威数据或回执时冻结对应对象。",
+   "production_authorized": false
   },
-  "families": [
+  {
+   "id": "BVS-02",
+   "canonical_flow": "FLOW-02",
+   "family": "业务经营流",
+   "name": "新品证据到商业验证",
+   "product_name": "新品证据工厂",
+   "result_owner": "AGT-008",
+   "start": "被记录的用户需求、技术趋势、竞品空白或产品机会进入证据池",
+   "finish": "形成有证据的继续、转向、停止或有限放量决定，并保留市场回执",
+   "value": "缩短从母婴洞察到可验证新品命题的时间，同时避免用讨论代替实物和市场证据",
+   "role_scope": [
+    "AGT-001",
+    "AGT-002",
+    "AGT-006",
+    "AGT-007",
+    "AGT-008",
+    "AGT-009",
+    "AGT-010",
+    "AGT-011",
+    "AGT-012",
+    "AGT-013",
+    "AGT-014",
+    "AGT-018",
+    "AGT-021",
+    "AGT-024",
+    "AGT-028",
+    "AGT-029",
+    "AGT-030",
+    "AGT-031",
+    "AGT-033",
+    "AGT-035",
+    "AGT-038",
+    "AGT-039",
+    "AGT-041",
+    "AGT-043",
+    "AGT-044",
+    "AGT-048"
+   ],
+   "product_workflow": [
     {
-      "id": "BVS",
-      "name": "业务经营流",
-      "count": 8,
-      "closure": "业务结果与外部回执"
+     "step": "P1",
+     "name": "证据入池",
+     "description": "把VOC、搜索趋势、竞品、售后、社媒与技术信号归一成有来源、有时间的机会证据。",
+     "artifact": "Opportunity Evidence Pack"
     },
     {
-      "id": "CVS",
-      "name": "能力供应流",
-      "count": 4,
-      "closure": "可复用能力产品与运行证据"
+     "step": "P2",
+     "name": "机会命题",
+     "description": "定义目标人群、未满足任务、差异化、商业假设、停止条件和验证成本上限。",
+     "artifact": "Product Thesis"
+    },
+    {
+     "step": "P3",
+     "name": "样品与准入",
+     "description": "推进OEM样品、可制造性、质量、知识产权和市场准入验证，引用真实外部证据。",
+     "artifact": "Feasibility & Compliance Dossier"
+    },
+    {
+     "step": "P4",
+     "name": "最小商业验证",
+     "description": "配置内容、价格、渠道、投放和供应的小规模实验，限制账号、预算、SKU与时间窗口。",
+     "artifact": "Launch Experiment"
+    },
+    {
+     "step": "P5",
+     "name": "组合决策",
+     "description": "按需求强度、转化、退货、质量、利润和产能证据决定继续、转向或停止。",
+     "artifact": "Portfolio Decision Record"
     }
-  ],
-  "streams": [
+   ],
+   "collaboration_workflow": [
     {
-      "id": "BVS-01",
-      "canonical_flow": "FLOW-01",
-      "family": "业务经营流",
-      "name": "存量GMV增长",
-      "product_name": "存量GMV联营舱",
-      "result_owner": "AGT-023",
-      "result_owner_rule": {
-        "current_pilot": "AGT-023",
-        "by_channel": {
-          "Amazon": "AGT-021",
-          "Shopify_DTC": "AGT-023",
-          "other_platform": "AGT-024",
-          "B2B_retail": "AGT-025"
-        }
-      },
-      "start": "GMV机会、异常或经营目标进入已确认的市场、账号与SKU范围",
-      "finish": "行动已执行并取得逐对象回执，增量GMV与退款、库存、利润约束完成归因",
-      "value": "把广告、价格、内容和库存从分散优化转为同一经营约束下的联合决策",
-      "role_scope": [
-        "AGT-002",
-        "AGT-003",
-        "AGT-016",
-        "AGT-017",
-        "AGT-021",
-        "AGT-022",
-        "AGT-023",
-        "AGT-024",
-        "AGT-025",
-        "AGT-026",
-        "AGT-027",
-        "AGT-028",
-        "AGT-030",
-        "AGT-031",
-        "AGT-032",
-        "AGT-035",
-        "AGT-040",
-        "AGT-041",
-        "AGT-045"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "机会雷达",
-          "description": "统一拉取销售、流量、广告、价格、库存和退款信号，按小时级快照识别可行动机会。",
-          "artifact": "Opportunity Signal"
-        },
-        {
-          "step": "P2",
-          "name": "联合诊断",
-          "description": "按SKU × 市场 × 店铺核对需求、竞争、库存覆盖和预算，区分相关性与可干预因果。",
-          "artifact": "Growth Diagnosis"
-        },
-        {
-          "step": "P3",
-          "name": "经营行动包",
-          "description": "比较投放、价格、促销、内容和补货组合，声明预期GMV、护栏、停止条件和依赖。",
-          "artifact": "Joint Action Package"
-        },
-        {
-          "step": "P4",
-          "name": "受控执行",
-          "description": "把获准方案拆成确定性Action Intent，经Policy Gate和Execution Broker逐对象执行。",
-          "artifact": "Action Receipt Set"
-        },
-        {
-          "step": "P5",
-          "name": "增量归因",
-          "description": "对照基线核对GMV、取消退款、库存风险和费用，决定继续、回退或形成新Case。",
-          "artifact": "Incrementality Record"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "建单与口径",
-          "lead": [
-            "AGT-023"
-          ],
-          "contributors": [
-            "AGT-003",
-            "AGT-045"
-          ],
-          "assurance": [],
-          "handoff": "交付唯一经营对象、GMV口径和数据快照"
-        },
-        {
-          "step": "C2",
-          "name": "渠道与增长诊断",
-          "lead": [
-            "AGT-023"
-          ],
-          "contributors": [
-            "AGT-021",
-            "AGT-022",
-            "AGT-024",
-            "AGT-025",
-            "AGT-026",
-            "AGT-030",
-            "AGT-032",
-            "AGT-035"
-          ],
-          "assurance": [],
-          "handoff": "按Case渠道只装配对应渠道岗位能力，交付分渠道机会排序和反证"
-        },
-        {
-          "step": "C3",
-          "name": "供需可行性",
-          "lead": [
-            "AGT-016"
-          ],
-          "contributors": [
-            "AGT-017",
-            "AGT-032",
-            "AGT-041"
-          ],
-          "assurance": [],
-          "handoff": "交付库存与交付约束，不满足则退回方案阶段"
-        },
-        {
-          "step": "C4",
-          "name": "行动包装配",
-          "lead": [
-            "AGT-023"
-          ],
-          "contributors": [
-            "AGT-027",
-            "AGT-028",
-            "AGT-031",
-            "AGT-040"
-          ],
-          "assurance": [],
-          "handoff": "交付逐对象Intent、预算护栏与停止条件"
-        },
-        {
-          "step": "C5",
-          "name": "结果复核",
-          "lead": [
-            "AGT-003"
-          ],
-          "contributors": [
-            "AGT-002"
-          ],
-          "assurance": [
-            "AGT-041"
-          ],
-          "handoff": "以外部回执和增量记录关闭或关联下一Case"
-        }
-      ],
-      "metrics": [
-        "增量GMV",
-        "TACOS/贡献毛利护栏",
-        "缺货风险",
-        "取消退款率",
-        "有效动作回执率"
-      ],
-      "magpie_capabilities": [
-        "岗位Preset编译",
-        "Skill subset装配",
-        "连接器与凭据隔离",
-        "确定性Gate与自测"
-      ],
-      "boundary": "不得为追求GMV突破预算、库存、账号、价格或合规策略；无权威数据或回执时冻结对应对象。",
-      "production_authorized": false
+     "step": "C1",
+     "name": "机会证据",
+     "lead": [
+      "AGT-006"
+     ],
+     "contributors": [
+      "AGT-007",
+      "AGT-038",
+      "AGT-039"
+     ],
+     "assurance": [],
+     "handoff": "交付可追溯证据池和重复机会合并结果"
     },
     {
-      "id": "BVS-02",
-      "canonical_flow": "FLOW-02",
-      "family": "业务经营流",
-      "name": "新品证据到商业验证",
-      "product_name": "新品证据工厂",
-      "result_owner": "AGT-008",
-      "start": "被记录的用户需求、技术趋势、竞品空白或产品机会进入证据池",
-      "finish": "形成有证据的继续、转向、停止或有限放量决定，并保留市场回执",
-      "value": "缩短从母婴洞察到可验证新品命题的时间，同时避免用讨论代替实物和市场证据",
-      "role_scope": [
-        "AGT-001",
-        "AGT-002",
-        "AGT-006",
-        "AGT-007",
-        "AGT-008",
-        "AGT-009",
-        "AGT-010",
-        "AGT-011",
-        "AGT-012",
-        "AGT-013",
-        "AGT-014",
-        "AGT-018",
-        "AGT-021",
-        "AGT-024",
-        "AGT-028",
-        "AGT-029",
-        "AGT-030",
-        "AGT-031",
-        "AGT-033",
-        "AGT-035",
-        "AGT-038",
-        "AGT-039",
-        "AGT-041",
-        "AGT-043",
-        "AGT-044",
-        "AGT-048"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "证据入池",
-          "description": "把VOC、搜索趋势、竞品、售后、社媒与技术信号归一成有来源、有时间的机会证据。",
-          "artifact": "Opportunity Evidence Pack"
-        },
-        {
-          "step": "P2",
-          "name": "机会命题",
-          "description": "定义目标人群、未满足任务、差异化、商业假设、停止条件和验证成本上限。",
-          "artifact": "Product Thesis"
-        },
-        {
-          "step": "P3",
-          "name": "样品与准入",
-          "description": "推进OEM样品、可制造性、质量、知识产权和市场准入验证，引用真实外部证据。",
-          "artifact": "Feasibility & Compliance Dossier"
-        },
-        {
-          "step": "P4",
-          "name": "最小商业验证",
-          "description": "配置内容、价格、渠道、投放和供应的小规模实验，限制账号、预算、SKU与时间窗口。",
-          "artifact": "Launch Experiment"
-        },
-        {
-          "step": "P5",
-          "name": "组合决策",
-          "description": "按需求强度、转化、退货、质量、利润和产能证据决定继续、转向或停止。",
-          "artifact": "Portfolio Decision Record"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "机会证据",
-          "lead": [
-            "AGT-006"
-          ],
-          "contributors": [
-            "AGT-007",
-            "AGT-038",
-            "AGT-039"
-          ],
-          "assurance": [],
-          "handoff": "交付可追溯证据池和重复机会合并结果"
-        },
-        {
-          "step": "C2",
-          "name": "产品定义",
-          "lead": [
-            "AGT-008"
-          ],
-          "contributors": [
-            "AGT-009",
-            "AGT-010",
-            "AGT-013"
-          ],
-          "assurance": [],
-          "handoff": "交付可证伪命题、样品要求与停止条件"
-        },
-        {
-          "step": "C3",
-          "name": "质量与供应验证",
-          "lead": [
-            "AGT-011"
-          ],
-          "contributors": [
-            "AGT-012",
-            "AGT-014",
-            "AGT-018"
-          ],
-          "assurance": [
-            "AGT-044"
-          ],
-          "handoff": "交付外部实测、制造与准入证据；缺证不得发布"
-        },
-        {
-          "step": "C4",
-          "name": "上市实验",
-          "lead": [
-            "AGT-021"
-          ],
-          "contributors": [
-            "AGT-024",
-            "AGT-028",
-            "AGT-029",
-            "AGT-030",
-            "AGT-031",
-            "AGT-033",
-            "AGT-035"
-          ],
-          "assurance": [
-            "AGT-043"
-          ],
-          "handoff": "交付有边界的市场实验和逐对象回执"
-        },
-        {
-          "step": "C5",
-          "name": "投资组合裁决",
-          "lead": [
-            "AGT-008"
-          ],
-          "contributors": [
-            "AGT-001",
-            "AGT-002",
-            "AGT-041",
-            "AGT-048"
-          ],
-          "assurance": [
-            "AGT-044"
-          ],
-          "handoff": "交付继续、转向或停止记录及下一验证假设"
-        }
-      ],
-      "metrics": [
-        "证据到样品周期",
-        "样品到首单周期",
-        "假设命中率",
-        "首批转化/退货/质量",
-        "停止决策及时率"
-      ],
-      "magpie_capabilities": [
-        "海外Skill分层目录",
-        "论文到Skill证据与评测",
-        "岗位Preset装配",
-        "任务结果门禁"
-      ],
-      "boundary": "Agent不能把生成内容、模拟结果或文档评审当作实物、临床、质量或市场回执。",
-      "production_authorized": false
+     "step": "C2",
+     "name": "产品定义",
+     "lead": [
+      "AGT-008"
+     ],
+     "contributors": [
+      "AGT-009",
+      "AGT-010",
+      "AGT-013"
+     ],
+     "assurance": [],
+     "handoff": "交付可证伪命题、样品要求与停止条件"
     },
     {
-      "id": "BVS-03",
-      "canonical_flow": "FLOW-03",
-      "family": "业务经营流",
-      "name": "供需补货与交付",
-      "product_name": "供需履约控制塔",
-      "result_owner": "AGT-016",
-      "start": "权威需求、库存、在途、订单或供应异常达到计划触发条件",
-      "finish": "供应计划、采购/运输回执、入仓和可售库存一致，异常有冻结或补偿记录",
-      "value": "以单一需求事实和约束求解连接预测、OEM采购、跨境运输与渠道可售",
-      "role_scope": [
-        "AGT-002",
-        "AGT-014",
-        "AGT-015",
-        "AGT-016",
-        "AGT-017",
-        "AGT-018",
-        "AGT-019",
-        "AGT-020",
-        "AGT-021",
-        "AGT-026",
-        "AGT-040",
-        "AGT-041",
-        "AGT-042"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "需求真相",
-          "description": "合并销售计划、促销、新品、季节和风险信号，建立版本化需求与置信区间。",
-          "artifact": "Demand Snapshot"
-        },
-        {
-          "step": "P2",
-          "name": "约束计划",
-          "description": "计算安全库存、生产能力、MOQ、资金、运输和仓容约束下的候选计划。",
-          "artifact": "Constrained Supply Plan"
-        },
-        {
-          "step": "P3",
-          "name": "承诺执行",
-          "description": "把获准采购、生产、订舱与调拨意图送入权威系统，获取幂等业务单据。",
-          "artifact": "Supply Commitment Receipts"
-        },
-        {
-          "step": "P4",
-          "name": "履约跟踪",
-          "description": "跟踪工厂、质检、运输、清关、入仓和上架里程碑，对偏差形成异常Case。",
-          "artifact": "Milestone Ledger"
-        },
-        {
-          "step": "P5",
-          "name": "可售核对",
-          "description": "将实际到货、可售、缺货和积压结果回写需求模型与经营Case。",
-          "artifact": "Availability Reconciliation"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "需求基线",
-          "lead": [
-            "AGT-016"
-          ],
-          "contributors": [
-            "AGT-021",
-            "AGT-026",
-            "AGT-041"
-          ],
-          "assurance": [],
-          "handoff": "交付权威需求版本和误差范围"
-        },
-        {
-          "step": "C2",
-          "name": "供应与资金约束",
-          "lead": [
-            "AGT-014"
-          ],
-          "contributors": [
-            "AGT-015",
-            "AGT-042"
-          ],
-          "assurance": [],
-          "handoff": "交付可执行约束和候选方案"
-        },
-        {
-          "step": "C3",
-          "name": "计划求解",
-          "lead": [
-            "AGT-016"
-          ],
-          "contributors": [
-            "AGT-017",
-            "AGT-018"
-          ],
-          "assurance": [],
-          "handoff": "交付逐SKU/节点供应计划与例外"
-        },
-        {
-          "step": "C4",
-          "name": "履约执行",
-          "lead": [
-            "AGT-019"
-          ],
-          "contributors": [
-            "AGT-020"
-          ],
-          "assurance": [],
-          "handoff": "交付采购、生产、运输和入仓回执"
-        },
-        {
-          "step": "C5",
-          "name": "经营核对",
-          "lead": [
-            "AGT-040"
-          ],
-          "contributors": [
-            "AGT-002"
-          ],
-          "assurance": [
-            "AGT-042"
-          ],
-          "handoff": "核对可售与资金事实并关闭或新建异常Case"
-        }
-      ],
-      "metrics": [
-        "预测偏差",
-        "缺货损失GMV",
-        "库存周转",
-        "准时足量交付",
-        "积压与资金占用"
-      ],
-      "magpie_capabilities": [
-        "连接器配置与探针",
-        "本地任务状态原子写入",
-        "凭据隔离",
-        "发行安装与回退"
-      ],
-      "boundary": "采购、库存预留、运输承诺与资金动作只认业务系统回执；模型预测不能替代库存和单据事实。",
-      "production_authorized": false
+     "step": "C3",
+     "name": "质量与供应验证",
+     "lead": [
+      "AGT-011"
+     ],
+     "contributors": [
+      "AGT-012",
+      "AGT-014",
+      "AGT-018"
+     ],
+     "assurance": [
+      "AGT-044"
+     ],
+     "handoff": "交付外部实测、制造与准入证据；缺证不得发布"
     },
     {
-      "id": "BVS-04",
-      "canonical_flow": "FLOW-04",
-      "family": "业务经营流",
-      "name": "新市场与合规上架",
-      "product_name": "市场准入发布器",
-      "result_owner": "AGT-024",
-      "start": "已批准的产品与市场机会需要进入新的国家、渠道、账号或站点",
-      "finish": "商品在明确准入、履约与账号边界内可售，并取得上线、首单和风险监测回执",
-      "value": "把市场判断、合规、内容、本地化、账号和履约条件编译成可重复的发布包",
-      "role_scope": [
-        "AGT-002",
-        "AGT-007",
-        "AGT-009",
-        "AGT-019",
-        "AGT-021",
-        "AGT-022",
-        "AGT-023",
-        "AGT-024",
-        "AGT-025",
-        "AGT-027",
-        "AGT-028",
-        "AGT-029",
-        "AGT-030",
-        "AGT-031",
-        "AGT-033",
-        "AGT-036",
-        "AGT-042",
-        "AGT-043",
-        "AGT-044",
-        "AGT-050"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "市场可行性",
-          "description": "确认消费者需求、竞争、价格带、渠道费用、税务和履约基础条件。",
-          "artifact": "Market Entry Thesis"
-        },
-        {
-          "step": "P2",
-          "name": "准入矩阵",
-          "description": "按产品 × 国家 × 渠道定义法规、标签、声明、知识产权和账号要求。",
-          "artifact": "Entry Control Matrix"
-        },
-        {
-          "step": "P3",
-          "name": "发布包",
-          "description": "生成受版本控制的商品资料、内容、本地化、价格、库存和客服准备清单。",
-          "artifact": "Market Launch Bundle"
-        },
-        {
-          "step": "P4",
-          "name": "受控上线",
-          "description": "按账号、站点和SKU逐对象创建或更新资产，核对平台返回与可见状态。",
-          "artifact": "Launch Receipts"
-        },
-        {
-          "step": "P5",
-          "name": "首周期验证",
-          "description": "监测可售、流量、转化、退货、违规和履约，决定扩大、修复或退出。",
-          "artifact": "Market Validation Record"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "机会与范围",
-          "lead": [
-            "AGT-024"
-          ],
-          "contributors": [
-            "AGT-007",
-            "AGT-021",
-            "AGT-022",
-            "AGT-025",
-            "AGT-029"
-          ],
-          "assurance": [],
-          "handoff": "交付唯一市场、渠道、账号与产品范围"
-        },
-        {
-          "step": "C2",
-          "name": "产品和内容准备",
-          "lead": [
-            "AGT-009"
-          ],
-          "contributors": [
-            "AGT-019",
-            "AGT-028",
-            "AGT-030",
-            "AGT-031"
-          ],
-          "assurance": [
-            "AGT-044"
-          ],
-          "handoff": "交付可追溯商品主数据与本地化内容"
-        },
-        {
-          "step": "C3",
-          "name": "渠道发布设计",
-          "lead": [
-            "AGT-023"
-          ],
-          "contributors": [
-            "AGT-027",
-            "AGT-033",
-            "AGT-036"
-          ],
-          "assurance": [
-            "AGT-043",
-            "AGT-050"
-          ],
-          "handoff": "交付逐对象发布Intent和失败处置"
-        },
-        {
-          "step": "C4",
-          "name": "上线与核对",
-          "lead": [
-            "AGT-024"
-          ],
-          "contributors": [
-            "AGT-002"
-          ],
-          "assurance": [
-            "AGT-042",
-            "AGT-044"
-          ],
-          "handoff": "以平台、库存和结算回执确认可售"
-        },
-        {
-          "step": "C5",
-          "name": "首周期复盘",
-          "lead": [
-            "AGT-021"
-          ],
-          "contributors": [
-            "AGT-025",
-            "AGT-029"
-          ],
-          "assurance": [
-            "AGT-050"
-          ],
-          "handoff": "交付扩大、修复或退出决定"
-        }
-      ],
-      "metrics": [
-        "准入周期",
-        "一次发布成功率",
-        "首单周期",
-        "违规/下架率",
-        "首周期贡献GMV"
-      ],
-      "magpie_capabilities": [
-        "App启动器与系统目录",
-        "Skill Center",
-        "MCP/API连接配置",
-        "发布Gate"
-      ],
-      "boundary": "页面预览、工具返回成功或本地配置存在都不能替代平台可售、合规和履约回执。",
-      "production_authorized": false
+     "step": "C4",
+     "name": "上市实验",
+     "lead": [
+      "AGT-021"
+     ],
+     "contributors": [
+      "AGT-024",
+      "AGT-028",
+      "AGT-029",
+      "AGT-030",
+      "AGT-031",
+      "AGT-033",
+      "AGT-035"
+     ],
+     "assurance": [
+      "AGT-043"
+     ],
+     "handoff": "交付有边界的市场实验和逐对象回执"
     },
     {
-      "id": "BVS-05",
-      "canonical_flow": "FLOW-05",
-      "family": "业务经营流",
-      "name": "客户旅程与复购",
-      "product_name": "客户旅程修复台",
-      "result_owner": "AGT-034",
-      "start": "客户咨询、差评、退货、投诉、流失或复购机会进入统一事件视图",
-      "finish": "客户问题得到有回执的解决，根因进入内容、产品或运营改进，并验证留存结果",
-      "value": "从单次客服响应升级为贯穿售前、使用、售后与复购的闭环体验修复",
-      "role_scope": [
-        "AGT-002",
-        "AGT-006",
-        "AGT-020",
-        "AGT-023",
-        "AGT-028",
-        "AGT-029",
-        "AGT-034",
-        "AGT-035",
-        "AGT-036",
-        "AGT-037",
-        "AGT-038",
-        "AGT-039",
-        "AGT-040",
-        "AGT-044"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "旅程信号",
-          "description": "统一订单、咨询、评论、退货、社媒和CRM事件，识别客户任务与受影响范围。",
-          "artifact": "Journey Event"
-        },
-        {
-          "step": "P2",
-          "name": "原因分群",
-          "description": "区分认知、购买、交付、使用、质量和服务问题，连接产品与渠道证据。",
-          "artifact": "Journey Diagnosis"
-        },
-        {
-          "step": "P3",
-          "name": "修复方案",
-          "description": "生成服务回应、内容修正、产品反馈、物流处置和复购路径的组合方案。",
-          "artifact": "Recovery Package"
-        },
-        {
-          "step": "P4",
-          "name": "受控触达",
-          "description": "通过获准渠道执行回复、通知、售后或营销Intent，保留同意、范围与回执。",
-          "artifact": "Customer Action Receipts"
-        },
-        {
-          "step": "P5",
-          "name": "体验学习",
-          "description": "核对解决率、情绪、退货、复购和重复问题，将根因送入对应业务流。",
-          "artifact": "Experience Learning Record"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "事件汇聚",
-          "lead": [
-            "AGT-036"
-          ],
-          "contributors": [
-            "AGT-037",
-            "AGT-038",
-            "AGT-039"
-          ],
-          "assurance": [],
-          "handoff": "交付去重、分群且有来源的旅程事件"
-        },
-        {
-          "step": "C2",
-          "name": "问题诊断",
-          "lead": [
-            "AGT-034"
-          ],
-          "contributors": [
-            "AGT-006",
-            "AGT-020",
-            "AGT-035"
-          ],
-          "assurance": [],
-          "handoff": "交付客户任务、根因和影响范围"
-        },
-        {
-          "step": "C3",
-          "name": "跨域修复",
-          "lead": [
-            "AGT-023"
-          ],
-          "contributors": [
-            "AGT-028",
-            "AGT-029",
-            "AGT-040"
-          ],
-          "assurance": [
-            "AGT-044"
-          ],
-          "handoff": "交付服务、内容、渠道与产品修复包"
-        },
-        {
-          "step": "C4",
-          "name": "触达执行",
-          "lead": [
-            "AGT-034"
-          ],
-          "contributors": [
-            "AGT-035",
-            "AGT-039"
-          ],
-          "assurance": [],
-          "handoff": "交付逐客户或客群的动作回执"
-        },
-        {
-          "step": "C5",
-          "name": "结果复核",
-          "lead": [
-            "AGT-038"
-          ],
-          "contributors": [
-            "AGT-002",
-            "AGT-036"
-          ],
-          "assurance": [
-            "AGT-044"
-          ],
-          "handoff": "交付问题关闭、复购证据或关联质量Case"
-        }
-      ],
-      "metrics": [
-        "首次解决率",
-        "响应与解决时长",
-        "退货/退款率",
-        "复购率",
-        "重复问题率"
-      ],
-      "magpie_capabilities": [
-        "企业App与知识库入口",
-        "工具UI卡片",
-        "凭据服务",
-        "可观测自检"
-      ],
-      "boundary": "重大质量或账号事件必须转BVS-07；退款、补偿和营销触达均需单独的动作策略与同意范围。",
-      "production_authorized": false
-    },
-    {
-      "id": "BVS-06",
-      "canonical_flow": "FLOW-06",
-      "family": "业务经营流",
-      "name": "需求到数据产品与业务工具",
-      "product_name": "数据产品工作台",
-      "result_owner": "AGT-047",
-      "start": "经营Case出现可复用的数据、分析、工具或UI能力缺口",
-      "finish": "权威口径、数据质量、工具行为、访问边界和使用效果均通过验收并可回退",
-      "value": "让数字化从被动接单转为以数据契约和产品SLO交付可复用经营能力",
-      "role_scope": [
-        "AGT-002",
-        "AGT-003",
-        "AGT-021",
-        "AGT-023",
-        "AGT-040",
-        "AGT-044",
-        "AGT-045",
-        "AGT-046",
-        "AGT-047",
-        "AGT-048",
-        "AGT-049",
-        "AGT-050"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "需求契约",
-          "description": "把业务决策、对象、频率、延迟、质量、权限和验收写成产品需求契约。",
-          "artifact": "Data Product Brief"
-        },
-        {
-          "step": "P2",
-          "name": "数据契约",
-          "description": "确认system-of-record、字段、口径、时间性、血缘、质量规则和失败语义。",
-          "artifact": "Versioned Data Contract"
-        },
-        {
-          "step": "P3",
-          "name": "工具产品",
-          "description": "以MCP/tool/API/hook和UI组件交付最小能力，参数细节留在工具描述。",
-          "artifact": "Tool & UI Release Candidate"
-        },
-        {
-          "step": "P4",
-          "name": "独立验收",
-          "description": "用真实样本验证权限、数据、错误、幂等、可访问性、SLO和业务任务结果。",
-          "artifact": "Acceptance Evidence"
-        },
-        {
-          "step": "P5",
-          "name": "运行改进",
-          "description": "观察采用、失败、延迟、成本和决策质量，版本化修复或退役能力。",
-          "artifact": "Product SLO Review"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "业务定义",
-          "lead": [
-            "AGT-047"
-          ],
-          "contributors": [
-            "AGT-002",
-            "AGT-003",
-            "AGT-021",
-            "AGT-023"
-          ],
-          "assurance": [],
-          "handoff": "交付决策问题、用户、对象和验收结果"
-        },
-        {
-          "step": "C2",
-          "name": "数据设计",
-          "lead": [
-            "AGT-045"
-          ],
-          "contributors": [
-            "AGT-040",
-            "AGT-044",
-            "AGT-046"
-          ],
-          "assurance": [],
-          "handoff": "交付权威口径、血缘和失败语义"
-        },
-        {
-          "step": "C3",
-          "name": "工具实现",
-          "lead": [
-            "AGT-046"
-          ],
-          "contributors": [
-            "AGT-047",
-            "AGT-048"
-          ],
-          "assurance": [],
-          "handoff": "交付最小Tool/API与UI组件候选"
-        },
-        {
-          "step": "C4",
-          "name": "门禁发布",
-          "lead": [
-            "AGT-047"
-          ],
-          "contributors": [
-            "AGT-049"
-          ],
-          "assurance": [
-            "AGT-050",
-            "AGT-044"
-          ],
-          "handoff": "交付验证证据、版本、回退和只读/写入边界"
-        },
-        {
-          "step": "C5",
-          "name": "价值复盘",
-          "lead": [
-            "AGT-021"
-          ],
-          "contributors": [
-            "AGT-003",
-            "AGT-045"
-          ],
-          "assurance": [
-            "AGT-050"
-          ],
-          "handoff": "交付采用、SLO和业务结果复盘"
-        }
-      ],
-      "metrics": [
-        "需求到可用周期",
-        "数据质量SLO",
-        "工具任务完成率",
-        "采用率",
-        "每个成功任务全成本"
-      ],
-      "magpie_capabilities": [
-        "工具/Skill分层",
-        "连接器探针",
-        "Skill Center",
-        "Gate与selftest",
-        "原子安装与回退"
-      ],
-      "boundary": "本地任务板、页面或缓存不是企业system-of-record；写工具上线还必须完成BVS外的Access、Policy与Broker验收。",
-      "production_authorized": false
-    },
-    {
-      "id": "BVS-07",
-      "canonical_flow": "FLOW-07",
-      "family": "业务经营流",
-      "name": "质量与账号重大事件",
-      "product_name": "重大事件控制室",
-      "result_owner": "AGT-018",
-      "start": "权威质量、合规、账号、客户安全或平台风险信号达到事件规则",
-      "finish": "影响范围、保护动作、根因、纠正预防措施和恢复证据全部闭合",
-      "value": "优先限制暴露和保护客户、账号与品牌，同时保证任何紧急动作可追踪、可核对",
-      "role_scope": [
-        "AGT-002",
-        "AGT-005",
-        "AGT-011",
-        "AGT-012",
-        "AGT-013",
-        "AGT-014",
-        "AGT-017",
-        "AGT-018",
-        "AGT-020",
-        "AGT-021",
-        "AGT-027",
-        "AGT-029",
-        "AGT-036",
-        "AGT-037",
-        "AGT-038",
-        "AGT-041",
-        "AGT-043",
-        "AGT-044",
-        "AGT-050"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "权威信号",
-          "description": "验证来源、时效、产品/批次/账号范围和规则版本；歧义只形成Pre-Case Exception。",
-          "artifact": "Incident Signal Record"
-        },
-        {
-          "step": "P2",
-          "name": "范围与保护",
-          "description": "建立唯一Case，评估影响并提出最小、只降低暴露的保护Intent。",
-          "artifact": "Containment Plan"
-        },
-        {
-          "step": "P3",
-          "name": "受控处置",
-          "description": "正常动作走八阶段；仅确定性Emergency Guard可在原子建单后执行固定保护模板。",
-          "artifact": "Containment Receipts"
-        },
-        {
-          "step": "P4",
-          "name": "根因与整改",
-          "description": "连接设计、供应、质量、渠道和客户证据，形成可验证CAPA。",
-          "artifact": "Root Cause & CAPA"
-        },
-        {
-          "step": "P5",
-          "name": "恢复与学习",
-          "description": "恢复必须走正常策略和独立门禁；核对外部状态后更新规则、Skill和产品。",
-          "artifact": "Recovery Evidence"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "信号验证",
-          "lead": [
-            "AGT-018"
-          ],
-          "contributors": [
-            "AGT-011",
-            "AGT-012",
-            "AGT-013",
-            "AGT-036"
-          ],
-          "assurance": [
-            "AGT-050"
-          ],
-          "handoff": "交付权威信号、唯一范围或Pre-Case Exception"
-        },
-        {
-          "step": "C2",
-          "name": "最小保护",
-          "lead": [
-            "AGT-002"
-          ],
-          "contributors": [
-            "AGT-005",
-            "AGT-044",
-            "AGT-050"
-          ],
-          "assurance": [],
-          "handoff": "模型外Guard或正常Case交付固定Intent与原子Outbox"
-        },
-        {
-          "step": "C3",
-          "name": "事件处置",
-          "lead": [
-            "AGT-018"
-          ],
-          "contributors": [
-            "AGT-014",
-            "AGT-017",
-            "AGT-020",
-            "AGT-021",
-            "AGT-027",
-            "AGT-029",
-            "AGT-037"
-          ],
-          "assurance": [
-            "AGT-043",
-            "AGT-044"
-          ],
-          "handoff": "交付逐对象处置回执和未决风险"
-        },
-        {
-          "step": "C4",
-          "name": "根因复核",
-          "lead": [
-            "AGT-038"
-          ],
-          "contributors": [
-            "AGT-036",
-            "AGT-037",
-            "AGT-041"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "交付证据化根因与CAPA"
-        },
-        {
-          "step": "C5",
-          "name": "恢复裁决",
-          "lead": [
-            "AGT-018"
-          ],
-          "contributors": [
-            "AGT-002",
-            "AGT-043",
-            "AGT-044",
-            "AGT-050"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "仅凭正常策略和恢复证据关闭事件"
-        }
-      ],
-      "metrics": [
-        "发现到限制暴露时间",
-        "受影响对象确认率",
-        "回执完整率",
-        "重复事件率",
-        "恢复证据通过率"
-      ],
-      "magpie_capabilities": [
-        "确定性Gate",
-        "会话/状态原子性",
-        "连接器探针",
-        "发行回退",
-        "Pitfalls反证法"
-      ],
-      "boundary": "Emergency Guard只能执行预先发布的最小保护动作，不能恢复、重新开放、退款、召回、销毁、对外承诺或永久变更。",
-      "production_authorized": false
-    },
-    {
-      "id": "BVS-08",
-      "canonical_flow": "FLOW-08",
-      "family": "业务经营流",
-      "name": "经营复盘与能力组合更新",
-      "product_name": "经营复盘与能力组合台",
-      "result_owner": "AGT-001",
-      "start": "周/月/季度节奏或重大Case关闭后形成可比较的经营、风险和能力证据",
-      "finish": "资源、策略、岗位Bundle和能力组合的版本化决定已执行或明确冻结，并进入下周期验证",
-      "value": "把经营复盘直接连接到资源配置、岗位能力和平台投资，避免报告与行动脱节",
-      "role_scope": [
-        "AGT-001",
-        "AGT-002",
-        "AGT-003",
-        "AGT-004",
-        "AGT-005",
-        "AGT-008",
-        "AGT-021",
-        "AGT-029",
-        "AGT-035",
-        "AGT-040",
-        "AGT-041",
-        "AGT-042",
-        "AGT-043",
-        "AGT-045",
-        "AGT-048",
-        "AGT-049",
-        "AGT-050"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "证据账本",
-          "description": "汇总GMV、利润/现金护栏、客户、供应、风险、自治异常、HITL和全成本。",
-          "artifact": "Operating Evidence Book"
-        },
-        {
-          "step": "P2",
-          "name": "差距诊断",
-          "description": "区分策略、数据、Skill、Tool、模型、流程和组织责任问题，保留反证。",
-          "artifact": "Capability Gap Map"
-        },
-        {
-          "step": "P3",
-          "name": "组合选择",
-          "description": "比较市场、产品、渠道、资源和能力投资方案，说明放弃项与不确定性。",
-          "artifact": "Portfolio Decision"
-        },
-        {
-          "step": "P4",
-          "name": "版本化变更",
-          "description": "把批准结果转成策略、预算、数据产品、岗位Bundle或供应链变更Intent。",
-          "artifact": "Change Release Set"
-        },
-        {
-          "step": "P5",
-          "name": "周期核对",
-          "description": "核对动作结果和下一周期指标，未达成项形成新Case或冻结。",
-          "artifact": "Cycle Review"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "经营事实",
-          "lead": [
-            "AGT-003"
-          ],
-          "contributors": [
-            "AGT-021",
-            "AGT-029",
-            "AGT-035",
-            "AGT-040",
-            "AGT-045"
-          ],
-          "assurance": [],
-          "handoff": "交付可比口径、约束和异常账本"
-        },
-        {
-          "step": "C2",
-          "name": "风险与财务复核",
-          "lead": [
-            "AGT-001"
-          ],
-          "contributors": [
-            "AGT-041",
-            "AGT-042",
-            "AGT-043"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "交付独立复核后的经营差距"
-        },
-        {
-          "step": "C3",
-          "name": "能力诊断",
-          "lead": [
-            "AGT-004"
-          ],
-          "contributors": [
-            "AGT-008",
-            "AGT-048",
-            "AGT-049"
-          ],
-          "assurance": [],
-          "handoff": "交付岗位、Skill、Tool与运行差距"
-        },
-        {
-          "step": "C4",
-          "name": "变更发布",
-          "lead": [
-            "AGT-048"
-          ],
-          "contributors": [
-            "AGT-002",
-            "AGT-049",
-            "AGT-050"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "交付不可变变更版本、门禁证据和回退点"
-        },
-        {
-          "step": "C5",
-          "name": "周期裁决",
-          "lead": [
-            "AGT-001"
-          ],
-          "contributors": [
-            "AGT-003",
-            "AGT-041",
-            "AGT-045"
-          ],
-          "assurance": [
-            "AGT-005",
-            "AGT-050"
-          ],
-          "handoff": "交付继续、停止、纠偏或再验证决定"
-        }
-      ],
-      "metrics": [
-        "目标GMV达成",
-        "利润/现金护栏",
-        "资源再配置周期",
-        "能力缺口关闭率",
-        "自治异常与全成本"
-      ],
-      "magpie_capabilities": [
-        "LoopX目标账本",
-        "成本守卫",
-        "Skill/角色编译",
-        "发行Gate",
-        "状态与回退"
-      ],
-      "boundary": "AI可形成资源和组织建议，但招聘、解聘、薪酬、预算和公司级策略变更只通过已配置的企业动作策略。",
-      "production_authorized": false
-    },
-    {
-      "id": "CVS-01",
-      "canonical_flow": null,
-      "family": "能力供应流",
-      "name": "岗位与场景产品化",
-      "product_name": "岗位产品编译器",
-      "result_owner": "AGT-004",
-      "start": "业务价值流、场景或组织责任发生经批准的变化",
-      "finish": "五份契约被绑定为不可变岗位Bundle，Preset与清单一致并可被Case固定引用",
-      "value": "把组织设计从文档转成可检查、可装配、可回退的岗位产品",
-      "role_scope": [
-        "AGT-001",
-        "AGT-002",
-        "AGT-004",
-        "AGT-005",
-        "AGT-045",
-        "AGT-047",
-        "AGT-048",
-        "AGT-049",
-        "AGT-050"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "责任源建模",
-          "description": "维护岗位、场景、价值流、人格、边界和协作的单一事实源。",
-          "artifact": "Role Source Set"
-        },
-        {
-          "step": "P2",
-          "name": "五契约编译",
-          "description": "分别生成Business、Skill、Runtime、Access与Assurance契约引用。",
-          "artifact": "Role Contract Set"
-        },
-        {
-          "step": "P3",
-          "name": "Preset生成",
-          "description": "把契约、Skill subset、Playbook和运行声明编译为Preset与manifest。",
-          "artifact": "Role Release Candidate"
-        },
-        {
-          "step": "P4",
-          "name": "无损与风险评测",
-          "description": "检查50岗位覆盖、字段无损、Skill缺口、权限边界、头像/资产一致和回退。",
-          "artifact": "Role Evaluation Evidence"
-        },
-        {
-          "step": "P5",
-          "name": "Bundle发布",
-          "description": "注册不可变版本、Hash和生命周期状态，供新Case显式固定。",
-          "artifact": "Role Release Bundle"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "责任变更",
-          "lead": [
-            "AGT-004"
-          ],
-          "contributors": [
-            "AGT-001",
-            "AGT-002"
-          ],
-          "assurance": [],
-          "handoff": "交付经批准的责任与场景差异"
-        },
-        {
-          "step": "C2",
-          "name": "契约设计",
-          "lead": [
-            "AGT-004"
-          ],
-          "contributors": [
-            "AGT-045",
-            "AGT-048"
-          ],
-          "assurance": [],
-          "handoff": "交付五契约候选及版本依赖"
-        },
-        {
-          "step": "C3",
-          "name": "编译装配",
-          "lead": [
-            "AGT-048"
-          ],
-          "contributors": [
-            "AGT-047",
-            "AGT-049"
-          ],
-          "assurance": [],
-          "handoff": "交付Preset、manifest与Bundle候选"
-        },
-        {
-          "step": "C4",
-          "name": "独立保障",
-          "lead": [
-            "AGT-005"
-          ],
-          "contributors": [],
-          "assurance": [
-            "AGT-050"
-          ],
-          "handoff": "交付无损、权限和回退验收记录"
-        },
-        {
-          "step": "C5",
-          "name": "发布与使用",
-          "lead": [
-            "AGT-049"
-          ],
-          "contributors": [
-            "AGT-002"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "注册新版本；运行中Case不静默升级"
-        }
-      ],
-      "metrics": [
-        "岗位覆盖率",
-        "契约完整率",
-        "无损校验通过率",
-        "Skill缺口",
-        "回退成功率"
-      ],
-      "magpie_capabilities": [
-        "role-presets生成器",
-        "skill-subset装配",
-        "live-presets Gate",
-        "会话引用保护"
-      ],
-      "boundary": "岗位产品化只定义责任与装配，不拥有Skill内容、连接器授权或发行环境；AI岗位不能自发布自身Bundle。",
-      "production_authorized": false
-    },
-    {
-      "id": "CVS-02",
-      "canonical_flow": null,
-      "family": "能力供应流",
-      "name": "知识与Skill供应",
-      "product_name": "Skill供应链",
-      "result_owner": "AGT-048",
-      "start": "业务Case暴露知识缺口、方法缺口或已有Skill效果不足",
-      "finish": "有来源、可检索、经任务结果评测的Skill版本绑定到适用岗位并可退役",
-      "value": "把论文、方法、企业知识和业务经验转成按需加载且以任务结果验收的能力",
-      "role_scope": [
-        "AGT-003",
-        "AGT-005",
-        "AGT-006",
-        "AGT-007",
-        "AGT-008",
-        "AGT-013",
-        "AGT-021",
-        "AGT-029",
-        "AGT-038",
-        "AGT-045",
-        "AGT-046",
-        "AGT-048",
-        "AGT-049",
-        "AGT-050"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "需求与来源",
-          "description": "从失败Case、业务目标和外部证据登记Skill需求、来源、许可与时效。",
-          "artifact": "Skill Demand & Provenance"
-        },
-        {
-          "step": "P2",
-          "name": "分类与恢复",
-          "description": "映射场景、专业域、岗位与检索描述，恢复缺失能力并保留来源链。",
-          "artifact": "Skill Candidate"
-        },
-        {
-          "step": "P3",
-          "name": "内容工程",
-          "description": "把参数细节放入工具说明、通用规则留在静态提示、动态方法放入Skill文档。",
-          "artifact": "Versioned Skill"
-        },
-        {
-          "step": "P4",
-          "name": "结果评测",
-          "description": "用无Skill基线、对照任务、异常集和成本测量评估完整业务交付，而非路由命中。",
-          "artifact": "Skill Evaluation Report"
-        },
-        {
-          "step": "P5",
-          "name": "绑定与退役",
-          "description": "通过门禁后写入岗位Skill Contract；漂移、负收益或过期版本隔离并退役。",
-          "artifact": "Skill Binding Release"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "缺口归因",
-          "lead": [
-            "AGT-048"
-          ],
-          "contributors": [
-            "AGT-003",
-            "AGT-006",
-            "AGT-021",
-            "AGT-038"
-          ],
-          "assurance": [],
-          "handoff": "交付可复现任务缺口，不把工具失败误判成知识缺口"
-        },
-        {
-          "step": "C2",
-          "name": "证据与分类",
-          "lead": [
-            "AGT-007"
-          ],
-          "contributors": [
-            "AGT-008",
-            "AGT-013",
-            "AGT-045"
-          ],
-          "assurance": [],
-          "handoff": "交付来源、许可、时效和岗位适用性"
-        },
-        {
-          "step": "C3",
-          "name": "Skill实现",
-          "lead": [
-            "AGT-048"
-          ],
-          "contributors": [
-            "AGT-046"
-          ],
-          "assurance": [],
-          "handoff": "交付最小动态Skill和检索描述"
-        },
-        {
-          "step": "C4",
-          "name": "独立评测",
-          "lead": [
-            "AGT-050"
-          ],
-          "contributors": [
-            "AGT-049"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "交付基线对照、失败样本、成本和负收益判断"
-        },
-        {
-          "step": "C5",
-          "name": "绑定反馈",
-          "lead": [
-            "AGT-048"
-          ],
-          "contributors": [
-            "AGT-029"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "发布岗位绑定或退役决定，并观察真实Case结果"
-        }
-      ],
-      "metrics": [
-        "证据完整率",
-        "检索命中后使用率",
-        "任务闭环提升",
-        "负收益Skill率",
-        "Skill新鲜度与成本"
-      ],
-      "magpie_capabilities": [
-        "overseas-skills四层目录",
-        "paper2skills分类与评测",
-        "Skill Center",
-        "Skill line gate"
-      ],
-      "boundary": "Skill已安装、被检索或路由准确都不代表业务有效；不得用Skill文档扩大工具权限或伪造外部事实。",
-      "production_authorized": false
-    },
-    {
-      "id": "CVS-03",
-      "canonical_flow": null,
-      "family": "能力供应流",
-      "name": "Tool、MCP与API连接交付",
-      "product_name": "企业连接器工厂",
-      "result_owner": "AGT-047",
-      "start": "业务价值流需要读取或受控写入一个权威企业系统",
-      "finish": "连接器完成身份、数据、动作、Policy、幂等、回执、探针和UI验收，可被指定Case安全调用",
-      "value": "为Case Agent提供可组合的手和脚，同时把秘密、权限与资产执行留在模型之外",
-      "role_scope": [
-        "AGT-002",
-        "AGT-005",
-        "AGT-021",
-        "AGT-023",
-        "AGT-036",
-        "AGT-040",
-        "AGT-042",
-        "AGT-043",
-        "AGT-044",
-        "AGT-045",
-        "AGT-046",
-        "AGT-047",
-        "AGT-048",
-        "AGT-049",
-        "AGT-050"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "系统与动作契约",
-          "description": "确认system-of-record、对象、读写动作、服务身份、范围、SLO和失败语义。",
-          "artifact": "Connector Contract"
-        },
-        {
-          "step": "P2",
-          "name": "连接适配",
-          "description": "实现MCP/native tool/API/hook；参数、错误和返回schema位于工具描述。",
-          "artifact": "Connector Adapter"
-        },
-        {
-          "step": "P3",
-          "name": "工具UI",
-          "description": "把状态、输入、预览、决议和回执做成受控组件工具，避免模型直接生成业务页面。",
-          "artifact": "Tool UI Components"
-        },
-        {
-          "step": "P4",
-          "name": "控制集成",
-          "description": "读取经Access Contract限制；写入必须形成Action Intent并接入Policy Gate与Execution Broker。",
-          "artifact": "Policy & Broker Binding"
-        },
-        {
-          "step": "P5",
-          "name": "探针与运营",
-          "description": "验证凭据不可见、最小权限、限流、幂等、部分成功、回执核对、审计和降级。",
-          "artifact": "Connector Acceptance Pack"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "需求与权威源",
-          "lead": [
-            "AGT-047"
-          ],
-          "contributors": [
-            "AGT-002",
-            "AGT-021",
-            "AGT-023",
-            "AGT-036",
-            "AGT-040"
-          ],
-          "assurance": [],
-          "handoff": "交付系统对象、业务动作和验收任务"
-        },
-        {
-          "step": "C2",
-          "name": "数据与权限",
-          "lead": [
-            "AGT-045"
-          ],
-          "contributors": [
-            "AGT-042",
-            "AGT-043",
-            "AGT-044"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "交付字段口径、身份、范围和默认拒绝规则"
-        },
-        {
-          "step": "C3",
-          "name": "适配与UI",
-          "lead": [
-            "AGT-046"
-          ],
-          "contributors": [
-            "AGT-047",
-            "AGT-048"
-          ],
-          "assurance": [],
-          "handoff": "交付连接器、工具schema和UI组件"
-        },
-        {
-          "step": "C4",
-          "name": "执行控制",
-          "lead": [
-            "AGT-047"
-          ],
-          "contributors": [
-            "AGT-049"
-          ],
-          "assurance": [
-            "AGT-050",
-            "AGT-005"
-          ],
-          "handoff": "交付Policy/Broker、幂等与逐对象回执测试"
-        },
-        {
-          "step": "C5",
-          "name": "业务验收",
-          "lead": [
-            "AGT-021"
-          ],
-          "contributors": [
-            "AGT-002"
-          ],
-          "assurance": [
-            "AGT-050"
-          ],
-          "handoff": "用目标价值流任务验证后登记可用范围"
-        }
-      ],
-      "metrics": [
-        "连接可用率",
-        "读写任务成功率",
-        "权限拒绝正确率",
-        "回执核对率",
-        "平均恢复时间"
-      ],
-      "magpie_capabilities": [
-        "wanzh-hulian连接器配置",
-        "credential-service",
-        "probes",
-        "overseas-tools",
-        "App/Tool UI入口"
-      ],
-      "boundary": "不得把写能力直接交给模型；凭据不进入仓库、提示词或工具结果，连接成功不等于业务动作获准。",
-      "production_authorized": false
-    },
-    {
-      "id": "CVS-04",
-      "canonical_flow": null,
-      "family": "能力供应流",
-      "name": "Release、运行保障与持续改进",
-      "product_name": "Release与可靠性控制塔",
-      "result_owner": "AGT-049",
-      "start": "岗位、Skill、连接器、插件、配置或平台变更形成可发布候选",
-      "finish": "同源构建经过确定性门禁、签名/Hash、原子安装、运行核对和可验证回退",
-      "value": "把能力变更变成可重复发行物，以统一证据链降低平台漂移和静默故障",
-      "role_scope": [
-        "AGT-001",
-        "AGT-002",
-        "AGT-003",
-        "AGT-005",
-        "AGT-041",
-        "AGT-045",
-        "AGT-046",
-        "AGT-047",
-        "AGT-048",
-        "AGT-049",
-        "AGT-050"
-      ],
-      "product_workflow": [
-        {
-          "step": "P1",
-          "name": "候选冻结",
-          "description": "锁定源码、依赖、配置、岗位Bundle、Skill和连接器版本，生成变更清单。",
-          "artifact": "Release Manifest"
-        },
-        {
-          "step": "P2",
-          "name": "确定性门禁",
-          "description": "运行身份、同步、Preset、Skill、连接器、文档、安全、回归和业务任务门禁。",
-          "artifact": "Gate Evidence"
-        },
-        {
-          "step": "P3",
-          "name": "同源装配",
-          "description": "从同一候选构建profile、payload与安装包，生成Hash、签名和SBOM/来源记录。",
-          "artifact": "Signed Release Candidate"
-        },
-        {
-          "step": "P4",
-          "name": "原子安装",
-          "description": "先备份和预检，再原子替换；保留用户数据、会话引用和上一正常版本。",
-          "artifact": "Install & Rollback Receipt"
-        },
-        {
-          "step": "P5",
-          "name": "运行学习",
-          "description": "监测版本、健康、成本、失败、漂移与业务结果，触发隔离、回退或改进Case。",
-          "artifact": "Runtime Reliability Review"
-        }
-      ],
-      "collaboration_workflow": [
-        {
-          "step": "C1",
-          "name": "发布范围",
-          "lead": [
-            "AGT-049"
-          ],
-          "contributors": [
-            "AGT-001",
-            "AGT-002",
-            "AGT-048"
-          ],
-          "assurance": [],
-          "handoff": "交付冻结版本、变更范围和风险清单"
-        },
-        {
-          "step": "C2",
-          "name": "技术门禁",
-          "lead": [
-            "AGT-049"
-          ],
-          "contributors": [
-            "AGT-045",
-            "AGT-046",
-            "AGT-047"
-          ],
-          "assurance": [
-            "AGT-050"
-          ],
-          "handoff": "交付确定性Gate与失败证据"
-        },
-        {
-          "step": "C3",
-          "name": "经营与风险验收",
-          "lead": [
-            "AGT-003"
-          ],
-          "contributors": [
-            "AGT-041"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "交付业务任务、成本和风险复核"
-        },
-        {
-          "step": "C4",
-          "name": "安装与回退",
-          "lead": [
-            "AGT-049"
-          ],
-          "contributors": [
-            "AGT-048"
-          ],
-          "assurance": [
-            "AGT-050"
-          ],
-          "handoff": "交付原子安装、Hash与回退演练回执"
-        },
-        {
-          "step": "C5",
-          "name": "运行复盘",
-          "lead": [
-            "AGT-049"
-          ],
-          "contributors": [
-            "AGT-002",
-            "AGT-045"
-          ],
-          "assurance": [
-            "AGT-005"
-          ],
-          "handoff": "以运行和业务结果决定保持、隔离或回退"
-        }
-      ],
-      "metrics": [
-        "门禁通过率",
-        "发布失败率",
-        "回退时间",
-        "版本漂移率",
-        "运行SLO与业务任务成功率"
-      ],
-      "magpie_capabilities": [
-        "quick/full gate",
-        "selftest体系",
-        "package-dmg同源装配",
-        "原子安装与数据保留",
-        "版本状态面"
-      ],
-      "boundary": "快速Gate绿色只证明其覆盖范围；角色无损、真实连接、业务任务和生产回执必须作为独立门禁，不得合并成假绿。",
-      "production_authorized": false
+     "step": "C5",
+     "name": "投资组合裁决",
+     "lead": [
+      "AGT-008"
+     ],
+     "contributors": [
+      "AGT-001",
+      "AGT-002",
+      "AGT-041",
+      "AGT-048"
+     ],
+     "assurance": [
+      "AGT-044"
+     ],
+     "handoff": "交付继续、转向或停止记录及下一验证假设"
     }
-  ]
+   ],
+   "metrics": [
+    "证据到样品周期",
+    "样品到首单周期",
+    "假设命中率",
+    "首批转化/退货/质量",
+    "停止决策及时率"
+   ],
+   "magpie_capabilities": [
+    "海外Skill分层目录",
+    "论文到Skill证据与评测",
+    "岗位Preset装配",
+    "任务结果门禁"
+   ],
+   "boundary": "Agent不能把生成内容、模拟结果或文档评审当作实物、临床、质量或市场回执。",
+   "production_authorized": false
+  },
+  {
+   "id": "BVS-03",
+   "canonical_flow": "FLOW-03",
+   "family": "业务经营流",
+   "name": "供需补货与交付",
+   "product_name": "供需履约控制塔",
+   "result_owner": "AGT-016",
+   "start": "权威需求、库存、在途、订单或供应异常达到计划触发条件",
+   "finish": "供应计划、采购/运输回执、入仓和可售库存一致，异常有冻结或补偿记录",
+   "value": "以单一需求事实和约束求解连接预测、OEM采购、跨境运输与渠道可售",
+   "role_scope": [
+    "AGT-002",
+    "AGT-014",
+    "AGT-015",
+    "AGT-016",
+    "AGT-017",
+    "AGT-018",
+    "AGT-019",
+    "AGT-020",
+    "AGT-021",
+    "AGT-026",
+    "AGT-040",
+    "AGT-041",
+    "AGT-042"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "需求真相",
+     "description": "合并销售计划、促销、新品、季节和风险信号，建立版本化需求与置信区间。",
+     "artifact": "Demand Snapshot"
+    },
+    {
+     "step": "P2",
+     "name": "约束计划",
+     "description": "计算安全库存、生产能力、MOQ、资金、运输和仓容约束下的候选计划。",
+     "artifact": "Constrained Supply Plan"
+    },
+    {
+     "step": "P3",
+     "name": "承诺执行",
+     "description": "把获准采购、生产、订舱与调拨意图送入权威系统，获取幂等业务单据。",
+     "artifact": "Supply Commitment Receipts"
+    },
+    {
+     "step": "P4",
+     "name": "履约跟踪",
+     "description": "跟踪工厂、质检、运输、清关、入仓和上架里程碑，对偏差形成异常Case。",
+     "artifact": "Milestone Ledger"
+    },
+    {
+     "step": "P5",
+     "name": "可售核对",
+     "description": "将实际到货、可售、缺货和积压结果回写需求模型与经营Case。",
+     "artifact": "Availability Reconciliation"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "需求基线",
+     "lead": [
+      "AGT-016"
+     ],
+     "contributors": [
+      "AGT-021",
+      "AGT-026",
+      "AGT-041"
+     ],
+     "assurance": [],
+     "handoff": "交付权威需求版本和误差范围"
+    },
+    {
+     "step": "C2",
+     "name": "供应与资金约束",
+     "lead": [
+      "AGT-014"
+     ],
+     "contributors": [
+      "AGT-015",
+      "AGT-042"
+     ],
+     "assurance": [],
+     "handoff": "交付可执行约束和候选方案"
+    },
+    {
+     "step": "C3",
+     "name": "计划求解",
+     "lead": [
+      "AGT-016"
+     ],
+     "contributors": [
+      "AGT-017",
+      "AGT-018"
+     ],
+     "assurance": [],
+     "handoff": "交付逐SKU/节点供应计划与例外"
+    },
+    {
+     "step": "C4",
+     "name": "履约执行",
+     "lead": [
+      "AGT-019"
+     ],
+     "contributors": [
+      "AGT-020"
+     ],
+     "assurance": [],
+     "handoff": "交付采购、生产、运输和入仓回执"
+    },
+    {
+     "step": "C5",
+     "name": "经营核对",
+     "lead": [
+      "AGT-040"
+     ],
+     "contributors": [
+      "AGT-002"
+     ],
+     "assurance": [
+      "AGT-042"
+     ],
+     "handoff": "核对可售与资金事实并关闭或新建异常Case"
+    }
+   ],
+   "metrics": [
+    "预测偏差",
+    "缺货损失GMV",
+    "库存周转",
+    "准时足量交付",
+    "积压与资金占用"
+   ],
+   "magpie_capabilities": [
+    "连接器配置与探针",
+    "本地任务状态原子写入",
+    "凭据隔离",
+    "发行安装与回退"
+   ],
+   "boundary": "采购、库存预留、运输承诺与资金动作只认业务系统回执；模型预测不能替代库存和单据事实。",
+   "production_authorized": false
+  },
+  {
+   "id": "BVS-04",
+   "canonical_flow": "FLOW-04",
+   "family": "业务经营流",
+   "name": "新市场与合规上架",
+   "product_name": "市场准入发布器",
+   "result_owner": "AGT-024",
+   "start": "已批准的产品与市场机会需要进入新的国家、渠道、账号或站点",
+   "finish": "商品在明确准入、履约与账号边界内可售，并取得上线、首单和风险监测回执",
+   "value": "把市场判断、合规、内容、本地化、账号和履约条件编译成可重复的发布包",
+   "role_scope": [
+    "AGT-002",
+    "AGT-007",
+    "AGT-009",
+    "AGT-019",
+    "AGT-021",
+    "AGT-022",
+    "AGT-023",
+    "AGT-024",
+    "AGT-025",
+    "AGT-027",
+    "AGT-028",
+    "AGT-029",
+    "AGT-030",
+    "AGT-031",
+    "AGT-033",
+    "AGT-036",
+    "AGT-042",
+    "AGT-043",
+    "AGT-044",
+    "AGT-050"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "市场可行性",
+     "description": "确认消费者需求、竞争、价格带、渠道费用、税务和履约基础条件。",
+     "artifact": "Market Entry Thesis"
+    },
+    {
+     "step": "P2",
+     "name": "准入矩阵",
+     "description": "按产品 × 国家 × 渠道定义法规、标签、声明、知识产权和账号要求。",
+     "artifact": "Entry Control Matrix"
+    },
+    {
+     "step": "P3",
+     "name": "发布包",
+     "description": "生成受版本控制的商品资料、内容、本地化、价格、库存和客服准备清单。",
+     "artifact": "Market Launch Bundle"
+    },
+    {
+     "step": "P4",
+     "name": "受控上线",
+     "description": "按账号、站点和SKU逐对象创建或更新资产，核对平台返回与可见状态。",
+     "artifact": "Launch Receipts"
+    },
+    {
+     "step": "P5",
+     "name": "首周期验证",
+     "description": "监测可售、流量、转化、退货、违规和履约，决定扩大、修复或退出。",
+     "artifact": "Market Validation Record"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "机会与范围",
+     "lead": [
+      "AGT-024"
+     ],
+     "contributors": [
+      "AGT-007",
+      "AGT-021",
+      "AGT-022",
+      "AGT-025",
+      "AGT-029"
+     ],
+     "assurance": [],
+     "handoff": "交付唯一市场、渠道、账号与产品范围"
+    },
+    {
+     "step": "C2",
+     "name": "产品和内容准备",
+     "lead": [
+      "AGT-009"
+     ],
+     "contributors": [
+      "AGT-019",
+      "AGT-028",
+      "AGT-030",
+      "AGT-031"
+     ],
+     "assurance": [
+      "AGT-044"
+     ],
+     "handoff": "交付可追溯商品主数据与本地化内容"
+    },
+    {
+     "step": "C3",
+     "name": "渠道发布设计",
+     "lead": [
+      "AGT-023"
+     ],
+     "contributors": [
+      "AGT-027",
+      "AGT-033",
+      "AGT-036"
+     ],
+     "assurance": [
+      "AGT-043",
+      "AGT-050"
+     ],
+     "handoff": "交付逐对象发布Intent和失败处置"
+    },
+    {
+     "step": "C4",
+     "name": "上线与核对",
+     "lead": [
+      "AGT-024"
+     ],
+     "contributors": [
+      "AGT-002"
+     ],
+     "assurance": [
+      "AGT-042",
+      "AGT-044"
+     ],
+     "handoff": "以平台、库存和结算回执确认可售"
+    },
+    {
+     "step": "C5",
+     "name": "首周期复盘",
+     "lead": [
+      "AGT-021"
+     ],
+     "contributors": [
+      "AGT-025",
+      "AGT-029"
+     ],
+     "assurance": [
+      "AGT-050"
+     ],
+     "handoff": "交付扩大、修复或退出决定"
+    }
+   ],
+   "metrics": [
+    "准入周期",
+    "一次发布成功率",
+    "首单周期",
+    "违规/下架率",
+    "首周期贡献GMV"
+   ],
+   "magpie_capabilities": [
+    "App启动器与系统目录",
+    "Skill Center",
+    "MCP/API连接配置",
+    "发布Gate"
+   ],
+   "boundary": "页面预览、工具返回成功或本地配置存在都不能替代平台可售、合规和履约回执。",
+   "production_authorized": false
+  },
+  {
+   "id": "BVS-05",
+   "canonical_flow": "FLOW-05",
+   "family": "业务经营流",
+   "name": "客户旅程与复购",
+   "product_name": "客户旅程修复台",
+   "result_owner": "AGT-034",
+   "start": "客户咨询、差评、退货、投诉、流失或复购机会进入统一事件视图",
+   "finish": "客户问题得到有回执的解决，根因进入内容、产品或运营改进，并验证留存结果",
+   "value": "从单次客服响应升级为贯穿售前、使用、售后与复购的闭环体验修复",
+   "role_scope": [
+    "AGT-002",
+    "AGT-006",
+    "AGT-020",
+    "AGT-023",
+    "AGT-028",
+    "AGT-029",
+    "AGT-034",
+    "AGT-035",
+    "AGT-036",
+    "AGT-037",
+    "AGT-038",
+    "AGT-039",
+    "AGT-040",
+    "AGT-044"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "旅程信号",
+     "description": "统一订单、咨询、评论、退货、社媒和CRM事件，识别客户任务与受影响范围。",
+     "artifact": "Journey Event"
+    },
+    {
+     "step": "P2",
+     "name": "原因分群",
+     "description": "区分认知、购买、交付、使用、质量和服务问题，连接产品与渠道证据。",
+     "artifact": "Journey Diagnosis"
+    },
+    {
+     "step": "P3",
+     "name": "修复方案",
+     "description": "生成服务回应、内容修正、产品反馈、物流处置和复购路径的组合方案。",
+     "artifact": "Recovery Package"
+    },
+    {
+     "step": "P4",
+     "name": "受控触达",
+     "description": "通过获准渠道执行回复、通知、售后或营销Intent，保留同意、范围与回执。",
+     "artifact": "Customer Action Receipts"
+    },
+    {
+     "step": "P5",
+     "name": "体验学习",
+     "description": "核对解决率、情绪、退货、复购和重复问题，将根因送入对应业务流。",
+     "artifact": "Experience Learning Record"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "事件汇聚",
+     "lead": [
+      "AGT-036"
+     ],
+     "contributors": [
+      "AGT-037",
+      "AGT-038",
+      "AGT-039"
+     ],
+     "assurance": [],
+     "handoff": "交付去重、分群且有来源的旅程事件"
+    },
+    {
+     "step": "C2",
+     "name": "问题诊断",
+     "lead": [
+      "AGT-034"
+     ],
+     "contributors": [
+      "AGT-006",
+      "AGT-020",
+      "AGT-035"
+     ],
+     "assurance": [],
+     "handoff": "交付客户任务、根因和影响范围"
+    },
+    {
+     "step": "C3",
+     "name": "跨域修复",
+     "lead": [
+      "AGT-023"
+     ],
+     "contributors": [
+      "AGT-028",
+      "AGT-029",
+      "AGT-040"
+     ],
+     "assurance": [
+      "AGT-044"
+     ],
+     "handoff": "交付服务、内容、渠道与产品修复包"
+    },
+    {
+     "step": "C4",
+     "name": "触达执行",
+     "lead": [
+      "AGT-034"
+     ],
+     "contributors": [
+      "AGT-035",
+      "AGT-039"
+     ],
+     "assurance": [],
+     "handoff": "交付逐客户或客群的动作回执"
+    },
+    {
+     "step": "C5",
+     "name": "结果复核",
+     "lead": [
+      "AGT-038"
+     ],
+     "contributors": [
+      "AGT-002",
+      "AGT-036"
+     ],
+     "assurance": [
+      "AGT-044"
+     ],
+     "handoff": "交付问题关闭、复购证据或关联质量Case"
+    }
+   ],
+   "metrics": [
+    "首次解决率",
+    "响应与解决时长",
+    "退货/退款率",
+    "复购率",
+    "重复问题率"
+   ],
+   "magpie_capabilities": [
+    "企业App与知识库入口",
+    "工具UI卡片",
+    "凭据服务",
+    "可观测自检"
+   ],
+   "boundary": "重大质量或账号事件必须转BVS-07；退款、补偿和营销触达均需单独的动作策略与同意范围。",
+   "production_authorized": false
+  },
+  {
+   "id": "BVS-06",
+   "canonical_flow": "FLOW-06",
+   "family": "业务经营流",
+   "name": "需求到数据产品与业务工具",
+   "product_name": "数据产品工作台",
+   "result_owner": "AGT-047",
+   "start": "经营Case出现可复用的数据、分析、工具或UI能力缺口",
+   "finish": "权威口径、数据质量、工具行为、访问边界和使用效果均通过验收并可回退",
+   "value": "让数字化从被动接单转为以数据契约和产品SLO交付可复用经营能力",
+   "role_scope": [
+    "AGT-002",
+    "AGT-003",
+    "AGT-021",
+    "AGT-023",
+    "AGT-040",
+    "AGT-044",
+    "AGT-045",
+    "AGT-046",
+    "AGT-047",
+    "AGT-048",
+    "AGT-049",
+    "AGT-050"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "需求契约",
+     "description": "把业务决策、对象、频率、延迟、质量、权限和验收写成产品需求契约。",
+     "artifact": "Data Product Brief"
+    },
+    {
+     "step": "P2",
+     "name": "数据契约",
+     "description": "确认system-of-record、字段、口径、时间性、血缘、质量规则和失败语义。",
+     "artifact": "Versioned Data Contract"
+    },
+    {
+     "step": "P3",
+     "name": "工具产品",
+     "description": "以MCP/tool/API/hook和UI组件交付最小能力，参数细节留在工具描述。",
+     "artifact": "Tool & UI Release Candidate"
+    },
+    {
+     "step": "P4",
+     "name": "独立验收",
+     "description": "用真实样本验证权限、数据、错误、幂等、可访问性、SLO和业务任务结果。",
+     "artifact": "Acceptance Evidence"
+    },
+    {
+     "step": "P5",
+     "name": "运行改进",
+     "description": "观察采用、失败、延迟、成本和决策质量，版本化修复或退役能力。",
+     "artifact": "Product SLO Review"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "业务定义",
+     "lead": [
+      "AGT-047"
+     ],
+     "contributors": [
+      "AGT-002",
+      "AGT-003",
+      "AGT-021",
+      "AGT-023"
+     ],
+     "assurance": [],
+     "handoff": "交付决策问题、用户、对象和验收结果"
+    },
+    {
+     "step": "C2",
+     "name": "数据设计",
+     "lead": [
+      "AGT-045"
+     ],
+     "contributors": [
+      "AGT-040",
+      "AGT-044",
+      "AGT-046"
+     ],
+     "assurance": [],
+     "handoff": "交付权威口径、血缘和失败语义"
+    },
+    {
+     "step": "C3",
+     "name": "工具实现",
+     "lead": [
+      "AGT-046"
+     ],
+     "contributors": [
+      "AGT-047",
+      "AGT-048"
+     ],
+     "assurance": [],
+     "handoff": "交付最小Tool/API与UI组件候选"
+    },
+    {
+     "step": "C4",
+     "name": "门禁发布",
+     "lead": [
+      "AGT-047"
+     ],
+     "contributors": [
+      "AGT-049"
+     ],
+     "assurance": [
+      "AGT-050",
+      "AGT-044"
+     ],
+     "handoff": "交付验证证据、版本、回退和只读/写入边界"
+    },
+    {
+     "step": "C5",
+     "name": "价值复盘",
+     "lead": [
+      "AGT-021"
+     ],
+     "contributors": [
+      "AGT-003",
+      "AGT-045"
+     ],
+     "assurance": [
+      "AGT-050"
+     ],
+     "handoff": "交付采用、SLO和业务结果复盘"
+    }
+   ],
+   "metrics": [
+    "需求到可用周期",
+    "数据质量SLO",
+    "工具任务完成率",
+    "采用率",
+    "每个成功任务全成本"
+   ],
+   "magpie_capabilities": [
+    "工具/Skill分层",
+    "连接器探针",
+    "Skill Center",
+    "Gate与selftest",
+    "原子安装与回退"
+   ],
+   "boundary": "本地任务板、页面或缓存不是企业system-of-record；写工具上线还必须完成BVS外的Access、Policy与Broker验收。",
+   "production_authorized": false
+  },
+  {
+   "id": "BVS-07",
+   "canonical_flow": "FLOW-07",
+   "family": "业务经营流",
+   "name": "质量与账号重大事件",
+   "product_name": "重大事件控制室",
+   "result_owner": "AGT-018",
+   "start": "权威质量、合规、账号、客户安全或平台风险信号达到事件规则",
+   "finish": "影响范围、保护动作、根因、纠正预防措施和恢复证据全部闭合",
+   "value": "优先限制暴露和保护客户、账号与品牌，同时保证任何紧急动作可追踪、可核对",
+   "role_scope": [
+    "AGT-002",
+    "AGT-005",
+    "AGT-011",
+    "AGT-012",
+    "AGT-013",
+    "AGT-014",
+    "AGT-017",
+    "AGT-018",
+    "AGT-020",
+    "AGT-021",
+    "AGT-027",
+    "AGT-029",
+    "AGT-036",
+    "AGT-037",
+    "AGT-038",
+    "AGT-041",
+    "AGT-043",
+    "AGT-044",
+    "AGT-050"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "权威信号",
+     "description": "验证来源、时效、产品/批次/账号范围和规则版本；歧义只形成Pre-Case Exception。",
+     "artifact": "Incident Signal Record"
+    },
+    {
+     "step": "P2",
+     "name": "范围与保护",
+     "description": "建立唯一Case，评估影响并提出最小、只降低暴露的保护Intent。",
+     "artifact": "Containment Plan"
+    },
+    {
+     "step": "P3",
+     "name": "受控处置",
+     "description": "正常动作走八阶段；仅确定性Emergency Guard可在原子建单后执行固定保护模板。",
+     "artifact": "Containment Receipts"
+    },
+    {
+     "step": "P4",
+     "name": "根因与整改",
+     "description": "连接设计、供应、质量、渠道和客户证据，形成可验证CAPA。",
+     "artifact": "Root Cause & CAPA"
+    },
+    {
+     "step": "P5",
+     "name": "恢复与学习",
+     "description": "恢复必须走正常策略和独立门禁；核对外部状态后更新规则、Skill和产品。",
+     "artifact": "Recovery Evidence"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "信号验证",
+     "lead": [
+      "AGT-018"
+     ],
+     "contributors": [
+      "AGT-011",
+      "AGT-012",
+      "AGT-013",
+      "AGT-036"
+     ],
+     "assurance": [
+      "AGT-050"
+     ],
+     "handoff": "交付权威信号、唯一范围或Pre-Case Exception"
+    },
+    {
+     "step": "C2",
+     "name": "最小保护",
+     "lead": [
+      "AGT-002"
+     ],
+     "contributors": [
+      "AGT-005",
+      "AGT-044",
+      "AGT-050"
+     ],
+     "assurance": [],
+     "handoff": "模型外Guard或正常Case交付固定Intent与原子Outbox"
+    },
+    {
+     "step": "C3",
+     "name": "事件处置",
+     "lead": [
+      "AGT-018"
+     ],
+     "contributors": [
+      "AGT-014",
+      "AGT-017",
+      "AGT-020",
+      "AGT-021",
+      "AGT-027",
+      "AGT-029",
+      "AGT-037"
+     ],
+     "assurance": [
+      "AGT-043",
+      "AGT-044"
+     ],
+     "handoff": "交付逐对象处置回执和未决风险"
+    },
+    {
+     "step": "C4",
+     "name": "根因复核",
+     "lead": [
+      "AGT-038"
+     ],
+     "contributors": [
+      "AGT-036",
+      "AGT-037",
+      "AGT-041"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付证据化根因与CAPA"
+    },
+    {
+     "step": "C5",
+     "name": "恢复裁决",
+     "lead": [
+      "AGT-018"
+     ],
+     "contributors": [
+      "AGT-002",
+      "AGT-043",
+      "AGT-044",
+      "AGT-050"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "仅凭正常策略和恢复证据关闭事件"
+    }
+   ],
+   "metrics": [
+    "发现到限制暴露时间",
+    "受影响对象确认率",
+    "回执完整率",
+    "重复事件率",
+    "恢复证据通过率"
+   ],
+   "magpie_capabilities": [
+    "确定性Gate",
+    "会话/状态原子性",
+    "连接器探针",
+    "发行回退",
+    "Pitfalls反证法"
+   ],
+   "boundary": "Emergency Guard只能执行预先发布的最小保护动作，不能恢复、重新开放、退款、召回、销毁、对外承诺或永久变更。",
+   "production_authorized": false
+  },
+  {
+   "id": "BVS-08",
+   "canonical_flow": "FLOW-08",
+   "family": "业务经营流",
+   "name": "经营复盘与能力组合更新",
+   "product_name": "经营复盘与能力组合台",
+   "result_owner": "AGT-001",
+   "start": "周/月/季度节奏或重大Case关闭后形成可比较的经营、风险和能力证据",
+   "finish": "资源、策略、岗位Bundle和能力组合的版本化决定已执行或明确冻结，并进入下周期验证",
+   "value": "把经营复盘直接连接到资源配置、岗位能力和平台投资，避免报告与行动脱节",
+   "role_scope": [
+    "AGT-001",
+    "AGT-002",
+    "AGT-003",
+    "AGT-004",
+    "AGT-005",
+    "AGT-008",
+    "AGT-021",
+    "AGT-029",
+    "AGT-035",
+    "AGT-040",
+    "AGT-041",
+    "AGT-042",
+    "AGT-043",
+    "AGT-045",
+    "AGT-048",
+    "AGT-049",
+    "AGT-050"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "证据账本",
+     "description": "汇总GMV、利润/现金护栏、客户、供应、风险、自治异常、HITL和全成本。",
+     "artifact": "Operating Evidence Book"
+    },
+    {
+     "step": "P2",
+     "name": "差距诊断",
+     "description": "区分策略、数据、Skill、Tool、模型、流程和组织责任问题，保留反证。",
+     "artifact": "Capability Gap Map"
+    },
+    {
+     "step": "P3",
+     "name": "组合选择",
+     "description": "比较市场、产品、渠道、资源和能力投资方案，说明放弃项与不确定性。",
+     "artifact": "Portfolio Decision"
+    },
+    {
+     "step": "P4",
+     "name": "版本化变更",
+     "description": "把批准结果转成策略、预算、数据产品、岗位Bundle或供应链变更Intent。",
+     "artifact": "Change Release Set"
+    },
+    {
+     "step": "P5",
+     "name": "周期核对",
+     "description": "核对动作结果和下一周期指标，未达成项形成新Case或冻结。",
+     "artifact": "Cycle Review"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "经营事实",
+     "lead": [
+      "AGT-003"
+     ],
+     "contributors": [
+      "AGT-021",
+      "AGT-029",
+      "AGT-035",
+      "AGT-040",
+      "AGT-045"
+     ],
+     "assurance": [],
+     "handoff": "交付可比口径、约束和异常账本"
+    },
+    {
+     "step": "C2",
+     "name": "风险与财务复核",
+     "lead": [
+      "AGT-001"
+     ],
+     "contributors": [
+      "AGT-041",
+      "AGT-042",
+      "AGT-043"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付独立复核后的经营差距"
+    },
+    {
+     "step": "C3",
+     "name": "能力诊断",
+     "lead": [
+      "AGT-004"
+     ],
+     "contributors": [
+      "AGT-008",
+      "AGT-048",
+      "AGT-049"
+     ],
+     "assurance": [],
+     "handoff": "交付岗位、Skill、Tool与运行差距"
+    },
+    {
+     "step": "C4",
+     "name": "变更发布",
+     "lead": [
+      "AGT-048"
+     ],
+     "contributors": [
+      "AGT-002",
+      "AGT-049",
+      "AGT-050"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付不可变变更版本、门禁证据和回退点"
+    },
+    {
+     "step": "C5",
+     "name": "周期裁决",
+     "lead": [
+      "AGT-001"
+     ],
+     "contributors": [
+      "AGT-003",
+      "AGT-041",
+      "AGT-045"
+     ],
+     "assurance": [
+      "AGT-005",
+      "AGT-050"
+     ],
+     "handoff": "交付继续、停止、纠偏或再验证决定"
+    }
+   ],
+   "metrics": [
+    "目标GMV达成",
+    "利润/现金护栏",
+    "资源再配置周期",
+    "能力缺口关闭率",
+    "自治异常与全成本"
+   ],
+   "magpie_capabilities": [
+    "LoopX目标账本",
+    "成本守卫",
+    "Skill/角色编译",
+    "发行Gate",
+    "状态与回退"
+   ],
+   "boundary": "AI可形成资源和组织建议，但招聘、解聘、薪酬、预算和公司级策略变更只通过已配置的企业动作策略。",
+   "production_authorized": false
+  },
+  {
+   "id": "CVS-01",
+   "canonical_flow": null,
+   "family": "能力供应流",
+   "name": "岗位与场景产品化",
+   "product_name": "岗位产品编译器",
+   "result_owner": "AGT-004",
+   "start": "业务价值流、场景或组织责任发生经批准的变化",
+   "finish": "五份契约被绑定为不可变岗位Bundle，Preset与清单一致并可被Case固定引用",
+   "value": "把组织设计从文档转成可检查、可装配、可回退的岗位产品",
+   "role_scope": [
+    "AGT-001",
+    "AGT-002",
+    "AGT-004",
+    "AGT-005",
+    "AGT-045",
+    "AGT-047",
+    "AGT-048",
+    "AGT-049",
+    "AGT-050"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "责任源建模",
+     "description": "维护岗位、场景、价值流、人格、边界和协作的单一事实源。",
+     "artifact": "Role Source Set"
+    },
+    {
+     "step": "P2",
+     "name": "五契约编译",
+     "description": "分别生成Business、Skill、Runtime、Access与Assurance契约引用。",
+     "artifact": "Role Contract Set"
+    },
+    {
+     "step": "P3",
+     "name": "Preset生成",
+     "description": "把契约、Skill subset、Playbook和运行声明编译为Preset与manifest。",
+     "artifact": "Role Release Candidate"
+    },
+    {
+     "step": "P4",
+     "name": "无损与风险评测",
+     "description": "检查50岗位覆盖、字段无损、Skill缺口、权限边界、头像/资产一致和回退。",
+     "artifact": "Role Evaluation Evidence"
+    },
+    {
+     "step": "P5",
+     "name": "Bundle发布",
+     "description": "注册不可变版本、Hash和生命周期状态，供新Case显式固定。",
+     "artifact": "Role Release Bundle"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "责任变更",
+     "lead": [
+      "AGT-004"
+     ],
+     "contributors": [
+      "AGT-001",
+      "AGT-002"
+     ],
+     "assurance": [],
+     "handoff": "交付经批准的责任与场景差异"
+    },
+    {
+     "step": "C2",
+     "name": "契约设计",
+     "lead": [
+      "AGT-004"
+     ],
+     "contributors": [
+      "AGT-045",
+      "AGT-048"
+     ],
+     "assurance": [],
+     "handoff": "交付五契约候选及版本依赖"
+    },
+    {
+     "step": "C3",
+     "name": "编译装配",
+     "lead": [
+      "AGT-048"
+     ],
+     "contributors": [
+      "AGT-047",
+      "AGT-049"
+     ],
+     "assurance": [],
+     "handoff": "交付Preset、manifest与Bundle候选"
+    },
+    {
+     "step": "C4",
+     "name": "独立保障",
+     "lead": [
+      "AGT-005"
+     ],
+     "contributors": [],
+     "assurance": [
+      "AGT-050"
+     ],
+     "handoff": "交付无损、权限和回退验收记录"
+    },
+    {
+     "step": "C5",
+     "name": "发布与使用",
+     "lead": [
+      "AGT-049"
+     ],
+     "contributors": [
+      "AGT-002"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "注册新版本；运行中Case不静默升级"
+    }
+   ],
+   "metrics": [
+    "岗位覆盖率",
+    "契约完整率",
+    "无损校验通过率",
+    "Skill缺口",
+    "回退成功率"
+   ],
+   "magpie_capabilities": [
+    "role-presets生成器",
+    "skill-subset装配",
+    "live-presets Gate",
+    "会话引用保护"
+   ],
+   "boundary": "岗位产品化只定义责任与装配，不拥有Skill内容、连接器授权或发行环境；AI岗位不能自发布自身Bundle。",
+   "production_authorized": false
+  },
+  {
+   "id": "CVS-02",
+   "canonical_flow": null,
+   "family": "能力供应流",
+   "name": "知识与Skill供应",
+   "product_name": "Skill供应链",
+   "result_owner": "AGT-048",
+   "start": "业务Case暴露知识缺口、方法缺口或已有Skill效果不足",
+   "finish": "有来源、可检索、经任务结果评测的Skill版本绑定到适用岗位并可退役",
+   "value": "把论文、方法、企业知识和业务经验转成按需加载且以任务结果验收的能力",
+   "role_scope": [
+    "AGT-003",
+    "AGT-005",
+    "AGT-006",
+    "AGT-007",
+    "AGT-008",
+    "AGT-013",
+    "AGT-021",
+    "AGT-029",
+    "AGT-038",
+    "AGT-045",
+    "AGT-046",
+    "AGT-048",
+    "AGT-049",
+    "AGT-050"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "需求与来源",
+     "description": "从失败Case、业务目标和外部证据登记Skill需求、来源、许可与时效。",
+     "artifact": "Skill Demand & Provenance"
+    },
+    {
+     "step": "P2",
+     "name": "分类与恢复",
+     "description": "映射场景、专业域、岗位与检索描述，恢复缺失能力并保留来源链。",
+     "artifact": "Skill Candidate"
+    },
+    {
+     "step": "P3",
+     "name": "内容工程",
+     "description": "把参数细节放入工具说明、通用规则留在静态提示、动态方法放入Skill文档。",
+     "artifact": "Versioned Skill"
+    },
+    {
+     "step": "P4",
+     "name": "结果评测",
+     "description": "用无Skill基线、对照任务、异常集和成本测量评估完整业务交付，而非路由命中。",
+     "artifact": "Skill Evaluation Report"
+    },
+    {
+     "step": "P5",
+     "name": "绑定与退役",
+     "description": "通过门禁后写入岗位Skill Contract；漂移、负收益或过期版本隔离并退役。",
+     "artifact": "Skill Binding Release"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "缺口归因",
+     "lead": [
+      "AGT-048"
+     ],
+     "contributors": [
+      "AGT-003",
+      "AGT-006",
+      "AGT-021",
+      "AGT-038"
+     ],
+     "assurance": [],
+     "handoff": "交付可复现任务缺口，不把工具失败误判成知识缺口"
+    },
+    {
+     "step": "C2",
+     "name": "证据与分类",
+     "lead": [
+      "AGT-007"
+     ],
+     "contributors": [
+      "AGT-008",
+      "AGT-013",
+      "AGT-045"
+     ],
+     "assurance": [],
+     "handoff": "交付来源、许可、时效和岗位适用性"
+    },
+    {
+     "step": "C3",
+     "name": "Skill实现",
+     "lead": [
+      "AGT-048"
+     ],
+     "contributors": [
+      "AGT-046"
+     ],
+     "assurance": [],
+     "handoff": "交付最小动态Skill和检索描述"
+    },
+    {
+     "step": "C4",
+     "name": "独立评测",
+     "lead": [
+      "AGT-050"
+     ],
+     "contributors": [
+      "AGT-049"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付基线对照、失败样本、成本和负收益判断"
+    },
+    {
+     "step": "C5",
+     "name": "绑定反馈",
+     "lead": [
+      "AGT-048"
+     ],
+     "contributors": [
+      "AGT-029"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "发布岗位绑定或退役决定，并观察真实Case结果"
+    }
+   ],
+   "metrics": [
+    "证据完整率",
+    "检索命中后使用率",
+    "任务闭环提升",
+    "负收益Skill率",
+    "Skill新鲜度与成本"
+   ],
+   "magpie_capabilities": [
+    "overseas-skills四层目录",
+    "paper2skills分类与评测",
+    "Skill Center",
+    "Skill line gate"
+   ],
+   "boundary": "Skill已安装、被检索或路由准确都不代表业务有效；不得用Skill文档扩大工具权限或伪造外部事实。",
+   "production_authorized": false
+  },
+  {
+   "id": "CVS-03",
+   "canonical_flow": null,
+   "family": "能力供应流",
+   "name": "Tool、MCP与API连接交付",
+   "product_name": "企业连接器工厂",
+   "result_owner": "AGT-047",
+   "start": "业务价值流需要读取或受控写入一个权威企业系统",
+   "finish": "连接器完成身份、数据、动作、Policy、幂等、回执、探针和UI验收，可被指定Case安全调用",
+   "value": "为Case Agent提供可组合的手和脚，同时把秘密、权限与资产执行留在模型之外",
+   "role_scope": [
+    "AGT-002",
+    "AGT-005",
+    "AGT-021",
+    "AGT-023",
+    "AGT-036",
+    "AGT-040",
+    "AGT-042",
+    "AGT-043",
+    "AGT-044",
+    "AGT-045",
+    "AGT-046",
+    "AGT-047",
+    "AGT-048",
+    "AGT-049",
+    "AGT-050"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "系统与动作契约",
+     "description": "确认system-of-record、对象、读写动作、服务身份、范围、SLO和失败语义。",
+     "artifact": "Connector Contract"
+    },
+    {
+     "step": "P2",
+     "name": "连接适配",
+     "description": "实现MCP/native tool/API/hook；参数、错误和返回schema位于工具描述。",
+     "artifact": "Connector Adapter"
+    },
+    {
+     "step": "P3",
+     "name": "工具UI",
+     "description": "把状态、输入、预览、决议和回执做成受控组件工具，避免模型直接生成业务页面。",
+     "artifact": "Tool UI Components"
+    },
+    {
+     "step": "P4",
+     "name": "控制集成",
+     "description": "读取经Access Contract限制；写入必须形成Action Intent并接入Policy Gate与Execution Broker。",
+     "artifact": "Policy & Broker Binding"
+    },
+    {
+     "step": "P5",
+     "name": "探针与运营",
+     "description": "验证凭据不可见、最小权限、限流、幂等、部分成功、回执核对、审计和降级。",
+     "artifact": "Connector Acceptance Pack"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "需求与权威源",
+     "lead": [
+      "AGT-047"
+     ],
+     "contributors": [
+      "AGT-002",
+      "AGT-021",
+      "AGT-023",
+      "AGT-036",
+      "AGT-040"
+     ],
+     "assurance": [],
+     "handoff": "交付系统对象、业务动作和验收任务"
+    },
+    {
+     "step": "C2",
+     "name": "数据与权限",
+     "lead": [
+      "AGT-045"
+     ],
+     "contributors": [
+      "AGT-042",
+      "AGT-043",
+      "AGT-044"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付字段口径、身份、范围和默认拒绝规则"
+    },
+    {
+     "step": "C3",
+     "name": "适配与UI",
+     "lead": [
+      "AGT-046"
+     ],
+     "contributors": [
+      "AGT-047",
+      "AGT-048"
+     ],
+     "assurance": [],
+     "handoff": "交付连接器、工具schema和UI组件"
+    },
+    {
+     "step": "C4",
+     "name": "执行控制",
+     "lead": [
+      "AGT-047"
+     ],
+     "contributors": [
+      "AGT-049"
+     ],
+     "assurance": [
+      "AGT-050",
+      "AGT-005"
+     ],
+     "handoff": "交付Policy/Broker、幂等与逐对象回执测试"
+    },
+    {
+     "step": "C5",
+     "name": "业务验收",
+     "lead": [
+      "AGT-021"
+     ],
+     "contributors": [
+      "AGT-002"
+     ],
+     "assurance": [
+      "AGT-050"
+     ],
+     "handoff": "用目标价值流任务验证后登记可用范围"
+    }
+   ],
+   "metrics": [
+    "连接可用率",
+    "读写任务成功率",
+    "权限拒绝正确率",
+    "回执核对率",
+    "平均恢复时间"
+   ],
+   "magpie_capabilities": [
+    "wanzh-hulian连接器配置",
+    "credential-service",
+    "probes",
+    "overseas-tools",
+    "App/Tool UI入口"
+   ],
+   "boundary": "不得把写能力直接交给模型；凭据不进入仓库、提示词或工具结果，连接成功不等于业务动作获准。",
+   "production_authorized": false
+  },
+  {
+   "id": "CVS-04",
+   "canonical_flow": null,
+   "family": "能力供应流",
+   "name": "Release、运行保障与持续改进",
+   "product_name": "Release与可靠性控制塔",
+   "result_owner": "AGT-049",
+   "start": "岗位、Skill、连接器、插件、配置或平台变更形成可发布候选",
+   "finish": "同源构建经过确定性门禁、签名/Hash、原子安装、运行核对和可验证回退",
+   "value": "把能力变更变成可重复发行物，以统一证据链降低平台漂移和静默故障",
+   "role_scope": [
+    "AGT-001",
+    "AGT-002",
+    "AGT-003",
+    "AGT-005",
+    "AGT-041",
+    "AGT-045",
+    "AGT-046",
+    "AGT-047",
+    "AGT-048",
+    "AGT-049",
+    "AGT-050"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "候选冻结",
+     "description": "锁定源码、依赖、配置、岗位Bundle、Skill和连接器版本，生成变更清单。",
+     "artifact": "Release Manifest"
+    },
+    {
+     "step": "P2",
+     "name": "确定性门禁",
+     "description": "运行身份、同步、Preset、Skill、连接器、文档、安全、回归和业务任务门禁。",
+     "artifact": "Gate Evidence"
+    },
+    {
+     "step": "P3",
+     "name": "同源装配",
+     "description": "从同一候选构建profile、payload与安装包，生成Hash、签名和SBOM/来源记录。",
+     "artifact": "Signed Release Candidate"
+    },
+    {
+     "step": "P4",
+     "name": "原子安装",
+     "description": "先备份和预检，再原子替换；保留用户数据、会话引用和上一正常版本。",
+     "artifact": "Install & Rollback Receipt"
+    },
+    {
+     "step": "P5",
+     "name": "运行学习",
+     "description": "监测版本、健康、成本、失败、漂移与业务结果，触发隔离、回退或改进Case。",
+     "artifact": "Runtime Reliability Review"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "发布范围",
+     "lead": [
+      "AGT-049"
+     ],
+     "contributors": [
+      "AGT-001",
+      "AGT-002",
+      "AGT-048"
+     ],
+     "assurance": [],
+     "handoff": "交付冻结版本、变更范围和风险清单"
+    },
+    {
+     "step": "C2",
+     "name": "技术门禁",
+     "lead": [
+      "AGT-049"
+     ],
+     "contributors": [
+      "AGT-045",
+      "AGT-046",
+      "AGT-047"
+     ],
+     "assurance": [
+      "AGT-050"
+     ],
+     "handoff": "交付确定性Gate与失败证据"
+    },
+    {
+     "step": "C3",
+     "name": "经营与风险验收",
+     "lead": [
+      "AGT-003"
+     ],
+     "contributors": [
+      "AGT-041"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付业务任务、成本和风险复核"
+    },
+    {
+     "step": "C4",
+     "name": "安装与回退",
+     "lead": [
+      "AGT-049"
+     ],
+     "contributors": [
+      "AGT-048"
+     ],
+     "assurance": [
+      "AGT-050"
+     ],
+     "handoff": "交付原子安装、Hash与回退演练回执"
+    },
+    {
+     "step": "C5",
+     "name": "运行复盘",
+     "lead": [
+      "AGT-049"
+     ],
+     "contributors": [
+      "AGT-002",
+      "AGT-045"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "以运行和业务结果决定保持、隔离或回退"
+    }
+   ],
+   "metrics": [
+    "门禁通过率",
+    "发布失败率",
+    "回退时间",
+    "版本漂移率",
+    "运行SLO与业务任务成功率"
+   ],
+   "magpie_capabilities": [
+    "quick/full gate",
+    "selftest体系",
+    "package-dmg同源装配",
+    "原子安装与数据保留",
+    "版本状态面"
+   ],
+   "boundary": "快速Gate绿色只证明其覆盖范围；角色无损、真实连接、业务任务和生产回执必须作为独立门禁，不得合并成假绿。",
+   "production_authorized": false
+  },
+  {
+   "id": "BVS-09",
+   "canonical_flow": "FLOW-09",
+   "family": "业务经营流",
+   "name": "品牌资产经营",
+   "product_name": "品牌资产经营舱",
+   "result_owner": "AGT-029",
+   "result_owner_rule": {
+    "current_pilot": "AGT-029",
+    "by_channel": {
+     "default": "AGT-029"
+    }
+   },
+   "start": "品牌经营节奏、品牌信号异常、品效结构偏差或年度品牌规划进入已确认的品牌、市场与人群范围",
+   "finish": "品牌传播、内容、渠道、体验与投资行动已执行并取得逐对象回执，品牌资产指标与GMV护栏完成长周期归因",
+   "value": "把品牌认知、内容、渠道覆盖与投放从分散动作转为同一品牌资产口径下的联合经营，并与GMV短期结果分层核对",
+   "role_scope": [
+    "AGT-002",
+    "AGT-003",
+    "AGT-005",
+    "AGT-006",
+    "AGT-007",
+    "AGT-021",
+    "AGT-022",
+    "AGT-023",
+    "AGT-024",
+    "AGT-026",
+    "AGT-027",
+    "AGT-028",
+    "AGT-029",
+    "AGT-030",
+    "AGT-031",
+    "AGT-032",
+    "AGT-033",
+    "AGT-034",
+    "AGT-035",
+    "AGT-038",
+    "AGT-039",
+    "AGT-041",
+    "AGT-045",
+    "AGT-048"
+   ],
+   "product_workflow": [
+    {
+     "step": "P1",
+     "name": "品牌信号雷达",
+     "description": "汇聚VOC、评论、社媒、搜索、竞品与品类信号，按周期形成可行动的品牌信号集。",
+     "artifact": "Brand Signal Set"
+    },
+    {
+     "step": "P2",
+     "name": "品牌资产诊断",
+     "description": "按认知、偏好、覆盖、忠诚、价格力与品效结构核对品牌资产差距，区分相关性与可干预因果。",
+     "artifact": "Brand Asset Diagnosis"
+    },
+    {
+     "step": "P3",
+     "name": "品牌经营行动包",
+     "description": "组合传播、内容、渠道、体验与投资方案，声明品牌资产与GMV双层预期、护栏、停止条件和依赖。",
+     "artifact": "Brand Action Package"
+    },
+    {
+     "step": "P4",
+     "name": "受控执行",
+     "description": "把获准方案拆成确定性Action Intent，经Policy Gate和Execution Broker逐对象执行并取得回执。",
+     "artifact": "Action Receipt Set"
+    },
+    {
+     "step": "P5",
+     "name": "品牌资产归因",
+     "description": "对照基线核对品牌指标长周期变化与GMV短期结果，未达成项形成新Case或冻结。",
+     "artifact": "Brand Attribution Report"
+    }
+   ],
+   "collaboration_workflow": [
+    {
+     "step": "C1",
+     "name": "洞察事实",
+     "lead": [
+      "AGT-006"
+     ],
+     "contributors": [
+      "AGT-007",
+      "AGT-029",
+      "AGT-038",
+      "AGT-045",
+      "AGT-021",
+      "AGT-023"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付带来源的品牌信号与消费者证据"
+    },
+    {
+     "step": "C2",
+     "name": "资产诊断",
+     "lead": [
+      "AGT-029"
+     ],
+     "contributors": [
+      "AGT-003",
+      "AGT-035",
+      "AGT-045",
+      "AGT-021",
+      "AGT-023",
+      "AGT-026",
+      "AGT-028",
+      "AGT-034"
+     ],
+     "assurance": [
+      "AGT-005",
+      "AGT-038"
+     ],
+     "handoff": "交付品牌资产差距、覆盖缺口与品效结构诊断"
+    },
+    {
+     "step": "C3",
+     "name": "行动方案",
+     "lead": [
+      "AGT-029"
+     ],
+     "contributors": [
+      "AGT-030",
+      "AGT-031",
+      "AGT-032",
+      "AGT-033",
+      "AGT-034",
+      "AGT-039",
+      "AGT-026",
+      "AGT-028",
+      "AGT-041"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付含双层指标、预算与停止条件的品牌行动包"
+    },
+    {
+     "step": "C4",
+     "name": "受控执行",
+     "lead": [
+      "AGT-021",
+      "AGT-022",
+      "AGT-023",
+      "AGT-024",
+      "AGT-027",
+      "AGT-028"
+     ],
+     "contributors": [
+      "AGT-030",
+      "AGT-031",
+      "AGT-032",
+      "AGT-033",
+      "AGT-034",
+      "AGT-039"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付逐对象执行回执、拒绝与异常记录"
+    },
+    {
+     "step": "C5",
+     "name": "资产归因",
+     "lead": [
+      "AGT-035"
+     ],
+     "contributors": [
+      "AGT-003",
+      "AGT-029",
+      "AGT-034",
+      "AGT-045",
+      "AGT-041"
+     ],
+     "assurance": [
+      "AGT-005"
+     ],
+     "handoff": "交付品牌资产与GMV双层归因结论及下周期输入"
+    }
+   ],
+   "metrics": [
+    "品牌认知与偏好提升",
+    "三位一体覆盖率",
+    "SOV声量份额",
+    "品牌渗透率",
+    "LTV与复购",
+    "品效结构与投资回报",
+    "GMV与经营护栏"
+   ],
+   "magpie_capabilities": [
+    "岗位Preset编译",
+    "Skill subset装配",
+    "连接器与凭据隔离",
+    "确定性Gate与自测"
+   ],
+   "boundary": "品牌传播、投放、内容发布与用户触达只经已配置动作策略、平台规则和外部回执；品牌资产指标按长周期归因，不以单次GMV或点击替代；宣称、素材与达人合作受合规与权利边界约束；无权威品牌数据或口径时冻结资产结论。",
+   "production_authorized": false
+  }
+ ]
 }

@@ -78,7 +78,8 @@
     }
   ],
   "shared_playbooks": [
-    "PB-001"
+    "PB-001",
+    "PB-009"
   ],
   "tools": {
     "visible_classes": [

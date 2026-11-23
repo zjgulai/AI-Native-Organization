@@ -82,6 +82,8 @@
 | D-076 | 接受 `VIB-AGT-029` 与 `VIB-AGT-041` 的64px跨角色视觉近似风险，保留现有 VIS-G3 绑定，不重绑、不替换 | 用户在 D-075 的三项处置中直接选择“1”，2026-09-24 | 该决定把两条从 `PENDING_OWNER_VISUAL_DECISION` 转为 `PASS_FOR_VIS_G5_ASSET_QUALITY_WITH_ACCEPTED_OWNER_VISUAL_RISK`；近似信号、风险说明、D-076 和监测对必须保留在 VIS-G5 登记册中，不能被改写为“未发现近似”或自动放行的结论。此决定只解决 VIS-G5 的所有者处置，不创建 Visual Identity Release、不修改角色或来源人物、不接入页面、不发布、不写入 `dist/`、Pages、DSH、Access、Case 或运行时。VIS-G6 现仅等待独立页面/发布授权与其自身验证，仍不得自动启动 |
 | D-077 | 用户授权启动 VIS-G6，并建立 `VIR-SANBAO-WEB-2026-09-24-R1`：将 53 条已绑定且经 VIS-G5 验收的视觉身份，以 318 个固定提交、质量可复核的 WebP 交付件接入静态 Site；三位管理层显示名称固定为「天時」「地利」「人和」 | 用户直接指令“授权启动 VIS-G6”，2026-09-24；本地发行登记册、公开范围校验、页面复验及[公网部署证据](../12-rollout/visual-assets/SANBAO-WEB-VIS-G6-PUBLIC-DEPLOYMENT-EVIDENCE-2026-09-24.json) | 本地发行曾以 `COMPLETE_LOCAL_VISUAL_IDENTITY_RELEASE_PENDING_GITHUB_PAGES_DEPLOYMENT` 记录；提交`abfd1733e884adfe7b576e7fa028c8a9e23b67c4`已由 GitHub Pages Action `35910354396`成功部署，4个站点核心文件及318个WebP均与发行包哈希匹配，当前为`COMPLETE_PUBLIC_VISUAL_IDENTITY_RELEASE`。仅公开 `APPROVED_DELIVERY` WebP 的64/128/256尺寸和中性 alt text；不公开候选池、原生PNG、来源图、参考图、设计输入、提示词或身份参考资料。D-076 的两条已接受视觉风险及监测义务随发行保留。此决定不改变角色合同、Soul、Playbook、Preset、Access、Bundle、DSH、Case 或生产状态 |
 
+| D-078 | 新增FLOW-09品牌资产经营价值流（BVS-09「品牌资产经营舱」），AI结果负责人AGT-029立言；以《弱品牌，强品牌：数字时代增长知与行》品牌增长方法论为领域内核，KPI采用品牌资产与GMV双层口径；书2方法论沉淀为[品牌增长方法论文档](../06-playbooks/BRAND-GROWTH-METHODOLOGY.md)供品牌域岗位共享 | 用户确认Native-ai-organ站点与本项目整合方案四问决策，2026-11-23 | 不授权任何业务动作、生产连接或Case实例化；SCN-002/009/011/012/013绑定仍是候选映射待企业验证；不改变D-020~D-029的Case、授权与执行边界；品牌资产指标为长周期归因，不替代GMV口径；8条业务经营流扩为9条，端到端流12条扩为13条 |
+
 ## 待确认决定与实施参数
 
 | 问题 | 对应访谈 | 受影响的后续工作 |

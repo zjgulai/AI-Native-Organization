@@ -11,8 +11,8 @@
   "generated_from": {
     "roleCatalog": {
       "path": "docs/05-agents/role-catalog.json",
-      "sha256": "098288071d5419a9008ecedc510eb0c8b25824118d8b40c3b8d23a883ad0cc8b",
-      "bytes": 68746
+      "sha256": "dace253f12cbdc950803f57f15cd2f9698fbb0a73e9628a9d1ea7737022c59c0",
+      "bytes": 61538
     },
     "organizationGraph": {
       "path": "docs/04-organization/organization-graph.json",
@@ -26,28 +26,28 @@
     },
     "e2eValueStreams": {
       "path": "docs/03-scenarios/e2e-value-streams.json",
-      "sha256": "7562db84eba04e7d3c008ac2efab39700a3c40bb0730a603f7c3aefad233cf2e",
-      "bytes": 55851
+      "sha256": "91c370823f6321b3af2294f336ac06e3912095c7f461b6af840796d9f0432a8e",
+      "bytes": 52588
     },
     "collaborationGraph": {
       "path": "docs/07-orchestration/collaboration-graph.json",
-      "sha256": "44187139fabf6c85f404e793f614eb71011bc2633a91ae182720cc0b28162329",
-      "bytes": 290868
+      "sha256": "b95314863b134c4c247fef7b2dda522743a1080979be6ee486ae2c3ab8e0c6dd",
+      "bytes": 282970
     }
   },
   "counts": {
-    "nodes": 81,
-    "edges": 417,
+    "nodes": 82,
+    "edges": 441,
     "node_kinds": {
       "ProjectRole": 50,
       "ManagementRole": 3,
-      "BusinessValueFlow": 8,
+      "BusinessValueFlow": 9,
       "BusinessScenario": 20
     },
     "edge_types": {
       "belongs_to_plane": 50,
       "belongs_to_domain_view": 50,
-      "role_contributes_to_flow": 140,
+      "role_contributes_to_flow": 164,
       "role_eligible_for_scenario": 127,
       "management_covers_role": 50
     }
@@ -98,7 +98,8 @@
         "PB-005",
         "PB-006",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-001",
@@ -123,7 +124,8 @@
       "playbooks": [
         "PB-001",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-021",
@@ -170,7 +172,8 @@
       "skill_count": 3,
       "playbooks": [
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-003",
@@ -194,7 +197,8 @@
       "skill_count": 3,
       "playbooks": [
         "PB-002",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-007",
@@ -218,7 +222,8 @@
       "skill_count": 3,
       "playbooks": [
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-006",
@@ -561,7 +566,8 @@
         "PB-004",
         "PB-006",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-016",
@@ -585,7 +591,8 @@
       "skill_count": 3,
       "playbooks": [
         "PB-001",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-021",
@@ -611,7 +618,8 @@
         "PB-001",
         "PB-004",
         "PB-005",
-        "PB-006"
+        "PB-006",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-026",
@@ -636,7 +644,8 @@
       "playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-007",
@@ -684,7 +693,8 @@
       "skill_count": 3,
       "playbooks": [
         "PB-001",
-        "PB-003"
+        "PB-003",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-017",
@@ -709,7 +719,8 @@
       "playbooks": [
         "PB-001",
         "PB-004",
-        "PB-007"
+        "PB-007",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-021",
@@ -735,7 +746,8 @@
         "PB-001",
         "PB-002",
         "PB-004",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-022",
@@ -762,7 +774,8 @@
         "PB-004",
         "PB-005",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-006",
@@ -787,7 +800,8 @@
       "playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-006",
@@ -812,7 +826,8 @@
       "playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-010",
@@ -835,7 +850,8 @@
       "contract_ref_count": 5,
       "skill_count": 3,
       "playbooks": [
-        "PB-001"
+        "PB-001",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-016",
@@ -859,7 +875,8 @@
       "skill_count": 3,
       "playbooks": [
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-024",
@@ -882,7 +899,8 @@
       "contract_ref_count": 5,
       "skill_count": 3,
       "playbooks": [
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-023",
@@ -908,7 +926,8 @@
         "PB-001",
         "PB-002",
         "PB-005",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-003",
@@ -982,7 +1001,8 @@
       "playbooks": [
         "PB-002",
         "PB-005",
-        "PB-007"
+        "PB-007",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-006",
@@ -1006,7 +1026,8 @@
       "skill_count": 3,
       "playbooks": [
         "PB-002",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-006",
@@ -1060,7 +1081,8 @@
         "PB-002",
         "PB-003",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-001",
@@ -1163,7 +1185,8 @@
       "playbooks": [
         "PB-001",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-003",
@@ -1234,7 +1257,8 @@
       "playbooks": [
         "PB-002",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "declared_common_collaborators": [
         "AGT-004",
@@ -1366,6 +1390,11 @@
     },
     {
       "id": "FLOW-08",
+      "kind": "BusinessValueFlow",
+      "runtime": false
+    },
+    {
+      "id": "FLOW-09",
       "kind": "BusinessValueFlow",
       "runtime": false
     },
@@ -2264,6 +2293,13 @@
     },
     {
       "from": "AGT-002",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-002",
       "to": "SCN-001",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -2425,6 +2461,13 @@
     },
     {
       "from": "AGT-003",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-003",
       "to": "SCN-001",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -2467,6 +2510,13 @@
     },
     {
       "from": "AGT-005",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-005",
       "to": "SCN-001",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -2502,6 +2552,13 @@
     },
     {
       "from": "AGT-006",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-006",
       "to": "SCN-002",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -2524,6 +2581,13 @@
     {
       "from": "AGT-007",
       "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-007",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -2971,6 +3035,13 @@
     },
     {
       "from": "AGT-021",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-021",
       "to": "SCN-001",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3020,6 +3091,13 @@
     },
     {
       "from": "AGT-022",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-022",
       "to": "SCN-009",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3062,6 +3140,13 @@
     },
     {
       "from": "AGT-023",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-023",
       "to": "SCN-009",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3098,6 +3183,13 @@
     {
       "from": "AGT-024",
       "to": "FLOW-04",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-024",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -3174,6 +3266,13 @@
     },
     {
       "from": "AGT-026",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-026",
       "to": "SCN-010",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3196,6 +3295,13 @@
     {
       "from": "AGT-027",
       "to": "FLOW-07",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-027",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -3231,6 +3337,13 @@
     {
       "from": "AGT-028",
       "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-028",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -3293,6 +3406,13 @@
     },
     {
       "from": "AGT-029",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-029",
       "to": "SCN-002",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3328,6 +3448,13 @@
     },
     {
       "from": "AGT-030",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-030",
       "to": "SCN-009",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3363,6 +3490,13 @@
     },
     {
       "from": "AGT-031",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-031",
       "to": "SCN-009",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3378,6 +3512,13 @@
     {
       "from": "AGT-032",
       "to": "FLOW-01",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-032",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -3405,6 +3546,13 @@
     },
     {
       "from": "AGT-033",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-033",
       "to": "SCN-012",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3413,6 +3561,13 @@
     {
       "from": "AGT-034",
       "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-034",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -3455,6 +3610,13 @@
     {
       "from": "AGT-035",
       "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-035",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -3559,6 +3721,13 @@
     },
     {
       "from": "AGT-038",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-038",
       "to": "SCN-002",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3588,6 +3757,13 @@
     {
       "from": "AGT-039",
       "to": "FLOW-05",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-039",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -3686,6 +3862,13 @@
     {
       "from": "AGT-041",
       "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-041",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"
@@ -3888,6 +4071,13 @@
     },
     {
       "from": "AGT-045",
+      "to": "FLOW-09",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-045",
       "to": "SCN-001",
       "type": "role_eligible_for_scenario",
       "runtime": false,
@@ -3952,6 +4142,13 @@
     {
       "from": "AGT-048",
       "to": "FLOW-08",
+      "type": "role_contributes_to_flow",
+      "runtime": false,
+      "source": "role-catalog"
+    },
+    {
+      "from": "AGT-048",
+      "to": "FLOW-09",
       "type": "role_contributes_to_flow",
       "runtime": false,
       "source": "role-catalog"

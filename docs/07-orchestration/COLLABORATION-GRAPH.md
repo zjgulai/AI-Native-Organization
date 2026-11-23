@@ -1,6 +1,6 @@
 # 独立岗位Preset与八阶段协同图谱
 
-状态：D-024与[ADR-0006](../adr/0006-artifact-gated-eight-stage-collaboration.md)已确认统一协议；D-025与[ADR-0007](../adr/0007-one-flow-one-scenario-per-case.md)已确认Case唯一主价值流/主场景及关联Case规则；D-026与[ADR-0008](../adr/0008-deterministic-emergency-protection-guard.md)已确认FLOW-07模型外确定性紧急保护通道；D-053与[ADR-0012](../adr/0012-independent-role-presets-and-bounded-composition.md)确认50个岗位可独立运行并可受控组队。全部8条价值流和当前20个候选业务场景使用同一逻辑协议；结构化图谱见[collaboration-graph.json](collaboration-graph.json)。当前没有Case、Guard规则、Outbox、工具连接或生产动作由本图谱实例化。
+状态：D-024与[ADR-0006](../adr/0006-artifact-gated-eight-stage-collaboration.md)已确认统一协议；D-025与[ADR-0007](../adr/0007-one-flow-one-scenario-per-case.md)已确认Case唯一主价值流/主场景及关联Case规则；D-026与[ADR-0008](../adr/0008-deterministic-emergency-protection-guard.md)已确认FLOW-07模型外确定性紧急保护通道；D-053与[ADR-0012](../adr/0012-independent-role-presets-and-bounded-composition.md)确认50个岗位可独立运行并可受控组队。全部9条价值流和当前20个候选业务场景使用同一逻辑协议；结构化图谱见[collaboration-graph.json](collaboration-graph.json)。当前没有Case、Guard规则、Outbox、工具连接或生产动作由本图谱实例化。
 
 ## 协同的第一性原理
 
@@ -71,7 +71,7 @@ flowchart LR
 
 Lead负责一张Case的结果；Worker负责自身阶段产物。Case Control负责选择、版本固定、范围与异常，不能把Preset之间的连接渲染成行政上下级或权限授权。
 
-## 八条价值流绑定
+## 九条价值流绑定
 
 | 价值流 | 主岗位选择 | Playbook | 闭环产物 |
 | --- | --- | --- | --- |
@@ -83,28 +83,29 @@ Lead负责一张Case的结果；Worker负责自身阶段产物。Case Control负
 | FLOW-06 数据与工具 | AGT-047 | PB-006 | 数据契约或工具能力闭环 |
 | FLOW-07 重大事件 | 质量事件AGT-018；账号事件AGT-027 | PB-007 | 范围、处置、根因与恢复证据 |
 | FLOW-08 经营复盘 | AGT-001 | PB-008 | 资源、策略和能力版本建议或结果 |
+| FLOW-09 品牌资产经营 | AGT-029 | PB-009 | 品牌资产与GMV双层指标的品牌经营行动包及归因 |
 
-FLOW-02、03、04、06和08已有单一默认主岗位。FLOW-01、05和07只有自然语言分类条件，尚未形成可执行、互斥且有优先级的selector；零匹配或多匹配时必须进入Waiting，不能由模型自由猜测。现有140条岗位-价值流关系仅保留历史职责覆盖，仍需转换为具体Skill Contract、产物schema和Assurance规则。
+FLOW-02、03、04、06、08和09已有单一默认主岗位。FLOW-01、05和07只有自然语言分类条件，尚未形成可执行、互斥且有优先级的selector；零匹配或多匹配时必须进入Waiting，不能由模型自由猜测。现有140条岗位-价值流关系仅保留历史职责覆盖，仍需转换为具体Skill Contract、产物schema和Assurance规则。
 
-每条价值流均显式引用八个逻辑阶段，共形成64条flow-stage绑定。现有Playbook足以描述各阶段的业务意图，但Skill版本、输出schema、Assurance Profile、Policy Profile和异常阈值均保持未实例化状态。
+每条价值流均显式引用八个逻辑阶段，共形成72条flow-stage绑定。现有Playbook足以描述各阶段的业务意图，但Skill版本、输出schema、Assurance Profile、Policy Profile和异常阈值均保持未实例化状态。
 
 **D-025已确认的绑定规则**：一张Case只选择一条主价值流和一个主场景，并以`case_dedupe_key`阻止同一信号、主价值流、主场景、业务范围和规则版本重复建单；Case同时保留`case_dedupe_rule_ref`和`case_dedupe_rule_version`以便重算。其他场景仅作相关引用。同一事件触发多个价值流时，创建共享`correlation_id`但状态独立的Case。每张Case分别拥有目标、完成条件、主岗位、固定Bundle、资源预留、异常和关闭结果；`resource_reservation_refs`是每张Case自有且可为空的集合，关联Case不能共用同一预留记录，预留本身不授予资产权限。跨Case只能通过`REC-CROSS-CASE-ARTIFACT-REF`只读引用来源Case已经验收的Stage Artifact，并核对来源Case、Artifact ID、产物版本、Hash和实际接收该Artifact的ACCEPT记录。
 
 ## 20个场景的价值流入口
 
-场景是尚待业务访谈验证的问题分类，一项场景可能兼容不同价值流。下列51项只表示候选兼容关系，不表示运行时已能自动选路；每张Case仍必须从中确定一个主场景和一个主价值流。其中18个场景有多个候选价值流，所需selector规则尚未发布。
+场景是尚待业务访谈验证的问题分类，一项场景可能兼容不同价值流。下列56项只表示候选兼容关系，不表示运行时已能自动选路；每张Case仍必须从中确定一个主场景和一个主价值流。其中19个场景有多个候选价值流，所需selector规则尚未发布。
 
 | 场景 | 可选价值流 | 场景 | 可选价值流 |
 | --- | --- | --- | --- |
-| SCN-001 | FLOW-01、06、08 | SCN-011 | FLOW-01 |
-| SCN-002 | FLOW-02、04、05 | SCN-012 | FLOW-02、04、05 |
-| SCN-003 | FLOW-02、08 | SCN-013 | FLOW-01、02、05 |
+| SCN-001 | FLOW-01、06、08 | SCN-011 | FLOW-01、09 |
+| SCN-002 | FLOW-02、04、05、09 | SCN-012 | FLOW-02、04、05、09 |
+| SCN-003 | FLOW-02、08 | SCN-013 | FLOW-01、02、05、09 |
 | SCN-004 | FLOW-02、07 | SCN-014 | FLOW-03、04、05、07 |
 | SCN-005 | FLOW-02、04、07 | SCN-015 | FLOW-05、07 |
 | SCN-006 | FLOW-02、03、07 | SCN-016 | FLOW-01、03、05、06、08 |
 | SCN-007 | FLOW-01、03 | SCN-017 | FLOW-03、08 |
 | SCN-008 | FLOW-03、04 | SCN-018 | FLOW-01、04、07 |
-| SCN-009 | FLOW-01、02、04 | SCN-019 | FLOW-08 |
+| SCN-009 | FLOW-01、02、04、09 | SCN-019 | FLOW-08 |
 | SCN-010 | FLOW-01、03 | SCN-020 | FLOW-06、08 |
 
 ## 异常、返工与隔离

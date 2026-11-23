@@ -4,6 +4,89 @@
 
 50 指 AI 岗位类型，涵盖全部职责；既有能力包、运行实例与未来真人组织数量分别建模。GMV 为第一优先级，100 亿对应的具体财务/GMV口径和统计年度仍需核对。
 
+## 跨项目使用索引
+
+本项目的跨项目入口是 [playbook.md](playbook.md)。它把本仓库当作“可追溯的设计与静态展示资产包”来使用：先按稳定 ID 找到能力，再读取最小资产集，最后在调用方自己的运行环境中重新验证。不要把整个仓库直接拼成一个提示词，也不要把设计文件当作已连接的服务。
+
+### 一页能力图谱
+
+| 层 | 当前资产 | 权威入口 | 可复用边界 |
+| --- | --- | --- | --- |
+| 经营与方案 | 8 条 BVS + 4 条 CVS、20 个候选场景 | [方案地图](docs/02-strategy/SOLUTION-MAP.md)、[端到端流目录](docs/03-scenarios/e2e-value-streams.json) | 用于选择目标和范围；真实经营口径、基线和阈值仍需调用方核实 |
+| 组织与岗位 | 50 个 AGT，按四平面 5/35/5/5 归属；另有 3 个 MGT 决策权身份 | [岗位目录](docs/05-agents/role-catalog.json)、[组织图](docs/04-organization/AI-ORGANIZATION-MAP.md) | 岗位是独立设计合同；不等于已运行实例 |
+| 岗位能力 | 151 个 Skills 目录描述符、50 份 Soul、50 份 Role Playbook、50 份 Preset Blueprint | [Role Playbook 索引](docs/06-playbooks/role-playbooks/index.json)、[Preset manifest](docs/10-platform/deepseek-harness/preset-blueprints/manifest.json) | Skill 名称不是已实现 API；Preset 状态为 design_only_not_importable |
+| 场景协同 | 8 阶段、单 Case 单主流/单场景/单 Lead、ArtifactEnvelope 交接 | [协同图谱](docs/07-orchestration/COLLABORATION-GRAPH.md)、[Case 契约](docs/07-orchestration/case-record-contract.json) | Worker 不自由互聊、不转授权限；由模型外 Case Control 编排 |
+| 治理与执行 | Business/Skill/Runtime/Access/Assurance 五契约、七状态 Bundle、Policy Gate、Execution Broker | [Agent 管理图](docs/05-agents/AGENT-MANAGEMENT-GRAPH.md)、[治理入口](docs/09-governance/README.md) | 当前没有生产 Bundle、真实 Service Identity 或企业动作授权 |
+| 公开展示 | 53 个视觉身份、318 个 WebP、中文交互 Site | [dist/](dist/)、[GitHub Pages](https://zjgulai.github.io/AI-Native-Organization/) | 只读展示投影；视觉来源和头像不改变岗位、权限或运行身份；完整来源见 VIS-G6 登记册 |
+
+说明：四平面 5/35/5/5 是组织责任主视角；岗位目录中的 8 个责任域是正交的业务能力视角，不能用其中一个计数替代另一个。
+
+8 个责任域当前为：经营与组织 5、产品与创新 8、供应与履约 7、渠道经营 8、品牌与增长 7、服务与体验 4、财务与合规 5、数据与 AI 运行 6；详细岗位归属以 role-catalog.json 为准。
+
+视觉范围说明：Sanbao_Web 的全量 1,848 个图像、102 个 persona family 由 VIS-G0/G1/G2 登记册追踪；`dist/` 只包含当前 53 个身份的 318 个 WebP 发行件，候选池没有全部物化到公开包。
+
+### 按目标查找
+
+| 如果你要…… | 从这里开始 | 然后读取 |
+| --- | --- | --- |
+| 理解项目当前状态 | [STATUS.md](docs/00-project/STATUS.md) | [DEVELOPMENT.md](docs/00-project/DEVELOPMENT.md)、[DECISIONS.md](docs/00-project/DECISIONS.md) |
+| 选一个业务流或场景 | [e2e-value-streams.json](docs/03-scenarios/e2e-value-streams.json) | [FLOW-CATALOG.md](docs/03-scenarios/FLOW-CATALOG.md)、[CATALOG.md](docs/03-scenarios/CATALOG.md)、对应 PB |
+| 选一个岗位 | [role-catalog.json](docs/05-agents/role-catalog.json) | docs/05-agents/roles/AGT-xxx.md → docs/05-agents/roles/souls/AGT-xxx.soul.md → [Role Playbook index](docs/06-playbooks/role-playbooks/index.json) |
+| 查看管理层决策权平面 | [管理层目录](docs/04-organization/management/management-catalog.json) | [管理层设计](docs/04-organization/MANAGEMENT-LAYER.md)、docs/04-organization/management/{roles,souls,playbooks,preset-blueprints} |
+| 复用共享流程 | [PLAYBOOKS.md](docs/06-playbooks/PLAYBOOKS.md) | 协同图谱、数据契约和治理边界 |
+| 评估平台适配 | [DeepSeek Harness 入口](docs/10-platform/deepseek-harness/README.md) | [能力矩阵](docs/10-platform/deepseek-harness/CAPABILITY-MATRIX.md)、[实施方案](docs/10-platform/deepseek-harness/IMPLEMENTATION-PLAN.md) |
+| 查看验证与推广门 | [Role Preset 实施 TODO](docs/12-rollout/ROLE-PRESET-IMPLEMENTATION-TODO.md) | [验证入口](docs/11-validation/README.md)、[实施章程](docs/12-rollout/IMPLEMENTATION-CHARTER.md) |
+| 只取视觉素材 | [视觉发行登记册](docs/12-rollout/visual-assets/SANBAO-WEB-VIS-G6-VISUAL-IDENTITY-RELEASE-2026-09-24.json) | dist/data/visual-identities.json 与 dist/assets/visual-identities/ |
+
+### 资产关系与状态语义
+
+~~~text
+role-catalog
+  → Role Profile + Soul
+  → Role Playbook + Skills
+  → Preset Blueprint
+  → （目标 Host/schema 核实后才可能）运行时投影
+
+e2e-value-streams
+  → FLOW/Scenario
+  → Shared Playbook
+  → Case Control + Stage Artifact
+  → Acceptance / Policy / Execution / Verified Receipt
+
+VIS-G0..G6
+  → Visual Identity Release
+  → dist 静态展示投影
+~~~
+
+机器可读 JSON、manifest 和登记册是对应对象的结构化事实源；Markdown 负责解释和决策背景；dist/ 是生成投影。STATUS.md 与 DECISIONS.md 负责状态和取舍。三者不能互相替代。
+
+本仓库当前要明确区分：
+
+- 设计完成 ≠ 目标平台导入。
+- 静态校验通过 ≠ 影子运行通过。
+- GitHub Pages 发布 ≠ 企业系统连接或经营结果。
+- 头像/视觉绑定 ≠ Role、Access、Bundle、Case 成员或权限。
+- production_authorized=false、未实例化和 NOT_OBSERVED 等状态必须原样保留。
+
+### 最短使用路径
+
+1. 读 [playbook.md](playbook.md)，确定调用目的和授权。
+2. 读状态、决定、事实/词汇，再选一个 flow_id、scenario_id 或 role_id。
+3. 按索引读取最小资产集：Profile、Soul、Role Playbook、Preset manifest、输入/产物契约。
+4. 按八阶段和 ArtifactEnvelope 设计调用方的 Case；每张 Case 只有一个结果责任 Lead。
+5. 核实目标 Host、schema、工具 scope、Service Identity、Policy Gate、Broker 和回执。
+6. 在调用方环境做结构、离线、Shadow、Limited 或 Production 验证；保留来源 commit、版本和 Hash。
+7. 只有在另行授权后才生成目标配置或执行外部动作。
+
+### 公开入口和非目标
+
+- 本地静态入口：[dist/index.html](dist/index.html)。
+- 公网入口：[https://zjgulai.github.io/AI-Native-Organization/](https://zjgulai.github.io/AI-Native-Organization/)。
+- Pages workflow 只发布 dist/，见 [.github/workflows/pages.yml](.github/workflows/pages.yml)。
+- 当前范围仍是方案审阅、岗位/能力设计和 Shopify 治理底座；不自动创建 Case、连接或修改 Shopify，不发送外部消息，不执行商品、库存、价格、广告、退款、预算或人员动作。
+- 修改本仓库时优先保留来源、版本、登记册和历史证据；反馈请带 role_id、flow_id、来源版本和复现结果，不提交凭据或业务明细。
+
+
 ## 当前进度
 
 战略框架 v1.1 已完成；D-053与[ADR-0012](docs/adr/0012-independent-role-presets-and-bounded-composition.md)进一步确认：50个岗位各自成为可独立寻址的数字分身，每个岗位拥有独立Soul Contract、Role Playbook、Preset Blueprint、Skills、产物、评估和Access边界；既可独立完成边界清晰的岗位任务，也可由模型外Case Control以Lead/Worker方式受控组队。每张Case仍只保留一个结果责任Lead，Worker只通过已验收ArtifactEnvelope交接，不采用隐式岗位Agent互聊或LLM自由路由。全部8条业务价值流和当前20个候选场景依据D-024共用八阶段门禁协议；D-031与[ADR-0011](docs/adr/0011-business-and-capability-value-streams.md)进一步把Magpie-Horch的岗位、Skill、连接器和Release闭环建模为4条正交能力供应流，形成12条端到端价值流的产品方案与分工协作双视图。资产动作仍由Policy Gate与Execution Broker控制，HITL与真人负责人后置。D-050确认目标Shopify是空白新店且无上线产品；D-051将当前范围固定为完整方案最终审阅与店铺治理底座方案，不实例化Case或执行任何Shopify动作。D-033至D-049定义的Shopify存量GMV、App、Scope、Level 1、45天保留、产品家族、报表和Top 5规则全部保留为目标状态合同，在产品上线并形成连续30个完整销售日后才实例化。D-052只授权把方案仓库与Site公开发布到GitHub Pages。Amazon US契约继续作为后续渠道模板。
@@ -50,6 +133,7 @@
 ├── bp/                               对外BP页面、源片段与装配/预览脚本
 ├── CONTEXT.md                        已澄清的业务词汇
 ├── README.md                         项目入口
+├── playbook.md                       跨项目能力消费、装配与验证流程
 ├── dist/                             中文交互Site与岗位/价值流视图数据
 ├── docs/
 │   ├── 00-project/                   状态、路线、设计树、决策、长期开发知识
@@ -91,4 +175,4 @@
 
 目录与 Git 初始化、战略框架、五项目比较、PRD、实施章程及中文交互Site已完成；本轮授权发布方案仓库和GitHub Pages。设计资产公开可读不等于业务权限生效、系统连接、未来真人组织调整或生产上线。
 
-本地最新工作区已补齐50份Soul、Role Playbook和DSH Preset Blueprint，并将Site更新为独立Preset与Lead/Worker组队视图；这些新增改动尚未提交，公网仍以最近一次已发布版本为准。
+当前仓库以 main 与 origin/main 的实际状态为准；岗位 Soul、Role Playbook、Preset Blueprint 及 VIS-G6 公开视觉发行证据均已纳入版本控制。设计资产和静态 Pages 发布不等于目标平台运行、企业系统连接或经营生产授权。

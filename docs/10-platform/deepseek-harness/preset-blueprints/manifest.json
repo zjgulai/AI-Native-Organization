@@ -238,7 +238,8 @@
         "PB-005",
         "PB-006",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -364,7 +365,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -613,7 +615,8 @@
       ],
       "shared_playbooks": [
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -738,7 +741,8 @@
       ],
       "shared_playbooks": [
         "PB-002",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -863,7 +867,8 @@
       ],
       "shared_playbooks": [
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -2620,7 +2625,8 @@
         "PB-004",
         "PB-006",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -2745,7 +2751,8 @@
       ],
       "shared_playbooks": [
         "PB-001",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -2872,7 +2879,8 @@
         "PB-001",
         "PB-004",
         "PB-005",
-        "PB-006"
+        "PB-006",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -2998,7 +3006,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -3248,7 +3257,8 @@
       ],
       "shared_playbooks": [
         "PB-001",
-        "PB-003"
+        "PB-003",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -3374,7 +3384,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-004",
-        "PB-007"
+        "PB-007",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -3501,7 +3512,8 @@
         "PB-001",
         "PB-002",
         "PB-004",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -3629,7 +3641,8 @@
         "PB-004",
         "PB-005",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -3755,7 +3768,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -3881,7 +3895,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -4005,7 +4020,8 @@
         }
       ],
       "shared_playbooks": [
-        "PB-001"
+        "PB-001",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -4130,7 +4146,8 @@
       ],
       "shared_playbooks": [
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -4254,7 +4271,8 @@
         }
       ],
       "shared_playbooks": [
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -4381,7 +4399,8 @@
         "PB-001",
         "PB-002",
         "PB-005",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -4758,7 +4777,8 @@
       "shared_playbooks": [
         "PB-002",
         "PB-005",
-        "PB-007"
+        "PB-007",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -4883,7 +4903,8 @@
       ],
       "shared_playbooks": [
         "PB-002",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -5139,7 +5160,8 @@
         "PB-002",
         "PB-003",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -5646,7 +5668,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [
@@ -6020,7 +6043,8 @@
       "shared_playbooks": [
         "PB-002",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "tools": {
         "visible_classes": [

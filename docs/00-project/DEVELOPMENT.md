@@ -21,7 +21,7 @@
 | v2岗位Bundle与生命周期 | `docs/05-agents/AGENT-LIFECYCLE.md`、`docs/05-agents/agent-lifecycle.json` |
 | v2八阶段协同与Case记录 | `docs/07-orchestration/COLLABORATION-GRAPH.md`、`docs/07-orchestration/collaboration-graph.json`、`docs/07-orchestration/case-record-contract.json` |
 | 场景、角色、规则与协作解释 | `docs/03-scenarios/` 至 `docs/09-governance/` |
-| 12条端到端价值流双视图 | `docs/03-scenarios/END-TO-END-VALUE-STREAMS.md`、`docs/03-scenarios/e2e-value-streams.json` |
+| 13条端到端价值流双视图 | `docs/03-scenarios/END-TO-END-VALUE-STREAMS.md`、`docs/03-scenarios/e2e-value-streams.json` |
 | 平台事实与配置 | `docs/10-platform/deepseek-harness/` |
 | 原始来源索引 | `docs/14-research/SOURCES.md` |
 | 验收要求及需求追踪 | `docs/13-prd/PRD.md` |
@@ -84,6 +84,8 @@ D-029确认Action Intent与执行分离：模型只提出Action Intent，不持�
 
 D-031确认两层价值流：FLOW-01至FLOW-08继续作为业务经营流，并以BVS-01至BVS-08提供产品视图；CVS-01至CVS-04分别管理岗位Bundle、Skill绑定、连接器验收和可回退Release。业务流以业务结果与外部回执闭环，能力流以可复用能力产品闭环。两层流通过版本引用与关联Case连接，状态和验收相互独立；能力发布成功不等于经营成功。每条流同时维护产品方案和分工协作投影；D-053新增独立Role Preset和受控Lead/Worker协作模式。
 
+D-078确认新增FLOW-09品牌资产经营价值流：BVS-09「品牌资产经营舱」以AGT-029立言为默认主岗位，绑定SCN-002、009、011、012、013五个候选场景，领域内核为《弱品牌，强品牌：数字时代增长知与行》品牌增长方法论（沉淀于`docs/06-playbooks/BRAND-GROWTH-METHODOLOGY.md`）。本流拥有品牌资产结果闭环，KPI采用品牌资产与GMV双层口径；与FLOW-01的GMV战术闭环按主结果拆分关联Case，不改变D-020~D-029的Case、授权与执行边界，全部生产授权仍为false。
+
 D-033至D-035确认首个运行样本为Momcozy美国Shopify主站、可穿戴式吸奶器、3–10个高GMV SKU和滚动30天，由AGT-023担任主人格；试点原始GMV固定为`gross_sales`，折扣、销售冲销、退款、税费、运费、支付状态和结算现金分别保留。Shopify只作为首个渠道事实入口：外部广告花费与回执、ERP/WMS可承诺库存和成本、QMS质量准入保持独立权威来源。`PILOT-G1A`通过不能替代跨系统`PILOT-G1B`。具体Shop GID、SKU白名单、App身份和Scopes在实例化前保持未确认。
 
 D-036选择新建试点专用Shopify Dev Dashboard App。模型只调用受限逻辑读取工具，Client Secret和Access Token不得进入Prompt、Skill、Case Artifact、Site或仓库；模型外Policy Gate先校验Shop/SKU/时间窗/字段/Query Hash，Connector再经Token Broker取短期Token。基础Scope包不默认包含`read_reports`，ShopifyQL及其他条件Scope按真实数据缺口和Protected Customer Data条件逐项增加。该决策当时未固定Organization关系和认证路径，后续由D-037补齐。
@@ -130,7 +132,7 @@ D-050补充了更早的业务事实门：Shopify当前是空白新店且无上�
 
 独立岗位资产还要核对50份Soul Contract、50份Role Playbook、50份Preset Blueprint的ID、引用、模式和生产授权状态一致，并验证standalone与Lead/Worker两种运行说明都存在。
 
-v2完成前继续核对50个唯一岗位ID、50张岗位卡、50份Role Playbook、50份Preset Blueprint、8流程、20场景和8份共享Playbook不丢失。v2结构检查还须核对：12条端到端价值流为8条BVS与4条CVS；BVS与原FLOW一一映射且角色并集覆盖50/50；每条流有5个产品步骤、5个协作步骤、有效结果负责人、完整role_scope、协作角色不越界和production_authorized=false；文档目录与Site投影语义一致。每个Case只有一个主价值流、一个主场景和一个Lead结果负责人；Worker只消费已验收ArtifactEnvelope，不能共享隐式会话或转授权限；跨价值流信号的关联Case状态独立且只引用已验收产物；Skills不携带第二人格；8阶段、64条flow-stage绑定、51条候选flow-scenario绑定和140条历史role-flow覆盖一致；每个阶段有产物与接收记录；STG-01不要求case或Bundle；Bundle从STG-03固定；Case状态不使用Quarantined；Agent管理对象引用Prompt/Skill/Tool/Model/Eval/Memory版本；普通动作与紧急保护均经过Policy Gate和Execution Broker；Emergency Guard为模型外且只限FLOW-07，原子边界只覆盖本地Case/Outbox记录，建单前歧义只能产生Pre-Case Exception，紧急Attempt不充当STG-07且TTL不自动恢复；Service Identity不属于模型；所有生产授权为false。检查结果只证明文档与设计数据一致。
+v2完成前继续核对50个唯一岗位ID、50张岗位卡、50份Role Playbook、50份Preset Blueprint、9流程、20场景和9份共享Playbook不丢失。v2结构检查还须核对：13条端到端价值流为9条BVS与4条CVS；BVS与原FLOW一一映射且角色并集覆盖50/50；每条流有5个产品步骤、5个协作步骤、有效结果负责人、完整role_scope、协作角色不越界和production_authorized=false；文档目录与Site投影语义一致。每个Case只有一个主价值流、一个主场景和一个Lead结果负责人；Worker只消费已验收ArtifactEnvelope，不能共享隐式会话或转授权限；跨价值流信号的关联Case状态独立且只引用已验收产物；Skills不携带第二人格；8阶段、72条flow-stage绑定、56条候选flow-scenario绑定和140条历史role-flow覆盖一致；每个阶段有产物与接收记录；STG-01不要求case或Bundle；Bundle从STG-03固定；Case状态不使用Quarantined；Agent管理对象引用Prompt/Skill/Tool/Model/Eval/Memory版本；普通动作与紧急保护均经过Policy Gate和Execution Broker；Emergency Guard为模型外且只限FLOW-07，原子边界只覆盖本地Case/Outbox记录，建单前歧义只能产生Pre-Case Exception，紧急Attempt不充当STG-07且TTL不自动恢复；Service Identity不属于模型；所有生产授权为false。检查结果只证明文档与设计数据一致。
 
 新增长期方法记录须从本文件和领域入口可达。当前人力与成本方法见[容量和成本模型](../02-strategy/CAPACITY-AND-COST.md)，组织覆盖方法见[职责承接表](../04-organization/RESPONSIBILITY-MAP.md)。
 
@@ -185,7 +187,7 @@ RP-M2的输入、角色匹配、hash、persona/Skill分层、manifest扩展、�
 
 ## Site投影规则
 
-Site是已确认设计资产的交互视图，不建立独立业务事实。完整方案域以`docs/02-strategy/SOLUTION-MAP.md`为导航，Shopify当前实施顺序以`docs/12-rollout/SHOPIFY-GREENFIELD-ROADMAP.md`为准；岗位内容以`docs/05-agents/role-catalog.json`为准，原8条业务流程以`docs/03-scenarios/FLOW-CATALOG.md`为准，12条端到端双工作流以`docs/03-scenarios/e2e-value-streams.json`为结构化权威目录；`dist/data/e2e-workflows.json`只是发布投影，必须保持语义一致。源文档变化时同步更新`dist/data/`及对应页面表述，并复核50岗位、四平面5/35/5/5、BVS/CVS为8/4、BVS岗位覆盖50/50、每流双工作流完整且全部生产授权为false。站点可用性验证至少覆盖HTML入口、CSS/JavaScript/JSON本地引用、JavaScript语法、岗位与价值流数量、负责人/协作角色引用、桌面与移动视口以及本地HTTP响应。
+Site是已确认设计资产的交互视图，不建立独立业务事实。完整方案域以`docs/02-strategy/SOLUTION-MAP.md`为导航，Shopify当前实施顺序以`docs/12-rollout/SHOPIFY-GREENFIELD-ROADMAP.md`为准；岗位内容以`docs/05-agents/role-catalog.json`为准，原9条业务流程以`docs/03-scenarios/FLOW-CATALOG.md`为准，13条端到端双工作流以`docs/03-scenarios/e2e-value-streams.json`为结构化权威目录；`dist/data/e2e-workflows.json`只是发布投影，必须保持语义一致。源文档变化时同步更新`dist/data/`及对应页面表述，并复核50岗位、四平面5/35/5/5、BVS/CVS为9/4、BVS岗位覆盖50/50、每流双工作流完整且全部生产授权为false。站点可用性验证至少覆盖HTML入口、CSS/JavaScript/JSON本地引用、JavaScript语法、岗位与价值流数量、负责人/协作角色引用、桌面与移动视口以及本地HTTP响应。
 
 页面必须持续区分设计基线、运行配置、企业系统连接、影子/有限运行和生产验收。Site中的筛选、卡片与图谱用于理解和决策，不获得Policy判定、业务写入或system-of-record地位。
 

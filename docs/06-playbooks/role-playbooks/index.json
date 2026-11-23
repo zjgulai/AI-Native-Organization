@@ -33,7 +33,8 @@
         "PB-005",
         "PB-006",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -48,7 +49,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -75,7 +77,8 @@
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-005.json",
       "shared_playbooks": [
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -89,7 +92,8 @@
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-006.json",
       "shared_playbooks": [
         "PB-002",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -103,7 +107,8 @@
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-007.json",
       "shared_playbooks": [
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -306,7 +311,8 @@
         "PB-004",
         "PB-006",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -320,7 +326,8 @@
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-022.json",
       "shared_playbooks": [
         "PB-001",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -336,7 +343,8 @@
         "PB-001",
         "PB-004",
         "PB-005",
-        "PB-006"
+        "PB-006",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -351,7 +359,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -379,7 +388,8 @@
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-026.json",
       "shared_playbooks": [
         "PB-001",
-        "PB-003"
+        "PB-003",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -394,7 +404,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-004",
-        "PB-007"
+        "PB-007",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -410,7 +421,8 @@
         "PB-001",
         "PB-002",
         "PB-004",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -427,7 +439,8 @@
         "PB-004",
         "PB-005",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -442,7 +455,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -457,7 +471,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -470,7 +485,8 @@
       "preset_id": "dsh.role.agt-032.v1",
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-032.json",
       "shared_playbooks": [
-        "PB-001"
+        "PB-001",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -484,7 +500,8 @@
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-033.json",
       "shared_playbooks": [
         "PB-002",
-        "PB-004"
+        "PB-004",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -497,7 +514,8 @@
       "preset_id": "dsh.role.agt-034.v1",
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-034.json",
       "shared_playbooks": [
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -513,7 +531,8 @@
         "PB-001",
         "PB-002",
         "PB-005",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -557,7 +576,8 @@
       "shared_playbooks": [
         "PB-002",
         "PB-005",
-        "PB-007"
+        "PB-007",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -571,7 +591,8 @@
       "preset_ref": "docs/10-platform/deepseek-harness/preset-blueprints/AGT-039.json",
       "shared_playbooks": [
         "PB-002",
-        "PB-005"
+        "PB-005",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -605,7 +626,8 @@
         "PB-002",
         "PB-003",
         "PB-007",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -668,7 +690,8 @@
       "shared_playbooks": [
         "PB-001",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
@@ -709,7 +732,8 @@
       "shared_playbooks": [
         "PB-002",
         "PB-006",
-        "PB-008"
+        "PB-008",
+        "PB-009"
       ],
       "status": "design_complete_runtime_not_instantiated"
     },
