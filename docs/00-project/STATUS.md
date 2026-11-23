@@ -5,6 +5,7 @@
 当前阶段：v2.3独立岗位分身与受控组队方案已形成。D-053确认50个岗位各自拥有独立Role Playbook、Preset Blueprint、Skills、产物、评估集和Access边界，可独立处理边界清晰的岗位任务，也可由模型外Case Control编排为Lead/Worker组队。D-050确认目标Shopify是尚无上线产品的空白新店；D-051把当前范围限定为完整方案最终审阅和Shopify店铺治理底座方案，不实例化Case或执行店铺、商品、App、连接、测试订单和业务发布。D-052授权把本项目文档与Site提交至GitHub并公开部署GitHub Pages；该文档发布不改变Shopify、企业系统、裁员、预算或生产自治权限。
 
 - D-078确认新增FLOW-09品牌资产经营价值流（BVS-09，主岗位AGT-029），端到端流扩为13条（9 BVS + 4 CVS）；品牌增长方法论沉淀为品牌域岗位共享文档，KPI采用品牌资产与GMV双层口径；全部仍为设计基线，无生产授权。
+- FLOW-09 首批可设计资产已落地：SCN-002 v1场景规格、4份品牌域Skill契约（SKL-BRAND-01~04）、双层KPI指标字典、首个Case试点章程（覆盖缺口诊断，预期NoActionRecord）；ref/源书材料已加入.gitignore防版权资产入库。全部为设计基线，未实例化Case或连接任何数据源。
 
 ## 已完成
 

@@ -70,6 +70,6 @@ AGT-047负责工具交付，AGT-045维护数据契约；验收依赖工单定义
 
 业务场景：SCN-002、SCN-009、SCN-011、SCN-012、SCN-013。能力贡献岗位：AGT-002、AGT-003、AGT-005、AGT-006、AGT-007、AGT-021、AGT-022、AGT-023、AGT-024、AGT-026、AGT-027、AGT-028、AGT-029、AGT-030、AGT-031、AGT-032、AGT-033、AGT-034、AGT-035、AGT-038、AGT-039、AGT-041、AGT-045、AGT-048。
 
-D-078新增本流：以《弱品牌，强品牌：数字时代增长知与行》的品牌增长方法论为领域内核，覆盖品牌洞察、共创定义、品牌理想、传播、内容、渠道购买场、体验、资产评估、量化投资、品效合一与数据资产管理；KPI采用品牌资产与GMV双层口径。品牌资产指标按长周期归因，不以单次GMV或点击替代。手册：PB-009，见[Playbook](../06-playbooks/PLAYBOOKS.md)；领域方法论见[品牌增长方法论文档](../06-playbooks/BRAND-GROWTH-METHODOLOGY.md)。与FLOW-01的边界：本流拥有品牌资产结果闭环，FLOW-01继续拥有GMV战术闭环；同一渠道动作若同时改变两类结果，按主结果拆为共享`correlation_id`的关联Case。
+D-078新增本流：以《弱品牌，强品牌：数字时代增长知与行》的品牌增长方法论为领域内核，覆盖品牌洞察、共创定义、品牌理想、传播、内容、渠道购买场、体验、资产评估、量化投资、品效合一与数据资产管理；KPI采用品牌资产与GMV双层口径。品牌资产指标按长周期归因，不以单次GMV或点击替代。手册：PB-009，见[Playbook](../06-playbooks/PLAYBOOKS.md)；领域方法论见[品牌增长方法论文档](../06-playbooks/BRAND-GROWTH-METHODOLOGY.md)；品牌域Skill契约见[skills目录](../06-playbooks/skills/README.md)；双层指标口径见[FLOW-09 KPI指标字典](../08-data/FLOW-09-DUAL-KPI-CATALOG.md)；首个Case试点章程见[FLOW-09试点章程](../12-rollout/FLOW-09-BRAND-PILOT-CHARTER.md)。SCN-002已建立[v1场景规格](SCN-002.md)。与FLOW-01的边界：本流拥有品牌资产结果闭环，FLOW-01继续拥有GMV战术闭环；同一渠道动作若同时改变两类结果，按主结果拆为共享`correlation_id`的关联Case。
 
 初始运行没有H-责任线。业务控制由场景范围、AI结果负责人、独立复核、受控外部执行主体、动作策略与回执共同构成；具体人员和HITL仅在未来明确决定后才加入。

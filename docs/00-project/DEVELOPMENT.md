@@ -86,6 +86,8 @@ D-031确认两层价值流：FLOW-01至FLOW-08继续作为业务经营流，并�
 
 D-078确认新增FLOW-09品牌资产经营价值流：BVS-09「品牌资产经营舱」以AGT-029立言为默认主岗位，绑定SCN-002、009、011、012、013五个候选场景，领域内核为《弱品牌，强品牌：数字时代增长知与行》品牌增长方法论（沉淀于`docs/06-playbooks/BRAND-GROWTH-METHODOLOGY.md`）。本流拥有品牌资产结果闭环，KPI采用品牌资产与GMV双层口径；与FLOW-01的GMV战术闭环按主结果拆分关联Case，不改变D-020~D-029的Case、授权与执行边界，全部生产授权仍为false。
 
+FLOW-09首批可设计资产（均为设计基线，不实例化Case、不连接数据源）：`docs/03-scenarios/SCN-002.md`为首个场景v1规格（按templates/scenario.md九节）；`docs/06-playbooks/skills/`为品牌域Skill契约目录（SKL-BRAND-01覆盖审计、02品效归因、03出海检查、04 VOC细分验证，契约字段按AGT-048治理规范）；`docs/08-data/FLOW-09-DUAL-KPI-CATALOG.md`为双层指标字典（L1当期核算+L2品牌资产，阈值待校准）；`docs/12-rollout/FLOW-09-BRAND-PILOT-CHARTER.md`为首个Case试点章程（覆盖缺口诊断，预期NoActionRecord路径）。`ref/`源书扫描材料已加入`.gitignore`，版权资产永不入库。
+
 D-033至D-035确认首个运行样本为Momcozy美国Shopify主站、可穿戴式吸奶器、3–10个高GMV SKU和滚动30天，由AGT-023担任主人格；试点原始GMV固定为`gross_sales`，折扣、销售冲销、退款、税费、运费、支付状态和结算现金分别保留。Shopify只作为首个渠道事实入口：外部广告花费与回执、ERP/WMS可承诺库存和成本、QMS质量准入保持独立权威来源。`PILOT-G1A`通过不能替代跨系统`PILOT-G1B`。具体Shop GID、SKU白名单、App身份和Scopes在实例化前保持未确认。
 
 D-036选择新建试点专用Shopify Dev Dashboard App。模型只调用受限逻辑读取工具，Client Secret和Access Token不得进入Prompt、Skill、Case Artifact、Site或仓库；模型外Policy Gate先校验Shop/SKU/时间窗/字段/Query Hash，Connector再经Token Broker取短期Token。基础Scope包不默认包含`read_reports`，ShopifyQL及其他条件Scope按真实数据缺口和Protected Customer Data条件逐项增加。该决策当时未固定Organization关系和认证路径，后续由D-037补齐。

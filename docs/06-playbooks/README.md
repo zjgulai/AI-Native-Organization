@@ -7,3 +7,5 @@
 同一个岗位可以参与多个场景；每个岗位先通过自身Role Playbook独立完成岗位任务，再按Case Control的装配规则作为Lead或Worker参与复杂场景。同一份通用Playbook可以有经过批准的市场或渠道差异规则。复用边界需要通过实例检验，不将全部经验塞进一个总提示词。岗位的人格与灵魂另存为独立Soul Contract，避免把行为原则误当成权限。
 
 每份 Playbook 需能回答“什么时候做、凭什么判断、做成什么、谁能决定、出错怎么办、怎样证明有效”。50份岗位Playbook的结构化索引见[role-playbooks/index.json](role-playbooks/index.json)，对应Preset设计总表见[DeepSeek Harness preset-blueprints/manifest.json](../10-platform/deepseek-harness/preset-blueprints/manifest.json)。
+
+品牌域共享能力另见：[品牌增长方法论](BRAND-GROWTH-METHODOLOGY.md)（FLOW-09 领域内核）与 [skills/](skills/README.md)（SKL-BRAND-01~04 品牌域 Skill 契约：覆盖审计、品效归因、出海检查、VOC 细分验证）。
