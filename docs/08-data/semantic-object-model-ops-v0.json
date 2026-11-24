@@ -282,6 +282,6 @@
   }
  ],
  "referenced_layer": ["规则与授权(T-OP-36)", "口径确认卡(T-OP-22)", "品牌资料(T-OP-35)", "共用依据五件套", "店铺与数据连接", "Action Receipt/客户确认流", "七条主线"],
- "deferred_candidates": ["FBA 库存/库容", "GMV Max 投放", "店铺体验分", "达人档案", "短视频脚本", "直播场次", "PurchaseCommitment", "Competitor", "AdDelivery/Campaign", "PolicyAlert 政策与关税变更"],
+ "deferred_candidates": ["平台运营域对象（已交付于 SEMANTIC-OBJECT-MODEL-PF-V0）", "PurchaseCommitment", "Competitor", "AdDelivery/Campaign（平台域已部分承接为 O-PF-11 PromotionRecord）", "PolicyAlert 政策与关税变更"],
  "review": "2026-11-24 用户逐条评审通过，升 v0.1 基线"
 }

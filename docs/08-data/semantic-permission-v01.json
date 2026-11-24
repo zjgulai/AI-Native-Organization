@@ -1,0 +1,67 @@
+{
+ "declaration_id": "SEMANTIC-PERMISSION-V01",
+ "version": "0.1",
+ "status": "DESIGN_ONLY",
+ "generated": "2026-11-24",
+ "source_doc": "SEMANTIC-PERMISSION-V01.md",
+ "extends": "SEMANTIC-PERMISSION-V0.md（v0 24条四元组继续管 FLOW-09 内部试点，本版新增产品层双层授权）",
+ "activation_prerequisite": "产品实例化+客户店铺连接配置+规则集确认；全部授权位默认关闭",
+ "authorization_model": {
+  "layer_a_auto": "读取已连接店铺/平台数据；生成草稿、分析、监控报告、合规预检结果——范围包内默认允许，产物带草稿水印",
+  "layer_b_confirm": "写入店铺、对外动作、资金相关、账号级动作——逐动作客户确认+Action Receipt；高风险子集逐对象审批",
+  "no_standing_authorization": "不存在包月授权/沉默即通过/默认勾选；每次确认绑定动作+对象+参数哈希"
+ },
+ "subjects": [
+  {"id": "S-CU", "name": "客户/店铺所有者", "kind": "customer_authorizer", "definition": "授权来源与 B 层唯一确认人；配置店铺连接、规则集、授权范围"},
+  {"id": "S-SG", "name": "Sage 岗位/工作项", "kind": "model_executor", "definition": "模型执行面——读数据、产草稿、提 Action Intent；不直接执行外部动作"},
+  {"id": "S-PL", "name": "平台系统", "kind": "external_platform", "definition": "Shopify/Amazon/TikTok Shop 等外部系统——B 层动作接收方；不反向写入 Sage 数据面"},
+  {"id": "S-OP/S-MS/S-SI", "name": "（沿用 v0 内部主体）", "kind": "internal_pilot", "definition": "FLOW-09 内部试点主体，见 SEMANTIC-PERMISSION-V0，本版不重复定义", "ref": "SEMANTIC-PERMISSION-V0.md"}
+ ],
+ "objects": [
+  {"id": "SP-01", "name": "已连接店铺数据", "definition": "各已连接店铺的订单/Listing/广告/经营数据/VOC；客户自配凭证", "granularity": "按店铺×数据域"},
+  {"id": "SP-02", "name": "共用依据文档", "definition": "商品资料事实表、品牌资料、口径确认卡、规则与授权", "granularity": "版本化"},
+  {"id": "SP-03", "name": "工作项定义与规则集", "definition": "117 项工作规格、交付方式、验收标准、客户规则集", "granularity": "版本化"},
+  {"id": "SP-04", "name": "草稿产物空间", "definition": "全部 A 层产物（草稿、报告、预检结果、实验方案）", "granularity": "命名空间隔离+草稿水印"},
+  {"id": "SP-05", "name": "店铺写权限", "definition": "各店铺写入能力（上架/改价/改库存/改内容）", "granularity": "按店铺×动作类；默认关闭"},
+  {"id": "SP-06", "name": "外部通讯权限", "definition": "对外触达能力（评价回复/客服答复/寄样/达人建联/邮件）", "granularity": "按动作类×对象范围；默认关闭"}
+ ],
+ "tuples": [
+  {"id": "PV-01", "layer": "A", "subject": "S-SG", "action": "read.store_data", "object": "SP-01", "condition": "仅已连接店铺；按店铺×数据域；快照带采集时间", "validity": "连接有效期内"},
+  {"id": "PV-02", "layer": "A", "subject": "S-SG", "action": "read.analytics_ads", "object": "SP-01", "condition": "广告/经营数据同 PV-01；平台归因仅参考值（T-OP-12）", "validity": "同上"},
+  {"id": "PV-03", "layer": "A", "subject": "S-SG", "action": "read.shared_basis", "object": "SP-02", "condition": "版本化引用；产物须标注依据版本", "validity": "版本有效期内"},
+  {"id": "PV-04", "layer": "A", "subject": "S-SG", "action": "read.work_specs", "object": "SP-03", "condition": "工作项规格与规则集只读", "validity": "版本有效期内"},
+  {"id": "PV-05", "layer": "A", "subject": "S-SG", "action": "read.public_data", "object": "外部公开数据", "condition": "仅经外部数据采集工具范围（来源/频率/字段客户配置）；不转售", "validity": "工具授权期内"},
+  {"id": "PV-06", "layer": "A", "subject": "S-CU", "action": "grant.revoke_scope", "object": "SP-01~06", "condition": "客户独占；授予/撤销即时生效并留痕", "validity": "持续"},
+  {"id": "PV-07", "layer": "A", "subject": "S-SG", "action": "produce.draft", "object": "SP-04", "condition": "全部草稿类产物；强制草稿水印+依据引用", "validity": "产物生命周期"},
+  {"id": "PV-08", "layer": "A", "subject": "S-SG", "action": "produce.compliance_check", "object": "SP-04", "condition": "合规预检输出为建议——不出法律意见、不保证平台不处罚（T-OP-10/T-OP-28）", "validity": "同上"},
+  {"id": "PV-09", "layer": "A", "subject": "S-SG", "action": "produce.monitor_report", "object": "SP-04", "condition": "例行监控/巡检/日报周报类产物", "validity": "同上"},
+  {"id": "PV-10", "layer": "A", "subject": "S-SG", "action": "propose.action_intent", "object": "SP-04→B层", "condition": "只能提议 B 层动作；Intent 不含执行能力", "validity": "单次提议"},
+  {"id": "PV-11", "layer": "B", "subject": "S-SG→S-PL", "action": "write.listing_content", "object": "SP-05", "condition": "客户逐次确认；含上架/改 Listing/A+ 内容；Receipt 必填", "validity": "单次动作"},
+  {"id": "PV-12", "layer": "B", "subject": "S-SG→S-PL", "action": "write.price", "object": "SP-05", "condition": "客户逐次确认；低于成本底线→逐对象审批【数：底线规则待回填】", "validity": "单次动作"},
+  {"id": "PV-13", "layer": "B", "subject": "S-SG→S-PL", "action": "write.inventory", "object": "SP-05", "condition": "客户逐次确认；跨平台分配变更同此", "validity": "单次动作"},
+  {"id": "PV-14", "layer": "B", "subject": "S-SG→S-PL", "action": "write.ads_budget", "object": "SP-05", "condition": "客户逐次确认；预算变动→逐对象审批【数：幅度阈值待回填】", "validity": "单次动作"},
+  {"id": "PV-15", "layer": "B", "subject": "S-SG→S-CU/外部", "action": "send.customer_reply", "object": "SP-06", "condition": "客户逐次确认；评价/客服答复发布", "validity": "单次动作"},
+  {"id": "PV-16", "layer": "B", "subject": "S-SG→外部", "action": "send.sample_influencer", "object": "SP-06", "condition": "客户逐次确认+逐对象审批；寄样=实物+对外承诺（T-PF-15）", "validity": "单次动作"},
+  {"id": "PV-17", "layer": "B", "subject": "S-SG→外部", "action": "send.bulk_outreach", "object": "SP-06", "condition": "客户逐次确认+逐对象审批；批量触达/邮件营销", "validity": "单次动作"},
+  {"id": "PV-18", "layer": "B", "subject": "S-SG→S-PL", "action": "account.open_store", "object": "SP-05", "condition": "客户逐次确认+逐对象审批；开店/品牌备案提交", "validity": "单次动作"},
+  {"id": "PV-19", "layer": "B", "subject": "S-SG→S-PL", "action": "finance.filing", "object": "SP-05", "condition": "客户逐次确认；FBA 赔偿申请/拒付应诉提交/结算争议", "validity": "单次动作"},
+  {"id": "PV-20", "layer": "B", "subject": "S-CU", "action": "confirm.action", "object": "SP-04 Intent", "condition": "客户确认绑定动作+对象+参数哈希；确认≠授权类别", "validity": "单次动作"},
+  {"id": "PV-21", "layer": "deny", "subject": "S-SG", "action": "*（任何 B 层动作直执）", "object": "SP-05/SP-06", "condition": "模型无执行通道；B 层只能经客户确认后由受控执行面落地"},
+  {"id": "PV-22", "layer": "deny", "subject": "S-SG", "action": "autonomous.*（自动定价/自动发评/自动花钱/自动触达）", "object": "全部", "condition": "v0.1 不存在全自动外部动作类别"},
+  {"id": "PV-23", "layer": "deny", "subject": "S-SG", "action": "read.beyond_scope", "object": "SP-01 外", "condition": "未连接店铺/未配置数据域不可读"},
+  {"id": "PV-24", "layer": "deny", "subject": "S-PL", "action": "write.into_sage", "object": "SP-01~06", "condition": "平台系统不反向写入 Sage 数据面；平台数据仅经连接同步进来"}
+ ],
+ "cross_source_rules": [
+  {"id": "PV-25", "rule": "快照时效", "spec": "店铺数据按快照消费；决策产物须标注数据截止时间；超期数据标 stale 不作新决策依据"},
+  {"id": "PV-26", "rule": "范围漂移冻结", "spec": "店铺连接撤权/凭证失效→该店铺 SP-05/SP-06 全部 B 层动作冻结；A 层读取降级为最后快照并标 stale"},
+  {"id": "PV-27", "rule": "确认不沉淀", "spec": "每次 B 层确认绑定单次动作+对象+参数哈希；不存在包月授权/沉默即通过/默认勾选；规则化自动属 v0.2 另案"},
+  {"id": "PV-28", "rule": "Receipt 必填", "spec": "每个 B 层动作产生 Action Receipt（确认人/时间/参数哈希/执行结果）；A 层产物带草稿水印可区分"},
+  {"id": "PV-29", "rule": "规则版本锚定", "spec": "动作执行须引用规则与授权（T-OP-36）版本；规则变更不溯及既往；版本不一致时按新版本重新确认"}
+ ],
+ "benchmark_classification": {
+  "shopify_matrix_51": "读数/监控/草稿类→A层（多数）；写店/对外类→B层（上架/改价/广告提交/邮件触达）",
+  "voc_insight_7": "分析与建议→A层；含对外回复/触达动作→对应B层条目",
+  "criterion": "以动作是否产生外部副作用为唯一判据，不以工作项名称判断"
+ },
+ "review": "2026-11-24 用户逐条评审通过，升 v0.1 基线"
+}

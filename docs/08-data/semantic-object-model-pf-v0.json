@@ -1,0 +1,162 @@
+{
+ "model_id": "SEMANTIC-OBJECT-MODEL-PF-V01",
+ "version": "0.1",
+ "status": "DESIGN_ONLY",
+ "generated": "2026-11-24",
+ "source_doc": "SEMANTIC-OBJECT-MODEL-PF-V0.md",
+ "glossary_ref": "SEMANTIC-GLOSSARY-PF-V0.md",
+ "ops_model_ref": "SEMANTIC-OBJECT-MODEL-OPS-V0.md",
+ "brand_model_ref": "SEMANTIC-OBJECT-MODEL-V0.md",
+ "scope": "产品层规划 v5 平台运营组（Shopify SH1~4 / Amazon AM1~2 / TikTok Shop TT1~5 / 多平台协同 MP1~4，15 细分/26 项平台特有工作）",
+ "objects": [
+  {
+   "id": "O-PF-01",
+   "name": "ProductFeed",
+   "kind": "entity",
+   "definition": "商品数据同步到外部渠道（Google/Meta/AI 购物入口）的分发管道",
+   "key_attrs": ["feed_ref", "目标渠道", "字段映射版本", "同步状态"],
+   "term_refs": ["T-PF-03", "T-PF-04"],
+   "source": "v5 SH3【显】"
+  },
+  {
+   "id": "O-PF-02",
+   "name": "PageExperiment",
+   "kind": "entity",
+   "definition": "Shopify 站点页面 A/B 实验",
+   "key_attrs": ["假设", "变体", "流量分配", "实验窗口", "结论"],
+   "term_refs": ["T-PF-02"],
+   "source": "v5 SH1【显】"
+  },
+  {
+   "id": "O-PF-03",
+   "name": "MarketConfig",
+   "kind": "entity",
+   "definition": "Shopify Markets 分市场技术配置",
+   "key_attrs": ["市场", "语言/币种/域名", "支付/税/运费规则版本"],
+   "term_refs": ["T-PF-05"],
+   "source": "v5 SH2【显】"
+  },
+  {
+   "id": "O-PF-04",
+   "name": "RiskCase",
+   "kind": "entity",
+   "definition": "高风险订单审核+拒付应诉的案件单元",
+   "key_attrs": ["订单", "风险命中规则", "审核结论", "拒付状态", "应诉时限"],
+   "term_refs": ["T-PF-06", "T-PF-07"],
+   "source": "v5 SH4【显】"
+  },
+  {
+   "id": "O-PF-05",
+   "name": "BrandContent",
+   "kind": "entity",
+   "definition": "Amazon A+ 页面/品牌旗舰店/品牌备案材料的品牌内容层",
+   "key_attrs": ["内容类型（A+/Store/备案）", "关联商品/品牌", "审核状态"],
+   "term_refs": ["T-PF-08", "T-PF-09", "T-PF-10"],
+   "source": "v5 AM1【显】"
+  },
+  {
+   "id": "O-PF-06",
+   "name": "FbaRecord",
+   "kind": "entity",
+   "definition": "FBA 入库/库容/赔偿退货核查的记录单元",
+   "key_attrs": ["记录类型（入库/库容/赔偿/退货）", "货件", "期间", "状态"],
+   "term_refs": ["T-PF-11", "T-PF-12"],
+   "source": "v5 AM2【显】"
+  },
+  {
+   "id": "O-PF-07",
+   "name": "CreatorProfile",
+   "kind": "entity",
+   "definition": "TikTok 达人合作方档案——带货能力/历史合作/内容产出",
+   "key_attrs": ["达人 ID", "类目", "历史 GMV/内容数", "合作状态"],
+   "term_refs": ["T-PF-14", "T-PF-16"],
+   "source": "v5 TT2【显】（OPS 域候选对象升级）"
+  },
+  {
+   "id": "O-PF-08",
+   "name": "SampleRecord",
+   "kind": "entity",
+   "definition": "向达人寄样的实物动作记录",
+   "key_attrs": ["样品", "达人", "寄出日期", "内容回收状态", "效果归因"],
+   "term_refs": ["T-PF-15"],
+   "source": "v5 TT2【显】"
+  },
+  {
+   "id": "O-PF-09",
+   "name": "LiveSession",
+   "kind": "entity",
+   "definition": "TikTok 直播场次经营单元",
+   "key_attrs": ["场次时间", "主播/脚本版本", "GMV/转化/新客指标"],
+   "term_refs": ["T-PF-21"],
+   "source": "v5 TT3【显】（OPS 域候选对象升级）"
+  },
+  {
+   "id": "O-PF-10",
+   "name": "ShopHealthRecord",
+   "kind": "entity",
+   "definition": "TikTok 店铺体验分/违规指标的周期快照",
+   "key_attrs": ["期间", "体验分", "违规记录", "处罚状态"],
+   "term_refs": ["T-PF-19"],
+   "source": "v5 TT5【显】"
+  },
+  {
+   "id": "O-PF-11",
+   "name": "PromotionRecord",
+   "kind": "entity",
+   "definition": "GMV Max 投放设置与平台活动报名的记录单元",
+   "key_attrs": ["类型（gmv_max/平台活动）", "目标 ROI", "活动期", "状态"],
+   "term_refs": ["T-PF-17", "T-PF-18"],
+   "source": "v5 TT4【显】（OPS 域候选对象升级）"
+  },
+  {
+   "id": "O-PF-12",
+   "name": "SetupPack",
+   "kind": "artifact",
+   "definition": "开店/建站项目交付物——资料、配置清单、上架方案",
+   "key_attrs": ["平台", "资料清单", "配置项", "验收状态"],
+   "term_refs": ["T-PF-25"],
+   "source": "v5 SH/Amazon/TT 开店工作【显】"
+  },
+  {
+   "id": "O-PF-13",
+   "name": "LivePackage",
+   "kind": "artifact",
+   "definition": "直播场次的策划+脚本+复盘工件",
+   "key_attrs": ["脚本版本", "排期", "复盘结论"],
+   "term_refs": ["T-PF-21"],
+   "source": "v5 TT3【显】"
+  },
+  {
+   "id": "O-PF-14",
+   "name": "DisputePack",
+   "kind": "artifact",
+   "definition": "拒付应诉的证据与材料工件",
+   "key_attrs": ["证据清单", "时限", "提交状态（客户执行）"],
+   "term_refs": ["T-PF-07"],
+   "source": "v5 SH4【显】"
+  }
+ ],
+ "relations": [
+  {"id": "R-PF-01", "subject": "O-PF-01", "predicate": "sourcesFrom", "object": "O-OPS-02", "cardinality": "N:1", "constraint": "feed 字段映射须能回溯事实表版本；渠道适配差异显式标注", "source": "v5 SH3+§07【推】"},
+  {"id": "R-PF-02", "subject": "O-PF-01", "predicate": "distributes", "object": "O-PROD-01", "cardinality": "N:M", "constraint": "一个 feed 可含多商品；跨源映射未验证标 unmapped", "source": "数据契约 §4【推】"},
+  {"id": "R-PF-03", "subject": "O-PF-02", "predicate": "tests", "object": "O-OPS-03", "cardinality": "N:1", "constraint": "实验对象是页面呈现；结论须有对照与窗口", "source": "v5 SH1【显】"},
+  {"id": "R-PF-04", "subject": "O-PF-03", "predicate": "configures", "object": "O-OPS-01×O-CH-02", "cardinality": "复合", "constraint": "Shopify Markets 与业务市场一一对应；配置版本化", "source": "v5 SH2【推】"},
+  {"id": "R-PF-05", "subject": "O-PF-04", "predicate": "reviews", "object": "O-TRANS-01", "cardinality": "N:1", "constraint": "审核发生在发货前；拦截/放行是高风险动作（权限 v0.1 B 层）", "source": "v5 SH4【显】"},
+  {"id": "R-PF-06", "subject": "O-PF-05", "predicate": "features", "object": "O-PROD-01", "cardinality": "N:M", "constraint": "A+/Store 挂商品；备案材料挂品牌范围", "source": "v5 AM1【推】"},
+  {"id": "R-PF-07", "subject": "O-PF-06", "predicate": "for", "object": "O-PROD-01", "cardinality": "N:1", "constraint": "FBA 记录按商品×市场粒度", "source": "v5 AM2【推】"},
+  {"id": "R-PF-08", "subject": "O-PF-06", "predicate": "fulfilledVia", "object": "O-CH-02", "cardinality": "N:1", "constraint": "仅 Amazon 渠道账号；币种随市场", "source": "v5 AM2【推】"},
+  {"id": "R-PF-09", "subject": "O-PF-07", "predicate": "promotes", "object": "O-PROD-01", "cardinality": "N:M", "constraint": "达人带货按商品归因；类目匹配是建联前提", "source": "v5 TT2【推】"},
+  {"id": "R-PF-10", "subject": "O-PF-08", "predicate": "sentTo", "object": "O-PF-07", "cardinality": "N:1", "constraint": "寄样是实物+对外承诺动作，须客户确认（权限 v0.1）", "source": "v5 TT2【显】"},
+  {"id": "R-PF-11", "subject": "O-PF-09", "predicate": "features", "object": "O-PROD-01", "cardinality": "N:M", "constraint": "场次可带多商品；场次 GMV 按商品拆分", "source": "v5 TT3【推】"},
+  {"id": "R-PF-12", "subject": "O-PF-09", "predicate": "hostedOn", "object": "O-CH-02", "cardinality": "N:1", "constraint": "仅 TikTok Shop 渠道账号", "source": "v5 TT3【推】"},
+  {"id": "R-PF-13", "subject": "O-PF-10", "predicate": "for", "object": "O-CH-02", "cardinality": "N:1", "constraint": "周期快照；阈值与申诉规则平台版本化", "source": "v5 TT5【推】"},
+  {"id": "R-PF-14", "subject": "O-PF-11", "predicate": "runsOn", "object": "O-CH-02", "cardinality": "N:1", "constraint": "GMV Max/平台活动均绑定账号；预算变更须客户确认", "source": "v5 TT4【显】"},
+  {"id": "R-PF-15", "subject": "O-PF-12", "predicate": "for", "object": "O-CH-02", "cardinality": "N:1", "constraint": "开店/建站项目交付物；经 SubScenario（O-OPS-05）归属", "source": "v5 SH/AM/TT【推】"},
+  {"id": "R-PF-16", "subject": "O-PF-13", "predicate": "for", "object": "O-PF-09", "cardinality": "1:N", "constraint": "每场次一份策划包；复盘结论回写场次指标", "source": "v5 TT3【推】"},
+  {"id": "R-PF-17", "subject": "O-PF-14", "predicate": "for", "object": "O-PF-04", "cardinality": "1:1", "constraint": "应诉材料一包一案；提交动作客户执行", "source": "v5 SH4【推】"},
+  {"id": "R-PF-18", "subject": "O-PF-07", "predicate": "measuredBy", "object": "O-PF-11", "cardinality": "N:M", "constraint": "达人带货效果与投放记录交叉归因（周报 T-PF-16）", "source": "v5 TT2+TT4【推】"}
+ ],
+ "referenced_layer": ["规则与授权(T-OP-36)", "口径确认卡(T-OP-22)", "商品资料事实表(O-OPS-02)", "Listing/商品卡(O-OPS-03+T-PF-13)", "Action Receipt(权限v0.1)", "七条主线"],
+ "deferred_candidates": ["Amazon 其他站点本地化变体", "Walmart/Temu/SHEIN 平台对象", "广告组/关键词级 AdDelivery", "PolicyAlert 政策与关税变更", "达人合同/佣金记录"],
+ "review": "2026-11-24 用户逐条评审通过，升 v0.1 基线"
+}

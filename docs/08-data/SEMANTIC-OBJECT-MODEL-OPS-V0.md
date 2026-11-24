@@ -119,7 +119,7 @@
 
 ## 6. 候选扩展（v0.1 未建，下迭代按场景就绪度评估）
 
-- **平台运营域对象**：FBA 库存/库容、GMV Max 投放、店铺体验分、达人档案、短视频脚本、直播场次——随平台域迭代（T-PF 或并入 OP）评估；
+- **平台运营域对象**：~~FBA 库存/库容、GMV Max 投放、店铺体验分、达人档案、短视频脚本、直播场次~~——**已交付**：[SEMANTIC-OBJECT-MODEL-PF-V0](SEMANTIC-OBJECT-MODEL-PF-V0.md)（O-PF-01~14，v0.1 基线）；
 - **PurchaseCommitment 采购承诺**：品牌域 deferred 候选，本域 S5 采购成本可承接，暂并入 WorkItem 不单列；
 - **Competitor 竞品条目**：品牌域 deferred 候选，运营域 S2.2/S3.3 高频使用，建议两域共建时统一对象化；
 - **AdDelivery 投放记录 / Campaign**：广告复盘（T-OP-12）的对象化候选，当前以 MetricFact+WorkItem 覆盖；

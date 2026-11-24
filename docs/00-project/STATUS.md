@@ -18,6 +18,7 @@
 - 三书合璧页 `triology.html` 已发布：组织×品牌×语义三层分工、六层结构映射、逐板块贡献、FLOW-09 试点汇合点；两书合璧页保留。
 - **D-079 确立产品层规划 v5 为出海产品线权威规划**：`product.html` 已上线（Sage 数字员工团队+3 单点工具+4 档购买，52 细分场景/117 项工作全目录、两个标杆、七条主线）；产品侧与本项目 20 场景**并行不映射**，语义层按域扩展且**先运营域**；首个产品标杆为执行型（Shopify 矩阵+VOC），与 SCN-002 诊断型只读标杆并存。全部仍为设计状态，无生产授权。
 - **运营域语义扩展已建并通过用户逐条评审，升 v0.1 基线**（D-079 D3=A 首个交付）：`docs/08-data/SEMANTIC-GLOSSARY-OPS-V0.md`（36 条 T-OP-* 术语，覆盖产品规划 v5 S1~S10 经营场景 37 细分/91 项通用工作+MP 协同机制，附 9 组高频消歧对照）+`SEMANTIC-OBJECT-MODEL-OPS-V0.md`+`semantic-object-model-ops-v0.json`（实体9/工件3共12对象+18关系；Listing/ReplenishmentSignal/SettlementRecord 三个品牌域候选对象正式升级；WorkItem/SubScenario 产品交付单元与 Case/SCN 组织协同单元并行不映射）。范围边界：平台运营域（SH/AM/TT/MP 15 细分/26 项平台特有工作）下迭代；权限语义演进（执行型标杆「出草稿自动+对外动作客户确认」双层授权）随产品标杆推进另案。站点 `semantic.html` 已同步登记（新增「运营域扩展」组，交付物 11→14 项）。
+- **平台运营域扩展 + 权限语义 v0.1 已建并通过用户逐条评审，升 v0.1 基线**（D-079 D3=A 后半段 + D4 执行型标杆授权演进）：`SEMANTIC-GLOSSARY-PF-V0.md`（25 条 T-PF-* 术语，覆盖 SH/AM/TT/MP 15 细分/26 项平台特有工作）+`SEMANTIC-OBJECT-MODEL-PF-V0.md`+JSON（实体11/工件3共14对象+18关系；CreatorProfile/LiveSession/PromotionRecord 三个 OPS 候选升级）；`SEMANTIC-PERMISSION-V01.md`+JSON（产品层双层授权：A层自动=读取+出草稿、B层客户确认=写店/对外/资金/账号逐次确认+Receipt、高风险子集逐对象审批、deny 4 条、跨源规则 5 条；v0 内部 24 条继续有效并行不合并）。语义底座三域齐备：品牌域 v0 + 运营域 v0.1 + 平台域 v0.1。站点 `semantic.html` 同步登记（交付物 14→17 项）。
 
 ## 已完成
 
