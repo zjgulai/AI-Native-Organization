@@ -1,0 +1,287 @@
+{
+ "model_id": "SEMANTIC-OBJECT-MODEL-OPS-V01",
+ "version": "0.1",
+ "status": "DESIGN_ONLY",
+ "generated": "2026-11-24",
+ "source_doc": "SEMANTIC-OBJECT-MODEL-OPS-V0.md",
+ "glossary_ref": "SEMANTIC-GLOSSARY-OPS-V0.md",
+ "brand_model_ref": "SEMANTIC-OBJECT-MODEL-V0.md",
+ "scope": "产品层规划 v5 经营场景 S1~S10（37 细分/91 项通用工作）；平台运营域（SH*/AM*/TT*/MP* 15 细分/26 项）下迭代",
+ "objects": [
+  {
+   "id": "O-OPS-01",
+   "name": "Market",
+   "kind": "entity",
+   "definition": "国家/地区级经营单元；分市场动作的聚合坐标",
+   "key_attrs": ["market_id 枚举", "语言/币种/时区", "阶段（测试/放量/品牌）"],
+   "term_refs": ["T-OP-01"],
+   "source": "产品规划 v5 S1【显】"
+  },
+  {
+   "id": "O-OPS-02",
+   "name": "ProductFactSheet",
+   "kind": "entity",
+   "definition": "全局共用依据：商品规格、卖点、能说/不能说的话；版本化",
+   "key_attrs": ["版本", "字段集（规格/卖点/禁用宣称）", "适用市场"],
+   "term_refs": ["T-OP-06"],
+   "source": "v5 §00/§07【显】"
+  },
+  {
+   "id": "O-OPS-03",
+   "name": "Listing",
+   "kind": "entity",
+   "definition": "商品在某平台账号×市场的呈现单元",
+   "key_attrs": ["listing_ref", "关联 Product/账号/市场", "健康状态", "内容版本"],
+   "term_refs": ["T-OP-07", "T-OP-08", "T-OP-09"],
+   "source": "v5 1.3/1.4【显】（品牌域候选对象升级）"
+  },
+  {
+   "id": "O-OPS-04",
+   "name": "ComplianceRequirement",
+   "kind": "entity",
+   "definition": "分市场×品类的准入要求条目",
+   "key_attrs": ["要求类型（认证/关税/禁限/标签）", "适用市场×品类", "有效期", "法规版本"],
+   "term_refs": ["T-OP-04"],
+   "source": "v5 1.1 + S10.2【显】"
+  },
+  {
+   "id": "O-OPS-05",
+   "name": "SubScenario",
+   "kind": "entity",
+   "definition": "52 个工作容器：一个问题/一个使用人/一个可验收结果",
+   "key_attrs": ["编号（S*/SH*/AM*/TT*/MP*）", "所属大类", "交付物定义"],
+   "term_refs": ["T-OP-33"],
+   "source": "v5 §03/§05/§06【显】"
+  },
+  {
+   "id": "O-OPS-06",
+   "name": "WorkItem",
+   "kind": "entity",
+   "definition": "117 项可验收原子工作；三种交付方式",
+   "key_attrs": ["交付方式（一次交办/定时例行/项目阶段）", "验收标准", "交付结果定义", "状态"],
+   "term_refs": ["T-OP-32"],
+   "source": "v5 §03【显】"
+  },
+  {
+   "id": "O-OPS-07",
+   "name": "CustomerTier",
+   "kind": "entity",
+   "definition": "RFM/价值/行为分层；触达/权益/预警基础",
+   "key_attrs": ["分层规则版本", "层级定义", "市场/渠道限定"],
+   "term_refs": ["T-OP-25"],
+   "source": "v5 9.1【显】"
+  },
+  {
+   "id": "O-OPS-08",
+   "name": "ReplenishmentSignal",
+   "kind": "entity",
+   "definition": "销量预测→补货建议→在途跟踪的信号流",
+   "key_attrs": ["产品", "市场", "建议量", "在途状态", "提前期假设"],
+   "term_refs": ["T-OP-19"],
+   "source": "v5 5.1【显】（品牌域候选对象升级）"
+  },
+  {
+   "id": "O-OPS-09",
+   "name": "SettlementRecord",
+   "kind": "entity",
+   "definition": "平台结算/扣款/退款的资金事实",
+   "key_attrs": ["渠道账号", "期间", "结算分量（销售/平台费/仓储/退款/税）", "币种"],
+   "term_refs": ["T-OP-24"],
+   "source": "v5 6.3/6.4【显】（品牌域候选对象升级）"
+  },
+  {
+   "id": "O-OPS-10",
+   "name": "MarketEntryPack",
+   "kind": "artifact",
+   "definition": "S1.1 交付物：进入/观望/不进入+依据+反证",
+   "key_attrs": ["结论三态", "依据链", "反证条件", "可证伪条件"],
+   "term_refs": ["T-OP-02"],
+   "source": "v5 1.1【显】"
+  },
+  {
+   "id": "O-OPS-11",
+   "name": "ImprovementSheet",
+   "kind": "artifact",
+   "definition": "S2.3 交付物：商品该改什么+本品问题 vs 品类共性",
+   "key_attrs": ["改动项", "证据引用", "复盘挂钩（月度复盘验证）"],
+   "term_refs": ["T-OP-18"],
+   "source": "v5 2.3【显】"
+  },
+  {
+   "id": "O-OPS-12",
+   "name": "WorkAcceptance",
+   "kind": "artifact",
+   "definition": "每项工作「交到客户手里」的验收凭证",
+   "key_attrs": ["验收结论（接受/退回）", "验收人", "依据核对结果"],
+   "term_refs": ["T-OP-32"],
+   "source": "v5 §01/§03【显】"
+  }
+ ],
+ "relations": [
+  {
+   "id": "R-OPS-01",
+   "subject": "O-OPS-01",
+   "predicate": "hosts",
+   "object": "O-CH-02",
+   "cardinality": "1:N",
+   "constraint": "一个账号通常服务一个市场；跨市场账号按市场分列实例",
+   "source": "v5 平台运营【推】"
+  },
+  {
+   "id": "R-OPS-02",
+   "subject": "O-OPS-02",
+   "predicate": "describes",
+   "object": "O-PROD-01",
+   "cardinality": "1:1",
+   "constraint": "版本化；一份事实表对应一个商品；变更触发 1.4 同步链",
+   "source": "v5 §07【显】"
+  },
+  {
+   "id": "R-OPS-03",
+   "subject": "O-OPS-03",
+   "predicate": "presents",
+   "object": "O-PROD-01",
+   "cardinality": "N:1",
+   "constraint": "同一 Product 可有多个 Listing（平台×市场笛卡尔）",
+   "source": "v5 1.3【显】"
+  },
+  {
+   "id": "R-OPS-04",
+   "subject": "O-OPS-03",
+   "predicate": "listedOn",
+   "object": "O-CH-02",
+   "cardinality": "N:1",
+   "constraint": "必经账号中介；跨源映射未验证标 unmapped",
+   "source": "数据契约 §4"
+  },
+  {
+   "id": "R-OPS-05",
+   "subject": "O-OPS-03",
+   "predicate": "targetedAt",
+   "object": "O-OPS-01",
+   "cardinality": "N:1",
+   "constraint": "Listing 的本地化维度（T-OP-08）挂在市场上",
+   "source": "v5 1.3【推】"
+  },
+  {
+   "id": "R-OPS-06",
+   "subject": "O-OPS-04",
+   "predicate": "appliesTo",
+   "object": "O-OPS-01×O-PROD-02",
+   "cardinality": "二元矩阵",
+   "constraint": "分市场×品类双键；法规版本化，有效期必填",
+   "source": "v5 1.1+S10.2【显】"
+  },
+  {
+   "id": "R-OPS-07",
+   "subject": "O-OPS-06",
+   "predicate": "belongsTo",
+   "object": "O-OPS-05",
+   "cardinality": "N:1",
+   "constraint": "每个工作项归属唯一细分场景；117 项 ↔ 52 场景",
+   "source": "v5 §03【显】"
+  },
+  {
+   "id": "R-OPS-08",
+   "subject": "O-OPS-05",
+   "predicate": "groupedUnder",
+   "object": "S1~S10 大类 / 平台组",
+   "cardinality": "N:1",
+   "constraint": "经营场景 10 类+平台运营 4 组两层归属",
+   "source": "v5 §03【显】"
+  },
+  {
+   "id": "R-OPS-09",
+   "subject": "O-OPS-06",
+   "predicate": "uses",
+   "object": "O-OPS-02",
+   "cardinality": "N:M",
+   "constraint": "商品资料是全局共用依据；上新/客服/内容/洞察/平台均引用",
+   "source": "v5 §07【显】"
+  },
+  {
+   "id": "R-OPS-10",
+   "subject": "O-OPS-06",
+   "predicate": "governedBy",
+   "object": "T-OP-36 规则与授权",
+   "cardinality": "N:1",
+   "constraint": "读取+出草稿自动；写入店铺/对外动作必须客户确认",
+   "source": "v5 §00【显】"
+  },
+  {
+   "id": "R-OPS-11",
+   "subject": "O-OPS-06",
+   "predicate": "verifiedBy",
+   "object": "O-OPS-12",
+   "cardinality": "1:N",
+   "constraint": "每项工作有验收标准与「交到客户手里的结果」；退回须带原因",
+   "source": "v5 §01【显】"
+  },
+  {
+   "id": "R-OPS-12",
+   "subject": "O-OPS-08",
+   "predicate": "for",
+   "object": "O-PROD-01",
+   "cardinality": "N:1",
+   "constraint": "补货建议按商品×市场粒度",
+   "source": "v5 5.1【推】"
+  },
+  {
+   "id": "R-OPS-13",
+   "subject": "O-OPS-08",
+   "predicate": "in",
+   "object": "O-OPS-01",
+   "cardinality": "N:1",
+   "constraint": "跨平台分配（MP2）时按市场汇总",
+   "source": "v5 MP2【推】"
+  },
+  {
+   "id": "R-OPS-14",
+   "subject": "O-OPS-09",
+   "predicate": "settledVia",
+   "object": "O-CH-02",
+   "cardinality": "N:1",
+   "constraint": "结算挂账号；币种随市场",
+   "source": "v5 6.3【推】"
+  },
+  {
+   "id": "R-OPS-15",
+   "subject": "O-OPS-09",
+   "predicate": "covers",
+   "object": "O-OPS-01",
+   "cardinality": "N:1",
+   "constraint": "结算期间×市场粒度",
+   "source": "同上【推】"
+  },
+  {
+   "id": "R-OPS-16",
+   "subject": "O-OPS-07",
+   "predicate": "segments",
+   "object": "O-CONS-01",
+   "cardinality": "N:M",
+   "constraint": "分析细分与运营分层可交叉但不互替；同一群组双标签",
+   "source": "v5 9.1【推】"
+  },
+  {
+   "id": "R-OPS-17",
+   "subject": "O-OPS-10",
+   "predicate": "evaluates",
+   "object": "O-OPS-01×O-OPS-04×O-OPS-05(1.1)",
+   "cardinality": "复合",
+   "constraint": "结论三态+依据+反证+可证伪条件；输入含成本测算（T-OP-05）",
+   "source": "v5 1.1【显】"
+  },
+  {
+   "id": "R-OPS-18",
+   "subject": "O-OPS-11",
+   "predicate": "addresses",
+   "object": "O-PROD-01",
+   "cardinality": "N:1",
+   "constraint": "每商品一张改良单；本品问题 vs 品类共性须分列",
+   "source": "v5 2.3【显】"
+  }
+ ],
+ "referenced_layer": ["规则与授权(T-OP-36)", "口径确认卡(T-OP-22)", "品牌资料(T-OP-35)", "共用依据五件套", "店铺与数据连接", "Action Receipt/客户确认流", "七条主线"],
+ "deferred_candidates": ["FBA 库存/库容", "GMV Max 投放", "店铺体验分", "达人档案", "短视频脚本", "直播场次", "PurchaseCommitment", "Competitor", "AdDelivery/Campaign", "PolicyAlert 政策与关税变更"],
+ "review": "2026-11-24 用户逐条评审通过，升 v0.1 基线"
+}
