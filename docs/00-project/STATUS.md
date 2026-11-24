@@ -1,6 +1,6 @@
 # 项目状态
 
-更新日期：2026-09-24
+更新日期：2026-11-24
 
 当前阶段：v2.3独立岗位分身与受控组队方案已形成。D-053确认50个岗位各自拥有独立Role Playbook、Preset Blueprint、Skills、产物、评估集和Access边界，可独立处理边界清晰的岗位任务，也可由模型外Case Control编排为Lead/Worker组队。D-050确认目标Shopify是尚无上线产品的空白新店；D-051把当前范围限定为完整方案最终审阅和Shopify店铺治理底座方案，不实例化Case或执行店铺、商品、App、连接、测试订单和业务发布。D-052授权把本项目文档与Site提交至GitHub并公开部署GitHub Pages；该文档发布不改变Shopify、企业系统、裁员、预算或生产自治权限。
 
@@ -13,6 +13,10 @@
 - FLOW-09试点设计资产链完整：章程→核实清单→Case Context Manifest（机器可读装配）→阶段门评审（G0部分通过/G1未就绪/G2阻塞/G3不适用/G4未到）→四源数据契约v1（15数据集+DQ-F09十规则+F09-DC十用例）。全部DESIGN_ONLY；G1剩余缺口为真实导出样例回填、Service Identity/Scope、工具盘点与拒绝验证设计。Native-ai-organ站点pilot-assets页已同步至16项资产。
 - 《本体驱动的AI数据管理》（机械工业出版社2026-05，华为数字化转型编写组）已完成深度分析并经用户批准全量吸收：新增语义底座层方法资产——书评与逐板块映射（14-research/ONTOLOGY-BOOK-ANALYSIS.md）、语义底座战略（08-data/SEMANTIC-LAYER-STRATEGY.md）、「29句话」知识工程模板中文化（08-data/KNOWLEDGE-ELICITATION-29.md）、FLOW-09品牌域本体试点方案（08-data/FLOW-09-ONTOLOGY-PILOT.md，六类概念域+AGT-029/SCN-002试填）、20场景本体就绪度矩阵（03-scenarios/ONTOLOGY-READINESS.md，优先4/可选10/暂不5）。路线图已扩为三本书理论支撑、五层结构改六层并补各阶段语义工作项。全部为设计方法层：Markdown语义契约+术语表+规则模板，未建语义数据库、未引入RDF/OWL；技术选型待试点验证后评估。Native-ai-organ站点实战轨同步呈现（brand-plan六层+pilot-assets语义底座组）。
 - 「29 句话」首轮试填已产出并通过用户逐条评审，两份语义契约升 **v0 基线**：`docs/08-data/SEMANTIC-CONTRACT-AGT-029.md`（立言岗位，类1/3/4/5/6共20条）与`docs/08-data/SEMANTIC-CONTRACT-SCN-002.md`（覆盖缺口诊断场景，类1/2/4/7共18条），逐条标注来源等级（显性文档/推断/阈值pending_data）。SKL-BRAND-01~04契约已回写`ontology_dependencies`字段（schema同步扩展）。**术语表v0已建并通过用户逐条评审**：`docs/08-data/SEMANTIC-GLOSSARY-V0.md`——48条SKOS-lite术语（渠道/品牌资产/交易/商品/消费者/方法六域），消歧Amazon/DTC/内部口径、触达/可分析、Intent/Receipt、GMV口径等高频同名异义，附口径速查表；term_ids已从PENDING_GLOSSARY_V0回填真实条目ID。SCN-002已增「事理规则」小节引用语义契约v0。站点pilot-assets语义底座组8项（资产总数42）。**对象-关系模型与权限语义声明已建并通过用户逐条评审，升 v0 基线**：`SEMANTIC-OBJECT-MODEL-V0.md`+JSON实例（六域20对象/34关系/引用层11项/候选扩展5项）与`SEMANTIC-PERMISSION-V0.md`+JSON实例（三类主体×五源范围包+动作侧边界共24条四元组）；SKL-BRAND契约schema新增`object_refs`字段并回填对象ID；SERVICE-IDENTITY-SCOPE已加语义声明引用指针。FLOW-09本体试点**实质完成（五项中四项v0基线+一项待数据）**：术语表/对象模型/权限声明/Skill依赖四项已建并通过用户逐条评审；事理规则显性化待G1数据回填阈值后与pending_data位一并产出（契约类4控制规则已兜底）。
+- 语义底座 v0 全套已发布到 Native-ai-organ 站点 `semantic.html`（11 项交付物分组、口径速查、待数据激活清单 §6.5），试点方案补「待数据激活清单」归集 pending_data 全景。
+- 《本体驱动的AI数据管理》由「方法源」升级为**笔记轨成员**：`book3/` 全书地图（10 章框架+6 篇精选精读：ch3/5/6/7/8/9，含实践映射），首页三本书口径（3 本书/60 章框架/三本书笔记轨）。
+- 三书合璧页 `triology.html` 已发布：组织×品牌×语义三层分工、六层结构映射、逐板块贡献、FLOW-09 试点汇合点；两书合璧页保留。
+- **D-079 确立产品层规划 v5 为出海产品线权威规划**：`product.html` 已上线（Sage 数字员工团队+3 单点工具+4 档购买，52 细分场景/117 项工作全目录、两个标杆、七条主线）；产品侧与本项目 20 场景**并行不映射**，语义层按域扩展且**先运营域**；首个产品标杆为执行型（Shopify 矩阵+VOC），与 SCN-002 诊断型只读标杆并存。全部仍为设计状态，无生产授权。
 
 ## 已完成
 
