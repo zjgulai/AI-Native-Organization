@@ -50,7 +50,7 @@
 | --- | --- | --- |
 | STG-01 | 接收品牌节奏/信号触发（例行规划或异常信号） | `Signal Envelope` |
 | STG-02 | 固定 FLOW-09、SCN-002、AGT-029、市场/品类/渠道范围 | `Case Charter`、去重键与 Acceptance |
-| STG-03 | 固定 AGT-029 Bundle；装载 SKL-BRAND-01/04 与只读工具 | `Context Manifest`；缺 Bundle 则 Waiting |
+| STG-03 | 固定 AGT-029 Bundle；装载 SKL-BRAND-01/04 与只读工具 | `Context Manifest`（[装配清单 JSON](FLOW-09-PILOT-CASE-CONTEXT-MANIFEST.json)）；缺 Bundle 则 Waiting |
 | STG-04 | AGT-006/007 供证，AGT-029 形成诊断 | `Evidence Pack`、`Diagnosis Record` |
 | STG-05 | 覆盖审计报告 + 细分假设包 + 机会判断 | `Decision Package`（三 Skill 产物 schema 齐备） |
 | STG-06 | 确定性校验 + AGT-005 复核（重点：书中数据误用、可触达误判、推断越界） | `Assurance Decision` |
@@ -81,6 +81,7 @@
 
 - 缺口不阻塞诊断 Case 启动；取数细节在产物中记为 `data_gap` 并影响证据等级。
 - 逐项核实记录见 [FLOW-09 试点数据可得性核实清单](FLOW-09-PILOT-DATA-READINESS-CHECKLIST.md)：公开基线（渠道/社媒/品类/竞品候选）、G1~G4 访谈表、N1~N4 发现、降级规则与 F-041~F-049 企业回答回填。
+- Case 装配设计基线见 [FLOW-09-PILOT-CASE-CONTEXT-MANIFEST.json](FLOW-09-PILOT-CASE-CONTEXT-MANIFEST.json)：角色装配（1+12+7+30）、Skill 挂载、八阶段产物、四渠道数据源状态、双层 KPI 口径与全部授权位（均为 false）。
 
 ## 8. 验收与停止条件
 

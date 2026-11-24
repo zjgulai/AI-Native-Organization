@@ -1,0 +1,270 @@
+{
+  "schema_version": "case_context_manifest_v1",
+  "manifest_id": "CASE-FLOW09-SCN002-PILOT-001",
+  "version": 1,
+  "status": "DESIGN_BASELINE_NOT_INSTANTIATED",
+  "sealed": false,
+  "content_hash": null,
+  "generated_at": "2026-11-24",
+  "charter_ref": "FLOW-09-BRAND-PILOT-CHARTER.md",
+  "decision_refs": [
+    "D-020",
+    "D-021",
+    "D-022",
+    "D-023",
+    "D-024",
+    "D-025",
+    "D-026",
+    "D-050",
+    "D-051",
+    "D-052",
+    "D-053",
+    "D-078"
+  ],
+  "fact_refs": [
+    "F-004",
+    "F-021",
+    "F-039",
+    "F-041",
+    "F-042",
+    "F-043",
+    "F-044",
+    "F-045",
+    "F-046",
+    "F-047",
+    "F-048",
+    "F-049"
+  ],
+  "case": {
+    "case_id": null,
+    "case_id_assigned_at": "instantiation",
+    "title": "Momcozy 美国站可穿戴式吸奶品类·Amazon 与独立站覆盖缺口诊断",
+    "primary_flow": "FLOW-09",
+    "primary_scenario": "SCN-002",
+    "correlation_id": null,
+    "case_dedupe_key": null,
+    "expected_action_path": "NoActionRecord",
+    "lifecycle_state": "DESIGN_ONLY"
+  },
+  "business_scope": {
+    "brand": "Momcozy",
+    "market": "United States",
+    "product_category": "wearable_breast_pump",
+    "category_boundary": {
+      "rule": "只做吸奶器主品类；配件与哺乳内衣等关联品类单独标注为 associated_sales，不混入品类指标",
+      "confirmed_by": "F-044",
+      "confirmed_at": "2026-11-24"
+    },
+    "associated_sales_scope": [
+      "pump_replacement_parts",
+      "nursing_bras",
+      "other_maternal_baby_categories"
+    ],
+    "time_window": {
+      "signal_days": 90,
+      "brand_baseline_snapshot": "brand_asset_baseline_v1",
+      "data_cutoff": null
+    },
+    "channels_in_scope": [
+      "amazon_us",
+      "dtc_shopify_momcozy_com",
+      "social_media",
+      "dme_insurance"
+    ],
+    "channels_out_of_scope_initially": [
+      "target_retail",
+      "walmart_retail"
+    ],
+    "scope_note": "Target/Walmart 线下零售渠道纳入渠道清单但首期不取数，覆盖矩阵对应格标 unknown；后续 Case 可扩展"
+  },
+  "role_assembly": {
+    "runtime_persona": {
+      "role_id": "AGT-029",
+      "alias": "立言",
+      "title": "品牌战略与传播",
+      "release_bundle_ref": null,
+      "bundle_hash": null,
+      "release_state": null,
+      "waiting_condition": "Bundle 版本与 Hash 未固定 → STG-03 阻塞于 Waiting"
+    },
+    "worker_contributors": [
+      { "role_id": "AGT-006", "contribution": "消费者需求与 VOC 证据供给", "mode": "Worker ArtifactEnvelope" },
+      { "role_id": "AGT-007", "contribution": "市场竞争与机会研究、竞品清单版本化", "mode": "Worker ArtifactEnvelope" },
+      { "role_id": "AGT-021", "contribution": "Amazon 侧渠道证据（按需）", "mode": "Worker ArtifactEnvelope" },
+      { "role_id": "AGT-022", "contribution": "Amazon 侧渠道证据（按需）", "mode": "Worker ArtifactEnvelope" },
+      { "role_id": "AGT-023", "contribution": "独立站侧渠道证据（按需）", "mode": "Worker ArtifactEnvelope" },
+      { "role_id": "AGT-028", "contribution": "社媒侧渠道证据（按需）", "mode": "Worker ArtifactEnvelope" },
+      { "role_id": "AGT-033", "contribution": "社媒侧渠道证据（按需）", "mode": "Worker ArtifactEnvelope" }
+    ],
+    "skill_contributors": [
+      "AGT-003", "AGT-006", "AGT-007", "AGT-021", "AGT-022", "AGT-023",
+      "AGT-028", "AGT-033", "AGT-035", "AGT-041", "AGT-045", "AGT-048"
+    ],
+    "skill_contributor_note": "AGT-048 仅治理候选（Skill 维护责任），不装配为执行者",
+    "independent_assurance": [
+      { "role_id": "AGT-005", "scope": "证据链完整性、推断越界、结论超证据范围复核" },
+      { "role_id": "AGT-044", "scope": "PII 最小化检查" },
+      { "role_id": "AGT-046", "scope": "数据质量状态" },
+      { "role_id": "AGT-047", "scope": "能力与独立保障（按 charter §6）" },
+      { "role_id": "AGT-049", "scope": "版本与时效可靠性" },
+      { "role_id": "AGT-050", "scope": "数据边界与密封检查" },
+      { "role_id": "AGT-002", "scope": "编排制度（不做业务判断）" }
+    ],
+    "not_assembled_count": 30,
+    "allocation_check": "1 runtime + 12 skill contributors + 7 assurance + 30 not assembled = 50",
+    "mece_source": "FLOW-09-BRAND-PILOT-CHARTER.md §6"
+  },
+  "skills_mounted": [
+    {
+      "skill_id": "SKL-BRAND-01",
+      "name": "品牌覆盖审计",
+      "contract_md_ref": "../06-playbooks/skills/SKL-BRAND-01.md",
+      "contract_json_ref": "../06-playbooks/skills/contracts/SKL-BRAND-01.contract.json",
+      "output_artifact": "coverage_audit_report",
+      "stage": "P2",
+      "status": "DESIGN_BASELINE"
+    },
+    {
+      "skill_id": "SKL-BRAND-04",
+      "name": "VOC 细分假设验证",
+      "contract_md_ref": "../06-playbooks/skills/SKL-BRAND-04.md",
+      "contract_json_ref": "../06-playbooks/skills/contracts/SKL-BRAND-04.contract.json",
+      "output_artifact": "segmentation_hypothesis_pack",
+      "stage": "P3",
+      "status": "DESIGN_BASELINE"
+    }
+  ],
+  "skills_not_mounted_this_case": [
+    { "skill_id": "SKL-BRAND-02", "reason": "品效归因实验设计——本 Case 为诊断型，不设计归因实验；移交下游 SCN-011/013" },
+    { "skill_id": "SKL-BRAND-03", "reason": "出海市场进入检查——Momcozy 已在美国市场运营，非进入决策场景" }
+  ],
+  "eight_stage_protocol": [
+    { "stage": "STG-01", "activity": "接收品牌节奏/信号触发", "artifact": "Signal Envelope", "owner": "AGT-029" },
+    { "stage": "STG-02", "activity": "固定 FLOW-09/SCN-002/AGT-029/市场品类渠道范围", "artifact": "Case Charter + case_dedupe_key", "owner": "Case Control (AGT-002 制度)" },
+    { "stage": "STG-03", "activity": "固定 AGT-029 Release Bundle；装载 SKL-BRAND-01/04 与只读工具", "artifact": "Context Manifest（本文件）", "owner": "Case Control", "blocking_condition": "Bundle 未固定 → Waiting" },
+    { "stage": "STG-04", "activity": "AGT-006/007 供证，AGT-029 形成诊断", "artifact": "Evidence Pack + Diagnosis Record", "owner": "AGT-029 (Lead) / AGT-006+007 (Workers)" },
+    { "stage": "STG-05", "activity": "覆盖审计报告+细分假设包+机会判断", "artifact": "Decision Package（三 Skill 产物 schema 齐备）", "owner": "AGT-029" },
+    { "stage": "STG-06", "activity": "确定性硬校验 + AGT-005 语义复核", "artifact": "Assurance Decision", "owner": "AGT-005 + 确定性校验器" },
+    { "stage": "STG-07", "activity": "预期 NoActionRecord；下游建议仅以 Action Intent 移交", "artifact": "NoActionRecord 或 Intent+Policy Decision", "owner": "Policy Gate（模型外）" },
+    { "stage": "STG-08", "activity": "核对产物完整性与成本；假设清单进入跟踪", "artifact": "Case Closure + 学习提取触发", "owner": "AGT-029 + Case Control" }
+  ],
+  "data_sources": {
+    "dtc_shopify": {
+      "channel": "momcozy.com (Shopify 原生 customer 体系)",
+      "status": "CONFIRMED",
+      "basis": "F-041, F-045",
+      "analyzable": true,
+      "reachable": true,
+      "reachable_via": "Shopify customer emails",
+      "acquisition": "Shopify Admin 导出/报表（对接 BVS-01 数据契约）",
+      "open_items": ["customer 名单规模", "营销同意率", "报表字段与时间窗确认"]
+    },
+    "amazon_us": {
+      "channel": "Amazon US storefront",
+      "status": "CONFIRMED_QUALIFICATION",
+      "basis": "F-042, F-047",
+      "analyzable": true,
+      "reachable": false,
+      "reachable_note": "Amazon 买家身份原则上不可触达（预设不变）；品牌旗舰店关注/帖子能力待后台核实",
+      "acquisition": "Business Reports + Brand Analytics 手工导出（无 SP-API 只读入口，F-021/N4）",
+      "qualification": "Brand Registry + Business Reports + Brand Analytics 三层齐备",
+      "open_items": ["卖家账号数量", "报表导出字段/频率/历史深度", "FBA vs FBM 结构"]
+    },
+    "social_media": {
+      "channel": "Instagram / TikTok / YouTube / Facebook / LinkedIn",
+      "status": "CONFIRMED",
+      "basis": "F-048",
+      "analyzable": true,
+      "reachable": true,
+      "reachable_note": "运营允许主动触达（私信/评论回复）；平台 API 限制与内容合规边界需在 Access Contract 声明",
+      "open_items": ["各平台 API 接入状态", "触达合规边界书面确认"]
+    },
+    "dme_insurance": {
+      "channel": "Aeroflow / Edgepark 等 DME 医保渠道",
+      "status": "CONFIRMED",
+      "basis": "F-049",
+      "analyzable": "partial",
+      "reachable": true,
+      "reachable_via": "产品线持有数据、买家邮箱可获取",
+      "data_owner": "product_line",
+      "open_items": ["名单获取方式（系统/API/人工导出）", "名单规模", "同意状态", "保险核销数据权属细节"]
+    },
+    "competitor_monitoring": {
+      "status": "CONFIRMED",
+      "basis": "F-046",
+      "competitor_set": [
+        "Willow", "Elvie", "Spectra", "Medela", "Lansinoh", "Eufy", "white_label_aggregates"
+      ],
+      "competitor_set_version": "v1_enterprise_confirmed",
+      "monitoring_tools": ["Keepa", "卖家精灵", "Jungle Scout", "数字酋长"],
+      "open_items": ["各工具字段覆盖与更新频率盘点", "Eufy 具体产品型号清单", "竞品清单版本化维护责任（建议 AGT-007）"]
+    },
+    "retail_offline": {
+      "channel": "Target / Walmart",
+      "status": "IN_SCOPE_BUT_NO_DATA_INITIAL",
+      "analyzable": "unknown",
+      "reachable": "unknown",
+      "note": "首期覆盖矩阵对应格标 unknown，不取数"
+    }
+  },
+  "kpi_framework": {
+    "catalog_ref": "../08-data/FLOW-09-DUAL-KPI-CATALOG.md",
+    "catalog_version": "v1",
+    "l1_current_period": {
+      "status": "MEASURABLE",
+      "metrics": ["GMV", "orders", "ROAS", "guardrails"],
+      "note": "本诊断 Case 不直接背负 L1，但覆盖缺口结论影响下游 L1 优化 Case"
+    },
+    "l2_brand_asset": {
+      "status": "PROXY_ONLY_LOW_CONFIDENCE",
+      "basis": "F-043",
+      "proxy_metrics": ["品牌词搜索指数", "直接访问", "社媒声量", "SOV 代理"],
+      "confidence": "low",
+      "prohibited": "不得使用书中 BrandZ 倍数作为考核基准；不得声称测量了真实认知/考虑度"
+    }
+  },
+  "evidence_grading": {
+    "levels": ["measured_data", "book_reported_data", "hypothesis_pending_validation"],
+    "rules": [
+      "每条结论标注三级来源之一",
+      "书中数据只作框架参照，不得作 Momcozy 实测值",
+      "缺口记 data_gap 并影响证据等级，不得默认「应该有」",
+      "推断与事实分离；量化结论超证据范围时冻结而非取平均"
+    ]
+  },
+  "authorization": {
+    "case_instantiation_authorized": false,
+    "data_source_connection_authorized": false,
+    "api_call_authorized": false,
+    "shopify_read_authorized": false,
+    "amazon_export_access_authorized": false,
+    "social_dm_authorized": false,
+    "dme_data_access_authorized": false,
+    "content_publish_authorized": false,
+    "budget_change_authorized": false,
+    "listing_or_product_change_authorized": false,
+    "customer_contact_authorized": false,
+    "production_write_authorized": false,
+    "credentials_allowed_in_repository": false,
+    "customer_pii_allowed": false
+  },
+  "runtime": {
+    "case_agent_deployed": false,
+    "skills_runtime_bound": false,
+    "policy_gate_active": false,
+    "execution_broker_active": false,
+    "grants_authorization": false
+  },
+  "open_items": [
+    "AGT-029 Role Release Bundle 版本与 Hash 固定（STG-03 阻塞条件）",
+    "case_dedupe_key 与 Case Charter 正式发布",
+    "Shopify customer 名单规模与营销同意率读数",
+    "Amazon 卖家账号数量与报表导出字段/频率确认",
+    "DME 名单获取方式与规模确认",
+    "社媒各平台 API 接入状态与触达合规边界",
+    "竞品监控工具字段覆盖盘点",
+    "Target/Walmart 渠道数据可得性（后续 Case）",
+    "双层 KPI 代理指标口径由 AGT-045 定义"
+  ],
+  "boundary_note": "本 Manifest 是装配设计基线，不是 Case 实例、不是运行时配置、不是数据访问授权。所有 authorization=false 字段在实例化评审通过前保持不变。"
+}
