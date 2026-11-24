@@ -2,6 +2,8 @@
 
 状态：v1 设计基线；DESIGN_ONLY，无生产授权、无数据接入。本文定义品牌域作为本项目首个语义底座试点的范围、切入点与产出形态。方法依据：[SEMANTIC-LAYER-STRATEGY](SEMANTIC-LAYER-STRATEGY.md)、[KNOWLEDGE-ELICITATION-29](KNOWLEDGE-ELICITATION-29.md)；场景依据：[SCN-002](../03-scenarios/SCN-002.md)。
 
+**试点进度（2026-11-24）**：§3 五项交付物中四项完成并经用户逐条评审升 v0 基线（术语表 48 条 / 对象-关系模型 20 对象+34 关系 / 权限语义声明 24 条四元组 / SKL-BRAND 依赖回填）；事理规则显性化一项待 G1 数据回填阈值后产出（契约类4 控制规则已兜底，类7-26/28 已预留 pending_data 位）。试点实质完成，进入「待数据激活」状态。
+
 ## 1. 试点定位
 
 品牌域是 FLOW-09 价值流的主场，且已完成最完整的设计资产链（价值流定义 + SCN-002 规格 + AGT-029 岗位 + SKL-BRAND Skill 契约 + 双层 KPI + 数据契约）。在此建首个轻量本体，验证「29 句话 → 语义契约 → Skill/场景引用」的全链路，再决定是否推广到其余 49 岗位与 19 场景。
@@ -23,7 +25,7 @@
 
 1. **术语表 v0**：✅ 已建 [SEMANTIC-GLOSSARY-V0](SEMANTIC-GLOSSARY-V0.md)——48 条 SKOS-lite 术语（渠道/品牌资产/交易/商品/消费者/方法六域），优先消歧 Amazon/DTC/内部口径；
 2. **对象-关系模型 v0**：✅ 已建并通过评审 [SEMANTIC-OBJECT-MODEL-V0](SEMANTIC-OBJECT-MODEL-V0.md)+[JSON 实例](semantic-object-model-v0.json)——六域 20 对象（商品2/交易2/渠道3/库存1/品牌资产6/消费者6）+34 关系+引用层 11 项登记，SKL-BRAND `object_refs` 已回填；
-3. **事理规则 v0**：SCN-002 的 5~8 条核心规则按「如果…那么…」显性化（如「若 Amazon 覆盖率 < X 且 DTC 增长 > Y，则判定为覆盖缺口」——阈值待企业数据回填）；
+3. **事理规则 v0**：⏸ 待数据——SCN-002 的 5~8 条核心规则按「如果…那么…」显性化依赖阈值（如「若 Amazon 覆盖率 < X 且 DTC 增长 > Y，则判定为覆盖缺口」）；契约类4 控制规则已兜底，类7-26/28 预留 pending_data 位，G1 数据就绪后与阈值一并产出；
 4. **权限语义声明 v0**：✅ 已建并通过评审 [SEMANTIC-PERMISSION-V0](SEMANTIC-PERMISSION-V0.md)+[JSON 实例](semantic-permission-v0.json)——三类主体×五源范围包+动作侧边界共 24 条四元组（主体/客体/条件/时效），SERVICE-IDENTITY-SCOPE 已加引用指针；
 5. **Skill 依赖声明**：SKL-BRAND-* 契约增加 `ontology_dependencies` 字段（引用术语表条目 ID）。
 
