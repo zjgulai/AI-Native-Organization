@@ -11,6 +11,10 @@
 | SKL-BRAND-03 | 出海市场进入检查 | 判定出海品牌类型并按六条经验生成进入检查清单 | AGT-029、033、023、007 | SCN-002、004、FLOW-04 关联 |
 | SKL-BRAND-04 | VOC 细分假设验证 | 把心智/地域/渠道三维细分转成可证伪假设并设计最小验证 | AGT-006、007、029、035 | SCN-002、011、013 |
 
+## 机器可读契约
+
+每份 SKL-BRAND Markdown 契约均有对应的 `contracts/SKL-BRAND-0X.contract.json` 结构化投影（输入/输出 JSON Schema、工具依赖状态、挂载关系、证据分级），包络规范见 `contracts/skill-contract.schema.json` 与 `contracts/README.md`。Markdown 仍是人读权威；JSON 供未来 Context Manifest 装配与 Stage Artifact 校验消费，全部为 `DESIGN_BASELINE` / `NOT_RUNTIME_BOUND`。
+
 ## 共用规则
 
 - 每份契约的「产物 schema」是 Stage Artifact 的最低字段要求；实际产物仍须通过所属场景的 Acceptance Gate。

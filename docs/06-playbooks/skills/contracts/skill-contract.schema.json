@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/zjgulai/AI-Native-Organization/blob/main/docs/06-playbooks/skills/contracts/skill-contract.schema.json",
+  "title": "Skill Contract（品牌域 v1 机器可读契约）",
+  "description": "AGT-048 治理规范下 Skill Contract 的机器可读表达。Markdown 契约正文是人读权威；本 JSON 是其结构化投影，供未来 Context Manifest 装配与 Stage Artifact 校验使用。设计基线：不构成运行时可导入配置，不携带业务授权。",
+  "type": "object",
+  "required": [
+    "contract_kind", "schema_version", "skill_id", "name", "version", "status",
+    "maintainer_candidate", "body_ref", "input_contract", "output_schema",
+    "tool_dependencies", "quality_gates", "evaluation_cases", "mounting",
+    "boundaries", "evidence_grading"
+  ],
+  "properties": {
+    "contract_kind": { "const": "skill_contract" },
+    "schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+" },
+    "skill_id": { "type": "string", "pattern": "^SKL-[A-Z]+-\\d{2}$" },
+    "name": { "type": "string" },
+    "version": { "type": "string", "description": "语义化版本；design 后缀表示设计基线" },
+    "status": {
+      "enum": ["DESIGN_BASELINE", "CANDIDATE_REVIEW", "PUBLISHED", "QUARANTINED", "RETIRED"],
+      "description": "对齐岗位契约七状态生命周期的 Skill 侧投影；当前全部 DESIGN_BASELINE"
+    },
+    "maintainer_candidate": { "type": "string", "description": "候选维护岗位（AGT-048）；岗位不能发布自己的 Skill" },
+    "body_ref": { "type": "string", "description": "Markdown 契约正文相对路径，人读权威" },
+    "knowledge_sources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "领域方法论文档与书章来源；书中量化结论须标注 OCR/书中报告口径"
+    },
+    "input_contract": {
+      "type": "object",
+      "required": ["required", "optional"],
+      "properties": {
+        "required": { "$ref": "#/$defs/inputFieldList" },
+        "optional": { "$ref": "#/$defs/inputFieldList" }
+      }
+    },
+    "output_schema": {
+      "type": "object",
+      "required": ["artifact_kind", "json_schema"],
+      "description": "Stage Artifact 最低字段的 JSON Schema（draft 2020-12 子集）",
+      "properties": {
+        "artifact_kind": { "type": "string" },
+        "json_schema": { "type": "object" },
+        "stage_artifact_ref": { "type": "string", "description": "产物在八阶段协议中的引用规则，如 REC-CROSS-CASE-ARTIFACT-REF" }
+      }
+    },
+    "tool_dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["tool", "status"],
+        "properties": {
+          "tool": { "type": "string" },
+          "status": { "enum": ["UNVERIFIED", "DESIGN_ONLY", "CONNECTED_READONLY", "CONNECTED_CONTROLLED"] },
+          "required": { "type": "boolean", "default": false },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "quality_gates": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Assurance Gate 确定性/语义校验规则；违反即退回或冻结"
+    },
+    "evaluation_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "focus"],
+        "properties": {
+          "id": { "type": "string" },
+          "status": { "enum": ["PENDING_FIRST_CASE_REPLAY", "DEFINED", "PASSED", "FAILED"] },
+          "focus": { "type": "string" }
+        }
+      }
+    },
+    "mounting": {
+      "type": "object",
+      "required": ["roles", "scenarios"],
+      "properties": {
+        "roles": { "type": "array", "items": { "type": "string", "pattern": "^AGT-\\d{3}$" } },
+        "scenarios": { "type": "array", "items": { "type": "string", "pattern": "^(SCN-\\d{3}|FLOW-\\d{2})$" } }
+      }
+    },
+    "boundaries": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skill 不做什么：不产生资产动作、不越权、不替代口径仲裁等"
+    },
+    "evidence_grading": {
+      "type": "object",
+      "required": ["required_labels", "forbidden"],
+      "properties": {
+        "required_labels": { "type": "array", "items": { "enum": ["实测", "书中报告", "假设"] } },
+        "forbidden": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "memory_policy": {
+      "type": "object",
+      "properties": {
+        "ref": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "runtime_integration": {
+      "type": "string",
+      "description": "运行时集成状态声明；当前统一为 NOT_RUNTIME_BOUND"
+    }
+  },
+  "$defs": {
+    "inputFieldList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "type"],
+        "properties": {
+          "field": { "type": "string" },
+          "type": { "enum": ["string", "number", "integer", "boolean", "array", "object", "artifact_ref"] },
+          "description": { "type": "string" },
+          "source": { "type": "string", "description": "候选数据源，接入状态待核实" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

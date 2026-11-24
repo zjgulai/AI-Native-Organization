@@ -1,0 +1,125 @@
+{
+  "contract_kind": "skill_contract",
+  "schema_version": "1.0.0",
+  "skill_id": "SKL-BRAND-03",
+  "name": "出海市场进入检查",
+  "version": "1.0.0-design",
+  "status": "DESIGN_BASELINE",
+  "maintainer_candidate": "AGT-048",
+  "body_ref": "docs/06-playbooks/skills/SKL-BRAND-03.md",
+  "knowledge_sources": [
+    "docs/06-playbooks/BRAND-GROWTH-METHODOLOGY.md §4 出海",
+    "《弱品牌，强品牌》书2 第 23 章（成熟/成长/新兴三类品牌、六条经验；OCR 辅助精读）"
+  ],
+  "input_contract": {
+    "required": [
+      { "field": "target_market", "type": "string", "description": "国家/地区/平台" },
+      { "field": "category", "type": "string" },
+      { "field": "brand_status_in_market", "type": "object", "description": "该市场认知/销售基础；无则显式空对象+标注" },
+      { "field": "resource_constraints", "type": "object", "description": "预算量级、本地化团队现状、合作伙伴候选" }
+    ],
+    "optional": [
+      { "field": "competitive_scan", "type": "object", "description": "本土巨头与全球巨头名单、品类格局初扫" },
+      { "field": "global_playbook_reference", "type": "array", "description": "其他市场打法与结果（版本化引用）" }
+    ]
+  },
+  "output_schema": {
+    "artifact_kind": "market_entry_check",
+    "stage_artifact_ref": "REC-CROSS-CASE-ARTIFACT-REF",
+    "json_schema": {
+      "type": "object",
+      "required": ["brand_type_judgment", "six_point_checklist", "go_no_go_gates", "evidence_grade", "uncertainties"],
+      "properties": {
+        "brand_type_judgment": {
+          "type": "object",
+          "required": ["type", "basis"],
+          "properties": {
+            "type": { "enum": ["成熟品牌", "成长品牌", "新兴品牌", "undetermined"] },
+            "basis": { "type": "array", "description": "出海时长、本土认知、渠道份额与心智份额匹配度" }
+          }
+        },
+        "six_point_checklist": {
+          "type": "array",
+          "description": "六条经验逐项；每项必须有证据或显式待验证，不允许整体打勾",
+          "items": {
+            "type": "object",
+            "required": ["point", "status"],
+            "properties": {
+              "point": { "enum": ["品牌建设思维", "目标市场消费者洞察", "本土巨头对标", "合作共赢路径", "本地化团队", "敢为人先窗口期"] },
+              "status": { "enum": ["具备", "缺口", "待验证"] },
+              "evidence": { "type": "string" },
+              "named_benchmarks": { "type": "array", "description": "对标必须点名具体品牌与品类" }
+            }
+          }
+        },
+        "entry_mode_candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["mode", "preconditions"],
+            "properties": {
+              "mode": { "enum": ["子品类精准对标", "细分心智突破", "渠道卡位", "other"] }
+            }
+          }
+        },
+        "dual_kpi_setup": {
+          "type": "object",
+          "required": ["channel_layer", "mindshare_layer"],
+          "description": "渠道层（销量/份额）与心智层（认知/声量/偏好）分列口径建议"
+        },
+        "data_asset_plan": { "type": "object", "description": "可分析/可触达数据预期来源与缺口，对接 SKL-BRAND-01" },
+        "go_no_go_gates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["gate", "requirement"],
+            "properties": {
+              "gate": { "enum": ["洞察完成度", "本地化能力", "合规", "预算", "other"] }
+            }
+          }
+        },
+        "evidence_grade": { "type": "object", "required": ["level", "basis"] },
+        "uncertainties": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "tool_dependencies": [
+    { "tool": "市场公开数据", "status": "UNVERIFIED", "required": false },
+    { "tool": "平台类目数据", "status": "UNVERIFIED", "required": false },
+    { "tool": "社媒监听", "status": "UNVERIFIED", "required": false },
+    { "tool": "竞品监控", "status": "UNVERIFIED", "required": false },
+    { "tool": "AGT-045 指标字典", "status": "DESIGN_ONLY", "required": true }
+  ],
+  "quality_gates": [
+    "「渠道已上架」不得表述为「已出海」——心智占有与渠道占有分列结论",
+    "六条经验逐项必须有证据或显式待验证",
+    "对标巨头必须点名具体品牌与品类",
+    "本地化团队缺口必须给出替代路径，不得默认总部外派可行",
+    "窗口期判断必须给出时间依据（竞品格局、平台政策、季节性）"
+  ],
+  "evaluation_cases": [
+    { "id": "EC-SKL03-01", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "类型判定是否被后续实际表现验证" },
+    { "id": "EC-SKL03-02", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "六条清单缺口项是否在进入后真的爆发" },
+    { "id": "EC-SKL03-03", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "双 KPI 是否被实际建账" }
+  ],
+  "mounting": {
+    "roles": ["AGT-029", "AGT-033", "AGT-023", "AGT-007"],
+    "scenarios": ["SCN-002", "SCN-004", "FLOW-04"]
+  },
+  "boundaries": [
+    "不做进入决策本身（决策属 AGT-029/经营层）",
+    "不输出具体投放/选品执行方案",
+    "不替代合规与法务审查",
+    "书中六条经验为方向框架，具体市场结论必须有本地证据",
+    "不产生资产动作"
+  ],
+  "evidence_grading": {
+    "required_labels": ["实测", "书中报告", "假设"],
+    "forbidden": ["渠道上架=已出海", "对标写「国际大牌」不点名", "窗口期只写「趁早」"]
+  },
+  "memory_policy": {
+    "ref": "docs/09-governance（Case/Event Ledger 与知识资产回流，D-027）",
+    "notes": "市场进入判定版本化保留；进入后表现回流修正类型判定框架"
+  },
+  "runtime_integration": "NOT_RUNTIME_BOUND"
+}

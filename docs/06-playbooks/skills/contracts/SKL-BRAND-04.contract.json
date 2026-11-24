@@ -1,0 +1,151 @@
+{
+  "contract_kind": "skill_contract",
+  "schema_version": "1.0.0",
+  "skill_id": "SKL-BRAND-04",
+  "name": "VOC 细分假设验证",
+  "version": "1.0.0-design",
+  "status": "DESIGN_BASELINE",
+  "maintainer_candidate": "AGT-048",
+  "body_ref": "docs/06-playbooks/skills/SKL-BRAND-04.md",
+  "knowledge_sources": [
+    "docs/06-playbooks/BRAND-GROWTH-METHODOLOGY.md §2.5 弱品牌细分突破 / §4 消费者洞察与品牌定义",
+    "《弱品牌，强品牌》书2 第 10/12/13 章（细分三维、消费者画像、共创定义；OCR 辅助精读）"
+  ],
+  "input_contract": {
+    "required": [
+      { "field": "category", "type": "string" },
+      { "field": "brand_asset_baseline", "type": "object", "description": "认知/声量/份额现状；有 SKL-BRAND-01 产物时引用" },
+      { "field": "voc_evidence", "type": "array", "description": "评论原文、客服、社媒、搜索词；带来源与时间窗" },
+      { "field": "target_market", "type": "string", "description": "单一市场先行，不跨市场混算" }
+    ],
+    "optional": [
+      { "field": "competitor_density_scan", "type": "object", "description": "竞品在各细分的密度初扫" },
+      { "field": "validation_budget", "type": "object", "description": "可投入验证预算与周期上限" }
+    ]
+  },
+  "output_schema": {
+    "artifact_kind": "segmentation_hypothesis_pack",
+    "stage_artifact_ref": "REC-CROSS-CASE-ARTIFACT-REF",
+    "json_schema": {
+      "type": "object",
+      "required": ["dimension_candidates", "hypotheses", "falsification_criteria", "priority_ranking", "evidence_grade", "uncertainties"],
+      "properties": {
+        "dimension_candidates": {
+          "type": "array",
+          "description": "心智/地域/渠道三维候选，各附 VOC 证据密度",
+          "items": {
+            "type": "object",
+            "required": ["dimension", "segment", "voc_evidence_density"],
+            "properties": {
+              "dimension": { "enum": ["mindshare", "geography", "channel", "other"] }
+            }
+          }
+        },
+        "hypotheses": {
+          "type": "array",
+          "description": "每个细分一个可证伪假设：「在 [细分] 中，[人群] 因 [未满足需求] 会 [行为]，证据阈值为 [量化条件]」",
+          "items": {
+            "type": "object",
+            "required": ["segment", "statement", "evidence_threshold"],
+            "properties": {
+              "segment": { "type": "string" },
+              "statement": { "type": "string" },
+              "evidence_threshold": { "type": "string", "description": "量化条件；缺则假设不合格" },
+              "three_gate_check": {
+                "type": "object",
+                "description": "人群可识别/需求未被占满/我方有能力服务，三缺一降级",
+                "properties": {
+                  "audience_identifiable": { "type": "boolean" },
+                  "need_uncontested": { "type": "boolean" },
+                  "service_capable": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        },
+        "falsification_criteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["hypothesis_ref", "falsify_when", "observation_window"],
+            "properties": {
+              "hypothesis_ref": { "type": "integer" },
+              "falsify_when": { "type": "string" },
+              "observation_window": { "type": "string" }
+            }
+          }
+        },
+        "min_validation_design": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["method", "sample_or_duration"],
+            "properties": {
+              "method": { "enum": ["内容测试", "小额投放", "Listing 实验", "用户访谈", "other"] }
+            }
+          }
+        },
+        "priority_ranking": {
+          "type": "array",
+          "description": "按 证据强度 × 竞争空白 × 验证成本 排序，附排序依据",
+          "items": {
+            "type": "object",
+            "required": ["rank", "hypothesis_ref", "rationale"]
+          }
+        },
+        "downstream_handoffs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["hypothesis_ref", "scenario"],
+            "properties": {
+              "scenario": { "enum": ["SCN-011", "SCN-012", "SCN-013"] }
+            }
+          }
+        },
+        "evidence_grade": { "type": "object", "required": ["level", "basis"] },
+        "uncertainties": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "tool_dependencies": [
+    { "tool": "VOC 聚合", "status": "UNVERIFIED", "required": false },
+    { "tool": "评论/客服数据", "status": "UNVERIFIED", "required": false },
+    { "tool": "搜索词工具", "status": "UNVERIFIED", "required": false },
+    { "tool": "社媒监听", "status": "UNVERIFIED", "required": false },
+    { "tool": "投放/内容实验平台", "status": "UNVERIFIED", "required": false },
+    { "tool": "AGT-045 指标字典", "status": "DESIGN_ONLY", "required": true }
+  ],
+  "quality_gates": [
+    "每条假设必须可证伪：含明确证据阈值与时限；「感觉这个人群有需求」不合格",
+    "细分定义必须同时满足三条件：人群可识别、需求未被现有强品牌占满、我方有能力服务",
+    "VOC 证据必须区分「高频抱怨」与「高价值未满足」，只用抱怨量排序会系统性偏向低端细分",
+    "渠道细分假设必须注明渠道数据可得性；Amazon 侧不可触达数据不得承诺 CRM 类验证",
+    "书中案例只作框架参照，不得当作 Momcozy 细分结论"
+  ],
+  "evaluation_cases": [
+    { "id": "EC-SKL04-01", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "假设证伪条件是否事前写清" },
+    { "id": "EC-SKL04-02", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "被选细分的验证成本是否超支" },
+    { "id": "EC-SKL04-03", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "「高频抱怨 vs 高价值需求」区分是否在复盘中被确认有效" }
+  ],
+  "mounting": {
+    "roles": ["AGT-006", "AGT-007", "AGT-029", "AGT-035"],
+    "scenarios": ["SCN-002", "SCN-011", "SCN-012", "SCN-013"]
+  },
+  "boundaries": [
+    "不做最终细分决策（属 AGT-029 结合品牌理想的取舍）",
+    "不设计完整营销方案",
+    "验证成本超出授权预算时只输出方案不执行",
+    "不跨市场合并证据下结论",
+    "不产生资产动作"
+  ],
+  "evidence_grading": {
+    "required_labels": ["实测", "书中报告", "假设"],
+    "forbidden": ["不可证伪的假设", "只用抱怨量排序", "Amazon 不可触达数据承诺 CRM 验证", "书中案例当 Momcozy 结论"]
+  },
+  "memory_policy": {
+    "ref": "docs/09-governance（Case/Event Ledger 与知识资产回流，D-027）",
+    "notes": "假设卡与证伪结果版本化保留；被证伪假设回流修正细分框架"
+  },
+  "runtime_integration": "NOT_RUNTIME_BOUND"
+}
