@@ -1,6 +1,6 @@
 # 品牌域语义术语表 v0（SKOS-lite）
 
-状态：**v0 基线**（2026-11-24 随 AGT-029/SCN-002 语义契约一并建立）。DESIGN_ONLY，不构成业务授权。本表是[FLOW-09-ONTOLOGY-PILOT](FLOW-09-ONTOLOGY-PILOT.md) §3-1 的首个交付物：品牌域高频术语 48 条，优先消歧「Amazon 口径 vs DTC 口径 vs 内部口径」的同名异义。
+状态：**v0 基线**（2026-11-24 用户逐条评审通过）。DESIGN_ONLY，不构成业务授权。本表是[FLOW-09-ONTOLOGY-PILOT](FLOW-09-ONTOLOGY-PILOT.md) §3-1 的首个交付物：品牌域高频术语 48 条，优先消歧「Amazon 口径 vs DTC 口径 vs 内部口径」的同名异义。评审记录：48 条全部通过；证据强度分级刻度（T-CN-04）维持【推】待 G1 数据就绪后定档；覆盖缺口聚合维度确认=渠道×品类×人群段。
 
 ## 使用约定
 
