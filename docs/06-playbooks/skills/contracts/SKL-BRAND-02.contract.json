@@ -13,13 +13,33 @@
   ],
   "input_contract": {
     "required": [
-      { "field": "experiment_scope", "type": "object", "description": "渠道、时段、人群、预算量级" },
-      { "field": "available_data", "type": "object", "description": "可回传触点、曝光/点击/转化日志、品牌资产指标现状" },
-      { "field": "time_horizon", "type": "string", "description": "当期 GMV 核算 / 长周期资产归因，二选一或双轨（必填）" }
+      {
+        "field": "experiment_scope",
+        "type": "object",
+        "description": "渠道、时段、人群、预算量级"
+      },
+      {
+        "field": "available_data",
+        "type": "object",
+        "description": "可回传触点、曝光/点击/转化日志、品牌资产指标现状"
+      },
+      {
+        "field": "time_horizon",
+        "type": "string",
+        "description": "当期 GMV 核算 / 长周期资产归因，二选一或双轨（必填）"
+      }
     ],
     "optional": [
-      { "field": "prior_attribution_artifacts", "type": "array", "description": "历史归因产物与已知偏差记录；仅引用已验收 Artifact" },
-      { "field": "gmv_guardrail_threshold", "type": "object", "description": "GMV 护栏口径；引用 AGT-045/PB-009，不自设阈值" }
+      {
+        "field": "prior_attribution_artifacts",
+        "type": "array",
+        "description": "历史归因产物与已知偏差记录；仅引用已验收 Artifact"
+      },
+      {
+        "field": "gmv_guardrail_threshold",
+        "type": "object",
+        "description": "GMV 护栏口径；引用 AGT-045/PB-009，不自设阈值"
+      }
     ]
   },
   "output_schema": {
@@ -27,60 +47,150 @@
     "stage_artifact_ref": "REC-CROSS-CASE-ARTIFACT-REF",
     "json_schema": {
       "type": "object",
-      "required": ["method_choice", "design_spec", "horizon_split", "limitation_statement", "decision_rule", "evidence_grade", "uncertainties"],
+      "required": [
+        "method_choice",
+        "design_spec",
+        "horizon_split",
+        "limitation_statement",
+        "decision_rule",
+        "evidence_grade",
+        "uncertainties"
+      ],
       "properties": {
         "method_choice": {
           "type": "object",
-          "required": ["method", "rationale"],
+          "required": [
+            "method",
+            "rationale"
+          ],
           "properties": {
-            "method": { "enum": ["AB", "MTA", "MMM", "COMBINATION"] },
-            "rationale": { "type": "string", "description": "数据可得性、触点可回传性、时间尺度三维理由" }
+            "method": {
+              "enum": [
+                "AB",
+                "MTA",
+                "MMM",
+                "COMBINATION"
+              ]
+            },
+            "rationale": {
+              "type": "string",
+              "description": "数据可得性、触点可回传性、时间尺度三维理由"
+            }
           }
         },
         "design_spec": {
           "type": "object",
-          "required": ["grouping", "control", "sample_or_window"],
+          "required": [
+            "grouping",
+            "control",
+            "sample_or_window"
+          ],
           "properties": {
-            "grouping": { "type": "string" },
-            "touchpoint_matching": { "type": "string" },
-            "regression_spec": { "type": "string" },
-            "sample_size": { "type": "integer" },
-            "time_window": { "type": "string" },
-            "control_method": { "type": "string" }
+            "grouping": {
+              "type": "string"
+            },
+            "touchpoint_matching": {
+              "type": "string"
+            },
+            "regression_spec": {
+              "type": "string"
+            },
+            "sample_size": {
+              "type": "integer"
+            },
+            "time_window": {
+              "type": "string"
+            },
+            "control_method": {
+              "type": "string"
+            }
           }
         },
         "horizon_split": {
           "type": "object",
-          "required": ["above_water", "below_water"],
+          "required": [
+            "above_water",
+            "below_water"
+          ],
           "description": "海面上（点击/流量/转化，当期）与海面下（认知/考虑度/满意度，长周期）分别核算口径",
           "properties": {
-            "above_water": { "type": "object" },
-            "below_water": { "type": "object" },
-            "observation_window": { "type": "string" }
+            "above_water": {
+              "type": "object"
+            },
+            "below_water": {
+              "type": "object"
+            },
+            "observation_window": {
+              "type": "string"
+            }
           }
         },
         "limitation_statement": {
           "type": "object",
-          "required": ["returnable_bias", "scale_bias", "brand_cycle_erasure", "fraud_attribution", "residual_risks"],
+          "required": [
+            "returnable_bias",
+            "scale_bias",
+            "brand_cycle_erasure",
+            "fraud_attribution",
+            "residual_risks"
+          ],
           "description": "必填；覆盖四大「占便宜」问题自查，每条写明残余风险与缓解；缺失或套话 → Assurance 退回"
         },
-        "guardrail": { "type": "object", "description": "GMV 护栏口径与触发复核条件" },
+        "guardrail": {
+          "type": "object",
+          "description": "GMV 护栏口径与触发复核条件"
+        },
         "decision_rule": {
           "type": "object",
-          "required": ["continue", "adjust", "stop"],
+          "required": [
+            "continue",
+            "adjust",
+            "stop"
+          ],
           "description": "区分统计显著与业务显著"
         },
-        "evidence_grade": { "type": "object", "required": ["level", "basis"] },
-        "uncertainties": { "type": "array", "items": { "type": "string" } }
+        "evidence_grade": {
+          "type": "object",
+          "required": [
+            "level",
+            "basis"
+          ]
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     }
   },
   "tool_dependencies": [
-    { "tool": "广告平台归因报表", "status": "UNVERIFIED", "required": false },
-    { "tool": "品牌调研/品牌指标数据源", "status": "UNVERIFIED", "required": false },
-    { "tool": "实验分流能力", "status": "UNVERIFIED", "required": false },
-    { "tool": "AGT-045 指标字典", "status": "DESIGN_ONLY", "required": true },
-    { "tool": "AGT-035 实验框架", "status": "DESIGN_ONLY", "required": true }
+    {
+      "tool": "广告平台归因报表",
+      "status": "UNVERIFIED",
+      "required": false
+    },
+    {
+      "tool": "品牌调研/品牌指标数据源",
+      "status": "UNVERIFIED",
+      "required": false
+    },
+    {
+      "tool": "实验分流能力",
+      "status": "UNVERIFIED",
+      "required": false
+    },
+    {
+      "tool": "AGT-045 指标字典",
+      "status": "DESIGN_ONLY",
+      "required": true
+    },
+    {
+      "tool": "AGT-035 实验框架",
+      "status": "DESIGN_ONLY",
+      "required": true
+    }
   ],
   "quality_gates": [
     "limitation_statement 缺失或仅写套话 → Assurance 直接退回",
@@ -90,13 +200,35 @@
     "所有量化预测标注假设条件；禁止把归因结果表述为因果证明"
   ],
   "evaluation_cases": [
-    { "id": "EC-SKL02-01", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "局限声明是否被复核采信" },
-    { "id": "EC-SKL02-02", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "长周期指标是否真的被排入观察窗口" },
-    { "id": "EC-SKL02-03", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "被判「无效」的品牌投放是否存在误杀案例" }
+    {
+      "id": "EC-SKL02-01",
+      "status": "PENDING_FIRST_CASE_REPLAY",
+      "focus": "局限声明是否被复核采信"
+    },
+    {
+      "id": "EC-SKL02-02",
+      "status": "PENDING_FIRST_CASE_REPLAY",
+      "focus": "长周期指标是否真的被排入观察窗口"
+    },
+    {
+      "id": "EC-SKL02-03",
+      "status": "PENDING_FIRST_CASE_REPLAY",
+      "focus": "被判「无效」的品牌投放是否存在误杀案例"
+    }
   ],
   "mounting": {
-    "roles": ["AGT-035", "AGT-032", "AGT-045", "AGT-029", "AGT-005"],
-    "scenarios": ["SCN-011", "SCN-012", "SCN-013"]
+    "roles": [
+      "AGT-035",
+      "AGT-032",
+      "AGT-045",
+      "AGT-029",
+      "AGT-005"
+    ],
+    "scenarios": [
+      "SCN-011",
+      "SCN-012",
+      "SCN-013"
+    ]
   },
   "boundaries": [
     "不执行投放、不改预算；只产出设计与判定规则",
@@ -105,12 +237,32 @@
     "不产生资产动作"
   ],
   "evidence_grading": {
-    "required_labels": ["实测", "书中报告", "假设"],
-    "forbidden": ["平台自归因单值当因果增量", "品牌/效果广告混算为单一 ROI", "归因结果表述为因果证明"]
+    "required_labels": [
+      "实测",
+      "书中报告",
+      "假设"
+    ],
+    "forbidden": [
+      "平台自归因单值当因果增量",
+      "品牌/效果广告混算为单一 ROI",
+      "归因结果表述为因果证明"
+    ]
   },
   "memory_policy": {
     "ref": "docs/09-governance（Case/Event Ledger 与知识资产回流，D-027）",
     "notes": "归因设计版本化保留；实验结论被证伪时回流修正方法选择偏好"
   },
-  "runtime_integration": "NOT_RUNTIME_BOUND"
+  "runtime_integration": "NOT_RUNTIME_BOUND",
+  "ontology_dependencies": {
+    "version": "sem-v0",
+    "contracts": [
+      "docs/08-data/SEMANTIC-CONTRACT-SCN-002.md#类2"
+    ],
+    "concept_domains": [
+      "品牌资产域",
+      "交易域"
+    ],
+    "term_ids": "PENDING_GLOSSARY_V0",
+    "notes": "L1当期核算与L2品牌资产分层不混算；归因局限声明沿用既有契约；品牌资产指标口径以FLOW-09-DUAL-KPI-CATALOG为准"
+  }
 }

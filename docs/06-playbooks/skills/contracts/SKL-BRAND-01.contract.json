@@ -13,15 +13,43 @@
   ],
   "input_contract": {
     "required": [
-      { "field": "target_market", "type": "string", "description": "目标市场（国家/地区）" },
-      { "field": "category_scope", "type": "string", "description": "品类范围" },
-      { "field": "time_window", "type": "string", "description": "审计时间窗" },
-      { "field": "channel_inventory", "type": "array", "description": "渠道清单；每项须含 channel、analyzable_level、reachable_level（无/部分/完整）" }
+      {
+        "field": "target_market",
+        "type": "string",
+        "description": "目标市场（国家/地区）"
+      },
+      {
+        "field": "category_scope",
+        "type": "string",
+        "description": "品类范围"
+      },
+      {
+        "field": "time_window",
+        "type": "string",
+        "description": "审计时间窗"
+      },
+      {
+        "field": "channel_inventory",
+        "type": "array",
+        "description": "渠道清单；每项须含 channel、analyzable_level、reachable_level（无/部分/完整）"
+      }
     ],
     "optional": [
-      { "field": "penetration_baseline", "type": "object", "description": "品类渗透率/品牌渗透率现有口径；缺则记缺口不估算" },
-      { "field": "media_distribution_records", "type": "array", "description": "媒体投放与内容分发记录（版本化引用）" },
-      { "field": "prior_audit_artifacts", "type": "array", "description": "历史覆盖审计产物；仅引用已验收 Stage Artifact（REC-CROSS-CASE-ARTIFACT-REF）" }
+      {
+        "field": "penetration_baseline",
+        "type": "object",
+        "description": "品类渗透率/品牌渗透率现有口径；缺则记缺口不估算"
+      },
+      {
+        "field": "media_distribution_records",
+        "type": "array",
+        "description": "媒体投放与内容分发记录（版本化引用）"
+      },
+      {
+        "field": "prior_audit_artifacts",
+        "type": "array",
+        "description": "历史覆盖审计产物；仅引用已验收 Stage Artifact（REC-CROSS-CASE-ARTIFACT-REF）"
+      }
     ]
   },
   "output_schema": {
@@ -29,18 +57,47 @@
     "stage_artifact_ref": "REC-CROSS-CASE-ARTIFACT-REF",
     "json_schema": {
       "type": "object",
-      "required": ["scope", "three_dim_grid", "data_asset_cards", "gap_findings", "evidence_grade", "uncertainties"],
+      "required": [
+        "scope",
+        "three_dim_grid",
+        "data_asset_cards",
+        "gap_findings",
+        "evidence_grade",
+        "uncertainties"
+      ],
       "properties": {
-        "scope": { "type": "object", "required": ["market", "category", "time_window", "channels"] },
+        "scope": {
+          "type": "object",
+          "required": [
+            "market",
+            "category",
+            "time_window",
+            "channels"
+          ]
+        },
         "three_dim_grid": {
           "type": "array",
           "description": "场景×媒体×渠道覆盖矩阵；每格标注 coverage/missing/unknown + evidence_ref",
           "items": {
             "type": "object",
-            "required": ["scene", "media", "channel", "status", "evidence_ref"],
+            "required": [
+              "scene",
+              "media",
+              "channel",
+              "status",
+              "evidence_ref"
+            ],
             "properties": {
-              "status": { "enum": ["covered", "missing", "unknown"] },
-              "evidence_ref": { "type": "string" }
+              "status": {
+                "enum": [
+                  "covered",
+                  "missing",
+                  "unknown"
+                ]
+              },
+              "evidence_ref": {
+                "type": "string"
+              }
             }
           }
         },
@@ -48,24 +105,55 @@
           "type": "object",
           "description": "仅当输入口径一致时计算；否则标注 computable=false 并分列原始值",
           "properties": {
-            "category_penetration": { "type": "number" },
-            "brand_penetration": { "type": "number" },
-            "relative_share": { "type": "number" },
-            "computable": { "type": "boolean" }
+            "category_penetration": {
+              "type": "number"
+            },
+            "brand_penetration": {
+              "type": "number"
+            },
+            "relative_share": {
+              "type": "number"
+            },
+            "computable": {
+              "type": "boolean"
+            }
           }
         },
-        "sov_snapshot": { "type": "object", "description": "各媒体/渠道声量份额现状 + 口径局限" },
+        "sov_snapshot": {
+          "type": "object",
+          "description": "各媒体/渠道声量份额现状 + 口径局限"
+        },
         "data_asset_cards": {
           "type": "array",
           "description": "每渠道一张卡",
           "items": {
             "type": "object",
-            "required": ["channel", "analyzable_level", "reachable_level"],
+            "required": [
+              "channel",
+              "analyzable_level",
+              "reachable_level"
+            ],
             "properties": {
-              "analyzable_level": { "enum": ["none", "partial", "full"] },
-              "reachable_level": { "enum": ["none", "partial", "full"] },
-              "proxy_signals": { "type": "array" },
-              "known_biases": { "type": "array" }
+              "analyzable_level": {
+                "enum": [
+                  "none",
+                  "partial",
+                  "full"
+                ]
+              },
+              "reachable_level": {
+                "enum": [
+                  "none",
+                  "partial",
+                  "full"
+                ]
+              },
+              "proxy_signals": {
+                "type": "array"
+              },
+              "known_biases": {
+                "type": "array"
+              }
             }
           }
         },
@@ -73,23 +161,67 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["gap", "evidence", "impact", "suggested_scenario"],
+            "required": [
+              "gap",
+              "evidence",
+              "impact",
+              "suggested_scenario"
+            ],
             "properties": {
-              "suggested_scenario": { "enum": ["SCN-009", "SCN-011", "SCN-012", "SCN-013", "none"] }
+              "suggested_scenario": {
+                "enum": [
+                  "SCN-009",
+                  "SCN-011",
+                  "SCN-012",
+                  "SCN-013",
+                  "none"
+                ]
+              }
             }
           }
         },
-        "evidence_grade": { "type": "object", "required": ["level", "basis"] },
-        "uncertainties": { "type": "array", "items": { "type": "string" } }
+        "evidence_grade": {
+          "type": "object",
+          "required": [
+            "level",
+            "basis"
+          ]
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     }
   },
   "tool_dependencies": [
-    { "tool": "渠道经营报表导出", "status": "UNVERIFIED", "required": false },
-    { "tool": "广告平台报表", "status": "UNVERIFIED", "required": false },
-    { "tool": "社媒监听数据", "status": "UNVERIFIED", "required": false },
-    { "tool": "独立站分析", "status": "UNVERIFIED", "required": false },
-    { "tool": "AGT-045 指标字典", "status": "DESIGN_ONLY", "required": true }
+    {
+      "tool": "渠道经营报表导出",
+      "status": "UNVERIFIED",
+      "required": false
+    },
+    {
+      "tool": "广告平台报表",
+      "status": "UNVERIFIED",
+      "required": false
+    },
+    {
+      "tool": "社媒监听数据",
+      "status": "UNVERIFIED",
+      "required": false
+    },
+    {
+      "tool": "独立站分析",
+      "status": "UNVERIFIED",
+      "required": false
+    },
+    {
+      "tool": "AGT-045 指标字典",
+      "status": "DESIGN_ONLY",
+      "required": true
+    }
   ],
   "quality_gates": [
     "矩阵每格必须有证据引用或显式 unknown；禁止无证据填 covered",
@@ -98,13 +230,34 @@
     "每条 gap_finding 必须可映射到具体下游场景"
   ],
   "evaluation_cases": [
-    { "id": "EC-SKL01-01", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "矩阵空白格是否被如实标注" },
-    { "id": "EC-SKL01-02", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "可触达判定是否被 Amazon 数据现实纠正" },
-    { "id": "EC-SKL01-03", "status": "PENDING_FIRST_CASE_REPLAY", "focus": "缺口结论是否被下游 Case 实际采用" }
+    {
+      "id": "EC-SKL01-01",
+      "status": "PENDING_FIRST_CASE_REPLAY",
+      "focus": "矩阵空白格是否被如实标注"
+    },
+    {
+      "id": "EC-SKL01-02",
+      "status": "PENDING_FIRST_CASE_REPLAY",
+      "focus": "可触达判定是否被 Amazon 数据现实纠正"
+    },
+    {
+      "id": "EC-SKL01-03",
+      "status": "PENDING_FIRST_CASE_REPLAY",
+      "focus": "缺口结论是否被下游 Case 实际采用"
+    }
   ],
   "mounting": {
-    "roles": ["AGT-029", "AGT-045", "AGT-006", "AGT-007"],
-    "scenarios": ["SCN-002", "SCN-009", "SCN-013"]
+    "roles": [
+      "AGT-029",
+      "AGT-045",
+      "AGT-006",
+      "AGT-007"
+    ],
+    "scenarios": [
+      "SCN-002",
+      "SCN-009",
+      "SCN-013"
+    ]
   },
   "boundaries": [
     "只读分析；不输出投放/内容/商品动作建议的执行细节（只给验证方向）",
@@ -113,12 +266,35 @@
     "不产生资产动作；外发/投放/上架只输出 Action Intent"
   ],
   "evidence_grading": {
-    "required_labels": ["实测", "书中报告", "假设"],
-    "forbidden": ["把书中量化倍数写成 Momcozy 实测", "无证据填 covered", "可触达/可分析两级混用"]
+    "required_labels": [
+      "实测",
+      "书中报告",
+      "假设"
+    ],
+    "forbidden": [
+      "把书中量化倍数写成 Momcozy 实测",
+      "无证据填 covered",
+      "可触达/可分析两级混用"
+    ]
   },
   "memory_policy": {
     "ref": "docs/09-governance（Case/Event Ledger 与知识资产回流，D-027）",
     "notes": "审计产物版本化保留；缺口结论被下游 Case 证伪时回流修正，不覆盖历史"
   },
-  "runtime_integration": "NOT_RUNTIME_BOUND"
+  "runtime_integration": "NOT_RUNTIME_BOUND",
+  "ontology_dependencies": {
+    "version": "sem-v0",
+    "contracts": [
+      "docs/08-data/SEMANTIC-CONTRACT-SCN-002.md#类2",
+      "docs/08-data/SEMANTIC-CONTRACT-SCN-002.md#类7",
+      "docs/08-data/SEMANTIC-CONTRACT-AGT-029.md#类3"
+    ],
+    "concept_domains": [
+      "渠道域",
+      "品牌资产域",
+      "消费者域"
+    ],
+    "term_ids": "PENDING_GLOSSARY_V0",
+    "notes": "覆盖缺口双口径（Amazon可分析受限不可触达/DTC可分析+可触达）、三级来源标注、渠道×品类×人群段聚合口径"
+  }
 }

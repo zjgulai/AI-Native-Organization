@@ -46,7 +46,7 @@
 - 类4：事理规则——信号触发条件、证据充分性判据、机会判断的可证伪标准；
 - 类7：查询模板——「Amazon vs DTC 覆盖缺口」的固定取数与计算口径。
 
-**试填产出**：两份语义契约草稿已产出——[SEMANTIC-CONTRACT-AGT-029](SEMANTIC-CONTRACT-AGT-029.md)（类1/3/4/5/6，20 条）与 [SEMANTIC-CONTRACT-SCN-002](SEMANTIC-CONTRACT-SCN-002.md)（类1/2/4/7，18 条），均为 v0.1-draft 待用户逐条评审；评审通过后升为 v0 基线。
+**试填产出**：两份语义契约已产出并通过用户逐条评审，升 **v0 基线**——[SEMANTIC-CONTRACT-AGT-029](SEMANTIC-CONTRACT-AGT-029.md)（类1/3/4/5/6，20 条）与 [SEMANTIC-CONTRACT-SCN-002](SEMANTIC-CONTRACT-SCN-002.md)（类1/2/4/7，18 条）。SKL-BRAND-01~04 契约已回写 `ontology_dependencies`（term_ids 待术语表 v0 回填）。
 
 ## 5. 与既有资产的接口
 
