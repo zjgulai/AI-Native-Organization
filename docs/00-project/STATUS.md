@@ -9,6 +9,7 @@
 - FLOW-09 绑定的五个场景已全部完成v1规格：SCN-002（洞察）、SCN-013（独立站体验/转化/复购）、SCN-011（投放与预算）、SCN-012（品牌内容/活动）、SCN-009（商品内容/本地化/上架）。各场景标注多价值流绑定时的结果负责人差异与品效双层KPI边界；仍为设计基线，无生产授权。
 - 4份品牌域Skill契约已完成机器可读schema化：`docs/06-playbooks/skills/contracts/`含包络schema（draft 2020-12）与4份contract.json（输入/输出JSON Schema、工具依赖、挂载、证据分级），jsonschema校验全过；Native-ai-organ站点新增pilot-assets.html试点资产地图页并与姊妹项目文档直链。全部仍为DESIGN_BASELINE/NOT_RUNTIME_BOUND。
 - FLOW-09试点数据可得性核实完成：核实清单经两轮核查（公开基线+G1~G4访谈表+N1~N4发现）；用户确认F-041~F-049——DTC基线=Shopify原生customer体系、Amazon三层资格齐备（Brand Registry+Business Reports+Brand Analytics）、无调研预算走代理指标、竞品集7类+监控工具已订阅、社媒与DME均可触达、品类边界锁定吸奶器主品类。剩余仅为取数细节，不阻塞Case实例化评审。
+- FLOW-09试点设计资产链完整：章程→核实清单→Case Context Manifest（机器可读装配）→阶段门评审（G0部分通过/G1未就绪/G2阻塞/G3不适用/G4未到）→四源数据契约v1（15数据集+DQ-F09十规则+F09-DC十用例）。全部DESIGN_ONLY；G1剩余缺口为真实导出样例回填、Service Identity/Scope、工具盘点与拒绝验证设计。Native-ai-organ站点pilot-assets页已同步至16项资产。
 
 ## 已完成
 
