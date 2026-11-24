@@ -14,4 +14,4 @@ Magpie-Horch 的 50 个角色 preset 注入采用单一事实源、角色级权�
 
 每一阶段必须能回答：哪个Agent/系统承担结果，什么证据足以扩展，哪里失效就冻结，原有业务如何继续运转。
 
-FLOW-09 品牌资产经营的首个 Case 试点章程见[FLOW-09 品牌资产经营首个Case试点章程](FLOW-09-BRAND-PILOT-CHARTER.md)（设计态，不授权实例化）。
+FLOW-09 品牌资产经营的首个 Case 试点章程见[FLOW-09 品牌资产经营首个Case试点章程](FLOW-09-BRAND-PILOT-CHARTER.md)（设计态，不授权实例化）；实例化前的逐项数据核实见[FLOW-09 试点数据可得性核实清单](FLOW-09-PILOT-DATA-READINESS-CHECKLIST.md)（访谈/盘点工具，含公开基线与降级规则）。
