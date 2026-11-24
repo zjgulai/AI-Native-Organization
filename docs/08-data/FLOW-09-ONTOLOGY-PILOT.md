@@ -21,7 +21,7 @@
 
 ## 3. 试点范围（本期只做这些）
 
-1. **术语表 v0**：品牌域高频术语 30~50 条（SKOS-lite），优先解决「Amazon 口径 vs DTC 口径 vs 内部口径」的同名异义问题；
+1. **术语表 v0**：✅ 已建 [SEMANTIC-GLOSSARY-V0](SEMANTIC-GLOSSARY-V0.md)——48 条 SKOS-lite 术语（渠道/品牌资产/交易/商品/消费者/方法六域），优先消歧 Amazon/DTC/内部口径；
 2. **对象-关系模型 v0**：六域核心对象约 20 个 + 关键关系约 30 条（Markdown 表 + JSON Schema，不涉推理）；
 3. **事理规则 v0**：SCN-002 的 5~8 条核心规则按「如果…那么…」显性化（如「若 Amazon 覆盖率 < X 且 DTC 增长 > Y，则判定为覆盖缺口」——阈值待企业数据回填）；
 4. **权限语义声明 v0**：FLOW-09 Service Identity/Scope 的语义化补充（主体/客体/条件/时效四元组）；
@@ -54,9 +54,9 @@
 | --- | --- |
 | FLOW-09-DATA-CONTRACT | 字段增加 `semantic_tag`（术语表条目 ID）；头部声明依赖的本体模块（商品域+渠道域+品牌资产域） |
 | FLOW-09-SERVICE-IDENTITY-SCOPE | Scope 条目补权限语义四元组 |
-| SKL-BRAND-* 契约 | 新增 `ontology_dependencies`：每个 Skill 声明所需术语/对象/规则集 |
-| SCN-002.md | 新增「事理规则」小节，引本试点 v0 规则条目 |
-| 双层 KPI L2 | 品牌资产指标绑定术语表条目 ID，口径语义对齐 |
+| SKL-BRAND-* 契约 | ✅ 已回写 `ontology_dependencies`（contracts+concept_domains+term_ids，引用 SEMANTIC-GLOSSARY-V0 条目） |
+| SCN-002.md | ✅ 已增「事理规则」小节，引 SEMANTIC-CONTRACT-SCN-002 v0 条目 |
+| 双层 KPI L2 | 品牌资产指标绑定术语表条目 ID（T-BR-02~08），口径语义对齐——随数据契约 semantic_tag 回填时执行 |
 
 ## 6. 验证与门禁
 

@@ -262,7 +262,7 @@
       "品牌资产域",
       "交易域"
     ],
-    "term_ids": "PENDING_GLOSSARY_V0",
+    "term_ids": "SEMANTIC-GLOSSARY-V0:T-BR-01,T-BR-09,T-BR-10,T-CO-01,T-CO-03,T-CN-03",
     "notes": "L1当期核算与L2品牌资产分层不混算；归因局限声明沿用既有契约；品牌资产指标口径以FLOW-09-DUAL-KPI-CATALOG为准"
   }
 }

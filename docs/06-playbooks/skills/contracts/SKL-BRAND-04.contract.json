@@ -316,7 +316,7 @@
       "消费者域",
       "品牌资产域"
     ],
-    "term_ids": "PENDING_GLOSSARY_V0",
+    "term_ids": "SEMANTIC-GLOSSARY-V0:T-CN-01,T-CN-02,T-CN-03,T-CN-04,T-CN-05,T-BR-02,T-BR-03",
     "notes": "VOC三级来源标注（实测/书中报告/假设）、证据强度分级、可证伪条件"
   }
 }
