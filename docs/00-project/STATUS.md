@@ -6,7 +6,7 @@
 
 - D-078确认新增FLOW-09品牌资产经营价值流（BVS-09，主岗位AGT-029），端到端流扩为13条（9 BVS + 4 CVS）；品牌增长方法论沉淀为品牌域岗位共享文档，KPI采用品牌资产与GMV双层口径；全部仍为设计基线，无生产授权。
 - FLOW-09 首批可设计资产已落地：SCN-002 v1场景规格、4份品牌域Skill契约（SKL-BRAND-01~04）、双层KPI指标字典、首个Case试点章程（覆盖缺口诊断，预期NoActionRecord）；ref/源书材料已加入.gitignore防版权资产入库。全部为设计基线，未实例化Case或连接任何数据源。
-- 品牌域实战路线图权威版已建：`docs/12-rollout/FLOW-09-ROLLOUT-ROADMAP.md`——两本书理论支撑映射、五层结构、P0~P4五阶段演进、20场景波次总表、门禁证据链、双层KPI口径、Momcozy试点锚点；站点brand-plan.html为其公开综合版。
+- 品牌域实战路线图权威版已建：`docs/12-rollout/FLOW-09-ROLLOUT-ROADMAP.md`——三本书理论支撑映射、五层结构、P0~P4五阶段演进、20场景波次总表、门禁证据链、双层KPI口径、Momcozy试点锚点；站点brand-plan.html为其公开综合版。
 - **全部20个候选场景已完成v1规格**：SCN-001~020均按templates/scenario.md九节模板写实，含FLOW-09绑定5场景（002/009/011/012/013）、品牌域高相关场景（003/005/007/008/010/014/015/016/018）、管理与基础设施场景（001/004/006/017/019/020）。各场景标注多价值流绑定时的结果负责人差异、D-025拆Case规则、双层KPI边界与Emergency Guard适用性；SCN-020为唯一直接管理AI系统自身健康的场景。仍为设计基线，无生产授权。
 - 4份品牌域Skill契约已完成机器可读schema化：`docs/06-playbooks/skills/contracts/`含包络schema（draft 2020-12）与4份contract.json（输入/输出JSON Schema、工具依赖、挂载、证据分级），jsonschema校验全过；Native-ai-organ站点新增pilot-assets.html试点资产地图页并与姊妹项目文档直链。全部仍为DESIGN_BASELINE/NOT_RUNTIME_BOUND。
 - FLOW-09试点数据可得性核实完成：核实清单经两轮核查（公开基线+G1~G4访谈表+N1~N4发现）；用户确认F-041~F-049——DTC基线=Shopify原生customer体系、Amazon三层资格齐备（Brand Registry+Business Reports+Brand Analytics）、无调研预算走代理指标、竞品集7类+监控工具已订阅、社媒与DME均可触达、品类边界锁定吸奶器主品类。剩余仅为取数细节，不阻塞Case实例化评审。
