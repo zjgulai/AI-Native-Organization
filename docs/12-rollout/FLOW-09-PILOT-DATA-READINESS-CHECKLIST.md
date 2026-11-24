@@ -9,6 +9,7 @@
 以下来自公开网页，证明「渠道存在」而非「数据可得」：
 
 - **独立站**：momcozy.com（美国）、momcozy.de（德国）、momcozy.uk（英国）三个市场站点在线；llms.txt 自述覆盖吸奶器、哺乳内衣、奶瓶清洗/加热器、婴儿车、纸尿裤桶、鼻腔吸引器、摇椅、妊娠纹霜等品类——**品类宽度大于试点单一品类「可穿戴吸奶器」**。
+- **momcozy.com 页面级证据（2026-11-24 抓取）**：站点设 **Login / Member Hub / Baby Registry**（自有会员体系存在，可触达能力大概率为 `partial` 或以上，待工具确认）；设 **"Save with Insurance" / FSA-HSA Eligible** 入口（DME/保险渠道在 DTC 站内闭环）；在售吸奶器产品线为 M5 Smart Wearable、V3 Double Electric、Air 1 Ultra-slim、Wellness 1 Warm-Massage，另有 KleanPal Pro 奶瓶清洗、BM04 双摄监护、纸尿裤桶、哺乳内衣（YN21/YN46/AirMesh）、奶瓶加热/冷藏、PureHug/WeeSnug 背带、婴儿车、鼻吸器/体温计、摇椅、孕产全套（腹带/瑜伽球/抱枕/待产包/孕妇裤/紧致霜/孕妇袜）、折叠游戏床、白噪音机——**品类宽度进一步扩大至 10+ 个一级类目**。
 - **Amazon**：美国站有官方 storefront（amazon.com/momcozy），另有 Target（2025-10 起全国上线 Air 1）、Walmart、DME 医保合作伙伴（Aeroflow、Edgepark）渠道；独立站设保险下单页（/pages/insurance）。
 - **社媒**：@momcozy 官方账号存在于 Instagram、TikTok、YouTube、Facebook；LinkedIn 公司页；Twitter @momcozy4u；达人合作邮箱 collab@momcozy.com、PR 邮箱 pr@momcozy.com 公开。
 - **含义**：F-004「其他渠道约 20%」很可能包含 Target/Walmart/DME 保险渠道——**渠道清单比 Amazon+独立站更宽**，SKL-BRAND-01 的渠道清单必须扩到至少 5 类。
@@ -55,8 +56,23 @@
 | --- | --- | --- | --- | --- |
 | N1 | **目标 Shopify 是空白新店（F-039）**：无商品、无订单、无分析基线 | 「Amazon vs DTC 覆盖缺口」诊断中 DTC 侧当前**零数据**——缺口本身就是发现，但无法做 DTC 内部结构分析 | Shopify 绿地上线计划时间？是否有其他已运营 DTC 店铺可用作基线？ | 无 → DTC 侧全部标 `no_data`，诊断聚焦「覆盖缺口存在性」而非「缺口内部结构」；或改用 momcozy.com 现有站（若与目标 Shopify 非同一店）做公开侧基线 |
 | N2 | **渠道宽度 ≥5 类**（Amazon/独立站/Target/Walmart/DME 保险） | SKL-BRAND-01 渠道清单、覆盖矩阵维度需扩；F-004「其他 20%」构成待拆 | 5 类渠道各自的 GMV 占比与运营负责人？ | 占比不明 → 覆盖矩阵只对 Amazon+独立站+社媒三轴评分，线下渠道标 unknown |
-| N3 | **品类宽度 > 试点品类**：公开站点覆盖吸奶器+哺乳内衣+奶瓶清洗+婴儿车+纸尿裤桶+鼻吸器+摇椅+妊娠纹霜等 | 「可穿戴吸奶器」只是品类之一；品类间覆盖/数据可比性不同 | 试点品类边界如何界定（仅双边电动吸奶器？含配件？） | 不界定 → 覆盖矩阵按「品类」维度分行，不混算 |
+| N3 | **品类宽度 >> 试点品类**：momcozy.com 在售覆盖吸奶器（4 条产品线）+哺乳内衣+奶瓶清洗/加热/冷藏+婴儿监护+纸尿裤桶+背带+婴儿车+鼻吸/体温计+摇椅+孕产全套+游戏床+白噪音机（10+ 一级类目） | 「可穿戴吸奶器」只是品类之一；品类间覆盖/数据可比性/用户重叠度完全不同 | 试点品类边界如何界定（仅双边电动吸奶器？含配件？含哺乳内衣交叉销售？） | 不界定 → 覆盖矩阵按「品类」维度分行，不混算；SCN-002 证据包按品类分别取数 |
 | N4 | **F-021 已确认无 Amazon SP-API/RootData/数智星图只读入口** | G1 的接口层大概率为「无」；数据获取回到手工导出路径 | （并入 G1 核实，不重复问） | — |
+
+## 2.5 G3 竞品候选清单（公开数据初版，2026-11-24，`unverified_list`）
+
+可穿戴/便携吸奶器品类公开竞品候选，供 AGT-007 建立版本化清单时核对——**未经企业确认，不代表企业认定的竞品集合**：
+
+| 竞品 | 产品线 | 渠道形态 | 价格带（公开信息） | 与 Momcozy 的差异点 |
+| --- | --- | --- | --- | --- |
+| Willow | Willow Go / Willow 3.0 | DTC(willowpump.com)+Amazon+Target | $195–500 | 品类开创者、高端定位、app 生态 |
+| Elvie | Elvie Pump / Elvie Stride | DTC(elvie.com)+Amazon+Target | ~$300+ | 最隐形设计、医院级定位 |
+| Spectra | 2025-06 美国新发可穿戴款 + S1/S2 有线经典款 | DTC+Amazon | 中高端 | 医疗级品牌信任、 flange 生态 |
+| Medela | Swing Maxi / Freestyle | DTC+Amazon+零售全渠道 | 中端 | 最大品牌体量、医疗渠道覆盖 |
+| Lansinoh | 手动/电动便携款 | DTC+Amazon+零售 | 低端 | 价格屠夫、母婴连锁渠道 |
+| 其他候选 | BabyBuddhu、Frida、各白牌 | Amazon 为主 | 低端 | 白牌价格战、评论驱动 |
+
+**待企业确认**：以上是否为企业认定的竞品集合；Momcozy 内部竞品清单是否含非吸奶品类（如全品类母婴品牌）；监控工具现状（Keepa/卖家精灵/Jungle Scout 等订阅）。
 
 ## 3. 降级与证据等级联动规则
 
@@ -81,7 +97,14 @@
 | Amazon 账号 Brand Registry 与 Business Reports？ | **有 Brand Registry；报表能导出** | G1 升级：品牌分析模块可用性成立，搜索词/市场篮数据存在获取路径；具体账号数、导出字段与频率仍待 G1 表格逐项核实 |
 | 品牌认知/考虑度调研预算？ | **没有** | G2 定论：L2 认知/考虑度指标全部走代理指标（品牌词搜索、直接访问、社媒声量），置信度标 `low`；不再等待调研预算 |
 
-**仍未核实**：G1 其余子项（账号数/导出字段/SP-API）、G3 竞品清单与监控工具、G4 各渠道可触达能力（含 momcozy.com 的 CRM/名单工具与数据平台确认）。
+**仍未核实**：G1 其余子项（账号数/导出字段/SP-API）、G3 竞品清单是否与企业认定一致及监控工具订阅、G4 各渠道可触达能力。
+
+**本轮公开核查新增（2026-11-24，不改变企业事实等级）**：
+
+- momcozy.com 存在 Login / Member Hub / Baby Registry → DTC 自有会员体系客观存在，「可触达」大概率 ≥ `partial`，待 CRM 工具与名单规模确认；
+- momcozy.com 设 "Save with Insurance" / FSA-HSA 入口 → 保险/DME 订单在 DTC 站内闭环，数据权属问题更复杂（保险核销数据归属待 G4-DME 行核实）；
+- 品类宽度修正为 10+ 一级类目（新增监护/背带/婴儿车/孕产全套等），N3 影响扩大——试点品类边界必须显式界定；
+- G3 竞品候选初版已建（§2.5）：Willow / Elvie / Spectra / Medela / Lansinoh + 白牌，标 `unverified_list` 待企业确认；
 
 ## 6. 边界
 
