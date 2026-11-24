@@ -1,0 +1,1177 @@
+{
+ "version": "v0.1",
+ "generated": "2026-11-24",
+ "works": [
+  {
+   "work_id": "W-1.1-01",
+   "sub_scenario": "1.1",
+   "name": "市场进入可行性评估",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.1-02",
+   "sub_scenario": "1.1",
+   "name": "渠道与经营模式选择",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.1-03",
+   "sub_scenario": "1.1",
+   "name": "准入与合规矩阵",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.1-04",
+   "sub_scenario": "1.1",
+   "name": "落地成本与定价测算",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.1-05",
+   "sub_scenario": "1.1",
+   "name": "新市场进入",
+   "delivery_mode": "项目",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.2-01",
+   "sub_scenario": "1.2",
+   "name": "Amazon 开店资料准备Amazon",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.2-02",
+   "sub_scenario": "1.2",
+   "name": "Shopify 建站方案与草稿Shopify",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.2-03",
+   "sub_scenario": "1.2",
+   "name": "店铺设置清单Shopify",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.2-04",
+   "sub_scenario": "1.2",
+   "name": "开店建站",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "店铺创建与配置写入",
+   "confirm_scope": "按店铺×平台",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-1.3-01",
+   "sub_scenario": "1.3",
+   "name": "商品资料事实表",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.3-02",
+   "sub_scenario": "1.3",
+   "name": "Listing 生成与本地化",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.3-03",
+   "sub_scenario": "1.3",
+   "name": "宣称与素材合规预检",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.3-04",
+   "sub_scenario": "1.3",
+   "name": "Shopify 商品草稿上新与回读Shopify",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "草稿态店铺写入",
+   "confirm_scope": "按 SKU×店铺",
+   "risk_tier": "低"
+  },
+  {
+   "work_id": "W-1.3-05",
+   "sub_scenario": "1.3",
+   "name": "Amazon Listing 草稿Amazon",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.3-06",
+   "sub_scenario": "1.3",
+   "name": "首批上新",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "商品上架对外可见",
+   "confirm_scope": "按 SKU×渠道×市场",
+   "risk_tier": "中"
+  },
+  {
+   "work_id": "W-1.4-01",
+   "sub_scenario": "1.4",
+   "name": "每日 Listing 健康巡检",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-1.4-02",
+   "sub_scenario": "1.4",
+   "name": "商品信息变更同步",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "Listing 变更写入各渠道",
+   "confirm_scope": "按 SKU×渠道",
+   "risk_tier": "中"
+  },
+  {
+   "work_id": "W-2.1-01",
+   "sub_scenario": "2.1",
+   "name": "机会证据入池",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-2.1-02",
+   "sub_scenario": "2.1",
+   "name": "每周客户声音监测简报",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-2.2-01",
+   "sub_scenario": "2.2",
+   "name": "竞品洞察对比",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-2.2-02",
+   "sub_scenario": "2.2",
+   "name": "市场机会清单",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-2.3-01",
+   "sub_scenario": "2.3",
+   "name": "老品改良单",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-2.3-02",
+   "sub_scenario": "2.3",
+   "name": "老品改良月度复盘",
+   "delivery_mode": "项目",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-2.4-01",
+   "sub_scenario": "2.4",
+   "name": "新品立项",
+   "delivery_mode": "项目",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-2.4-02",
+   "sub_scenario": "2.4",
+   "name": "供应商询价与比价",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "对供应商发起询价",
+   "confirm_scope": "按供应商×批次",
+   "risk_tier": "中"
+  },
+  {
+   "work_id": "W-3.1-01",
+   "sub_scenario": "3.1",
+   "name": "广告冷启动方案",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.1-02",
+   "sub_scenario": "3.1",
+   "name": "冷启动起量",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "广告预算与投放执行",
+   "confirm_scope": "按店铺×活动期",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-3.2-01",
+   "sub_scenario": "3.2",
+   "name": "店铺诊断与转化优化",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.2-02",
+   "sub_scenario": "3.2",
+   "name": "商品数据源检查与修复Shopify",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "商品 feed/数据源配置修复",
+   "confirm_scope": "按渠道×数据源",
+   "risk_tier": "中"
+  },
+  {
+   "work_id": "W-3.2-03",
+   "sub_scenario": "3.2",
+   "name": "机会雷达",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.3-01",
+   "sub_scenario": "3.3",
+   "name": "每周竞品价格与促销监控",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.3-02",
+   "sub_scenario": "3.3",
+   "name": "价格与促销方案",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.4-01",
+   "sub_scenario": "3.4",
+   "name": "每日投放监控",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.4-02",
+   "sub_scenario": "3.4",
+   "name": "广告周复盘与预算建议",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.5-01",
+   "sub_scenario": "3.5",
+   "name": "年度促销日历",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.5-02",
+   "sub_scenario": "3.5",
+   "name": "大促备战",
+   "delivery_mode": "项目",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-3.5-03",
+   "sub_scenario": "3.5",
+   "name": "联合经营行动包",
+   "delivery_mode": "项目",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.1-01",
+   "sub_scenario": "4.1",
+   "name": "每日评论与差评日报",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.1-02",
+   "sub_scenario": "4.1",
+   "name": "差评与客诉回复草稿",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.1-03",
+   "sub_scenario": "4.1",
+   "name": "首批评论获取方案",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.2-01",
+   "sub_scenario": "4.2",
+   "name": "售前咨询有依据答复",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.2-02",
+   "sub_scenario": "4.2",
+   "name": "客服 FAQ 知识库",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.2-03",
+   "sub_scenario": "4.2",
+   "name": "售前未答问题周汇总",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.3-01",
+   "sub_scenario": "4.3",
+   "name": "售后原因分析",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.3-02",
+   "sub_scenario": "4.3",
+   "name": "质量事件排查",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.3-03",
+   "sub_scenario": "4.3",
+   "name": "质量事件处置",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "供应商沟通/补发/退款等处置",
+   "confirm_scope": "按事件×对象",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-4.4-01",
+   "sub_scenario": "4.4",
+   "name": "账号健康监控",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.4-02",
+   "sub_scenario": "4.4",
+   "name": "账号申诉与整改材料",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.4-03",
+   "sub_scenario": "4.4",
+   "name": "账号事件处置",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "账号整改/申诉提交等执行",
+   "confirm_scope": "按账号×事件",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-4.5-01",
+   "sub_scenario": "4.5",
+   "name": "每日客服工单日报",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.5-02",
+   "sub_scenario": "4.5",
+   "name": "售后工单答复与处理草稿",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-4.5-03",
+   "sub_scenario": "4.5",
+   "name": "退换货处理",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "退款/换货执行（资金+实物）",
+   "confirm_scope": "按订单",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-5.1-01",
+   "sub_scenario": "5.1",
+   "name": "库存风险预警",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-5.1-02",
+   "sub_scenario": "5.1",
+   "name": "补货建议",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-5.2-01",
+   "sub_scenario": "5.2",
+   "name": "供应商报价变动评估",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-5.3-01",
+   "sub_scenario": "5.3",
+   "name": "头程物流比价",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-5.3-02",
+   "sub_scenario": "5.3",
+   "name": "订单与履约异常处理",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "补发/改派/索赔等履约动作",
+   "confirm_scope": "按订单×异常",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-5.3-03",
+   "sub_scenario": "5.3",
+   "name": "待承诺订单时效核算",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-6.1-01",
+   "sub_scenario": "6.1",
+   "name": "口径确认卡",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-6.1-02",
+   "sub_scenario": "6.1",
+   "name": "目标与预算分解",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-6.2-01",
+   "sub_scenario": "6.2",
+   "name": "经营周报与归因",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-6.2-02",
+   "sub_scenario": "6.2",
+   "name": "月度经营复盘",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-6.3-01",
+   "sub_scenario": "6.3",
+   "name": "每月结算对账",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-6.3-02",
+   "sub_scenario": "6.3",
+   "name": "每月利润与现金核算",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-6.3-03",
+   "sub_scenario": "6.3",
+   "name": "销售税与 VAT 申报资料准备",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-7.1-01",
+   "sub_scenario": "7.1",
+   "name": "品牌定位卡",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-7.1-02",
+   "sub_scenario": "7.1",
+   "name": "品牌语气与用语规范",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-7.2-01",
+   "sub_scenario": "7.2",
+   "name": "PR 与舆情周报",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-7.2-02",
+   "sub_scenario": "7.2",
+   "name": "品牌认知与声量月报",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-7.2-03",
+   "sub_scenario": "7.2",
+   "name": "负面舆情应对",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "对外公关回应/媒体沟通",
+   "confirm_scope": "按事件×渠道",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-7.3-01",
+   "sub_scenario": "7.3",
+   "name": "媒体与公关稿件",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-7.3-02",
+   "sub_scenario": "7.3",
+   "name": "达人与公关合作效果复盘",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-7.4-01",
+   "sub_scenario": "7.4",
+   "name": "侵权与跟卖监测",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-7.4-02",
+   "sub_scenario": "7.4",
+   "name": "投诉材料草稿",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-8.1-01",
+   "sub_scenario": "8.1",
+   "name": "社媒内容稿件",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-8.1-02",
+   "sub_scenario": "8.1",
+   "name": "广告素材与视频分镜",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-8.2-01",
+   "sub_scenario": "8.2",
+   "name": "落地页与官网内容",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-8.2-02",
+   "sub_scenario": "8.2",
+   "name": "邮件营销流程文案",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-8.3-01",
+   "sub_scenario": "8.3",
+   "name": "达人筛选与邀约草稿",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-8.3-02",
+   "sub_scenario": "8.3",
+   "name": "达人寄样与佣金台账",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "寄样实物发出+佣金承诺",
+   "confirm_scope": "按达人×样品",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-9.1-01",
+   "sub_scenario": "9.1",
+   "name": "客户分层与生命周期定义",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-9.1-02",
+   "sub_scenario": "9.1",
+   "name": "客户资产与复购盘点",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-9.2-01",
+   "sub_scenario": "9.2",
+   "name": "复购与流失预警",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-9.2-02",
+   "sub_scenario": "9.2",
+   "name": "老客运营月报",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-9.3-01",
+   "sub_scenario": "9.3",
+   "name": "会员体系与权益设计",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-9.3-02",
+   "sub_scenario": "9.3",
+   "name": "订阅商品运营方案",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-9.4-01",
+   "sub_scenario": "9.4",
+   "name": "老客触达旅程设计",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-9.4-02",
+   "sub_scenario": "9.4",
+   "name": "老客复购提升",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "老客触达/优惠执行",
+   "confirm_scope": "按人群段×批次",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-10.1-01",
+   "sub_scenario": "10.1",
+   "name": "出海准备清单",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-10.1-02",
+   "sub_scenario": "10.1",
+   "name": "出海启动",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "新市场店铺/账号开通",
+   "confirm_scope": "按市场×平台",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-10.2-01",
+   "sub_scenario": "10.2",
+   "name": "平台政策与关税变化监测",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-SH1-01",
+   "sub_scenario": "SH1",
+   "name": "集合与陈列方案",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-SH1-02",
+   "sub_scenario": "SH1",
+   "name": "页面实验计划与复盘",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-SH1-03",
+   "sub_scenario": "SH1",
+   "name": "每月站点体验检查",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-SH2-01",
+   "sub_scenario": "SH2",
+   "name": "多市场本地化设置与检查",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "Shopify Markets 配置写入",
+   "confirm_scope": "按市场×店铺",
+   "risk_tier": "中"
+  },
+  {
+   "work_id": "W-SH3-01",
+   "sub_scenario": "SH3",
+   "name": "AI 购物渠道可见度监测",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-SH4-01",
+   "sub_scenario": "SH4",
+   "name": "高风险订单审核与拒付应诉",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "订单拦截决策+拒付应诉提交",
+   "confirm_scope": "按订单",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-AM1-01",
+   "sub_scenario": "AM1",
+   "name": "A+ 页面与品牌旗舰店内容",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-AM1-02",
+   "sub_scenario": "AM1",
+   "name": "品牌备案资料准备",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-AM2-01",
+   "sub_scenario": "AM2",
+   "name": "FBA 入库与库容计划",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-AM2-02",
+   "sub_scenario": "AM2",
+   "name": "FBA 赔偿与退货核查",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-TT1-01",
+   "sub_scenario": "TT1",
+   "name": "TikTok Shop 开店与商品卡上架",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "店铺开通+商品卡上架",
+   "confirm_scope": "按店铺",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-TT1-02",
+   "sub_scenario": "TT1",
+   "name": "TikTok Shop 冷启动",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "冷启动投放/上架/达人执行",
+   "confirm_scope": "按店铺×活动期",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-TT2-01",
+   "sub_scenario": "TT2",
+   "name": "达人建联与寄样",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "达人建联外联+寄样",
+   "confirm_scope": "按达人",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-TT2-02",
+   "sub_scenario": "TT2",
+   "name": "达人带货效果周报",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-TT3-01",
+   "sub_scenario": "TT3",
+   "name": "短视频挂车脚本与发布计划",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-TT3-02",
+   "sub_scenario": "TT3",
+   "name": "直播策划与脚本",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-TT3-03",
+   "sub_scenario": "TT3",
+   "name": "直播场次复盘",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-TT4-01",
+   "sub_scenario": "TT4",
+   "name": "GMV Max 设置与 ROI 目标测算",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "投放活动配置与预算设定",
+   "confirm_scope": "按店铺×活动",
+   "risk_tier": "高"
+  },
+  {
+   "work_id": "W-TT4-02",
+   "sub_scenario": "TT4",
+   "name": "平台活动报名与提报",
+   "delivery_mode": "交办一次",
+   "layer": "B",
+   "side_effect": "平台活动报名/提报提交",
+   "confirm_scope": "按活动×店铺",
+   "risk_tier": "中"
+  },
+  {
+   "work_id": "W-TT5-01",
+   "sub_scenario": "TT5",
+   "name": "店铺体验分与违规监控",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-MP1-01",
+   "sub_scenario": "MP1",
+   "name": "多平台商品资料映射",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-MP1-02",
+   "sub_scenario": "MP1",
+   "name": "多平台价格体系",
+   "delivery_mode": "交办一次",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-MP1-03",
+   "sub_scenario": "MP1",
+   "name": "跨平台商品资料一致性巡检",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-MP2-01",
+   "sub_scenario": "MP2",
+   "name": "跨平台库存分配与超卖预警",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-MP3-01",
+   "sub_scenario": "MP3",
+   "name": "跨平台经营周报",
+   "delivery_mode": "例行",
+   "layer": "A",
+   "side_effect": "无外部副作用（产物为文档/分析/监控/草稿）",
+   "confirm_scope": "—",
+   "risk_tier": "—"
+  },
+  {
+   "work_id": "W-MP4-01",
+   "sub_scenario": "MP4",
+   "name": "新平台开通",
+   "delivery_mode": "项目",
+   "layer": "B",
+   "side_effect": "新平台账号开通+资料迁移执行",
+   "confirm_scope": "按平台",
+   "risk_tier": "高"
+  }
+ ],
+ "reviewed": "2026-11-24 全部通过"
+}
