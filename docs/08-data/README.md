@@ -15,4 +15,4 @@
 
 脱敏后的数据字典和集成契约可以进入本目录。原始明细与凭据不进入仓库。
 
-FLOW-09 品牌资产经营的双层指标口径见[FLOW-09 双层 KPI 指标字典](FLOW-09-DUAL-KPI-CATALOG.md)（设计基线，阈值待首批 Case 校准）。
+FLOW-09 品牌资产经营的双层指标口径见[FLOW-09 双层 KPI 指标字典](FLOW-09-DUAL-KPI-CATALOG.md)（设计基线，阈值待首批 Case 校准）；四源只读诊断数据契约见[FLOW-09 品牌资产经营数据契约](FLOW-09-DATA-CONTRACT.md)（v1 设计基线，G1 分源验收前不授权访问）。

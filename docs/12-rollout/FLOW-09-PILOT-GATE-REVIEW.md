@@ -32,7 +32,7 @@ BVS-01 验证 FLOW-01 的 GMV 战术闭环（Shopify 写路径+SKU 选择），�
 
 | 判据 | 状态 | 证据/缺口 |
 | --- | --- | --- |
-| 数据契约 | ⚠️ | BVS-01 Shopify 数据契约存在但面向 FLOW-01 SKU 选择（30 天窗口/gross_sales），**不覆盖 FLOW-09 品牌诊断所需字段**（流量来源、搜索词、品类基线、社媒声量）；Amazon/社媒/DME 三源无契约文档 |
+| 数据契约 | ⚠️→🟡 | ~~无 FLOW-09 契约~~ → [FLOW-09-DATA-CONTRACT.md](../08-data/FLOW-09-DATA-CONTRACT.md) v1 已起草（四源 15 数据集+DQ-F09 十规则+F09-DC 十用例）；仍需真实导出样例回填字段状态与 Service Identity |
 | 服务身份范围 | ❌ | FLOW-09 读取尚无 Service Identity/Scope 定义；BVS-01 的 SHOPIFY_BVS01_READ_V1 scope bundle 不适用于本 Case 的多源读取 |
 | 工单/产物记录 | ✅ | 八阶段产物协议已定义（Manifest eight_stage_protocol） |
 | 跨范围拒绝验证 | ❌ | 无运行时，未验证 |
@@ -59,7 +59,7 @@ G1A 通过 ≠ G1B 通过；本诊断 Case 缺 G1B 时仍可产出「自有渠�
 ## 3. 关键路径（G0 收尾 → G1 就绪）
 
 1. **AGT-029 Release Bundle 固定**：版本、Hash、Skill 挂载清单（SKL-BRAND-01/04 contract.json 引用已备）。
-2. **FLOW-09 数据契约 v1**：按四源分别定义数据集、字段、时间窗、口径、质量状态与 PII 边界；Shopify 源可复用 BVS-01 契约的口径纪律但字段集不同，需扩展而非复用。
+2. ~~**FLOW-09 数据契约 v1**~~ → 已起草（[FLOW-09-DATA-CONTRACT.md](../08-data/FLOW-09-DATA-CONTRACT.md)）；剩余工作是按 §9 开放项回填真实导出样例与字段状态；
 3. **Service Identity 与 Scope**：每源只读身份范围；Amazon 走人工导出不涉 API scope；社媒/DME 明确名单获取方式。
 4. **工具能力登记册**：四源字段覆盖盘点（Amazon 报表字段、4 个竞品工具覆盖、社媒 API 状态、Shopify customer 读数）。
 5. **跨范围拒绝验证设计**：影子运行前的拒绝用例清单（参考 BVS-01 SHP-DC-01~12 先例）。
@@ -77,7 +77,7 @@ G1A 通过 ≠ G1B 通过；本诊断 Case 缺 G1B 时仍可产出「自有渠�
 | 门 | 结论 | 说明 |
 | --- | --- | --- |
 | G0 | **PARTIAL** | 范围/负责人/指标/约束/数据源就绪；Harness 事实与工具登记册待补 |
-| G1 | **NOT READY** | 关键路径：FLOW-09 数据契约 + Service Identity + 工具盘点 |
+| G1 | **NOT READY** | 数据契约 v1 已起草；剩余：导出样例回填、Service Identity/Scope、工具盘点、拒绝验证设计 |
 | G2 | BLOCKED | 待 G1 |
 | G3 | N/A | 诊断 Case 无外部动作 |
 | G4 | FUTURE | 待 G2 后真实证据 |
