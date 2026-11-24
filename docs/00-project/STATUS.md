@@ -12,6 +12,7 @@
 - FLOW-09试点数据可得性核实完成：核实清单经两轮核查（公开基线+G1~G4访谈表+N1~N4发现）；用户确认F-041~F-049——DTC基线=Shopify原生customer体系、Amazon三层资格齐备（Brand Registry+Business Reports+Brand Analytics）、无调研预算走代理指标、竞品集7类+监控工具已订阅、社媒与DME均可触达、品类边界锁定吸奶器主品类。剩余仅为取数细节，不阻塞Case实例化评审。
 - FLOW-09试点设计资产链完整：章程→核实清单→Case Context Manifest（机器可读装配）→阶段门评审（G0部分通过/G1未就绪/G2阻塞/G3不适用/G4未到）→四源数据契约v1（15数据集+DQ-F09十规则+F09-DC十用例）。全部DESIGN_ONLY；G1剩余缺口为真实导出样例回填、Service Identity/Scope、工具盘点与拒绝验证设计。Native-ai-organ站点pilot-assets页已同步至16项资产。
 - 《本体驱动的AI数据管理》（机械工业出版社2026-05，华为数字化转型编写组）已完成深度分析并经用户批准全量吸收：新增语义底座层方法资产——书评与逐板块映射（14-research/ONTOLOGY-BOOK-ANALYSIS.md）、语义底座战略（08-data/SEMANTIC-LAYER-STRATEGY.md）、「29句话」知识工程模板中文化（08-data/KNOWLEDGE-ELICITATION-29.md）、FLOW-09品牌域本体试点方案（08-data/FLOW-09-ONTOLOGY-PILOT.md，六类概念域+AGT-029/SCN-002试填）、20场景本体就绪度矩阵（03-scenarios/ONTOLOGY-READINESS.md，优先4/可选10/暂不5）。路线图已扩为三本书理论支撑、五层结构改六层并补各阶段语义工作项。全部为设计方法层：Markdown语义契约+术语表+规则模板，未建语义数据库、未引入RDF/OWL；技术选型待试点验证后评估。Native-ai-organ站点实战轨同步呈现（brand-plan六层+pilot-assets语义底座组）。
+- 「29 句话」首轮试填已产出两份语义契约草稿：`docs/08-data/SEMANTIC-CONTRACT-AGT-029.md`（立言岗位，类1/3/4/5/6共20条）与`docs/08-data/SEMANTIC-CONTRACT-SCN-002.md`（覆盖缺口诊断场景，类1/2/4/7共18条），均为v0.1-draft、逐条标注来源等级（显性文档/推断/阈值pending_data），待用户逐条评审后升v0基线；FLOW-09-ONTOLOGY-PILOT已回链。站点pilot-assets语义底座组扩至7项（资产总数41）。
 
 ## 已完成
 
