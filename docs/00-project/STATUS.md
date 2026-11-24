@@ -8,6 +8,7 @@
 - FLOW-09 首批可设计资产已落地：SCN-002 v1场景规格、4份品牌域Skill契约（SKL-BRAND-01~04）、双层KPI指标字典、首个Case试点章程（覆盖缺口诊断，预期NoActionRecord）；ref/源书材料已加入.gitignore防版权资产入库。全部为设计基线，未实例化Case或连接任何数据源。
 - FLOW-09 绑定的五个场景已全部完成v1规格：SCN-002（洞察）、SCN-013（独立站体验/转化/复购）、SCN-011（投放与预算）、SCN-012（品牌内容/活动）、SCN-009（商品内容/本地化/上架）。各场景标注多价值流绑定时的结果负责人差异与品效双层KPI边界；仍为设计基线，无生产授权。
 - 4份品牌域Skill契约已完成机器可读schema化：`docs/06-playbooks/skills/contracts/`含包络schema（draft 2020-12）与4份contract.json（输入/输出JSON Schema、工具依赖、挂载、证据分级），jsonschema校验全过；Native-ai-organ站点新增pilot-assets.html试点资产地图页并与姊妹项目文档直链。全部仍为DESIGN_BASELINE/NOT_RUNTIME_BOUND。
+- FLOW-09试点数据可得性核实推进：新增核实清单（公开基线+G1~G4访谈表+N1~N4发现+降级规则）；用户确认F-041~F-043——momcozy.com可用作DTC基线、Amazon有Brand Registry且报表可导出、无品牌调研预算（L2走代理指标）。G3竞品清单与G4可触达能力仍未核实。
 
 ## 已完成
 
