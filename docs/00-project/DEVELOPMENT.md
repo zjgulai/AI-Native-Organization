@@ -88,6 +88,8 @@ D-078确认新增FLOW-09品牌资产经营价值流：BVS-09「品牌资产经�
 
 FLOW-09首批可设计资产（均为设计基线，不实例化Case、不连接数据源）：`docs/03-scenarios/SCN-002.md`为首个场景v1规格（按templates/scenario.md九节）；`docs/06-playbooks/skills/`为品牌域Skill契约目录（SKL-BRAND-01覆盖审计、02品效归因、03出海检查、04 VOC细分验证，契约字段按AGT-048治理规范）；`docs/08-data/FLOW-09-DUAL-KPI-CATALOG.md`为双层指标字典（L1当期核算+L2品牌资产，阈值待校准）；`docs/12-rollout/FLOW-09-BRAND-PILOT-CHARTER.md`为首个Case试点章程（覆盖缺口诊断，预期NoActionRecord路径）。`ref/`源书扫描材料已加入`.gitignore`，版权资产永不入库。
 
+语义底座层（书3《本体驱动的AI数据管理》吸收，均为设计方法层，不建语义数据库、不引入RDF/OWL）：`docs/14-research/ONTOLOGY-BOOK-ANALYSIS.md`为全书书评与逐板块映射；`docs/08-data/SEMANTIC-LAYER-STRATEGY.md`为采用范围/FFA映射/分层治理/场景就绪度标准/资产接口约定；`docs/08-data/KNOWLEDGE-ELICITATION-29.md`为「29句话」知识工程模板中文化（7维29式，显性AI提炼+隐性专家提取）；`docs/08-data/FLOW-09-ONTOLOGY-PILOT.md`为品牌域首个本体试点（六类概念域+AGT-029/SCN-002语义契约试填）；`docs/03-scenarios/ONTOLOGY-READINESS.md`为20场景本体就绪度矩阵（优先4/可选10/暂不5）。试填草稿须经用户（业务专家角色）逐条评审后方可定稿；阈值类规则在企业数据回填前标注`pending_data`。Native-ai-organ站点以brand-plan六层结构和pilot-assets语义底座组呈现结果。
+
 D-033至D-035确认首个运行样本为Momcozy美国Shopify主站、可穿戴式吸奶器、3–10个高GMV SKU和滚动30天，由AGT-023担任主人格；试点原始GMV固定为`gross_sales`，折扣、销售冲销、退款、税费、运费、支付状态和结算现金分别保留。Shopify只作为首个渠道事实入口：外部广告花费与回执、ERP/WMS可承诺库存和成本、QMS质量准入保持独立权威来源。`PILOT-G1A`通过不能替代跨系统`PILOT-G1B`。具体Shop GID、SKU白名单、App身份和Scopes在实例化前保持未确认。
 
 D-036选择新建试点专用Shopify Dev Dashboard App。模型只调用受限逻辑读取工具，Client Secret和Access Token不得进入Prompt、Skill、Case Artifact、Site或仓库；模型外Policy Gate先校验Shop/SKU/时间窗/字段/Query Hash，Connector再经Token Broker取短期Token。基础Scope包不默认包含`read_reports`，ShopifyQL及其他条件Scope按真实数据缺口和Protected Customer Data条件逐项增加。该决策当时未固定Organization关系和认证路径，后续由D-037补齐。
