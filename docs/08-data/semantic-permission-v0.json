@@ -1,48 +1,279 @@
 {
   "declaration_id": "SEMANTIC-PERMISSION-V0",
-  "version": "0.1-draft",
+  "version": "v0",
   "status": "DESIGN_ONLY",
   "generated": "2026-11-24",
   "source_doc": "SEMANTIC-PERMISSION-V0.md",
   "source_contract": "FLOW-09-SERVICE-IDENTITY-SCOPE.md",
   "activation_prerequisite": "PILOT-G1 分源验收 + SERVICE-IDENTITY-SCOPE §4 A1-A7",
   "subjects": [
-    {"id": "S-OP", "name": "EXPORT_OPERATOR", "kind": "export_operator", "definition": "具备源系统导出权限的操作身份（人工或既有工具账号），产出脱敏快照"},
-    {"id": "S-SI", "name": "SERVICE_IDENTITY", "kind": "api_readonly", "definition": "可编程 API 只读身份；首期不需要，升级另案", "active": false},
-    {"id": "S-MS", "name": "MODEL_SURFACE", "kind": "model_visible", "definition": "Case Agent/模型可见数据面；仅契约数据集聚合行+evidence_ref"}
+    {
+      "id": "S-OP",
+      "name": "EXPORT_OPERATOR",
+      "kind": "export_operator",
+      "definition": "具备源系统导出权限的操作身份（人工或既有工具账号），产出脱敏快照"
+    },
+    {
+      "id": "S-SI",
+      "name": "SERVICE_IDENTITY",
+      "kind": "api_readonly",
+      "definition": "可编程 API 只读身份；首期不需要，升级另案",
+      "active": false
+    },
+    {
+      "id": "S-MS",
+      "name": "MODEL_SURFACE",
+      "kind": "model_visible",
+      "definition": "Case Agent/模型可见数据面；仅契约数据集聚合行+evidence_ref"
+    }
   ],
   "objects": [
-    {"id": "O-DTC", "name": "FLOW09_DTC_ANALYTICS_V1", "datasets": ["dtc_traffic_source_daily", "dtc_product_performance", "dtc_customer_cohort_agg", "dtc_onsite_search", "dtc_email_engagement"], "channel": "dtc_shopify"},
-    {"id": "O-AMZ", "name": "FLOW09_AMZ_BRAND_ANALYTICS_V1", "datasets": ["amz_detail_page_traffic", "amz_search_query_perf", "amz_market_basket", "amz_repeat_purchase", "amz_category_bs"], "channel": "amazon_us", "latency_note": "周粒度+2-3周滞后必须显式标注"},
-    {"id": "O-SOC", "name": "FLOW09_SOCIAL_METRICS_V1", "datasets": ["soc_account_metrics", "soc_mention_sov", "soc_top_content"], "channel": "social_*"},
-    {"id": "O-DME", "name": "FLOW09_DME_AGG_V1", "datasets": ["dme_order_agg", "dme_channel_mix", "dme_overlap_agg"], "channel": "dme_insurance", "gate": "产品线数据权属书面确认（A6）"},
-    {"id": "O-COMP", "name": "FLOW09_COMP_MONITOR_V1", "datasets": ["comp_price_bsr", "comp_keyword_rank", "comp_listing_snapshot"], "channel": "竞品监控"},
-    {"id": "O-ACT", "name": "资产动作（外发/预算/商品/触达）", "kind": "action", "default": "deny_unless_access_contract"}
+    {
+      "id": "O-DTC",
+      "name": "FLOW09_DTC_ANALYTICS_V1",
+      "datasets": [
+        "dtc_traffic_source_daily",
+        "dtc_product_performance",
+        "dtc_customer_cohort_agg",
+        "dtc_onsite_search",
+        "dtc_email_engagement"
+      ],
+      "channel": "dtc_shopify"
+    },
+    {
+      "id": "O-AMZ",
+      "name": "FLOW09_AMZ_BRAND_ANALYTICS_V1",
+      "datasets": [
+        "amz_detail_page_traffic",
+        "amz_search_query_perf",
+        "amz_market_basket",
+        "amz_repeat_purchase",
+        "amz_category_bs"
+      ],
+      "channel": "amazon_us",
+      "latency_note": "周粒度+2-3周滞后必须显式标注"
+    },
+    {
+      "id": "O-SOC",
+      "name": "FLOW09_SOCIAL_METRICS_V1",
+      "datasets": [
+        "soc_account_metrics",
+        "soc_mention_sov",
+        "soc_top_content"
+      ],
+      "channel": "social_*"
+    },
+    {
+      "id": "O-DME",
+      "name": "FLOW09_DME_AGG_V1",
+      "datasets": [
+        "dme_order_agg",
+        "dme_channel_mix",
+        "dme_overlap_agg"
+      ],
+      "channel": "dme_insurance",
+      "gate": "产品线数据权属书面确认（A6）"
+    },
+    {
+      "id": "O-COMP",
+      "name": "FLOW09_COMP_MONITOR_V1",
+      "datasets": [
+        "comp_price_bsr",
+        "comp_keyword_rank",
+        "comp_listing_snapshot"
+      ],
+      "channel": "竞品监控"
+    },
+    {
+      "id": "O-ACT",
+      "name": "资产动作（外发/预算/商品/触达）",
+      "kind": "action",
+      "default": "deny_unless_access_contract"
+    }
   ],
   "tuples": [
-    {"id": "P-01", "subject": "S-OP", "action": "allow_read", "object": "O-DTC", "condition": "Admin导出身份；PII前置排除；聚合粒度日/周；不新建App不申请read_reports/read_customers", "validity": "G1A验收逐源激活；撤权即冻结"},
-    {"id": "P-02", "subject": "S-MS", "action": "allow_read", "object": "O-DTC.aggregates+evidence_ref", "condition": "仅契约字段；customer email/姓名/电话/地址/订单号/GID、customerJourneySummary、PII任何形态拒绝", "validity": "同P-01"},
-    {"id": "P-03", "subject": "S-SI", "action": "deny", "object": "O-DTC.any_api", "condition": "首期无API身份；升级须新建独立Scope包，不得复用SHOPIFY_BVS01_READ_V1", "validity": "升级另案"},
-    {"id": "P-04", "subject": "S-OP", "action": "allow_read", "object": "O-AMZ", "condition": "Seller Central导出身份；周粒度+2-3周滞后必须显式标注；多账号逐账号快照不混合；不用第三方估算冒充官方报表", "validity": "G1B验收；滞后未标注不得进当期结论"},
-    {"id": "P-05", "subject": "S-MS", "action": "allow_read", "object": "O-AMZ.aggregates", "condition": "ASIN/搜索词/品类节点×周粒度指标；买家ID/订单号/地址/支付信息拒绝；评论原文走VOC合规渠道", "validity": "同P-04"},
-    {"id": "P-06", "subject": "S-SI", "action": "deny", "object": "O-AMZ.sp_api", "condition": "无只读入口（F-021/N4）", "validity": "deny默认"},
-    {"id": "P-07", "subject": "S-OP", "action": "allow_read", "object": "O-SOC", "condition": "原生分析导出+订阅工具账号；账号唯一映射同名多号HOLD；不申请Marketing API私信/受众导出、不抓用户隐私；本Case不触达", "validity": "G1B；F-048触达边界书面化"},
-    {"id": "P-08", "subject": "S-MS", "action": "allow_read", "object": "O-SOC.aggregates", "condition": "账号级聚合指标+mention/sentiment_proxy/SOV_proxy；handle列表/评论原文批量/DM拒绝；情感仅方向性low置信；跨平台不混算", "validity": "同P-07"},
-    {"id": "P-09", "subject": "S-OP", "action": "deny", "object": "O-ACT.reach_out", "condition": "本Case不执行任何触达；未来触达须另立Access Contract声明平台API限制与内容合规边界", "validity": "触达动作独立授权"},
-    {"id": "P-10", "subject": "S-OP", "action": "allow_read", "object": "O-DME", "condition": "产品线导出身份；数据权属书面确认前整体HOLD；不直接访问Aeroflow/Edgepark；口径未确认标unknown不进结论", "validity": "G1B+A6权属证据"},
-    {"id": "P-11", "subject": "S-MS", "action": "allow_read", "object": "O-DME.aggregates", "condition": "产品线×周期orders/units/revenue、保险核销占比、DTC重叠率聚合；买家邮箱/姓名/会员号/理赔明细/名单级拒绝", "validity": "同P-10"},
-    {"id": "P-12", "subject": "S-OP", "action": "allow_read", "object": "O-COMP", "condition": "既有订阅工具账号；不新购、不超订阅条款频率；工具名+版本+提取时间必记；冲突记录差异不取平均", "validity": "G1B"},
-    {"id": "P-13", "subject": "S-MS", "action": "allow_read", "object": "O-COMP.aggregates", "condition": "竞品ASIN/关键词×周指标；工具凭据/账单/非竞品集对象拒绝；无competitor_set_version引用的SOV/密度计算拒绝", "validity": "同P-12"},
-    {"id": "P-14", "rule": "snapshot_as_evidence", "semantic": "一切MetricFact必可回溯snapshot_id+snapshot_hash+extracted_at+operator_ref+scope_pack_version五元组", "violation": "无法回放即拒绝进入证据包（DQ-F09-01）"},
-    {"id": "P-15", "rule": "scope_drift_hold", "semantic": "实际导出字段超出范围包允许集", "violation": "该源该次快照作废重导；不得先收下再过滤"},
-    {"id": "P-16", "rule": "no_average_conflict", "semantic": "同指标跨源差异记录口径原因分列展示", "violation": "禁止取平均消除冲突（DQ-F09-10）"},
-    {"id": "P-17", "rule": "freshness_grading", "semantic": "fresh/stale/lagged三级；Amazon类生来滞后", "violation": "stale数据不进当期结论"},
-    {"id": "P-18", "rule": "revocation_freeze", "semantic": "操作身份权限被撤/订阅到期", "violation": "该源标unavailable，依赖诊断分支冻结，其余源继续"},
-    {"id": "P-19", "subject": "AGT-029/CaseAgent", "action": "allow", "object": "O-ACT.readonly+intent", "condition": "只读契约数据源+结构化产物+Action Intent；deny直接资产变更/触达客户/发布内容", "validity": "契约类6-21"},
-    {"id": "P-20", "subject": "外发动作", "action": "allow", "object": "O-ACT.external_publish", "condition": "已审批内容+已批准外发策略双条件同时满足；批准主体=策略治理链（AGT-002/模型外Case Control）；时限pending_data", "validity": "条件门；批准链真人HITL后复审"},
-    {"id": "P-21", "subject": "重大品牌承诺/危机表态/对外发布", "action": "allow", "object": "O-ACT.high_risk", "condition": "逐对象审批不得批量放行；缺策略默认冻结超时按冻结", "validity": "条件门"},
-    {"id": "P-22", "subject": "SCN-002 Case", "action": "deny", "object": "O-ACT.publish/budget/product/reach", "condition": "发布内容/调预算/改商品/触达客户；外部动作仅Action Intent移交下游场景Case", "validity": "deny默认"},
-    {"id": "P-23", "subject": "授权位", "action": "allow", "object": "O-ACT.all_asset_actions", "condition": "当前全部false；翻转需独立评审不自动生效；高风险逐对象审批", "validity": "deny默认"},
-    {"id": "P-24", "subject": "任何主体", "action": "deny", "object": "O-ACT.undeclared", "condition": "未在Access Contract声明的动作/对象/金额/频率/范围默认拒绝", "validity": "deny默认"}
-  ]
+    {
+      "id": "P-01",
+      "subject": "S-OP",
+      "action": "allow_read",
+      "object": "O-DTC",
+      "condition": "Admin导出身份；PII前置排除；聚合粒度日/周；不新建App不申请read_reports/read_customers",
+      "validity": "G1A验收逐源激活；撤权即冻结"
+    },
+    {
+      "id": "P-02",
+      "subject": "S-MS",
+      "action": "allow_read",
+      "object": "O-DTC.aggregates+evidence_ref",
+      "condition": "仅契约字段；customer email/姓名/电话/地址/订单号/GID、customerJourneySummary、PII任何形态拒绝",
+      "validity": "同P-01"
+    },
+    {
+      "id": "P-03",
+      "subject": "S-SI",
+      "action": "deny",
+      "object": "O-DTC.any_api",
+      "condition": "首期无API身份；升级须新建独立Scope包，不得复用SHOPIFY_BVS01_READ_V1",
+      "validity": "升级另案"
+    },
+    {
+      "id": "P-04",
+      "subject": "S-OP",
+      "action": "allow_read",
+      "object": "O-AMZ",
+      "condition": "Seller Central导出身份；周粒度+2-3周滞后必须显式标注；多账号逐账号快照不混合；不用第三方估算冒充官方报表",
+      "validity": "G1B验收；滞后未标注不得进当期结论"
+    },
+    {
+      "id": "P-05",
+      "subject": "S-MS",
+      "action": "allow_read",
+      "object": "O-AMZ.aggregates",
+      "condition": "ASIN/搜索词/品类节点×周粒度指标；买家ID/订单号/地址/支付信息拒绝；评论原文走VOC合规渠道",
+      "validity": "同P-04"
+    },
+    {
+      "id": "P-06",
+      "subject": "S-SI",
+      "action": "deny",
+      "object": "O-AMZ.sp_api",
+      "condition": "无只读入口（F-021/N4）",
+      "validity": "deny默认"
+    },
+    {
+      "id": "P-07",
+      "subject": "S-OP",
+      "action": "allow_read",
+      "object": "O-SOC",
+      "condition": "原生分析导出+订阅工具账号；账号唯一映射同名多号HOLD；不申请Marketing API私信/受众导出、不抓用户隐私；本Case不触达",
+      "validity": "G1B；F-048触达边界书面化"
+    },
+    {
+      "id": "P-08",
+      "subject": "S-MS",
+      "action": "allow_read",
+      "object": "O-SOC.aggregates",
+      "condition": "账号级聚合指标+mention/sentiment_proxy/SOV_proxy；handle列表/评论原文批量/DM拒绝；情感仅方向性low置信；跨平台不混算",
+      "validity": "同P-07"
+    },
+    {
+      "id": "P-09",
+      "subject": "S-OP",
+      "action": "deny",
+      "object": "O-ACT.reach_out",
+      "condition": "本Case不执行任何触达；未来触达须另立Access Contract声明平台API限制与内容合规边界",
+      "validity": "触达动作独立授权"
+    },
+    {
+      "id": "P-10",
+      "subject": "S-OP",
+      "action": "allow_read",
+      "object": "O-DME",
+      "condition": "产品线导出身份；数据权属书面确认前整体HOLD；不直接访问Aeroflow/Edgepark；口径未确认标unknown不进结论",
+      "validity": "G1B+A6权属证据"
+    },
+    {
+      "id": "P-11",
+      "subject": "S-MS",
+      "action": "allow_read",
+      "object": "O-DME.aggregates",
+      "condition": "产品线×周期orders/units/revenue、保险核销占比、DTC重叠率聚合；买家邮箱/姓名/会员号/理赔明细/名单级拒绝",
+      "validity": "同P-10"
+    },
+    {
+      "id": "P-12",
+      "subject": "S-OP",
+      "action": "allow_read",
+      "object": "O-COMP",
+      "condition": "既有订阅工具账号；不新购、不超订阅条款频率；工具名+版本+提取时间必记；冲突记录差异不取平均",
+      "validity": "G1B"
+    },
+    {
+      "id": "P-13",
+      "subject": "S-MS",
+      "action": "allow_read",
+      "object": "O-COMP.aggregates",
+      "condition": "竞品ASIN/关键词×周指标；工具凭据/账单/非竞品集对象拒绝；无competitor_set_version引用的SOV/密度计算拒绝",
+      "validity": "同P-12"
+    },
+    {
+      "id": "P-14",
+      "rule": "snapshot_as_evidence",
+      "semantic": "一切MetricFact必可回溯snapshot_id+snapshot_hash+extracted_at+operator_ref+scope_pack_version五元组",
+      "violation": "无法回放即拒绝进入证据包（DQ-F09-01）"
+    },
+    {
+      "id": "P-15",
+      "rule": "scope_drift_hold",
+      "semantic": "实际导出字段超出范围包允许集",
+      "violation": "该源该次快照作废重导；不得先收下再过滤"
+    },
+    {
+      "id": "P-16",
+      "rule": "no_average_conflict",
+      "semantic": "同指标跨源差异记录口径原因分列展示",
+      "violation": "禁止取平均消除冲突（DQ-F09-10）"
+    },
+    {
+      "id": "P-17",
+      "rule": "freshness_grading",
+      "semantic": "fresh/stale/lagged三级；Amazon类生来滞后",
+      "violation": "stale数据不进当期结论"
+    },
+    {
+      "id": "P-18",
+      "rule": "revocation_freeze",
+      "semantic": "操作身份权限被撤/订阅到期",
+      "violation": "该源标unavailable，依赖诊断分支冻结，其余源继续"
+    },
+    {
+      "id": "P-19",
+      "subject": "AGT-029/CaseAgent",
+      "action": "allow",
+      "object": "O-ACT.readonly+intent",
+      "condition": "只读契约数据源+结构化产物+Action Intent；deny直接资产变更/触达客户/发布内容",
+      "validity": "契约类6-21"
+    },
+    {
+      "id": "P-20",
+      "subject": "外发动作",
+      "action": "allow",
+      "object": "O-ACT.external_publish",
+      "condition": "已审批内容+已批准外发策略双条件同时满足；批准主体=策略治理链（AGT-002/模型外Case Control）；时限pending_data",
+      "validity": "条件门；批准链真人HITL后复审"
+    },
+    {
+      "id": "P-21",
+      "subject": "重大品牌承诺/危机表态/对外发布",
+      "action": "allow",
+      "object": "O-ACT.high_risk",
+      "condition": "逐对象审批不得批量放行；缺策略默认冻结超时按冻结",
+      "validity": "条件门"
+    },
+    {
+      "id": "P-22",
+      "subject": "SCN-002 Case",
+      "action": "deny",
+      "object": "O-ACT.publish/budget/product/reach",
+      "condition": "发布内容/调预算/改商品/触达客户；外部动作仅Action Intent移交下游场景Case",
+      "validity": "deny默认"
+    },
+    {
+      "id": "P-23",
+      "subject": "授权位",
+      "action": "allow",
+      "object": "O-ACT.all_asset_actions",
+      "condition": "当前全部false；翻转需独立评审不自动生效；高风险逐对象审批",
+      "validity": "deny默认"
+    },
+    {
+      "id": "P-24",
+      "subject": "任何主体",
+      "action": "deny",
+      "object": "O-ACT.undeclared",
+      "condition": "未在Access Contract声明的动作/对象/金额/频率/范围默认拒绝",
+      "validity": "deny默认"
+    }
+  ],
+  "review": "2026-11-24 用户逐条评审通过"
 }

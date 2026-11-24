@@ -22,9 +22,9 @@
 ## 3. 试点范围（本期只做这些）
 
 1. **术语表 v0**：✅ 已建 [SEMANTIC-GLOSSARY-V0](SEMANTIC-GLOSSARY-V0.md)——48 条 SKOS-lite 术语（渠道/品牌资产/交易/商品/消费者/方法六域），优先消歧 Amazon/DTC/内部口径；
-2. **对象-关系模型 v0**：✅ 草稿已产出 [SEMANTIC-OBJECT-MODEL-V0](SEMANTIC-OBJECT-MODEL-V0.md)+[JSON 实例](semantic-object-model-v0.json)——六域 20 对象（商品2/交易2/渠道3/库存1/品牌资产6/消费者6）+34 关系+引用层登记，待用户逐条评审；
+2. **对象-关系模型 v0**：✅ 已建并通过评审 [SEMANTIC-OBJECT-MODEL-V0](SEMANTIC-OBJECT-MODEL-V0.md)+[JSON 实例](semantic-object-model-v0.json)——六域 20 对象（商品2/交易2/渠道3/库存1/品牌资产6/消费者6）+34 关系+引用层 11 项登记，SKL-BRAND `object_refs` 已回填；
 3. **事理规则 v0**：SCN-002 的 5~8 条核心规则按「如果…那么…」显性化（如「若 Amazon 覆盖率 < X 且 DTC 增长 > Y，则判定为覆盖缺口」——阈值待企业数据回填）；
-4. **权限语义声明 v0**：✅ 草稿已产出 [SEMANTIC-PERMISSION-V0](SEMANTIC-PERMISSION-V0.md)+[JSON 实例](semantic-permission-v0.json)——三类主体×五源范围包+动作侧边界共 24 条四元组（主体/客体/条件/时效），待用户逐条评审；
+4. **权限语义声明 v0**：✅ 已建并通过评审 [SEMANTIC-PERMISSION-V0](SEMANTIC-PERMISSION-V0.md)+[JSON 实例](semantic-permission-v0.json)——三类主体×五源范围包+动作侧边界共 24 条四元组（主体/客体/条件/时效），SERVICE-IDENTITY-SCOPE 已加引用指针；
 5. **Skill 依赖声明**：SKL-BRAND-* 契约增加 `ontology_dependencies` 字段（引用术语表条目 ID）。
 
 **不做**：不建语义数据库、不写 RDF/OWL 文件、不动真实数据契约字段、不扩展到非品牌域。
@@ -53,7 +53,7 @@
 | 资产 | 接口动作 |
 | --- | --- |
 | FLOW-09-DATA-CONTRACT | 字段增加 `semantic_tag`（术语表条目 ID）；头部声明依赖的本体模块（商品域+渠道域+品牌资产域） |
-| FLOW-09-SERVICE-IDENTITY-SCOPE | ✅ 草稿已产出权限语义四元组声明（SEMANTIC-PERMISSION-V0，24 条），评审通过后回写 §2 各范围包语义引用 |
+| FLOW-09-SERVICE-IDENTITY-SCOPE | ✅ 已加语义声明引用指针（SEMANTIC-PERMISSION-V0 v0 基线，24 条四元组） |
 | SKL-BRAND-* 契约 | ✅ 已回写 `ontology_dependencies`（contracts+concept_domains+term_ids，引用 SEMANTIC-GLOSSARY-V0 条目） |
 | SCN-002.md | ✅ 已增「事理规则」小节，引 SEMANTIC-CONTRACT-SCN-002 v0 条目 |
 | 双层 KPI L2 | 品牌资产指标绑定术语表条目 ID（T-BR-02~08），口径语义对齐——随数据契约 semantic_tag 回填时执行 |

@@ -284,6 +284,7 @@
       "品牌资产域"
     ],
     "term_ids": "SEMANTIC-GLOSSARY-V0:T-CH-01,T-CH-02,T-CH-03,T-BR-01,T-PR-01",
-    "notes": "多市场多渠道语义对齐；出海市场枚举与口径对齐待术语表v0"
+    "notes": "多市场多渠道语义对齐；出海市场枚举与口径对齐待术语表v0",
+    "object_refs": "SEMANTIC-OBJECT-MODEL-V0:O-CH-01,O-CH-02,O-PROD-01,O-PROD-02,O-BRAND-01"
   }
 }

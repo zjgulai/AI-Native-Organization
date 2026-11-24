@@ -1,6 +1,6 @@
 # FLOW-09 权限语义声明 v0（主体/客体/条件/时效四元组）
 
-状态：**v0.1-draft**（待用户逐条评审）。DESIGN_ONLY，不构成任何访问、连接、API 调用或数据授权；全部声明的激活以 [FLOW-09-SERVICE-IDENTITY-SCOPE](FLOW-09-SERVICE-IDENTITY-SCOPE.md) §4 激活条件 A1–A7 与 PILOT-G1 分源验收为前提。本声明是[FLOW-09-ONTOLOGY-PILOT](FLOW-09-ONTOLOGY-PILOT.md) §3-4 的第三项交付物：把身份与范围契约语义化为可引用的四元组（subject/object/condition/validity），供语义契约、Skill 契约与未来 Access Contract 对齐口径。
+状态：**v0 基线**（2026-11-24 用户逐条评审通过）。DESIGN_ONLY，不构成任何访问、连接、API 调用或数据授权；全部声明的激活以 [FLOW-09-SERVICE-IDENTITY-SCOPE](FLOW-09-SERVICE-IDENTITY-SCOPE.md) §4 激活条件 A1–A7 与 PILOT-G1 分源验收为前提。本声明是[FLOW-09-ONTOLOGY-PILOT](FLOW-09-ONTOLOGY-PILOT.md) §3-4 的第三项交付物：把身份与范围契约语义化为可引用的四元组（subject/object/condition/validity），供语义契约、Skill 契约与未来 Access Contract 对齐口径。
 
 来源标注：【显】=SERVICE-IDENTITY-SCOPE/数据契约已定义；【推】=本声明归纳待评审。
 
@@ -103,4 +103,9 @@
 
 - 本声明**不授权任何访问**：S-OP 的实际授权、导出执行、文件存储与模型面开放均须 PILOT-G1 分源验收通过后按对应范围包逐项激活；
 - 本仓库不保存任何导出文件、账号信息或凭据；
-- 评审通过前状态为 v0.1-draft；通过后升 v0 基线并回写 FLOW-09-SERVICE-IDENTITY-SCOPE §2 各范围包的语义引用。
+- 评审已通过（2026-11-24 用户逐条评审），状态为 v0 基线；FLOW-09-SERVICE-IDENTITY-SCOPE 已加语义声明引用指针。
+
+## 评审记录
+
+- 2026-11-24：用户逐条评审通过，升 v0 基线。确认项：S-SI deny 默认不阻塞升级路径、P-09 触达边界（本 Case 不触达/未来另立 Access Contract）、P-20 批准主体指代沿用契约口径、四元组 JSON 实例结构均无误。
+- 后续维护：P-20 批准时限 pending_data 待 G1 回填；批准主体「策略治理链」指代在真人 HITL 设计确定后复审；S-SI 升级触发时本表升版并另立连接器登记契约。

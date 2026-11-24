@@ -258,6 +258,10 @@
           "type": "string",
           "description": "术语表条目 ID 列表；术语表 v0 未建时为 PENDING_GLOSSARY_V0"
         },
+        "object_refs": {
+          "type": "string",
+          "description": "对象-关系模型条目 ID 列表，格式 SEMANTIC-OBJECT-MODEL-V0:O-XXX-NN,...；模型 v0 未建时省略"
+        },
         "notes": {
           "type": "string"
         }

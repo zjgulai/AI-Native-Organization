@@ -1,6 +1,6 @@
 # FLOW-09 品牌诊断服务身份与读取范围设计
 
-状态：v1 设计契约（2026-11-24）。服务于[FLOW-09 数据契约](FLOW-09-DATA-CONTRACT.md)五源数据集的 PILOT-G1 分源验收；配套[阶段门评审](../12-rollout/FLOW-09-PILOT-GATE-REVIEW.md) G1 缺口第 2 项。本文不包含凭据、不授权任何访问、连接、API 调用、名单导出或数据写入；全部身份与范围均为 `DESIGN_ONLY`，实例化须逐源通过 G1A/G1B 验收。
+状态：v1 设计契约（2026-11-24）。服务于[FLOW-09 数据契约](FLOW-09-DATA-CONTRACT.md)五源数据集的 PILOT-G1 分源验收；配套[阶段门评审](../12-rollout/FLOW-09-PILOT-GATE-REVIEW.md) G1 缺口第 2 项。本文不包含凭据、不授权任何访问、连接、API 调用、名单导出或数据写入；全部身份与范围均为 `DESIGN_ONLY`，实例化须逐源通过 G1A/G1B 验收。权限语义已另由 [SEMANTIC-PERMISSION-V0](SEMANTIC-PERMISSION-V0.md)（v0 基线）四元组化声明，本文范围包为其权威口径来源。
 
 核心设计判断：**FLOW-09 首个诊断 Case 全部走导出/快照路径，不需要任何新的 API 服务身份**。与 BVS-01（需 Dev Dashboard App + Scope + Token Broker）不同，本 Case 的「服务身份」是**提取操作身份 + 范围包 + 证据链**，而非可编程连接器身份。未来若任一源升级为 API 只读接入，须另立连接器登记契约与 Scope 包版本。
 

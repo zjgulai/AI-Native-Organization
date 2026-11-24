@@ -1,6 +1,6 @@
 # 品牌域对象-关系模型 v0（轻量语义层）
 
-状态：**v0.1-draft**（待用户逐条评审）。DESIGN_ONLY，不构成业务授权、无生产数据。本模型是[FLOW-09-ONTOLOGY-PILOT](FLOW-09-ONTOLOGY-PILOT.md) §3-2 的第二项交付物：六域核心对象 20 个 + 关键关系 34 条，Markdown 表 + JSON Schema，不涉推理。术语口径以[SEMANTIC-GLOSSARY-V0](SEMANTIC-GLOSSARY-V0.md) 为准（`term_refs` 列引用其条目 ID）；对象属性级口径以[FLOW-09-DATA-CONTRACT](FLOW-09-DATA-CONTRACT.md)与两份语义契约为准。
+状态：**v0 基线**（2026-11-24 用户逐条评审通过）。DESIGN_ONLY，不构成业务授权、无生产数据。本模型是[FLOW-09-ONTOLOGY-PILOT](FLOW-09-ONTOLOGY-PILOT.md) §3-2 的第二项交付物：六域核心对象 20 个 + 关键关系 34 条，Markdown 表 + JSON Schema，不涉推理。术语口径以[SEMANTIC-GLOSSARY-V0](SEMANTIC-GLOSSARY-V0.md) 为准（`term_refs` 列引用其条目 ID）；对象属性级口径以[FLOW-09-DATA-CONTRACT](FLOW-09-DATA-CONTRACT.md)与两份语义契约为准。
 
 来源标注：【显】=权威文档已定义；【推】=本模型归纳待评审；【数】=待企业数据回填。
 
@@ -158,4 +158,9 @@
 - 本模型为**设计态语义层**：不表示任何对象已实例化、不表示数据已接入、不构成业务授权；
 - `term_refs` 仅引用术语表条目 ID，不复制口径——口径变更以术语表+数据契约为准；
 - 关系表的「口径约束」列是语义约束（什么必须同时成立），不是运行时校验规则；运行时强制由数据契约 DQ-F09 十规则承担；
-- 评审通过前状态为 v0.1-draft；通过后升 v0 基线并回填 `ontology_dependencies` 引用。
+- 评审通过后状态为 v0 基线，SKL-BRAND 契约 `ontology_dependencies.object_refs` 已回填本模型对象 ID。
+
+## 评审记录
+
+- 2026-11-24：用户逐条评审通过，升 v0 基线。确认项：entity/artifact 二分、MetricFact 归交易域、库存域 v0 仅建 InventoryPosition、R-25 三元关系表达、引用层 11 项登记方式均无误。
+- 后续维护：候选扩展 5 项（SettlementRecord/ReplenishmentSignal/PurchaseCommitment/Listing/Competitor）随场景就绪度评估按需建模；非品牌域对象不在本表预留。

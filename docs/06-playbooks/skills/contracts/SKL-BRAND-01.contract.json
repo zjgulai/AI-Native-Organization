@@ -295,6 +295,7 @@
       "消费者域"
     ],
     "term_ids": "SEMANTIC-GLOSSARY-V0:T-CH-08,T-CH-09,T-BR-01,T-BR-04,T-BR-05,T-BR-06,T-CN-03,T-CN-05",
-    "notes": "覆盖缺口双口径（Amazon可分析受限不可触达/DTC可分析+可触达）、三级来源标注、渠道×品类×人群段聚合口径"
+    "notes": "覆盖缺口双口径（Amazon可分析受限不可触达/DTC可分析+可触达）、三级来源标注、渠道×品类×人群段聚合口径",
+    "object_refs": "SEMANTIC-OBJECT-MODEL-V0:O-BRAND-03,O-BRAND-04,O-CH-01,O-PROD-02,O-CONS-01,O-TRANS-02,O-CONS-04"
   }
 }
