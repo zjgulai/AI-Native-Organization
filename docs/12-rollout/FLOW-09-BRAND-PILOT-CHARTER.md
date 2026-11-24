@@ -82,6 +82,7 @@
 - 缺口不阻塞诊断 Case 启动；取数细节在产物中记为 `data_gap` 并影响证据等级。
 - 逐项核实记录见 [FLOW-09 试点数据可得性核实清单](FLOW-09-PILOT-DATA-READINESS-CHECKLIST.md)：公开基线（渠道/社媒/品类/竞品候选）、G1~G4 访谈表、N1~N4 发现、降级规则与 F-041~F-049 企业回答回填。
 - Case 装配设计基线见 [FLOW-09-PILOT-CASE-CONTEXT-MANIFEST.json](FLOW-09-PILOT-CASE-CONTEXT-MANIFEST.json)：角色装配（1+12+7+30）、Skill 挂载、八阶段产物、四渠道数据源状态、双层 KPI 口径与全部授权位（均为 false）。
+- 阶段门逐项评审见 [FLOW-09-PILOT-GATE-REVIEW.md](FLOW-09-PILOT-GATE-REVIEW.md)：G0 部分通过、G1 未就绪（FLOW-09 数据契约为关键路径）、G2 阻塞、G3 不适用、G4 未到。
 
 ## 8. 验收与停止条件
 
