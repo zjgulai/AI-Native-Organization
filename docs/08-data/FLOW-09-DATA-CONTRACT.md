@@ -1,6 +1,6 @@
 # FLOW-09 品牌资产经营数据契约（四源只读诊断基线）
 
-状态：v1 设计契约（2026-11-24）。服务于[FLOW-09 首个 Case 试点章程](../12-rollout/FLOW-09-BRAND-PILOT-CHARTER.md)（Amazon vs DTC 覆盖缺口诊断）与[装配 Manifest](../12-rollout/FLOW-09-PILOT-CASE-CONTEXT-MANIFEST.json)。本文不包含凭据、客户明细或报表原文，不授权任何数据访问、连接、API 调用、名单导出或对外动作；全部数据源接入仍为 `DESIGN_ONLY`，实例化须经 PILOT-G1 分源验收（见[阶段门评审](../12-rollout/FLOW-09-PILOT-GATE-REVIEW.md)）。
+状态：v1 设计契约（2026-11-24）。服务于[FLOW-09 首个 Case 试点章程](../12-rollout/FLOW-09-BRAND-PILOT-CHARTER.md)（Amazon vs DTC 覆盖缺口诊断）与[装配 Manifest](../12-rollout/FLOW-09-PILOT-CASE-CONTEXT-MANIFEST.json)；配套[服务身份与 Scope 设计](FLOW-09-SERVICE-IDENTITY-SCOPE.md)定义五源 EXPORT_OPERATOR 范围包。本文不包含凭据、客户明细或报表原文，不授权任何数据访问、连接、API 调用、名单导出或对外动作；全部数据源接入仍为 `DESIGN_ONLY`，实例化须经 PILOT-G1 分源验收（见[阶段门评审](../12-rollout/FLOW-09-PILOT-GATE-REVIEW.md)）。
 
 与 [BVS-01 Shopify 契约](BVS-01-SHOPIFY-DTC-DATA-CONTRACT.md) / [BVS-01 Amazon 契约](BVS-01-AMAZON-US-DATA-CONTRACT.md) 的关系：两份 BVS-01 契约面向 FLOW-01 的订单/GMV 事实（SKU 级、30 天窗口、`gross_sales`）；本契约面向 FLOW-09 的**品牌资产诊断事实**（渠道×品类×周期粒度、90 天信号窗+基线快照、可分析/可触达分级）。字段集不同，不复用其 Scope 包与 Query 模板，但复用其口径纪律（来源分级、缺失不补零、PII 最小化、证据包）。
 
