@@ -1,6 +1,6 @@
 # 项目状态
 
-更新日期：2026-11-24
+更新日期：2026-11-25
 
 当前阶段：v2.3独立岗位分身与受控组队方案已形成。D-053确认50个岗位各自拥有独立Role Playbook、Preset Blueprint、Skills、产物、评估集和Access边界，可独立处理边界清晰的岗位任务，也可由模型外Case Control编排为Lead/Worker组队。D-050确认目标Shopify是尚无上线产品的空白新店；D-051把当前范围限定为完整方案最终审阅和Shopify店铺治理底座方案，不实例化Case或执行店铺、商品、App、连接、测试订单和业务发布。D-052授权把本项目文档与Site提交至GitHub并公开部署GitHub Pages；该文档发布不改变Shopify、企业系统、裁员、预算或生产自治权限。
 
@@ -27,6 +27,7 @@
 - **R4 B 层执行面产品决策已完成并通过评审，升 v0.1 基线**：`EXECUTION-SURFACE-V01.md` 定义 PV-21「受控执行面」产品形态——执行面三层模型（ES-M 手动交接面为 v0.1 唯一执行面/ES-A API 执行器演进路径/ES-X 永久人工面覆盖资金·账号级·批量触达·实物）、确认流三级（C1 审核会话批量/C2 高风险逐条/C3 EG 规则级预授权）、SCN-018 Emergency Guard 最小保护动作标准档（EG-1 标记复核+通知/EG-2 暂停关联促销）、执行包 14 字段规范。决策录 D-080；语义层零改动（PV-20/21/28/29 全兼容）。站点 `semantic.html` 同步登记（交付物 41→42 项）。
 - **G1 交付包集成至公开站（Native-ai-organ）**：新增 `g1-pack.html` 方法论页（数据就绪交付包框架：三层验收 G1A/G1B/G1C、六件交付结构、证据包六要件、PII 与边界原则、十类规则集——纯方法论展示，不含客户事实）；`pilot-assets.json` 试点推进组 5→6 项登记 G1-ENTERPRISE-PACK（45 项资产）；`sitemap.json` 板块矩阵同步。构建 53 页、链接校验通过。
 - **G1 企业交付包已建并通过用户评审，升 v0.1 基线**：`docs/08-data/G1-ENTERPRISE-PACK/` 六件——README 包导航、G1P-01 交付说明（背景/边界/三层路径/预填说明）、G1P-02 数据可得性确认表（Part0 系统账号盘点 11 项+PartA 五源范围包 24 核实项+PartB 出海八组新源 33 数据项，F-041~F-049 已确认信息预填）、G1P-03 客户规则集采集表（G1C 十项阈值填写块）、G1P-04 数据导出指引（Shopify/Amazon/TT/社媒/竞品工具/财务/合规/履约/达人分层/多平台逐平台报表位置与注意事项）、G1P-05 证据包提交模板（六要件+字段字典+快照元数据+PII 声明+缺口清单）。定位：G1-DATA-REQUIREMENTS.md 的企业侧可填写版本，回传后回填内部规格状态列。
+- **书4融合方案已评审通过并升 v0.1 基线（D-081）**：`docs/14-research/AGENT-BOOK-FUSION-PLAN.md`——《深入理解 AI Agent：设计原理与工程实践》（李博杰，Apache-2.0 开源书 bojieli/ai-agent-book，59.8k★）作为「第四本书」进入读书笔记轨；10 章框架索引+5 篇精读（ch1/2/3/4/10），ToyAgent（fuzhengwei，26 场景可运行串联）只做映射页不嵌 demo；项目引用到契约 ID 级；实战轨只在 synthesis/stack 页叙事不登记。三方映射核心发现：ToyAgent step20 审批门禁≈C1/C2/C3 确认流、书 ch10 六种多 Agent 失败模式=D-020 单 Case 单 Agent 保守决策的理论依据。第一阶段骨架（book4 框架页+agent-lab 映射页+stack 四层叙事页）已启动。
 
 ## 已完成
 
