@@ -217,6 +217,15 @@ Pages workflow 上传的是 `./dist`，因此**仓库里的文件被提交不等
 
 判读溢出要分两层：文档级 `scrollWidth > clientWidth` 说明整页横向滚动，是真问题；元素超出视口但位于 `overflow-x:auto` 容器内属**设计内的横向滚动**（门户顶部导航、实施文档的 `table-wrap` 都是这种），只有被 `overflow:hidden` 裁掉才真的不可达。改动版面的提交应同时量改动前后两份并逐项比对，以判断某处溢出是否为本次引入——本次门户新增两条链接即以此方式证明为布局中性。
 
+## Agent Playbook 源跟踪（Native-ai-organ 站）
+
+`agent-playbook` 轨蒸馏自小傅哥《AI Agent 通识教程》（ai-agent-guide.xiaofuge.cn，30 章，**仓库无 LICENSE**，内容为原创改写）。教程持续更新，站点内容可能滞后——例行跟踪机制：
+
+- **检查（不改基线）**：`cd ~/project/Sage_hub/Native-ai-organ && python3 scripts/fetch-aag.py --check`——抓取 30 章最新 HTML、与 `src/data/agent-playbook/source-fingerprint.json` 逐章比对 sha256；有漂移时退出码 1 并列出 `文件名:changed/new`，无漂移退出 0。`--check` 只写 `scripts/.cache/`（gitignore），不重置指纹基线。
+- **更新基线**：确认要跟进变更后跑 `python3 scripts/fetch-aag.py`（重写指纹）→ `python3 scripts/parse-aag.py`（重建 `scripts/.cache/aag-parse/` 结构化块）→ 对照 `src/data/agent-playbook/pb-*.json` 对应节点做增量蒸馏修订 → `python3 build.py --check`。
+- **频率建议**：纳入月度例行或教程有版本公告时触发；指纹文件 `fetched` 字段记录上次抓取日期。
+- **注意**：若章节文件增删（30 章清单变了），需同步改 `scripts/fetch-aag.py` 的 `CHAPTERS` 列表与 `agent-playbook.json` 的 30 章索引表。
+
 ## 持续更新
 
 本文件记录稳定方法和项目整体知识。单轮回答进入访谈，经营选择进入决策，临时进度进入 STATUS，避免本文件变成任务流水账。
