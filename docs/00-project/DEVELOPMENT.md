@@ -226,6 +226,14 @@ Pages workflow 上传的是 `./dist`，因此**仓库里的文件被提交不等
 - **频率建议**：纳入月度例行或教程有版本公告时触发；指纹文件 `fetched` 字段记录上次抓取日期。
 - **注意**：若章节文件增删（30 章清单变了），需同步改 `scripts/fetch-aag.py` 的 `CHAPTERS` 列表与 `agent-playbook.json` 的 30 章索引表。
 
+## Agent Field Guide 源跟踪（Native-ai-organ 站）
+
+`agent-field` 轨蒸馏自 `mas_router_method`（github.com/zjgulai/mas_router_method，公开仓，用户自有；**方法论文档人工蒸馏，不建 fetch/parse 管线**）。蒸馏基线为 commit `962e0648561ce9f71aeb681a45798fbbcec2586e`（2026-11-27），页面引用一律标注 `mas_router_method@962e064`。
+
+- **检查（不改基线）**：`git ls-remote https://github.com/zjgulai/mas_router_method.git HEAD` 与基线 sha 比对；漂移时按 `AGENT-FIELD-PLAN.md` §5 单元映射表做增量蒸馏修订（内容是方法论文档，人工蒸馏质量优先于自动管线）。
+- **公开页**：`https://zjgulai.github.io/Native-ai-organ/agent-field/index.html`（框架总纲）+ F1–F6 单元页；Phase A 已发布 F1–F4。
+- **与本项目的关系**：eval 纪律（eval→data→tool→prompt 分层归因、eval set is the spec）、tool failures are values、schema 边界校验等与 DSH/契约设计同构，可作 G 系工作的方法论参照；公开方法论与内部契约设计保持边界，不搬运原始 eval 数据与业务上下文。
+
 ## 持续更新
 
 本文件记录稳定方法和项目整体知识。单轮回答进入访谈，经营选择进入决策，临时进度进入 STATUS，避免本文件变成任务流水账。

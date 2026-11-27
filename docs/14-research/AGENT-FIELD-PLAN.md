@@ -1,6 +1,6 @@
 # Agent Field Guide 融合方案：mas_router_method → 站点新轨
 
-- **状态**: v0.1 基线（2026-11-27 全部决策确认，Q1–Q10 全按推荐）；**Phase A 已上线**（站点仓 `b520454`，构建 87 页：框架页 + F1–F4 四独立页发布，F5/F6 规划中，Playbook 五节点指针块已挂）
+- **状态**: v0.1 基线（2026-11-27 全部决策确认，Q1–Q10 全按推荐）；**Phase A+B 全部上线**（Phase A 站点仓 `b520454` 87 页；Phase B 站点仓 `3cc4f3c` 89 页：F5 过程序 + F6 工程纪律发布，F1–F6 六单元全量，pager 全链贯通）
 - **日期**: 2026-11-27
 - **来源仓**: `github.com/zjgulai/mas_router_method`（公开，用户自有）
 - **目标站**: Native-ai-organ（`/Users/pray/project/Sage_hub/Native-ai-organ/`）
